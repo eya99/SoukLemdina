@@ -566,7 +566,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>tCrvzeGjeG</argument>
       <argument>0</argument>
-      <argument>4WeZ27SQOZnbMnd70kmCRL</argument>
+      <argument>7+SX8Mg0sd6qmwOxZApjQ6</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -576,7 +576,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>HOy0yiKtzu</argument>
       <argument>0</argument>
-      <argument>4WeZ27SQOZnbMnd70kmCRL</argument>
+      <argument>7+SX8Mg0sd6qmwOxZApjQ6</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -586,7 +586,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>NmstyEZV0d</argument>
       <argument>0</argument>
-      <argument>4WeZ27SQOZnbMnd70kmCRL</argument>
+      <argument>7+SX8Mg0sd6qmwOxZApjQ6</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -596,7 +596,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>VV4peFNPQd</argument>
       <argument>0</argument>
-      <argument>4WeZ27SQOZnbMnd70kmCRL</argument>
+      <argument>7+SX8Mg0sd6qmwOxZApjQ6</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -606,7 +606,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>4WeZ27SQOZnbMnd70kmCRL</argument>
+      <argument>7+SX8Mg0sd6qmwOxZApjQ6</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -616,7 +616,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>4WeZ27SQOZnbMnd70kmCRL</argument>
+      <argument>7+SX8Mg0sd6qmwOxZApjQ6</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2372,13 +2372,6 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id="security.request_matcher.5b101508263005aeeb8e52488988a83674e139591c84905c8af6424efad20469093b970b"/>
-        <argument type="collection">
-          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
         <argument type="service" id="security.request_matcher.fc1361a081a79d43baa3b010f55efe95a2cf43369ee73dcd2182ec1b9334ab99334e0826"/>
         <argument type="collection">
           <argument>ROLE_ADMIN</argument>
@@ -2782,12 +2775,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a7eb5e74c0716.09627824</argument>
+      <argument>5a7f196c8066f4.58463273</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a7eb5e74c0716.09627824</argument>
+      <argument>5a7f196c8066f4.58463273</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2823,9 +2816,6 @@
     </service>
     <service id="security.request_matcher.322c1d6d4b24374af2d90b8f5c26bfa4a21ccec3cbe187876c3a7f76d441ff561c988643" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/register</argument>
-    </service>
-    <service id="security.request_matcher.5b101508263005aeeb8e52488988a83674e139591c84905c8af6424efad20469093b970b" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/resetting</argument>
     </service>
     <service id="security.request_matcher.fc1361a081a79d43baa3b010f55efe95a2cf43369ee73dcd2182ec1b9334ab99334e0826" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/admin/</argument>
@@ -3588,6 +3578,12 @@
     <service id="doctrine.orm.default_configuration" class="Doctrine\ORM\Configuration" public="false">
       <call method="setEntityNamespaces">
         <argument type="collection">
+          <argument key="CommandeBundle">CommandeBundle\Entity</argument>
+          <argument key="EvenementBundle">EvenementBundle\Entity</argument>
+          <argument key="SocialBundle">SocialBundle\Entity</argument>
+          <argument key="StockBundle">StockBundle\Entity</argument>
+          <argument key="LocalBundle">LocalBundle\Entity</argument>
+          <argument key="WorkshopBundle">WorkshopBundle\Entity</argument>
           <argument key="SUserBundle">SUserBundle\Entity</argument>
         </argument>
       </call>
@@ -3634,13 +3630,50 @@
     <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
+        <argument>D:\xampp\htdocs\SoukLemdina\src\CommandeBundle\Entity</argument>
+        <argument>D:\xampp\htdocs\SoukLemdina\src\EvenementBundle\Entity</argument>
+        <argument>D:\xampp\htdocs\SoukLemdina\src\StockBundle\Entity</argument>
+        <argument>D:\xampp\htdocs\SoukLemdina\src\LocalBundle\Entity</argument>
+        <argument>D:\xampp\htdocs\SoukLemdina\src\WorkshopBundle\Entity</argument>
         <argument>D:\xampp\htdocs\SoukLemdina\src\SUserBundle\Entity</argument>
       </argument>
+    </service>
+    <service id="doctrine.orm.default_yml_metadata_driver" class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
+      <argument type="collection">
+        <argument key="D:\xampp\htdocs\SoukLemdina\src\SocialBundle\Resources\config\doctrine">SocialBundle\Entity</argument>
+      </argument>
+      <call method="setGlobalBasename">
+        <argument>mapping</argument>
+      </call>
     </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>CommandeBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>EvenementBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>StockBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>LocalBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>WorkshopBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
         <argument>SUserBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
+        <argument>SocialBundle\Entity</argument>
       </call>
       <call method="addDriver">
         <argument type="service">
