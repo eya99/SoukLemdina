@@ -1,0 +1,12 @@
+{% extends "@FOSUser/layout.html.twig" %}
+{% block head %}
+    <meta http-equiv="refresh" content="3;url={{ path('fos_visitor_home') }}"/>
+{% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    &nbsp;&nbsp;&nbsp;&nbsp;<p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+        &nbsp;&nbsp;&nbsp;&nbsp;<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+{% endblock fos_user_content %}

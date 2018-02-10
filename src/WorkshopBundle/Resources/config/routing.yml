@@ -1,0 +1,3 @@
+workshop_homepage:
+    path:     /
+    defaults: { _controller: WorkshopBundle:Default:index }

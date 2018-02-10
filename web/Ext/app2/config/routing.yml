@@ -1,0 +1,29 @@
+souk_commande:
+    resource: "@SoukCommandeBundle/Resources/config/routing.yml"
+    prefix:   /Commande
+
+souk_social:
+    resource: "@SoukSocialBundle/Resources/config/routing.yml"
+    prefix:   /Social
+
+souk_produit:
+    resource: "@SoukProduitBundle/Resources/config/routing.yml"
+    prefix:   /Stock
+
+souk_evenement:
+    resource: "@SoukEvenementBundle/Resources/config/routing.yml"
+    prefix:   /Evenement
+
+souk_workshop:
+    resource: "@SoukWorkshopBundle/Resources/config/routing.yml"
+    prefix:   /Workshop
+
+souk_local:
+    resource: "@SoukLocalBundle/Resources/config/routing.yml"
+    prefix:   /Local
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,14 @@
+SocialBundle\Entity\Jaime:
+    type: entity
+    table: null
+    repositoryClass: SocialBundle\Repository\JaimeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+    lifecycleCallbacks: {  }

@@ -1,0 +1,26 @@
+SocialBundle\Entity\Profile:
+    type: entity
+    table: null
+    repositoryClass: SocialBundle\Repository\ProfileRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            unique: true
+            column: id_user
+        profilePic:
+            type: string
+            length: 255
+            unique: true
+            column: profile_pic
+        tagline:
+            type: string
+            length: 255
+        datenaiss:
+            type: date
+    lifecycleCallbacks: {  }

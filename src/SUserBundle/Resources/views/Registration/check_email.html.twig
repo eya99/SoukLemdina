@@ -1,0 +1,10 @@
+{% block head %}
+    <meta http-equiv="refresh" content="3;url={{ path('fos_visitor_home') }}"/>
+{% endblock %}
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+{% endblock fos_user_content %}

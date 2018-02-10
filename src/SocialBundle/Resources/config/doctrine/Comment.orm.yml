@@ -1,0 +1,19 @@
+SocialBundle\Entity\Comment:
+    type: entity
+    table: null
+    repositoryClass: SocialBundle\Repository\CommentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+        idPost:
+            type: integer
+        texte:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

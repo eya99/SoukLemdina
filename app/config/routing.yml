@@ -1,0 +1,36 @@
+s_user:
+    resource: "@SUserBundle/Resources/config/routing.yml"
+    prefix:   /suser
+
+workshop:
+    resource: "@WorkshopBundle/Resources/config/routing.yml"
+    prefix:   /workshop
+
+local:
+    resource: "@LocalBundle/Resources/config/routing.yml"
+    prefix:   /local
+
+stock:
+    resource: "@StockBundle/Resources/config/routing.yml"
+    prefix:   /ecommerce
+
+social:
+    resource: "@SocialBundle/Resources/config/routing.yml"
+    prefix:   /social
+
+evenement:
+    resource: "@EvenementBundle/Resources/config/routing.yml"
+    prefix:   /evenement
+
+commande:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /commande
+
+back_office:
+    resource: "@BackOfficeBundle/Resources/config/routing.yml"
+    prefix:   /back
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix:   /fos
+
