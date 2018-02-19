@@ -75,13 +75,62 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
         }
 
-        // commande_homepage
-        if ('/commande' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'commande_homepage');
+        if (0 === strpos($pathinfo, '/commande')) {
+            // commande_homepage
+            if ('/commande' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'commande_homepage');
+                }
+
+                return array (  '_controller' => 'CommandeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'commande_homepage',);
             }
 
-            return array (  '_controller' => 'CommandeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'commande_homepage',);
+            if (0 === strpos($pathinfo, '/commande/a')) {
+                if (0 === strpos($pathinfo, '/commande/ajout')) {
+                    // commande_ajout
+                    if (preg_match('#^/commande/ajout/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_ajout')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::AjoutAction',));
+                    }
+
+                    // ligne_commande_ajouters
+                    if ('/commande/ajouterlcs' === $pathinfo) {
+                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::PutInSessionAction',  '_route' => 'ligne_commande_ajouters',);
+                    }
+
+                    // payement
+                    if ('/commande/ajoutlcs' === $pathinfo) {
+                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::aAction',  '_route' => 'payement',);
+                    }
+
+                    // ajout_ligne_commande
+                    if ('/commande/ajoutbd' === $pathinfo) {
+                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AjoutLigneDeCommandeAction',  '_route' => 'ajout_ligne_commande',);
+                    }
+
+                }
+
+                // ligne_commande_aff
+                if ('/commande/afflc' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AfficherLigneDeCommandeAction',  '_route' => 'ligne_commande_aff',);
+                }
+
+                // panier_afficher
+                if ('/commande/afficher' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::ModifierPanierAction',  '_route' => 'panier_afficher',);
+                }
+
+            }
+
+            // ligne_commande_modifier
+            if (0 === strpos($pathinfo, '/commande/modifierlc') && preg_match('#^/commande/modifierlc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_modifier')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::ModifierLigneDeCommandeAction',));
+            }
+
+            // ligne_commande_supprimer
+            if (0 === strpos($pathinfo, '/commande/supprimerlc') && preg_match('#^/commande/supprimerlc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_supprimer')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::SupprimerLigneDeCommandeAction',));
+            }
+
         }
 
         // back_office_homepage

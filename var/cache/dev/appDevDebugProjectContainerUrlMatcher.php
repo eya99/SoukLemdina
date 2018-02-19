@@ -103,24 +103,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // s_user_homepage
-        if ('/suser' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 's_user_homepage');
-            }
-
-            return array (  '_controller' => 'SUserBundle\\Controller\\DefaultController::indexAction',  '_route' => 's_user_homepage',);
-        }
-
-        // social_homepage
-        if ('/social' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'social_homepage');
-            }
-
-            return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
-        }
-
         // workshop_homepage
         if ('/workshop' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
@@ -157,13 +139,61 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => 'evenement_homepage',);
         }
 
-        // commande_homepage
-        if ('/commande' === $trimmedPathinfo) {
+        // social_homepage
+        if ('/social' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'commande_homepage');
+                return $this->redirect($rawPathinfo.'/', 'social_homepage');
             }
 
-            return array (  '_controller' => 'CommandeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'commande_homepage',);
+            return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/commande')) {
+            // commande_homepage
+            if ('/commande' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'commande_homepage');
+                }
+
+                return array (  '_controller' => 'CommandeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'commande_homepage',);
+            }
+
+            if (0 === strpos($pathinfo, '/commande/ajout')) {
+                // commande_ajout
+                if (preg_match('#^/commande/ajout/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_ajout')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::AjoutAction',));
+                }
+
+                // commande_ajouter
+                if ('/commande/ajouter' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\CommandeController::AjoutCommandeAction',  '_route' => 'commande_ajouter',);
+                }
+
+            }
+
+            elseif (0 === strpos($pathinfo, '/commande/aff')) {
+                // commande_aff
+                if ('/commande/aff' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\CommandeController::AfficherCommandeAction',  '_route' => 'commande_aff',);
+                }
+
+                // panier_afficher
+                if ('/commande/afficher' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::ModifierPanierAction',  '_route' => 'panier_afficher',);
+                }
+
+            }
+
+            // commande_modifier
+            if (0 === strpos($pathinfo, '/commande/modifier') && preg_match('#^/commande/modifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_modifier')), array (  '_controller' => 'CommandeBundle\\Controller\\CommandeController::ModifierCommandeAction',));
+            }
+
+            // commande_supprimer
+            if (0 === strpos($pathinfo, '/commande/supprimer') && preg_match('#^/commande/supprimer/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_supprimer')), array (  '_controller' => 'CommandeBundle\\Controller\\CommandeController::SupprimerCommandeAction',));
+            }
+
         }
 
         // back_office_homepage
@@ -352,6 +382,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 not_fos_user_resetting_check_email:
 
             }
+
+            // fos_visitor_home
+            if ('/fos/affichage' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_fos_visitor_home;
+                }
+
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::indexAction',  '_route' => 'fos_visitor_home',);
+            }
+            not_fos_visitor_home:
 
         }
 

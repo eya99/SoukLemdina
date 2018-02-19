@@ -1,0 +1,61 @@
+{% extends "SUserBundle::layout.html.twig" %}
+{% block body %}
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register">
+                <div class="tab-container">
+                    <div class="tab-content clearfix" id="tab-register">
+                        <div class="panel panel-default nobottommargin">
+                            <div class="panel-body">
+                                <h1>Commande(s)</h1>
+                                <table border="1" style="width:100%;" >
+                                    <tr>
+                                        <th>Prenom et Nom</th>
+                                        <th>Date Livraison</th>
+                                        <th>Adresse 1</th>
+                                        <th>Adresse 2</th>
+                                        <th>Ville</th>
+                                        <th>Code Postal</th>
+                                        <th>Numero De Telephone</th>
+                                        <th>Modifier</th>
+                                        <th>Supprimer</th>
+
+                                    </tr>
+
+                                    {% for commande in lcommande %}
+                                        <tr>
+                                            <td>{{ app.user.firstname ~ ' '~ app.user.lastname }}</td>
+                                            <td>{{ commande.dateLivraison|date('Y-m-d') }}</td>
+                                            <td>{{ commande.adresse }}</td>
+                                            <td>{{ commande.adresse2 }}</td>
+                                            <td>{{ commande.ville }}</td>
+                                            <td>{{ commande.codePostal }}</td>
+                                            <td>{{ commande.numTel }}</td>
+
+                                            <td>
+
+                                                <a href="{{ path('ligne_commande_modifier',{'id':commande.id}) }}">Modifier</a>
+
+
+                                            </td>
+                                            <td>
+                                                {% if datesys|date ("Y-m-d H:i:s") <= dm|date ("Y-m-d H:i:s") %}
+                                                <a href="{{ path('ligne_commande_supprimer',{'id':commande.id}) }}">Supprimer</a>
+                                                {% else %}
+                                                   <a title="Vous avez depasser le delai maximum de un jour pour annuler votre commande" style="color: #ff0022">Impossible d'annuler la commande</a>
+                                                {% endif %}
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
