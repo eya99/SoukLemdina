@@ -57,13 +57,55 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             return array (  '_controller' => 'StockBundle\\Controller\\DefaultController::indexAction',  '_route' => 'stock_homepage',);
         }
 
-        // evenement_homepage
-        if ('/evenement' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'evenement_homepage');
+        if (0 === strpos($pathinfo, '/evenement')) {
+            // evenement_homepage
+            if ('/evenement/evenement' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => 'evenement_homepage',);
             }
 
-            return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => 'evenement_homepage',);
+            // _index
+            if ('/evenement/index' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => '_index',);
+            }
+
+            if (0 === strpos($pathinfo, '/evenement/A')) {
+                // _AjoutEvent
+                if ('/evenement/AjoutEvent' === $pathinfo) {
+                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AjoutEventAction',  '_route' => '_AjoutEvent',);
+                }
+
+                // _AfficheEvent
+                if ('/evenement/AfficheEvent' === $pathinfo) {
+                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheEventAction',  '_route' => '_AfficheEvent',);
+                }
+
+                // _AfficheVEvent
+                if ('/evenement/AfficheVEvent' === $pathinfo) {
+                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheVEventAction',  '_route' => '_AfficheVEvent',);
+                }
+
+            }
+
+            // _UpdateEvent
+            if (0 === strpos($pathinfo, '/evenement/UpdateEvent') && preg_match('#^/evenement/UpdateEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::UpdateEventAction',));
+            }
+
+            // _DeleteEvent
+            if (0 === strpos($pathinfo, '/evenement/DeleteEvent') && preg_match('#^/evenement/DeleteEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DeleteEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DeleteEventAction',));
+            }
+
+            // _DetailsEvent
+            if (0 === strpos($pathinfo, '/evenement/DetailsEvent') && preg_match('#^/evenement/DetailsEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DetailsEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DetailsEventAction',));
+            }
+
+            // _RechercheEvent
+            if ('/evenement/RechercheEvent' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheEventAction',  '_route' => '_RechercheEvent',);
+            }
+
         }
 
         // social_homepage

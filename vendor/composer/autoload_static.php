@@ -19,6 +19,10 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vich\\UploaderBundle\\' => 20,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -56,6 +60,10 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
         array (
             'Monolog\\' => 8,
         ),
+        'K' => 
+        array (
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
@@ -80,6 +88,10 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vich\\UploaderBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vich/uploader-bundle',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -180,6 +192,10 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -235,6 +251,20 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
             'SensioLabs\\Security' => 
             array (
                 0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
+            ),
+        ),
+        'M' => 
+        array (
+            'Metadata\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/metadata/src',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'D' => 

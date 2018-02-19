@@ -10,4 +10,15 @@ namespace EvenementBundle\Repository;
  */
 class EvenementRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function RechercheEvent($nomevenement){
+        $query=$this->getEntityManager()->createQuery("
+         select n from EvenementBundle:Evenement e
+          WHERE e.nomEvenement LIKE :s AND e.dateDebut<=CURRENT_DATE ()
+          ORDER BY e.dateDebut ASC ")
+            ->setParameter('s','%'.$nomevenement.'%');
+        return $query->getResult();
+    }
+
+
+
 }

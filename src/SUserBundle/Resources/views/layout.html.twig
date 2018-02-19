@@ -59,9 +59,18 @@
                         <li><a href="#">
                                 <div>Trending</div>
                             </a></li>
-                        <li class="mega-menu"><a href="#">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                        <li class="mega-menu"><a href="{{ path('_AfficheEvent') }}">
+                            <div>Évènements</div>
+
+                        {% else %}
+                        <li class="mega-menu"><a href="{{ path('_AfficheVEvent') }}">
+
                                 <div>Évènements</div>
                             </a></li>
+                        {% endif %}
+
                         <li class="mega-menu"><a href="#">
                                 <div>Ateliers</div>
                             </a></li>
@@ -331,7 +340,8 @@
         });
     });
 </script>
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+{% endblock %}
 
 </body>
 </html>

@@ -180,6 +180,11 @@ Echipa
     'form.new_password' => 'Parola nouă',
     'form.new_password_confirmation' => 'Verificare parolă nouă',
   ),
+  'KnpPaginatorBundle' => 
+  array (
+    'Previous' => 'Pagina anterioara',
+    'Next' => 'Pagina urmatoare',
+  ),
 ));
 
 $catalogueFr = new MessageCatalogue('fr', array (
@@ -367,6 +372,16 @@ L\'équipe
     'form.password_confirmation' => 'Répéter le mot de passe',
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Télécharger',
+    'form.label.delete' => 'Supprimer ?',
+  ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Précédent',
+    'label_next' => 'Suivant',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

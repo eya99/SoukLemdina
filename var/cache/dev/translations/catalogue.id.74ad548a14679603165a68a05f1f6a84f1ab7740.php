@@ -188,6 +188,11 @@ Tim Website.
     'form.new_password' => 'Kata sandi Baru',
     'form.new_password_confirmation' => 'Ulangi kata sandi baru',
   ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Sebelumnya',
+    'label_next' => 'Berikutnya',
+  ),
 ));
 
 $catalogueFr = new MessageCatalogue('fr', array (
@@ -375,6 +380,16 @@ L\'équipe
     'form.password_confirmation' => 'Répéter le mot de passe',
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Télécharger',
+    'form.label.delete' => 'Supprimer ?',
+  ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Précédent',
+    'label_next' => 'Suivant',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

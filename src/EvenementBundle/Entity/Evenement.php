@@ -3,11 +3,14 @@
 namespace EvenementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Evenement
  *
  * @ORM\Table(name="evenement")
+ * @Vich\Uploadable
  * @ORM\Entity(repositoryClass="EvenementBundle\Repository\EvenementRepository")
  */
 class Evenement
@@ -73,7 +76,7 @@ class Evenement
     /**
      * @var int
      *
-     * @ORM\Column(name="nbSignal", type="integer")
+     * @ORM\Column(name="nbSignal", type="integer", nullable=true)
      */
     private $nbSignal;
 
@@ -90,6 +93,60 @@ class Evenement
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="string", length=255,nullable=true)
+     */
+    private $photo;
+
+    /**
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="photo",nullable=true)
+     *
+     * @var File
+     */
+    private $photoFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    public function setPhotoFile(File $photo )
+    {
+        $this->photoFile = $photo;
+
+        if ($photo)
+            $this->updatedAt = new \DateTimeImmutable();
+
+        return $this;
+    }
+
+
+    public function getPhotoFile()
+    {
+        return $this->photoFile;
+    }
+
+
+    /**
+     * @return string|null
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
 
 
     /**

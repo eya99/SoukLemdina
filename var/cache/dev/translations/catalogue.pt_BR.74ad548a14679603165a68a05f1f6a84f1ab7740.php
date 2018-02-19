@@ -185,6 +185,11 @@ a Equipe.
     'form.new_password' => 'Nova senha',
     'form.new_password_confirmation' => 'Repita a nova senha',
   ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Anterior',
+    'label_next' => 'Próximo',
+  ),
 ));
 
 $cataloguePt = new MessageCatalogue('pt', array (
@@ -347,6 +352,11 @@ A equipa.
     'form.password_confirmation' => 'Verificar password',
     'form.new_password' => 'Nova password',
     'form.new_password_confirmation' => 'Verificar a nova password',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Descarregar',
+    'form.label.delete' => 'Apagar?',
   ),
 ));
 $catalogue->addFallbackCatalogue($cataloguePt);
@@ -535,6 +545,16 @@ L\'équipe
     'form.password_confirmation' => 'Répéter le mot de passe',
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Télécharger',
+    'form.label.delete' => 'Supprimer ?',
+  ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Précédent',
+    'label_next' => 'Suivant',
   ),
 ));
 $cataloguePt->addFallbackCatalogue($catalogueFr);

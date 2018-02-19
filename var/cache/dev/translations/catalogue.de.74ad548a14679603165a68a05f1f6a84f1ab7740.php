@@ -186,6 +186,16 @@ das Team.
     'form.new_password' => 'Neues Passwort',
     'form.new_password_confirmation' => 'Neues Passwort bestätigen',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'herunterladen',
+    'form.label.delete' => 'Löschen?',
+  ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Vorherige',
+    'label_next' => 'Nächste',
+  ),
 ));
 
 $catalogueFr = new MessageCatalogue('fr', array (
@@ -373,6 +383,16 @@ L\'équipe
     'form.password_confirmation' => 'Répéter le mot de passe',
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Télécharger',
+    'form.label.delete' => 'Supprimer ?',
+  ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Précédent',
+    'label_next' => 'Suivant',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

@@ -1,3 +1,37 @@
 evenement_homepage:
-    path:     /
+    path:     /evenement
     defaults: { _controller: EvenementBundle:Default:index }
+
+_index:
+    path:     /index
+    defaults: { _controller: EvenementBundle:Default:index }
+
+_AjoutEvent:
+    path:     /AjoutEvent
+    defaults: { _controller: EvenementBundle:Evenement:AjoutEvent }
+
+_AfficheEvent:
+    path:     /AfficheEvent
+    defaults: { _controller: EvenementBundle:Evenement:AfficheEvent }
+
+_AfficheVEvent:
+    path:     /AfficheVEvent
+    defaults: { _controller: EvenementBundle:Evenement:AfficheVEvent }
+
+_UpdateEvent:
+    path:     /UpdateEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:UpdateEvent }
+
+_DeleteEvent:
+    path:     /DeleteEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:DeleteEvent }
+
+_RechercheEvent:
+    path:     /RechercheEvent
+    defaults: { _controller: EvenementBundle:Evenement:RechercheEvent }
+
+_DetailsEvent:
+    path:     /DetailsEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:DetailsEvent }
+
+
