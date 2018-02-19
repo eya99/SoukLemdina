@@ -1,0 +1,35 @@
+{% extends "StockBundle::layout.html.twig" %}
+ {% block head %}<title>Modifierg un produit</title>{% endblock %}
+    {% block body %}
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Modifier un produit</h1>
+                <span>Mettez à jour vos produits</span>
+
+            </div>
+
+        </section><!-- #page-title end -->
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <!-- Shop
+                    ============================================= -->
+
+                    {{ form_start(form,{'method': 'POST'}) }}
+                    {{ form_widget(form) }}
+                </div>
+                <div class="line line-sm"></div>
+                <div class="center">
+                    <input type="submit" value="Modifier" class="button button-3d button-black nomargin" />
+                </div>
+                {{ form_end(form) }}
+
+
+            </div>
+        </section>
+
+    {% endblock %}

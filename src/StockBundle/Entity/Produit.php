@@ -2,13 +2,17 @@
 
 namespace StockBundle\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Produit
  *
  * @ORM\Table(name="produit")
  * @ORM\Entity(repositoryClass="StockBundle\Repository\ProduitRepository")
+ * @Vich\Uploadable
  */
 class Produit
 {
@@ -20,7 +24,12 @@ class Produit
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255,nullable=true )
+     */
+    private $photo;
     /**
      * @var string
      *
@@ -83,6 +92,19 @@ class Produit
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
+
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="photo")
+     */
+    private $photoFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
 
 
     /**
@@ -310,5 +332,73 @@ class Produit
     {
         return $this->idUser;
     }
-}
 
+    /**
+     * @return string
+     */
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return Produit
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    public function setPhotoFile(File $photo = null)
+    {
+        $this->photoFile = $photo;
+
+        if ($photo){
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    public function getPhotoFile()
+    {
+        return $this->photoFile;
+    }
+
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Produit
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+}

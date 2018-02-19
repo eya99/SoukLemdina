@@ -1,3 +1,26 @@
 stock_homepage:
     path:     /
     defaults: { _controller: StockBundle:Default:index }
+
+ajout_produit:
+    path:     /ajout-produit
+    defaults: { _controller: StockBundle:Produit:ajout }
+
+affiche_produits:
+    path:     /affiche-produits
+    defaults: { _controller: StockBundle:Produit:affiche }
+
+modif_produits:
+    path:     /affiche-produits/modif/{id}
+    defaults: { _controller: StockBundle:Produit:modifier }
+
+supp_produits:
+        path:     /affiche-produits/supp/{id}
+        defaults: { _controller: StockBundle:Produit:supprimer }
+recherche_produits:
+        path:     /recherche-produits
+        defaults: { _controller: StockBundle:Produit:recherche }
+view_produit:
+        path:    /view-produit/{id}
+        defaults: { _controller: StockBundle:Produit:produit }
+

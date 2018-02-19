@@ -103,24 +103,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // s_user_homepage
-        if ('/suser' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 's_user_homepage');
-            }
-
-            return array (  '_controller' => 'SUserBundle\\Controller\\DefaultController::indexAction',  '_route' => 's_user_homepage',);
-        }
-
-        // social_homepage
-        if ('/social' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'social_homepage');
-            }
-
-            return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
-        }
-
         // workshop_homepage
         if ('/workshop' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
@@ -139,13 +121,49 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'LocalBundle\\Controller\\DefaultController::indexAction',  '_route' => 'local_homepage',);
         }
 
-        // stock_homepage
-        if ('/ecommerce' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'stock_homepage');
+        if (0 === strpos($pathinfo, '/ecommerce')) {
+            // stock_homepage
+            if ('/ecommerce' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'stock_homepage');
+                }
+
+                return array (  '_controller' => 'StockBundle\\Controller\\DefaultController::indexAction',  '_route' => 'stock_homepage',);
             }
 
-            return array (  '_controller' => 'StockBundle\\Controller\\DefaultController::indexAction',  '_route' => 'stock_homepage',);
+            // ajout_produit
+            if ('/ecommerce/ajout-produit' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::ajoutAction',  '_route' => 'ajout_produit',);
+            }
+
+            if (0 === strpos($pathinfo, '/ecommerce/affiche-produits')) {
+                // affiche_produits
+                if ('/ecommerce/affiche-produits' === $pathinfo) {
+                    return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::afficheAction',  '_route' => 'affiche_produits',);
+                }
+
+                // modif_produits
+                if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/modif') && preg_match('#^/ecommerce/affiche\\-produits/modif/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'modif_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::modifierAction',));
+                }
+
+                // supp_produits
+                if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/supp') && preg_match('#^/ecommerce/affiche\\-produits/supp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'supp_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::supprimerAction',));
+                }
+
+            }
+
+            // recherche_produits
+            if ('/ecommerce/recherche-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::rechercheAction',  '_route' => 'recherche_produits',);
+            }
+
+            // view_produit
+            if (0 === strpos($pathinfo, '/ecommerce/view-produit') && preg_match('#^/ecommerce/view\\-produit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'view_produit')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::produitAction',));
+            }
+
         }
 
         // evenement_homepage
@@ -155,6 +173,15 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => 'evenement_homepage',);
+        }
+
+        // social_homepage
+        if ('/social' === $trimmedPathinfo) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($rawPathinfo.'/', 'social_homepage');
+            }
+
+            return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
         }
 
         // commande_homepage
@@ -352,6 +379,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 not_fos_user_resetting_check_email:
 
             }
+
+            // fos_visitor_home
+            if ('/fos/affichage' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_fos_visitor_home;
+                }
+
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::indexAction',  '_route' => 'fos_visitor_home',);
+            }
+            not_fos_visitor_home:
 
         }
 

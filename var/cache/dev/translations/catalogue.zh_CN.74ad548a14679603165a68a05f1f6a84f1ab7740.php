@@ -371,6 +371,11 @@ L\'équipe
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Télécharger',
+    'form.label.delete' => 'Supprimer ?',
+  ),
 ));
 $catalogueZh->addFallbackCatalogue($catalogueFr);
 

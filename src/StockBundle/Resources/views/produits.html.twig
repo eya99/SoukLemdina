@@ -1,0 +1,63 @@
+{% extends "StockBundle::layout.html.twig" %}
+ {% block head %}<title>Produits</title>{% endblock %}
+    {% block body %}
+        <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Nos produits</h1>
+            <span>Un vaste choix de produits</span>
+            <form class="navbar-form navbar-right"><input type="text" class="form-control" placeholder="Tapez votre texte..." method="post" action="{{ path('recherche_produits') }}" name="motcle"></form>
+            <div class="clear bottommargin-sm"></div>
+            <div class="center"></div> <a class="button button-border button-circle button-dark" href="{{ path('ajout_produit') }}">Ajouter un nouveau produit</a></form>
+        </div>
+        </section>
+        <section id="content">
+
+        <div class="content-wrap">
+
+        <div class="container clearfix">
+        <div id="shop" class="shop grid-container clearfix" data-layout="fitRows">
+        {% for produit in produits %}
+
+            <div class="product clearfix">
+                <div class="product-image">
+                    <a href="#"><img src="{{ asset('Template/images/shop/dress/Artisanat-tunisien.jpg')}}" alt="Pillow"></a>
+                    <a href="#"><img src="{{ asset('Template/images/shop/dress/pocket-tassel-pink-small.jpg')}}" alt="Leather Bag"></a>
+
+                    {% if produit.promotion!=0  %}
+                        <div class="sale-flash">{{ produit.promotion }}% Off*</div>
+                    {% endif %}
+                    <div class="product-overlay">
+                        <!--  <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a> -->
+                         <a href="{{ path('modif_produits',{'id':produit.id}) }}" class="add-to-cart"><i class="icon-wrench"></i><span> Modifier</span></a>
+                        <a href="{{ path('supp_produits',{'id':produit.id}) }}" class="add-to-cart"><i class="icon-filter"></i><span> supprimer</span></a>
+
+                    </div>
+                </div>
+                <div class="product-desc">
+                    <div class="product-title"><h3><a href="{{ path('view_produit',{'id':produit.id}) }}">{{ produit.libelle }}</a></h3></div>
+            {% if produit.promotion!=0  %}<div class="product-price"><del>{{ produit.prix }} DT</del> <ins>{{ produit.prix-((produit.prix*produit.promotion)/100) }} DT</ins></div>
+            {% else %}
+                <div class="product-price">
+                    {{ produit.prix }} DT
+                </div>
+            {% endif %}
+
+                    <div class="product-rating">
+                        <i class="icon-star3"></i>
+                        <i class="icon-star3"></i>
+                        <i class="icon-star3"></i>
+                        <i class="icon-star3"></i>
+                        <i class="icon-star-half-full"></i>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+</div>
+        </div>
+        </div>
+        </section>
+
+
+    {% endblock %}
