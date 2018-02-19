@@ -30,7 +30,7 @@ class Jaime
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="SUserBundle\Entity\Post")
+     * @ORM\ManyToOne(targetEntity="SocialBundle\Entity\Post")
      * @ORM\JoinColumn(name="id_post",referencedColumnName="id")
      */
     private $idPost;

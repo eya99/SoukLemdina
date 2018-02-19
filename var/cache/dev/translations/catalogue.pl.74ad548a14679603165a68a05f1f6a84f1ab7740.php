@@ -185,6 +185,11 @@ Zespół.
     'form.new_password' => 'Nowe hasło',
     'form.new_password_confirmation' => 'Powtórz hasło',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Pobierz',
+    'form.label.delete' => 'Usunąć?',
+  ),
 ));
 
 $catalogueFr = new MessageCatalogue('fr', array (
@@ -372,6 +377,11 @@ L\'équipe
     'form.password_confirmation' => 'Répéter le mot de passe',
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Télécharger',
+    'form.label.delete' => 'Supprimer ?',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

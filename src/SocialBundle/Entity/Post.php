@@ -3,12 +3,16 @@
 namespace SocialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Class Post
  * @package SocialBundle\Entity
  * @ORM\Table(name="post")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SocialBundle\Repository\PostRepository")
+ * @Vich\Uploadable
  */
 class Post
 {
@@ -23,7 +27,7 @@ class Post
 
     /**
      * @var int
-     * @ORM\OneToOne(targetEntity="SUserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="SUserBundle\Entity\User")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
@@ -31,7 +35,7 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
@@ -45,14 +49,32 @@ class Post
     /**
      * @var
      *
-     * @ORM\Column(name="pic_link", type="string", length=255, nullable=true)
+     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
      */
-    private $picLink;
+    private $titre;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @var
      *
-     * @ORM\Column(name="nb_signal", type="integer")
+     * @ORM\Column(name="nb_signal", type="integer", nullable=true)
      */
     private $nbSignal;
 
@@ -140,30 +162,6 @@ class Post
     }
 
     /**
-     * Set picLink
-     *
-     * @param string $picLink
-     *
-     * @return Post
-     */
-    public function setPicLink($picLink)
-    {
-        $this->picLink = $picLink;
-
-        return $this;
-    }
-
-    /**
-     * Get picLink
-     *
-     * @return string
-     */
-    public function getPicLink()
-    {
-        return $this->picLink;
-    }
-
-    /**
      * Set nbSignal
      *
      * @param integer $nbSignal
@@ -186,5 +184,84 @@ class Post
     {
         return $this->nbSignal;
     }
-}
 
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Post
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    // ...
+
+
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+        return $this;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Post
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+}

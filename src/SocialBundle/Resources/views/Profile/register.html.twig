@@ -1,0 +1,44 @@
+{% extends "SUserBundle::layout.html.twig" %}
+{% block head %}
+    {% if created is defined %}
+        <title>Modifier votre profile</title>
+    {% else %}
+        <title>Complete votre inscription</title>
+    {% endif %}
+{% endblock %}
+{% block body %}
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register" style="max-width: 500px;">
+                <div class="tab-container">
+                    <div class="tab-content clearfix" id="tab-register">
+                        <div class="panel panel-default nobottommargin">
+                            <div class="panel-body" style="padding: 40px;">
+                                {% if created is defined %}
+                                    <h3>Changer vos données du profile</h3>
+                                {% else %}
+                                    <h3>Compléter vos données du profile</h3>
+                                {% endif %}
+                                    <div class="col_full">
+                                        {{ form_start(form) }}
+                                        {{ form_end(form) }}
+                                    </div>
+                                {% if profile is defined %}
+                                    <a title="Retirer l'image du profile" href="{{ path('social_delete_image',{'id': profile.id}) }}">
+                                        Retirer l'image du profile
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a title="Retour" href="{{ path('social_check_profile',{'id':app.user.id}) }}">
+                                        Retourner au profile
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

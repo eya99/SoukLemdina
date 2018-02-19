@@ -1,0 +1,51 @@
+{% extends "SUserBundle::layout.html.twig" %}
+{% block head %}
+    <title>Recherche des Artisans</title>
+{% endblock %}
+{% block body %}
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register" style="max-width: 500px;">
+                <div class="tab-container">
+                    <div class="tab-content clearfix" id="tab-register">
+                        <h3 style="text-align: center">Résultats de la Recherche</h3>
+                            <div class="panel-body" style="padding: 40px;">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <colgroup>
+                                                <col class="col-xs-1">
+                                                <col class="col-xs-7">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>Photo</th>
+                                                <th>Artisan</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for profile in profiles %}
+                                            <tr>
+                                                <td>
+                                                    <a href="{{ path('social_check_profile',{'id':profile.idUser.id}) }}"><img
+                                                                src="{{ asset('uploads/images/' ~ profile.image) }}"
+                                                                style="border-radius: 50%;" height="50"
+                                                                width="50"></a>
+                                                </td>
+                                                <td>
+                                                    <strong>{{ profile.idUser.firstname ~' '~ profile.idUser.lastname }}</strong>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

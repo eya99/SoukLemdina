@@ -1,3 +1,43 @@
 social_homepage:
     path:     /
     defaults: { _controller: SocialBundle:Default:index }
+
+social_ajout_profile:
+    path:     /add
+    defaults: { _controller: SocialBundle:Default:add }
+
+social_modifier_profile:
+    path:     /mod/{id}
+    defaults: { _controller: SocialBundle:Default:modifier }
+
+social_recherche_profile:
+    path:     /rech
+    defaults: { _controller: SocialBundle:Default:search }
+
+social_check_profile:
+    path:     /check/{id}
+    defaults: { _controller: SocialBundle:Default:check }
+
+social_delete_profile:
+    path:     /del/{id}
+    defaults: { _controller: SocialBundle:Default:delete }
+
+social_delete_image:
+    path:     /delim/{id}
+    defaults: { _controller: SocialBundle:Default:delImage }
+
+social_suivre_user:
+    path:     /suiv/{id}
+    defaults: { _controller: SocialBundle:Default:follow }
+
+social_pasuivre_user:
+    path:     /pasuiv/{id}
+    defaults: { _controller: SocialBundle:Default:unfollow }
+
+social_delete_post:
+    path:     /delp/{id}
+    defaults: { _controller: SocialBundle:Default:delPost }
+
+social_modifier_post:
+    path:     /modp/{id}
+    defaults: { _controller: SocialBundle:Default:modPost }

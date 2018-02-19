@@ -66,13 +66,72 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => 'evenement_homepage',);
         }
 
-        // social_homepage
-        if ('/social' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'social_homepage');
+        if (0 === strpos($pathinfo, '/social')) {
+            // social_homepage
+            if ('/social' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'social_homepage');
+                }
+
+                return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
             }
 
-            return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
+            // social_ajout_profile
+            if ('/social/add' === $pathinfo) {
+                return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::addAction',  '_route' => 'social_ajout_profile',);
+            }
+
+            if (0 === strpos($pathinfo, '/social/mod')) {
+                // social_modifier_profile
+                if (preg_match('#^/social/mod/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modifierAction',));
+                }
+
+                // social_modifier_post
+                if (0 === strpos($pathinfo, '/social/modp') && preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
+                }
+
+            }
+
+            // social_recherche_profile
+            if ('/social/rech' === $pathinfo) {
+                return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::searchAction',  '_route' => 'social_recherche_profile',);
+            }
+
+            // social_check_profile
+            if (0 === strpos($pathinfo, '/social/check') && preg_match('#^/social/check/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_check_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::checkAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/social/del')) {
+                // social_delete_profile
+                if (preg_match('#^/social/del/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_delete_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::deleteAction',));
+                }
+
+                // social_delete_image
+                if (0 === strpos($pathinfo, '/social/delim') && preg_match('#^/social/delim/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_delete_image')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::delImageAction',));
+                }
+
+                // social_delete_post
+                if (0 === strpos($pathinfo, '/social/delp') && preg_match('#^/social/delp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_delete_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::delPostAction',));
+                }
+
+            }
+
+            // social_suivre_user
+            if (0 === strpos($pathinfo, '/social/suiv') && preg_match('#^/social/suiv/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_suivre_user')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::followAction',));
+            }
+
+            // social_pasuivre_user
+            if (0 === strpos($pathinfo, '/social/pasuiv') && preg_match('#^/social/pasuiv/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_pasuivre_user')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::unfollowAction',));
+            }
+
         }
 
         // commande_homepage

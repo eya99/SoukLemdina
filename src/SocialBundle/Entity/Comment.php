@@ -2,6 +2,8 @@
 
 namespace SocialBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Class Comment
  * @package SocialBundle\Entity
@@ -28,7 +30,7 @@ class Comment
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="SUserBundle\Entity\Post")
+     * @ORM\ManyToOne(targetEntity="SocialBundle\Entity\Post")
      * @ORM\JoinColumn(name="id_post",referencedColumnName="id")
      */
     private $idPost;
