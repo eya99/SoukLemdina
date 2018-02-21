@@ -41,3 +41,11 @@ social_delete_post:
 social_modifier_post:
     path:     /modp/{id}
     defaults: { _controller: SocialBundle:Default:modPost }
+
+social_delete_post_fromWelcome:
+    path:     /delp/{id}
+    defaults: { _controller: SocialBundle:Default:delPost }
+
+social_modifier_post_fromWelcome:
+    path:     /modp/{id}
+    defaults: { _controller: SocialBundle:Default:modPost }

@@ -13,6 +13,7 @@ namespace FOS\UserBundle\Form\Type;
 
 use FOS\UserBundle\Util\LegacyFormHelper;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
@@ -69,6 +70,8 @@ class ProfileFormType extends AbstractType
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
             ->add('phone',null,array('label' => 'Numéro de Téléphone','attr'   =>  array(
+                'class'   => 'form-control')))
+            ->add('datenaiss',BirthdayType::class, array('label' => 'Date de naissance','attr'   =>  array(
                 'class'   => 'form-control')))
         ;
     }

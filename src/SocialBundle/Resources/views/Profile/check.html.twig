@@ -7,12 +7,26 @@
         <title>Visiteur - Non Connecté</title>
     {% endif %}
 {% endblock %}
+{% block stylesheets %}
+    <style type="text/css">
+        .cccontainer {
+            height: 90%;
+            width: 96%;
+            max-width: 100px;
+            max-height: 100px;
+            margin: auto; /* to center the container */
+        }
+
+        .iiimg {
+            width: 25%;
+            height: 25%;
+        }
+    </style>
+{% endblock %}
 {% block body %}
     {% if is_granted("ROLE_USER") %}
         <br><br>
         <section id="content">
-
-            <div class="content-wrap">
 
                 <div class="container clearfix">
 
@@ -62,8 +76,8 @@
                                             <li><a href="#tab-posts"><i class="icon-pencil2"></i>Publications</a></li>
                                             <li><a href="#tab-followers"><i class="icon-users"></i>Followers</a></li>
                                             <li><a href="#tab-events"><i class="icon-calendar3"></i>Évènements</a></li>
-                                            <li><a href="#tab-boutique"><i class="icon-gift"></i>Boutique
-                                                    Personnelle</a></li>
+                                            <li><a href="#tab-boutique"><i class="icon-gift"></i>Boutique Personnelle</a></li>
+                                            <li><a href="#tab-wishlist"><i class="icon-plus-sign2"></i>Wishlist</a></li>
                                             <li><a href="#tab-spaces"><i class="icon-screenshot"></i>Espaces</a></li>
                                             <li><a href="#tab-workshops"><i class="icon-briefcase"></i>Ateliers</a></li>
                                         </ul>
@@ -126,13 +140,12 @@
                                             </div>
                                             <div class="tab-content clearfix" id="tab-followers">
                                                 {% for follower in followers %}
-                                                <div class="row topmargin-sm">
+                                                <div class="topmargin-sm">
                                                     <div class="col-md-3 col-sm-6 bottommargin">
-
                                                         <div class="team">
-                                                            <div class="team-image">
+                                                            <div class="team-image cccontainer">
                                                                 <a href="{{ path('social_check_profile',{'id':follower.idProfileFollower.idUser.id}) }}">
-                                                                    <img class="img-circle" src="{{ asset('uploads/images/'~follower.idProfileFollower.image) }}"
+                                                                    <img class="img-circle iiimg" src="{{ asset('uploads/images/'~follower.idProfileFollower.image) }}"
                                                                          alt="{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}">
                                                                 </a>
                                                             </div>
@@ -202,6 +215,41 @@
 
                                             </div>
                                             <div class="tab-content clearfix" id="tab-boutique">
+
+                                                <div class="row topmargin-sm">
+                                                    <div class="col-md-3 col-sm-6 bottommargin">
+
+                                                        <div class="team">
+                                                            <div class="team-image">
+                                                                <img src="images/team/3.jpg" alt="John Doe">
+                                                            </div>
+                                                            <div class="team-desc">
+                                                                <div class="team-title"><h4>John Doe</h4>
+                                                                    <span>CEO</span></div>
+                                                                <a href="#"
+                                                                   class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                                                    <i class="icon-facebook"></i>
+                                                                    <i class="icon-facebook"></i>
+                                                                </a>
+                                                                <a href="#"
+                                                                   class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                                                    <i class="icon-twitter"></i>
+                                                                    <i class="icon-twitter"></i>
+                                                                </a>
+                                                                <a href="#"
+                                                                   class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                                                    <i class="icon-gplus"></i>
+                                                                    <i class="icon-gplus"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-content clearfix" id="tab-wishlist">
 
                                                 <div class="row topmargin-sm">
                                                     <div class="col-md-3 col-sm-6 bottommargin">
@@ -349,7 +397,7 @@
                                 {% endif %}
                             </div>
 
-                            <p>Date de naissance: {{ profile.datenaiss|date('d/m/Y') }}<br>{{ profile.aboutMe }}</p>
+                            <p>Date de naissance: {{ profile.idUser.datenaiss|date('d/m/Y') }}<br>{{ profile.aboutMe }}</p>
 
                         </div>
 
@@ -357,7 +405,6 @@
 
                 </div>
 
-            </div>
 
         </section>
     {% else %}

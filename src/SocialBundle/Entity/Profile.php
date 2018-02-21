@@ -47,13 +47,6 @@ class Profile
     private $aboutMe;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="datenaiss", type="date")
-     */
-    private $datenaiss;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
@@ -180,31 +173,6 @@ class Profile
     }
 
     /**
-     * Set datenaiss
-     *
-     * @param \DateTime $datenaiss
-     *
-     * @return Profile
-     */
-    public function setDatenaiss($datenaiss)
-    {
-        $this->datenaiss = $datenaiss;
-
-        return $this;
-    }
-
-    /**
-     * Get datenaiss
-     *
-     * @return \DateTime
-     */
-    public function getDatenaiss()
-    {
-        return $this->datenaiss;
-    }
-
-
-    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
@@ -227,4 +195,5 @@ class Profile
     {
         return $this->updatedAt;
     }
+
 }

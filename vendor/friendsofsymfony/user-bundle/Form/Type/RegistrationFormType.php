@@ -13,6 +13,7 @@ namespace FOS\UserBundle\Form\Type;
 
 use FOS\UserBundle\Util\LegacyFormHelper;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -56,6 +57,8 @@ class RegistrationFormType extends AbstractType
                 'class'   => 'form-control')))
             ->add('lastname',null,array('label' => 'Nom de Famille','attr'   =>  array(
                 'class'   => 'form-control')))
+            ->add('datenaiss', BirthdayType::class, array('label' => 'Date de naissance','attr' => array(
+                'class' => 'form-control')))
             ->add('gender', ChoiceType::class, array(
                 'choices'  => array(
                     'Other' => null,

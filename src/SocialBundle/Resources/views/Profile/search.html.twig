@@ -11,21 +11,22 @@
                 <div class="tab-container">
                     <div class="tab-content clearfix" id="tab-register">
                         <h3 style="text-align: center">Résultats de la Recherche</h3>
-                            <div class="panel-body" style="padding: 40px;">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-striped">
-                                            <colgroup>
-                                                <col class="col-xs-1">
-                                                <col class="col-xs-7">
-                                            </colgroup>
-                                            <thead>
-                                            <tr>
-                                                <th>Photo</th>
-                                                <th>Artisan</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for profile in profiles %}
+                        <div class="panel-body" style="padding: 40px;">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <colgroup>
+                                        <col class="col-xs-1">
+                                        <col class="col-xs-7">
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Artisan</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for profile in profiles %}
+                                        {% if profile.idUser.id != app.user.id %}
                                             <tr>
                                                 <td>
                                                     <a href="{{ path('social_check_profile',{'id':profile.idUser.id}) }}"><img
@@ -37,11 +38,12 @@
                                                     <strong>{{ profile.idUser.firstname ~' '~ profile.idUser.lastname }}</strong>
                                                 </td>
                                             </tr>
-                                            {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
                         <br><br>
                     </div>
                 </div>

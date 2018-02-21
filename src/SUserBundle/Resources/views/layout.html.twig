@@ -68,11 +68,11 @@
                 <nav id="primary-menu">
 
                     <ul>
-                        <li class="current"><a href="{{ path('fos_visitor_home') }}">
+                        <li class="mega-menu"><a href="{{ path('fos_visitor_home') }}">
                                 <div>Accueil</div>
                             </a></li>
-                        <li><a href="#">
-                                <div>Trending</div>
+                        <li><a href="{{ path('social_homepage') }}">
+                                <div>Hdith ElSouk</div>
                             </a></li>
                         <li class="mega-menu"><a href="#">
                                 <div>Évènements</div>
@@ -165,9 +165,10 @@
 
                             <ul>
                                 <li><a href="{{ path('social_check_profile',{'id':app.user.id}) }}">Mes Publications</a></li>
-                                <li><a href="#">Mes Évènements</a></li>
-                                <li><a href="#">Ma Boutique Personnelle</a></li>
-                                <li><a href="#">Mes Espaces</a></li>
+                                <li><a href="{{ path('social_check_profile',{'id':app.user.id}) ~ '#tab-events'}}">Mes Évènements</a></li>
+                                <li><a href="{{ path('social_check_profile',{'id':app.user.id}) ~ '#tab-boutique'}}">Ma Boutique Personnelle</a></li>
+                                <li><a href="{{ path('social_check_profile',{'id':app.user.id}) ~ '#tab-spaces'}}">Mes Espaces</a></li>
+                                <li><a href="{{ path('social_check_profile',{'id':app.user.id}) ~ '#tab-workshops'}}">Mes Ateliers</a></li>
                                 <li><a href="{{ path('fos_user_profile_edit') }}">Paramètres du Compte</a></li>
                                 <li><a href="{{ path('fos_user_security_logout') }}">Déconnecter</a></li>
                             </ul>

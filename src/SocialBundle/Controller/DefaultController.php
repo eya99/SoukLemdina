@@ -13,13 +13,38 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-//        $em = $this->getDoctrine()->getManager();
-//        $user = $this->container->get('security.token_storage')->getToken()->getUser();
-//        $profile = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $user->getId()));
-//        //$posts = $em->getRepository()
-//        return $this->render('SocialBundle:Default:index.html.twig', array('profile' => $profile));
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $profile_follower = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $user->getId()));
+        $query = $em->createQuery(
+            'SELECT p FROM SocialBundle:Post p
+             WHERE p.idUser in ( SELECT IDENTITY (pr.idUser) FROM SocialBundle:Profile pr
+                                  WHERE pr.id in ( SELECT IDENTITY (f.idProfileFollowed)
+                                                   FROM SocialBundle:Follow f
+                                                   WHERE f.idProfileFollower = :q))
+             OR p.idUser = :i
+             ORDER BY p.date DESC '
+        )->setParameters(array('q' => $profile_follower->getId(), 'i' => $user->getId()));
+        $posts = $query->getResult();
+        $profiles = array();
+        foreach ($posts as $p) {
+            $id = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $p->getIdUser()));
+            $profiles = array_merge($profiles, array($id));
+        }
+        $Post = new Post();
+        $Form = $this->createForm(PostForm::class, $Post);
+        $Form->handleRequest($request);
+        if ($Form->isValid() && $Form->isSubmitted()) {
+            $em = $this->getDoctrine()->getManager();
+            $Post->setIdUser($user);
+            $Post->setDate(new \DateTime('now'));
+            $em->persist($Post);
+            $em->flush();
+            return $this->redirectToRoute('social_homepage', array('form' => $Form->createView()));
+        }
+        return $this->render('SocialBundle:Default:index.html.twig', array('posts' => $posts, 'profiles' => $profiles, 'form' => $Form->createView()));
     }
 
     public function addAction(Request $request)
@@ -52,7 +77,7 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($Profile);
             $em->flush();
-            return $this->redirectToRoute('fos_visitor_home');
+            return $this->redirectToRoute('social_check_profile',array('id'=>$Profile->getIdUser()->getId()));
         }
 
         return $this->render('SocialBundle:Profile:register.html.twig', array(
@@ -90,6 +115,27 @@ class DefaultController extends Controller
         }
 
         return $this->render("@Social/Profile/search.html.twig", array('profiles' => $profiles));
+    }
+
+    public function ajaxAction(Request $request) {
+        $students = $this->getDoctrine()
+            ->getRepository('AppBundle:Student')
+            ->findAll();
+
+        if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
+            $jsonData = array();
+            $idx = 0;
+            foreach($students as $student) {
+                $temp = array(
+                    'name' => $student->getName(),
+                    'address' => $student->getAddress(),
+                );
+                $jsonData[$idx++] = $temp;
+            }
+            return new JsonResponse($jsonData);
+        } else {
+            return $this->render('');
+        }
     }
 
     public function checkAction(Request $request, $id)
@@ -217,6 +263,31 @@ class DefaultController extends Controller
         return $this->redirectToRoute('social_check_profile', array('id' => $user->getId()));
     }
 
+    public function delPost2Action($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $likes = $em->getRepository("SocialBundle:Jaime")->findBy(array('idPost'=>$id));
+        if ($likes)
+            foreach ($likes as $j){
+                $em->remove($j);
+                $em->flush();
+            }
+
+        $comms = $em->getRepository("SocialBundle:Comment")->findBy(array('idPost'=>$id));
+        if ($comms){
+            foreach ($comms as $c){
+                $em->remove($c);
+                $em->flush();
+            }}
+
+        $Post = $em->getRepository("SocialBundle:Post")->findOneBy(array('id'=>$id));
+        $em->remove($Post);
+        $em->flush();
+
+        return $this->redirectToRoute('social_homepage');
+    }
+
     public function modPostAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -227,16 +298,39 @@ class DefaultController extends Controller
         $Form->handleRequest($request);
         if ($Form->isSubmitted() && $Form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            if ($user->getId() === $Post->getIdUser()) {
+            if ($user->getId() === $Post->getIdUser()->getId()) {
                 $em->persist($Post);
                 $em->flush();
                 return $this->redirectToRoute('social_check_profile', array('id' => $user->getId()));
             }
             else
-                return $this->redirectToRoute('social_check_profile', array('id' => $Post->getIdUser()));
+                return $this->redirectToRoute('social_check_profile', array('id' => $Post->getIdUser()->getId()));
         }
 
         return $this->render('SocialBundle:Post:modifier.html.twig', array(
             'form' => $Form->createView()));
     }
+
+    public function modPost2Action(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $Post = $em->getRepository("SocialBundle:Post")->find($id);
+        $Form = $this->createForm(PostForm::class, $Post);
+
+        $Form->handleRequest($request);
+        if ($Form->isSubmitted() && $Form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            if ($user->getId() === $Post->getIdUser()->getId()) {
+                $em->persist($Post);
+                $em->flush();
+                return $this->redirectToRoute('social_homepage');
+            }
+                return $this->redirectToRoute('social_homepage');
+        }
+
+        return $this->render('SocialBundle:Post:modifier.html.twig', array(
+            'form' => $Form->createView()));
+    }
+
 }

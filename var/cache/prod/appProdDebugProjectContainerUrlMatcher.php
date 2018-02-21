@@ -81,15 +81,20 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::addAction',  '_route' => 'social_ajout_profile',);
             }
 
-            if (0 === strpos($pathinfo, '/social/mod')) {
-                // social_modifier_profile
-                if (preg_match('#^/social/mod/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modifierAction',));
+            // social_modifier_profile
+            if (0 === strpos($pathinfo, '/social/mod') && preg_match('#^/social/mod/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modifierAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/social/modp')) {
+                // social_modifier_post
+                if (preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
                 }
 
-                // social_modifier_post
-                if (0 === strpos($pathinfo, '/social/modp') && preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
+                // social_modifier_post_fromWelcome
+                if (preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post_fromWelcome')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
                 }
 
             }
@@ -115,9 +120,17 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_delete_image')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::delImageAction',));
                 }
 
-                // social_delete_post
-                if (0 === strpos($pathinfo, '/social/delp') && preg_match('#^/social/delp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_delete_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::delPostAction',));
+                if (0 === strpos($pathinfo, '/social/delp')) {
+                    // social_delete_post
+                    if (preg_match('#^/social/delp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_delete_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::delPostAction',));
+                    }
+
+                    // social_delete_post_fromWelcome
+                    if (preg_match('#^/social/delp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_delete_post_fromWelcome')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::delPostAction',));
+                    }
+
                 }
 
             }
