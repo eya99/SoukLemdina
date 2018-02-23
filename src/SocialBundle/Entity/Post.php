@@ -43,6 +43,7 @@ class Post
      * @var
      *
      * @ORM\Column(name="texte", type="string", length=255, nullable=true)
+     * @Assert\Regex("/^\w+/")
      */
     private $texte;
 
@@ -54,8 +55,11 @@ class Post
      *      min = 2,
      *      max = 50,
      *      minMessage = "Le titre doit être au minimum de 2 caractères de longueur",
-     *      maxMessage = "Le titre doit être au maximum de 20 caractères de longueur"
+     *      maxMessage = "Le titre doit être au maximum de 50 caractères de longueur"
      * )
+     *
+     * @Assert\Regex("/^\w+/")
+     *
      */
     private $titre;
 

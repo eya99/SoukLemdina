@@ -10,4 +10,11 @@ namespace SocialBundle\Repository;
  */
 class ProfileRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findProfileUserId($id)
+    {
+        $query = $this->createQueryBuilder('p');
+        $query -> andWhere("p.idUser = :idUser")
+        ->setParameter('idUser',$id);
+        return $query->getQuery()->getResult();
+    }
 }

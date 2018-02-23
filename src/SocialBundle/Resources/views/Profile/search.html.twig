@@ -48,7 +48,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <strong>{{ profile.idUser.firstname ~' '~ profile.idUser.lastname }}</strong>
+                                                    <a href="{{ path('social_check_profile',{'id':profile.idUser.id}) }}"><strong>{{ profile.idUser.firstname ~' '~ profile.idUser.lastname }}</strong></a>
                                                 </td>
                                             </tr>
                                         {% endif %}

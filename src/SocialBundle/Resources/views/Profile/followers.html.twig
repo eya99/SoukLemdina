@@ -4,9 +4,16 @@
             <div class="team">
                 <div class="team-image cccontainer">
                     <a href="{{ path('social_check_profile',{'id':follower.idProfileFollower.idUser.id}) }}">
-                        <img class="img-circle iiimg"
-                             src="{{ asset('uploads/images/'~follower.idProfileFollower.image) }}"
-                             alt="{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}">
+
+                        {% if follower.idProfileFollower.image %}
+                            <img class="img-circle iiimg"
+                                 src="{{ asset('uploads/images/'~follower.idProfileFollower.image) }}"
+                                 alt="{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}">
+                        {% else %}
+                            <img src="{{ asset('Template/images/icons/avatar.jpg') }}"
+                                 class="img-circle iiimg"
+                                 alt="{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}" >
+                        {% endif %}
                     </a>
                 </div>
                 <div class="team-desc">

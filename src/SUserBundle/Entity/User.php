@@ -41,6 +41,12 @@ class User extends BaseUser
      * @var
      *
      * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     *
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$"
+     * )
+     *
      */
     protected $firstname;
 
@@ -48,6 +54,12 @@ class User extends BaseUser
      * @var
      *
      * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
+     *
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$"
+     * )
+     *
      */
     protected $lastname;
 

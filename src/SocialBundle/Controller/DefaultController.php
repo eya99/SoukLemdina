@@ -7,6 +7,7 @@ use SocialBundle\Entity\Post;
 use SocialBundle\Entity\Profile;
 use SocialBundle\Form\PostForm;
 use SocialBundle\Form\ProfileForm;
+use SUserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -50,6 +51,37 @@ class DefaultController extends Controller
         } else return $this->redirectToRoute('fos_user_security_login');
     }
 
+    public function postsAction($deb,$fin)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $profile_follower = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $user->getId()));
+        $query = $em->createQuery(
+            'SELECT p FROM SocialBundle:Post p
+             WHERE p.idUser in ( SELECT IDENTITY (pr.idUser) FROM SocialBundle:Profile pr
+                                  WHERE pr.id in ( SELECT IDENTITY (f.idProfileFollowed)
+                                                   FROM SocialBundle:Follow f
+                                                   WHERE f.idProfileFollower = :q))
+             OR p.idUser = :i
+             ORDER BY p.date DESC '
+        )->setParameters(array('q' => $profile_follower->getId(), 'i' => $user->getId()));
+        $posts = $query->getResult();
+        $profiles = array();
+        foreach ($posts as $p) {
+            $id = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $p->getIdUser()));
+            $profiles = array_merge($profiles, array($id));
+        }
+        return $this->render('SocialBundle:Post:posts.html.twig', array('posts' => $posts, 'profiles' => $profiles, 'deb' => $deb, 'fin' => $fin));
+    }
+
+    public function postsAXAction(Request $request,$deb,$fin){
+        if ($request->isXMLHttpRequest()) {
+            $template = $this->forward('SocialBundle:Default:posts',array('deb'=>$deb,'fin'=>$fin))->getContent();
+            return new JsonResponse($template);
+        }
+        return new Response('Error!', 400);
+    }
+
     public function addAction(Request $request)
     {
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
@@ -87,7 +119,7 @@ class DefaultController extends Controller
             'form' => $Form->createView(), 'created' => 's', 'profile' => $Profile));
     }
 
-    public function delImageAction(Request $request, $id)
+    public function delImageAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         $Profile = $em->getRepository("SocialBundle:Profile")->find($id);
@@ -97,7 +129,7 @@ class DefaultController extends Controller
         return $this->redirectToRoute('social_modifier_profile', array('id' => $Profile->getId()));
     }
 
-    public function searchAction(Request $request)
+    public function searchAction()
     {
         $profiles = array();
         $fst = $_POST['q'];
@@ -108,10 +140,12 @@ class DefaultController extends Controller
                 FROM SUserBundle:User u
                 WHERE (u.firstname like :tag or u.lastname like :tag)'
             )->setParameter('tag', '%' . $fst . '%');
+
             $users = $query->getResult();
             foreach ($users as $u) {
-                $profile = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $u->getId()));
-                $profiles = array_merge($profiles, array($profile));
+//                $profile = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $u->getId()));
+                $profile = $em ->getRepository(Profile::class)->findProfileUserId($u->getId());
+                $profiles = array_merge($profiles, $profile);
             }
         } else {
             $profiles = $em->getRepository("SocialBundle:Profile")->findAll();
@@ -149,7 +183,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $followers = $em->getRepository("SocialBundle:Follow")->findBy(array('idProfileFollowed' => $id));
-        return $this->render('@Social/Profile/followers.html.twig',array('followers' => $followers));
+        return $this->render('@Social/Profile/followers.html.twig', array('followers' => $followers));
     }
 
     public function deleteAction($id)
@@ -228,7 +262,7 @@ class DefaultController extends Controller
         return $this->redirectToRoute('social_check_profile', array('id' => $followed->getIdUser()->getId()));
     }
 
-    public function followAXAction(Request $request,$id)
+    public function followAXAction(Request $request, $id)
     {
         if ($request->isXMLHttpRequest()) {
             $user = $this->container->get('security.token_storage')->getToken()->getUser();
@@ -240,13 +274,13 @@ class DefaultController extends Controller
             $Follow->setIdProfileFollowed($followed);
             $em->persist($Follow);
             $em->flush();
-            $template = $this->forward('SocialBundle:Default:followers',array('id'=>$id))->getContent();
+            $template = $this->forward('SocialBundle:Default:followers', array('id' => $id))->getContent();
             return new JsonResponse($template);
         }
         return new Response('Error!', 400);
     }
 
-    public function unfollowAXAction(Request $request,$id)
+    public function unfollowAXAction(Request $request, $id)
     {
         if ($request->isXMLHttpRequest()) {
             $em = $this->getDoctrine()->getManager();
@@ -256,7 +290,7 @@ class DefaultController extends Controller
             $followed = $em->getRepository("SocialBundle:Profile")->find($id);
             $em->remove($Follow);
             $em->flush();
-            $template = $this->forward('SocialBundle:Default:followers',array('id'=>$id))->getContent();
+            $template = $this->forward('SocialBundle:Default:followers', array('id' => $id))->getContent();
             return new JsonResponse($template);
         }
         return new Response('Error!', 400);

@@ -57,3 +57,7 @@ social_suivreAX_user:
 social_pasuivreAX_user:
     path:     /pasuivAX/{id}
     defaults: { _controller: SocialBundle:Default:unfollowAX }
+
+social_postsAX_home:
+    path:     /postsAX/{deb}/{fin}
+    defaults: { _controller: SocialBundle:Default:postsAX }
