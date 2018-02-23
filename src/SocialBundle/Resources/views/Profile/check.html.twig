@@ -28,327 +28,321 @@
         <br><br>
         <section id="content">
 
-                <div class="container clearfix">
+            <div class="container clearfix">
 
-                    <div class="row clearfix">
+                <div class="row clearfix">
 
-                        <div class="col-sm-9">
-                            {% if profile.idUser.id == app.user.id %}
-                                <a title="Modifier les paramètres du profile"
-                                   href="{{ path('social_modifier_profile',{'id': profile.id}) }}">
-                            {% elseif f is defined %}
-                                <a title="Ne Plus Suivre {{ profile.idUser.firstname }}"
-                                   href="{{ path('social_pasuivre_user',{'id': profile.id}) }}">
-                                    <strong>NE PLUS SUIVRE</strong></a>
-                            {% else %}
-                                <a title="Suivre {{ profile.idUser.firstname }}"
-                                   href="{{ path('social_suivre_user',{'id': profile.id}) }}">
-                                    <strong>SUIVRE</strong></a>
+                    <div class="col-sm-9">
+                        {% if profile.idUser.id == app.user.id %}
+                        <a title="Modifier les paramètres du profile"
+                           href="{{ path('social_modifier_profile',{'id': profile.id}) }}">
                             {% endif %}
-                                {% if profile.image %}
-                                    <img src="{{ asset('uploads/images/' ~ profile.image) }}" class="alignleft img-circle img-thumbnail
+                            {% if profile.image %}
+                                <img src="{{ asset('uploads/images/' ~ profile.image) }}" class="alignleft img-circle img-thumbnail
                                     notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
-                                {% else %}
-                                    <img src="{{ asset('Template/images/icons/avatar.jpg') }}"
-                                         class="alignleft img-circle img-thumbnail notopmargin nobottommargin"
-                                         alt="Avatar" style="max-width: 84px;">
-                                {% endif %}
-                            {% if profile.idUser.id == app.user.id %}
-                                </a>
+                            {% else %}
+                                <img src="{{ asset('Template/images/icons/avatar.jpg') }}"
+                                     class="alignleft img-circle img-thumbnail notopmargin nobottommargin"
+                                     alt="Avatar" style="max-width: 84px;">
                             {% endif %}
+                            {% if profile.idUser.id == app.user.id %}
+                        </a>
+                        {% endif %}
 
-                            <div class="heading-block noborder">
+                        <div class="heading-block noborder">
+                            <div id="sss">{% if profile.idUser.id != app.user.id %}
+                                {% if f is defined %}
+                                    {#<a title="Ne Plus Suivre {{ profile.idUser.firstname }}"
+                                       href="{{ path('social_pasuivre_user',{'id': profile.id}) }}">
+                                        <strong>NE PLUS SUIVRE</strong></a>#}
+                                    <a onclick="hottlisuivre()" title="Ne Plus Suivre {{ profile.idUser.firstname }}"
+                                       href="#">
+                                        <strong>NE PLUS SUIVRE</strong></a>
+                                {% else %}
+                                    {#<a title="Suivre {{ profile.idUser.firstname }}"
+                                       href="{{ path('social_suivre_user',{'id': profile.id}) }}">
+                                        <strong>SUIVRE</strong></a>#}
+                                    <a onclick="hottlineplussuivre()" title="Suivre {{ profile.idUser.firstname }}"
+                                       href="#">
+                                        <strong>SUIVRE</strong></a>
+                                {% endif %}
+                            {% endif %}</div>
+                            <h3>{{ profile.idUser.firstname ~ ' ' ~ profile.idUser.lastname }}</h3>
+                            <span>{{ profile.tagline }}</span>
+                        </div>
 
-                                <h3>{{ profile.idUser.firstname ~ ' ' ~ profile.idUser.lastname }}</h3>
-                                <span>{{ profile.tagline }}</span>
-                            </div>
+                        <div class="clear"></div>
 
-                            <div class="clear"></div>
+                        <div class="row clearfix">
 
-                            <div class="row clearfix">
+                            <div class="col-md-12">
 
-                                <div class="col-md-12">
+                                <div class="tabs tabs-bb clearfix ui-tabs ui-widget ui-widget-content ui-corner-all"
+                                     id="tabs-profile">
 
-                                    <div class="tabs tabs-bb clearfix ui-tabs ui-widget ui-widget-content ui-corner-all"
-                                         id="tabs-profile">
+                                    <ul class="tab-nav clearfix">
+                                        <li><a href="#tab-posts"><i class="icon-pencil2"></i>Publications</a></li>
+                                        <li><a href="#tab-followers"><i class="icon-users"></i>Followers</a></li>
+                                        <li><a href="#tab-events"><i class="icon-calendar3"></i>Évènements</a></li>
+                                        <li><a href="#tab-boutique"><i class="icon-gift"></i>Boutique Personnelle</a></li>
+                                        <li><a href="#tab-wishlist"><i class="icon-plus-sign2"></i>Wishlist</a></li>
+                                        <li><a href="#tab-spaces"><i class="icon-screenshot"></i>Espaces</a></li>
+                                        <li><a href="#tab-workshops"><i class="icon-briefcase"></i>Ateliers</a></li>
+                                    </ul>
 
-                                        <ul class="tab-nav clearfix">
-                                            <li><a href="#tab-posts"><i class="icon-pencil2"></i>Publications</a></li>
-                                            <li><a href="#tab-followers"><i class="icon-users"></i>Followers</a></li>
-                                            <li><a href="#tab-events"><i class="icon-calendar3"></i>Évènements</a></li>
-                                            <li><a href="#tab-boutique"><i class="icon-gift"></i>Boutique Personnelle</a></li>
-                                            <li><a href="#tab-wishlist"><i class="icon-plus-sign2"></i>Wishlist</a></li>
-                                            <li><a href="#tab-spaces"><i class="icon-screenshot"></i>Espaces</a></li>
-                                            <li><a href="#tab-workshops"><i class="icon-briefcase"></i>Ateliers</a></li>
-                                        </ul>
+                                    <div class="tab-container">
 
-                                        <div class="tab-container">
-
-                                            <div class="tab-content clearfix" id="tab-posts">
-                                                {% if profile.idUser.id == app.user.id %}
-                                                    <div class="panel-body" style="padding: 40px;">
+                                        <div class="tab-content clearfix" id="tab-posts">
+                                            {% if profile.idUser.id == app.user.id %}
+                                                <div class="panel-body" style="padding: 40px;">
+                                                    <div class="ipost clearfix">
+                                                        <div class="row clearfix">
+                                                            <div class="col-xs-12 bottommargin-sm">
+                                                                {{ form_start(form) }}
+                                                                {{ form_end(form) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            <div class="row topmargin-sm clearfix">
+                                                {% for post in posts %}
+                                                    <div class="col-xs-12 bottommargin-sm">
                                                         <div class="ipost clearfix">
                                                             <div class="row clearfix">
-                                                                <div class="col-xs-12 bottommargin-sm">
-                                                                    {{ form_start(form) }}
-                                                                    {{ form_end(form) }}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                {% endif %}
-                                                <div class="row topmargin-sm clearfix">
-                                                    {% for post in posts %}
-                                                        <div class="col-xs-12 bottommargin-sm">
-                                                            <div class="ipost clearfix">
-                                                                <div class="row clearfix">
-                                                                    <div class="col-sm-4">
-                                                                        <div class="entry-image">
-                                                                            <a href="{{ asset('uploads/images/' ~ post.image) }}"
-                                                                               data-lightbox="image"><img class="image_fade"
-                                                                                                          src="{{ asset('uploads/images/' ~ post.image) }}"
-                                                                                                          alt="Image de la publication"></a>
-                                                                        </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="entry-image">
+                                                                        <a href="{{ asset('uploads/images/' ~ post.image) }}"
+                                                                           data-lightbox="image"><img class="image_fade"
+                                                                                                      src="{{ asset('uploads/images/' ~ post.image) }}"
+                                                                                                      alt="Image de la publication"></a>
                                                                     </div>
-                                                                    <div class="col-sm-8">
-                                                                        <div class="entry-title">
-                                                                            <h3><a href="#comments">{{ post.titre }}</a>
-                                                                            </h3>
-                                                                        </div>
-                                                                        <ul class="entry-meta clearfix">
-                                                                            <li><i class="icon-calendar3"></i> {{ post.date|date }}
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                    <div class="entry-title">
+                                                                        <h3><a href="#comments">{{ post.titre }}</a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <ul class="entry-meta clearfix">
+                                                                        <li>
+                                                                            <i class="icon-calendar3"></i> {{ post.date|date }}
+                                                                        </li>
+                                                                        <li><a href="#comments"><i
+                                                                                        class="icon-comments"></i>
+                                                                                13</a></li>
+                                                                        {% if profile.idUser.id == app.user.id %}
+                                                                            <li>
+                                                                                <a href="{{ path('social_modifier_post',{'id':post.id}) }}">Modifier</a>
                                                                             </li>
-                                                                            <li><a href="#comments"><i
-                                                                                            class="icon-comments"></i>
-                                                                                    13</a></li>
-                                                                            {% if profile.idUser.id == app.user.id %}
-                                                                                <li><a href="{{ path('social_modifier_post',{'id':post.id}) }}">Modifier</a></li>
-                                                                                <li><a href="{{ path('social_delete_post',{'id':post.id}) }}" onclick="return confirm('Voulez-vous vraiment' +
-                                                                                        'supprimer cette publication ?')">Supprimer</a></li>
-                                                                            {% endif %}
-                                                                        </ul>
-                                                                        <div class="entry-content">
-                                                                            <p>{{ post.texte }}</p>
-                                                                        </div>
+                                                                            <li>
+                                                                                <a href="{{ path('social_delete_post',{'id':post.id}) }}"
+                                                                                   onclick="return confirm('Voulez-vous vraiment' +
+                                                                                        'supprimer cette publication ?')">Supprimer</a>
+                                                                            </li>
+                                                                        {% endif %}
+                                                                    </ul>
+                                                                    <div class="entry-content">
+                                                                        <p>{{ post.texte }}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    {% endfor %}
-                                                </div>
-
-                                            </div>
-                                            <div class="tab-content clearfix" id="tab-followers">
-                                                {% for follower in followers %}
-                                                <div class="topmargin-sm">
-                                                    <div class="col-md-3 col-sm-6 bottommargin">
-                                                        <div class="team">
-                                                            <div class="team-image cccontainer">
-                                                                <a href="{{ path('social_check_profile',{'id':follower.idProfileFollower.idUser.id}) }}">
-                                                                    <img class="img-circle iiimg" src="{{ asset('uploads/images/'~follower.idProfileFollower.image) }}"
-                                                                         alt="{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}">
-                                                                </a>
-                                                            </div>
-                                                            <div class="team-desc">
-                                                                <div class="team-title">
-                                                                    <a href="{{ path('social_check_profile',{'id':follower.idProfileFollower.idUser.id}) }}">
-                                                                        <h4>{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}</h4>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
                                                     </div>
-
-                                                </div>
                                                 {% endfor %}
                                             </div>
-                                            <div class="tab-content clearfix" id="tab-events">
-                                                <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium harum ea quo! Nulla fugiat earum, sed corporis amet iste non, id facilis dolorum, suscipit, deleniti ea. Nobis, temporibus magnam doloribus. Reprehenderit necessitatibus esse dolor tempora ea unde, itaque odit. Quos.</p>
 
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered table-striped">
-                                                        <colgroup>
-                                                            <col class="col-xs-1">
-                                                            <col class="col-xs-7">
-                                                        </colgroup>
-                                                        <thead>
-                                                        <tr>
-                                                            <th>Time</th>
-                                                            <th>Activity</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <code>5/23/2016</code>
-                                                            </td>
-                                                            <td>Payment for VPS2 completed</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <code>5/23/2016</code>
-                                                            </td>
-                                                            <td>Logged in to the Account at 16:33:01</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <code>5/22/2016</code>
-                                                            </td>
-                                                            <td>Logged in to the Account at 09:41:58</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <code>5/21/2016</code>
-                                                            </td>
-                                                            <td>Logged in to the Account at 17:16:32</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <code>5/18/2016</code>
-                                                            </td>
-                                                            <td>Logged in to the Account at 22:53:41</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-followers">
+                                            {{ render(controller('SocialBundle:Default:followers',{'id': profile.id})) }}
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-events">
+                                            <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Laudantium harum ea quo! Nulla fugiat earum, sed corporis amet iste non,
+                                                id facilis dolorum, suscipit, deleniti ea. Nobis, temporibus magnam
+                                                doloribus. Reprehenderit necessitatibus esse dolor tempora ea unde,
+                                                itaque odit. Quos.</p>
 
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped">
+                                                    <colgroup>
+                                                        <col class="col-xs-1">
+                                                        <col class="col-xs-7">
+                                                    </colgroup>
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Time</th>
+                                                        <th>Activity</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <code>5/23/2016</code>
+                                                        </td>
+                                                        <td>Payment for VPS2 completed</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <code>5/23/2016</code>
+                                                        </td>
+                                                        <td>Logged in to the Account at 16:33:01</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <code>5/22/2016</code>
+                                                        </td>
+                                                        <td>Logged in to the Account at 09:41:58</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <code>5/21/2016</code>
+                                                        </td>
+                                                        <td>Logged in to the Account at 17:16:32</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <code>5/18/2016</code>
+                                                        </td>
+                                                        <td>Logged in to the Account at 22:53:41</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                            <div class="tab-content clearfix" id="tab-boutique">
 
-                                                <div class="row topmargin-sm">
-                                                    <div class="col-md-3 col-sm-6 bottommargin">
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-boutique">
 
-                                                        <div class="team">
-                                                            <div class="team-image">
-                                                                <img src="images/team/3.jpg" alt="John Doe">
-                                                            </div>
-                                                            <div class="team-desc">
-                                                                <div class="team-title"><h4>John Doe</h4>
-                                                                    <span>CEO</span></div>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-facebook">
-                                                                    <i class="icon-facebook"></i>
-                                                                    <i class="icon-facebook"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-twitter">
-                                                                    <i class="icon-twitter"></i>
-                                                                    <i class="icon-twitter"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-gplus">
-                                                                    <i class="icon-gplus"></i>
-                                                                    <i class="icon-gplus"></i>
-                                                                </a>
-                                                            </div>
+                                            <div class="row topmargin-sm">
+                                                <div class="col-md-3 col-sm-6 bottommargin">
+
+                                                    <div class="team">
+                                                        <div class="team-image">
+                                                            <img src="images/team/3.jpg" alt="John Doe">
                                                         </div>
-
+                                                        <div class="team-desc">
+                                                            <div class="team-title"><h4>John Doe</h4>
+                                                                <span>CEO</span></div>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                                                <i class="icon-facebook"></i>
+                                                                <i class="icon-facebook"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                                                <i class="icon-twitter"></i>
+                                                                <i class="icon-twitter"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                                                <i class="icon-gplus"></i>
+                                                                <i class="icon-gplus"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
 
                                                 </div>
 
                                             </div>
-                                            <div class="tab-content clearfix" id="tab-wishlist">
 
-                                                <div class="row topmargin-sm">
-                                                    <div class="col-md-3 col-sm-6 bottommargin">
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-wishlist">
 
-                                                        <div class="team">
-                                                            <div class="team-image">
-                                                                <img src="images/team/3.jpg" alt="John Doe">
-                                                            </div>
-                                                            <div class="team-desc">
-                                                                <div class="team-title"><h4>John Doe</h4>
-                                                                    <span>CEO</span></div>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-facebook">
-                                                                    <i class="icon-facebook"></i>
-                                                                    <i class="icon-facebook"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-twitter">
-                                                                    <i class="icon-twitter"></i>
-                                                                    <i class="icon-twitter"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-gplus">
-                                                                    <i class="icon-gplus"></i>
-                                                                    <i class="icon-gplus"></i>
-                                                                </a>
-                                                            </div>
+                                            <div class="row topmargin-sm">
+                                                <div class="col-md-3 col-sm-6 bottommargin">
+
+                                                    <div class="team">
+                                                        <div class="team-image">
+                                                            <img src="images/team/3.jpg" alt="John Doe">
                                                         </div>
-
+                                                        <div class="team-desc">
+                                                            <div class="team-title"><h4>John Doe</h4>
+                                                                <span>CEO</span></div>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                                                <i class="icon-facebook"></i>
+                                                                <i class="icon-facebook"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                                                <i class="icon-twitter"></i>
+                                                                <i class="icon-twitter"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                                                <i class="icon-gplus"></i>
+                                                                <i class="icon-gplus"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
 
                                                 </div>
 
                                             </div>
-                                            <div class="tab-content clearfix" id="tab-spaces">
 
-                                                <div class="row topmargin-sm">
-                                                    <div class="col-md-3 col-sm-6 bottommargin">
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-spaces">
 
-                                                        <div class="team">
-                                                            <div class="team-image">
-                                                                <img src="images/team/3.jpg" alt="John Doe">
-                                                            </div>
-                                                            <div class="team-desc">
-                                                                <div class="team-title"><h4>John Doe</h4>
-                                                                    <span>CEO</span></div>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-facebook">
-                                                                    <i class="icon-facebook"></i>
-                                                                    <i class="icon-facebook"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-twitter">
-                                                                    <i class="icon-twitter"></i>
-                                                                    <i class="icon-twitter"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-gplus">
-                                                                    <i class="icon-gplus"></i>
-                                                                    <i class="icon-gplus"></i>
-                                                                </a>
-                                                            </div>
+                                            <div class="row topmargin-sm">
+                                                <div class="col-md-3 col-sm-6 bottommargin">
+
+                                                    <div class="team">
+                                                        <div class="team-image">
+                                                            <img src="images/team/3.jpg" alt="John Doe">
                                                         </div>
-
+                                                        <div class="team-desc">
+                                                            <div class="team-title"><h4>John Doe</h4>
+                                                                <span>CEO</span></div>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                                                <i class="icon-facebook"></i>
+                                                                <i class="icon-facebook"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                                                <i class="icon-twitter"></i>
+                                                                <i class="icon-twitter"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                                                <i class="icon-gplus"></i>
+                                                                <i class="icon-gplus"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
 
                                                 </div>
 
                                             </div>
-                                            <div class="tab-content clearfix" id="tab-workshops">
 
-                                                <div class="row topmargin-sm">
-                                                    <div class="col-md-3 col-sm-6 bottommargin">
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-workshops">
 
-                                                        <div class="team">
-                                                            <div class="team-image">
-                                                                <img src="images/team/3.jpg" alt="John Doe">
-                                                            </div>
-                                                            <div class="team-desc">
-                                                                <div class="team-title"><h4>John Doe</h4>
-                                                                    <span>CEO</span></div>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-facebook">
-                                                                    <i class="icon-facebook"></i>
-                                                                    <i class="icon-facebook"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-twitter">
-                                                                    <i class="icon-twitter"></i>
-                                                                    <i class="icon-twitter"></i>
-                                                                </a>
-                                                                <a href="#"
-                                                                   class="social-icon inline-block si-small si-light si-rounded si-gplus">
-                                                                    <i class="icon-gplus"></i>
-                                                                    <i class="icon-gplus"></i>
-                                                                </a>
-                                                            </div>
+                                            <div class="row topmargin-sm">
+                                                <div class="col-md-3 col-sm-6 bottommargin">
+
+                                                    <div class="team">
+                                                        <div class="team-image">
+                                                            <img src="images/team/3.jpg" alt="John Doe">
                                                         </div>
-
+                                                        <div class="team-desc">
+                                                            <div class="team-title"><h4>John Doe</h4>
+                                                                <span>CEO</span></div>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                                                <i class="icon-facebook"></i>
+                                                                <i class="icon-facebook"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                                                <i class="icon-twitter"></i>
+                                                                <i class="icon-twitter"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                               class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                                                <i class="icon-gplus"></i>
+                                                                <i class="icon-gplus"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
 
                                                 </div>
@@ -365,45 +359,47 @@
 
                         </div>
 
-                        <div class="line visible-xs-block"></div>
+                    </div>
 
-                        <div class="col-sm-3 clearfix">
+                    <div class="line visible-xs-block"></div>
 
-                            {#% if profile.idUser.id != app.user.id %}
-                                <div class="list-group">
-                                    <a href="{{ path('social_check_profile',{'id':app.user.id}) }}"
-                                       class="list-group-item clearfix">Mes Publications<i
-                                                class="icon-pencil2 pull-right"></i></a>
-                                    <a href="#" class="list-group-item clearfix">Mes Évènements<i
-                                                class="icon-calendar3 pull-right"></i></a>
-                                    <a href="#" class="list-group-item clearfix">Ma Boutique Personnelle<i
-                                                class="icon-gift pull-right"></i></a>
-                                    <a href="#" class="list-group-item clearfix">Mes Espaces<i
-                                                class="icon-screenshot pull-right"></i></a>
-                                    <a href="#" class="list-group-item clearfix">Mes Ateliers<i
-                                                class="icon-briefcase pull-right"></i></a>
-                                    <a href="{{ path('fos_user_profile_edit') }}" class="list-group-item clearfix">Paramètres
-                                        du Compte<i class="icon-cogs pull-right"></i></a>
-                                    <a href="{{ path('fos_user_security_logout') }}" class="list-group-item clearfix">Déconnecter<i
-                                                class="icon-line2-logout pull-right"></i></a>
-                                </div>
-                            {% endif %#}
+                    <div class="col-sm-3 clearfix">
 
-                            <div class="fancy-title topmargin title-border">
-                                {% if profile.idUser.id == app.user.id %}
-                                    <h4>About Me</h4>
-                                {% else %}
-                                    <h4>About {{ profile.idUser.firstname ~ ' ' ~ profile.idUser.lastname }}</h4>
-                                {% endif %}
+                        {#% if profile.idUser.id != app.user.id %}
+                            <div class="list-group">
+                                <a href="{{ path('social_check_profile',{'id':app.user.id}) }}"
+                                   class="list-group-item clearfix">Mes Publications<i
+                                            class="icon-pencil2 pull-right"></i></a>
+                                <a href="#" class="list-group-item clearfix">Mes Évènements<i
+                                            class="icon-calendar3 pull-right"></i></a>
+                                <a href="#" class="list-group-item clearfix">Ma Boutique Personnelle<i
+                                            class="icon-gift pull-right"></i></a>
+                                <a href="#" class="list-group-item clearfix">Mes Espaces<i
+                                            class="icon-screenshot pull-right"></i></a>
+                                <a href="#" class="list-group-item clearfix">Mes Ateliers<i
+                                            class="icon-briefcase pull-right"></i></a>
+                                <a href="{{ path('fos_user_profile_edit') }}" class="list-group-item clearfix">Paramètres
+                                    du Compte<i class="icon-cogs pull-right"></i></a>
+                                <a href="{{ path('fos_user_security_logout') }}" class="list-group-item clearfix">Déconnecter<i
+                                            class="icon-line2-logout pull-right"></i></a>
                             </div>
+                        {% endif %#}
 
-                            <p>Date de naissance: {{ profile.idUser.datenaiss|date('d/m/Y') }}<br>{{ profile.aboutMe }}</p>
-
+                        <div class="fancy-title topmargin title-border">
+                            {% if profile.idUser.id == app.user.id %}
+                                <h4>About Me</h4>
+                            {% else %}
+                                <h4>About {{ profile.idUser.firstname ~ ' ' ~ profile.idUser.lastname }}</h4>
+                            {% endif %}
                         </div>
+
+                        <p>Date de naissance: {{ profile.idUser.datenaiss|date('d/m/Y') }}<br>{{ profile.aboutMe }}</p>
 
                     </div>
 
                 </div>
+
+            </div>
 
 
         </section>
@@ -414,6 +410,35 @@
     {% endif %}
 {% endblock %}
 {% block javascripts %}
+    <script>
+        function hottlineplussuivre() {
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('social_suivreAX_user',{'id': profile.id}) }}',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function(response){
+                    document.getElementById("tab-followers").innerHTML = response;
+                }
+            });
+            {#alert('Vous suivez {{ profile.idUser.firstname }}');#}
+            document.getElementById("sss").innerHTML = '<a onclick="hottlisuivre()" title="Ne Plus Suivre {{ profile.idUser.firstname }}" href="#"> <strong>NE PLUS SUIVRE</strong></a>';
+        }
+
+        function hottlisuivre() {
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('social_pasuivreAX_user',{'id': profile.id}) }}',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function(response){
+                    document.getElementById("tab-followers").innerHTML = response;
+                }
+            });
+            {#alert('Vous ne suivez plus {{ profile.idUser.firstname }}');#}
+            document.getElementById("sss").innerHTML = '<a onclick="hottlineplussuivre()" title="Suivre {{ profile.idUser.firstname }}" href="#"><strong>SUIVRE</strong></a>';
+        }
+    </script>
     <script>
         jQuery("#tabs-profile").on("tabsactivate", function (event, ui) {
             jQuery('.flexslider .slide').resize();

@@ -53,8 +53,8 @@ class Post
      * @Assert\Length(
      *      min = 2,
      *      max = 50,
-     *      minMessage = "Your first name must be at least {{ limit }} characters long",
-     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     *      minMessage = "Le titre doit être au minimum de 2 caractères de longueur",
+     *      maxMessage = "Le titre doit être au maximum de 20 caractères de longueur"
      * )
      */
     private $titre;

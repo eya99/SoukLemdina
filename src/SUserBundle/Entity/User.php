@@ -10,9 +10,7 @@ namespace SUserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * Class User
@@ -108,7 +106,9 @@ class User extends BaseUser
      * @Assert\DateTime()
      * @Assert\Range(
      *      min = "first day of January 1950",
-     *      max = "first day of January 2007"
+     *      max = "first day of January 2007",
+     *      minMessage = "Êtes-vous sûr de votre date de naissance? On est une plateforme de jeunes là Monsieur (plus ou moins).",
+     *      maxMessage = "Êtes-vous sûr de votre date de naissance? On doit être un peu plus agé pour avoir un tel métier mon petit."
      * )
      */
     private $datenaiss;
@@ -307,24 +307,6 @@ class User extends BaseUser
     public function setNbsignal($nbsignal)
     {
         $this->nbsignal = $nbsignal;
-    }
-
-    public function validate(ExecutionContextInterface $context, $payload)
-    {
-        $datemin = new \DateTime('01/01/2008');
-        // check if the user is aged enough
-        if ($this->getDatenaiss() >= $datemin) {
-            $context->buildViolation('Vous êtes trop jeune pour le Souk mon petit, êtes-vous sûr de votre date de naissance?')
-                ->atPath('datenaiss')
-                ->addViolation();
-        }
-
-        //check if he's not lying about his hood
-        if ($this->getZipCode() > 9999 || $this->getZipCode() < 1000) {
-            $context->buildViolation('Êtes-vous sûr de votre ZipCode? Vous habitez sur Mars?')
-                ->atPath('zipCode')
-                ->addViolation();
-        }
     }
 
 }

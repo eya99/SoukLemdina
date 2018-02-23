@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" line="82" />
+    <bookmark url="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" line="85" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcaf1890-b1cc-4b28-8607-564818c6ecd2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/5a8962d4e3b9a.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/5a89a5826dc7c.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/5a8d2ce574104.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/SUserBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUserBundle/Resources/views/index.html.twig" afterPath="$PROJECT_DIR$/src/SUserBundle/Resources/views/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SocialBundle/Entity/Post.php" afterPath="$PROJECT_DIR$/src/SocialBundle/Entity/Post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SocialBundle/Entity/Profile.php" afterPath="$PROJECT_DIR$/src/SocialBundle/Entity/Profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SocialBundle/Form/ProfileForm.php" afterPath="$PROJECT_DIR$/src/SocialBundle/Form/ProfileForm.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig" afterPath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig" />
@@ -23,8 +18,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlMatcher.php" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlMatcher.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/prod.log" afterPath="$PROJECT_DIR$/var/logs/prod.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/ProfileFormType.php" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/ProfileFormType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,36 +31,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-              <folding>
-                <element signature="e#43#74#0#PHP" expanded="true" />
-                <element signature="e#1413#1435#1#PHP" expanded="true" />
-                <element signature="e#2077#2115#0#PHP" expanded="true" />
-                <element signature="e#5120#5139#1#PHP" expanded="true" />
-                <element signature="e#7205#7243#0#PHP" expanded="true" />
-                <element signature="e#12026#12045#1#PHP" expanded="true" />
-                <element signature="e#12690#12728#0#PHP" expanded="true" />
-                <element signature="e#13026#13045#1#PHP" expanded="true" />
-                <element signature="e#13588#13626#0#PHP" expanded="true" />
-                <marker date="1519194934621" expanded="true" signature="744:1118" ph="SELECT p FRO... SocialBundle" />
-                <marker date="1519194934621" expanded="true" signature="744:1182" ph="SELECT p FRO... SocialBundle" />
-                <marker date="1519194934621" expanded="true" signature="4338:4456" ph="SELECT u FRO... SUserBundle" />
-              </folding>
+            <state relative-caret-position="508">
+              <caret line="58" column="62" lean-forward="true" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegistrationFormType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+            <state relative-caret-position="594">
+              <caret line="259" column="47" lean-forward="false" selection-start-line="259" selection-start-column="47" selection-end-line="259" selection-end-column="47" />
               <folding>
-                <element signature="e#298#339#0#PHP" expanded="true" />
+                <element signature="e#43#74#0#PHP" expanded="true" />
+                <element signature="e#1673#1695#1#PHP" expanded="true" />
+                <element signature="e#2393#2431#0#PHP" expanded="true" />
+                <element signature="e#6795#6833#0#PHP" expanded="true" />
+                <element signature="e#7074#7095#1#PHP" expanded="true" />
+                <element signature="e#7170#7207#0#PHP" expanded="true" />
+                <element signature="e#13907#13926#1#PHP" expanded="true" />
+                <element signature="e#14559#14597#0#PHP" expanded="true" />
+                <element signature="e#14895#14914#1#PHP" expanded="true" />
+                <element signature="e#15453#15491#0#PHP" expanded="true" />
+                <marker date="1519350027546" expanded="true" signature="984:1358" ph="SELECT p FRO... SocialBundle" />
+                <marker date="1519350027546" expanded="true" signature="984:1422" ph="SELECT p FRO... SocialBundle" />
+                <marker date="1519350027546" expanded="true" signature="4737:4855" ph="SELECT u FRO... SUserBundle" />
               </folding>
             </state>
           </provider>
@@ -76,8 +68,18 @@
       <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+            <state relative-caret-position="1071">
+              <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="followers.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/followers.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="52" lean-forward="true" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -86,10 +88,11 @@
       <file leaf-file-name="check.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="79" column="107" lean-forward="false" selection-start-line="79" selection-start-column="107" selection-end-line="79" selection-end-column="107" />
+            <state relative-caret-position="474">
+              <caret line="439" column="9" lean-forward="false" selection-start-line="439" selection-start-column="9" selection-end-line="439" selection-end-column="9" />
               <folding>
-                <element signature="e#2131#2155#0#HTML" expanded="true" />
+                <element signature="e#27137#27157#0#Twig" expanded="true" />
+                <element signature="e#27826#27848#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,33 +101,37 @@
       <file leaf-file-name="search.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/search.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" column="74" lean-forward="false" selection-start-line="34" selection-start-column="74" selection-end-line="34" selection-end-column="74" />
+            <state relative-caret-position="544">
+              <caret line="32" column="69" lean-forward="false" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
               <folding>
-                <element signature="e#1850#1877#0#HTML" expanded="true" />
+                <element signature="e#2317#2341#0#HTML" expanded="true" />
+                <element signature="e#2974#2998#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Post.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="77" column="75" lean-forward="false" selection-start-line="77" selection-start-column="75" selection-end-line="77" selection-end-column="75" />
+              <folding>
+                <element signature="e#2974#2998#0#HTML" expanded="true" />
+                <element signature="e#3679#3703#0#HTML" expanded="true" />
+                <element signature="e#6173#6205#0#Twig" expanded="true" />
+                <element signature="e#6481#6511#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Post.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="55" column="70" lean-forward="true" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
+            <state relative-caret-position="442">
+              <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SUserBundle/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="112" column="7" lean-forward="false" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
-              <folding>
-                <element signature="e#120#152#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -137,6 +144,9 @@
       <find>oneto</find>
       <find>fos_visitor</find>
       <find>date</find>
+      <find>redi</find>
+      <find>check</find>
+      <find>followers</find>
     </findStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
@@ -177,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/BackOfficeBundle/Resources/views/backoffice.html.twig" />
         <option value="$PROJECT_DIR$/src/BackOfficeBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/SUserBundle/Redirection/AfterLoginRedirection.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Mailer/TwigSwiftMailer.php" />
@@ -214,20 +223,21 @@
         <option value="$PROJECT_DIR$/src/SUserBundle/Resources/views/Profile/edit_content.html.twig" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Post/modifier.html.twig" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Entity/Follow.php" />
-        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/search.html.twig" />
         <option value="$PROJECT_DIR$/src/SUserBundle/Resources/views/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Form/ProfileForm.php" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Entity/Profile.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/ProfileFormType.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/ChangePasswordController.php" />
         <option value="$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Entity/Post.php" />
         <option value="$PROJECT_DIR$/src/SUserBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/search.html.twig" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/followers.html.twig" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig" />
-        <option value="$PROJECT_DIR$/src/SocialBundle/Entity/Post.php" />
       </list>
     </option>
   </component>
@@ -317,6 +327,56 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Post" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Profile" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
@@ -499,12 +559,12 @@
       <workItem from="1518711408337" duration="649000" />
       <workItem from="1518818129565" duration="72989000" />
       <workItem from="1519050226435" duration="12766000" />
-      <workItem from="1519116808380" duration="31682000" />
+      <workItem from="1519116808380" duration="51689000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286780000" />
+    <option name="totallyTimeSpent" value="306787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -537,31 +597,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/vich/uploader-bundle/Resources/config/namer.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/vich/uploader-bundle/Resources/config/adapter.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/vich/uploader-bundle/Naming/UniqidNamer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/vich/uploader-bundle/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -700,26 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="59" lean-forward="true" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="91" column="86" lean-forward="false" selection-start-line="91" selection-start-column="86" selection-end-line="91" selection-end-column="86" />
-          <folding>
-            <element signature="e#2954#2978#0#HTML" expanded="true" />
-            <element signature="e#5438#5470#0#Twig" expanded="true" />
-            <element signature="e#5612#5642#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Validator/Initializer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -762,16 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Form/ProfileForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="48" selection-end-line="25" selection-end-column="45" />
-          <folding>
-            <element signature="e#37#69#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/ProfileFormType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -811,16 +822,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/search.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="74" lean-forward="false" selection-start-line="34" selection-start-column="74" selection-end-line="34" selection-end-column="74" />
-          <folding>
-            <element signature="e#1850#1877#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -916,70 +917,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-          <folding>
-            <element signature="e#298#339#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SUserBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="112" column="7" lean-forward="false" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
+        <state relative-caret-position="170">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="e#120#152#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Form/ProfileForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" column="75" lean-forward="false" selection-start-line="77" selection-start-column="75" selection-end-line="77" selection-end-column="75" />
+          <folding>
+            <element signature="e#2974#2998#0#HTML" expanded="true" />
+            <element signature="e#3679#3703#0#HTML" expanded="true" />
+            <element signature="e#6173#6205#0#Twig" expanded="true" />
+            <element signature="e#6481#6511#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding>
+            <element signature="e#298#339#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/search.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="69" lean-forward="false" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
+          <folding>
+            <element signature="e#2317#2341#0#HTML" expanded="true" />
+            <element signature="e#2974#2998#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="58" column="62" lean-forward="true" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="66" column="23" lean-forward="false" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/BrowserKit/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/followers.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="52" lean-forward="true" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="107" lean-forward="false" selection-start-line="79" selection-start-column="107" selection-end-line="79" selection-end-column="107" />
+        <state relative-caret-position="474">
+          <caret line="439" column="9" lean-forward="false" selection-start-line="439" selection-start-column="9" selection-end-line="439" selection-end-column="9" />
           <folding>
-            <element signature="e#2131#2155#0#HTML" expanded="true" />
+            <element signature="e#27137#27157#0#Twig" expanded="true" />
+            <element signature="e#27826#27848#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        <state relative-caret-position="594">
+          <caret line="259" column="47" lean-forward="false" selection-start-line="259" selection-start-column="47" selection-end-line="259" selection-end-column="47" />
           <folding>
             <element signature="e#43#74#0#PHP" expanded="true" />
-            <element signature="e#1413#1435#1#PHP" expanded="true" />
-            <element signature="e#2077#2115#0#PHP" expanded="true" />
-            <element signature="e#5120#5139#1#PHP" expanded="true" />
-            <element signature="e#7205#7243#0#PHP" expanded="true" />
-            <element signature="e#12026#12045#1#PHP" expanded="true" />
-            <element signature="e#12690#12728#0#PHP" expanded="true" />
-            <element signature="e#13026#13045#1#PHP" expanded="true" />
-            <element signature="e#13588#13626#0#PHP" expanded="true" />
-            <marker date="1519194934621" expanded="true" signature="744:1118" ph="SELECT p FRO... SocialBundle" />
-            <marker date="1519194934621" expanded="true" signature="744:1182" ph="SELECT p FRO... SocialBundle" />
-            <marker date="1519194934621" expanded="true" signature="4338:4456" ph="SELECT u FRO... SUserBundle" />
+            <element signature="e#1673#1695#1#PHP" expanded="true" />
+            <element signature="e#2393#2431#0#PHP" expanded="true" />
+            <element signature="e#6795#6833#0#PHP" expanded="true" />
+            <element signature="e#7074#7095#1#PHP" expanded="true" />
+            <element signature="e#7170#7207#0#PHP" expanded="true" />
+            <element signature="e#13907#13926#1#PHP" expanded="true" />
+            <element signature="e#14559#14597#0#PHP" expanded="true" />
+            <element signature="e#14895#14914#1#PHP" expanded="true" />
+            <element signature="e#15453#15491#0#PHP" expanded="true" />
+            <marker date="1519350027546" expanded="true" signature="984:1358" ph="SELECT p FRO... SocialBundle" />
+            <marker date="1519350027546" expanded="true" signature="984:1422" ph="SELECT p FRO... SocialBundle" />
+            <marker date="1519350027546" expanded="true" signature="4737:4855" ph="SELECT u FRO... SUserBundle" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="55" column="70" lean-forward="true" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>

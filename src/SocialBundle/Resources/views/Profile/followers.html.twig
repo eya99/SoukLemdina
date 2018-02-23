@@ -1,0 +1,24 @@
+{% for follower in followers %}
+    <div class="topmargin-sm">
+        <div class="col-md-3 col-sm-6 bottommargin">
+            <div class="team">
+                <div class="team-image cccontainer">
+                    <a href="{{ path('social_check_profile',{'id':follower.idProfileFollower.idUser.id}) }}">
+                        <img class="img-circle iiimg"
+                             src="{{ asset('uploads/images/'~follower.idProfileFollower.image) }}"
+                             alt="{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}">
+                    </a>
+                </div>
+                <div class="team-desc">
+                    <div class="team-title">
+                        <a href="{{ path('social_check_profile',{'id':follower.idProfileFollower.idUser.id}) }}">
+                            <h4>{{ follower.idProfileFollower.idUser.firstname ~ ' ' ~ follower.idProfileFollower.idUser.lastname }}</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endfor %}

@@ -49,3 +49,11 @@ social_delete_post_fromWelcome:
 social_modifier_post_fromWelcome:
     path:     /modp/{id}
     defaults: { _controller: SocialBundle:Default:modPost }
+
+social_suivreAX_user:
+    path:     /suivAX/{id}
+    defaults: { _controller: SocialBundle:Default:followAX }
+
+social_pasuivreAX_user:
+    path:     /pasuivAX/{id}
+    defaults: { _controller: SocialBundle:Default:unfollowAX }

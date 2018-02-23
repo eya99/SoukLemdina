@@ -29,10 +29,23 @@
                                         {% if profile.idUser.id != app.user.id %}
                                             <tr>
                                                 <td>
-                                                    <a href="{{ path('social_check_profile',{'id':profile.idUser.id}) }}"><img
-                                                                src="{{ asset('uploads/images/' ~ profile.image) }}"
-                                                                style="border-radius: 50%;" height="50"
-                                                                width="50"></a>
+                                                    <a href="{{ path('social_check_profile',{'id':profile.idUser.id}) }}">
+                                                        {% if profile.image %}
+                                                            <img
+                                                                    class="alignright img-circle img-thumbnail
+                                                                                    notopmargin nobottommargin fish"
+                                                                    src="{{ asset('uploads/images/' ~ profile.image) }}"
+                                                                    alt="Image du profile"
+                                                                    style="max-width: 74px;">
+                                                        {% else %}
+                                                            <img
+                                                                    class="alignright img-circle img-thumbnail
+                                                                                    notopmargin nobottommargin fish"
+                                                                    src="{{ asset('Template/images/icons/avatar.jpg') }}"
+                                                                    alt="Avatar"
+                                                                    style="max-width: 74px;">
+                                                        {% endif %}
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <strong>{{ profile.idUser.firstname ~' '~ profile.idUser.lastname }}</strong>
