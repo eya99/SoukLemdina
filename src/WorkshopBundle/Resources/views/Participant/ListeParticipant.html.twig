@@ -1,0 +1,35 @@
+<h1>Liste des Participants</h1>
+<table border="1">
+    <tr>
+        <th>
+            Nom
+        </th>
+        <th>
+            Prénom
+        </th>
+        <th>
+            Date de naissance
+        </th>
+        <th>
+            Num Telephone
+        </th>
+    </tr>
+    {% for participant in p | sort %}
+        <tr>
+            <td>
+                {{ participant.idUser.firstname }}
+            </td>
+            <td>
+                {{ participant.idUser.lastname }}
+            </td>
+            <td>
+                {{ participant.idUser.datenaiss|date('Y-m-d') }}
+            </td>
+            <td>
+                {{ participant.idUser.phone }}
+            </td>
+
+            <a href="{{ path('_Redirect',{'id':w}) }}">Retourner</a>
+        </tr>
+    {% endfor %}
+</table>

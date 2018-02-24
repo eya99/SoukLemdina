@@ -13,6 +13,7 @@ namespace FOS\UserBundle\Form\Type;
 
 use FOS\UserBundle\Util\LegacyFormHelper;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
@@ -50,13 +51,29 @@ class ProfileFormType extends AbstractType
 
         $builder->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
             'label' => 'form.current_password',
+            'attr'   =>  array(
+                'class'   => 'form-control'),
             'translation_domain' => 'FOSUserBundle',
             'mapped' => false,
             'constraints' => array(
                 new NotBlank(),
                 new UserPassword($constraintsOptions),
             ),
-        ));
+        ))
+            ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
+                'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
+                'options' => array('translation_domain' => 'FOSUserBundle'),
+                'first_options' => array('label' => 'form.password','attr'   =>  array(
+                    'class'   => 'form-control')),
+                'second_options' => array('label' => 'form.password_confirmation','attr'   =>  array(
+                    'class'   => 'form-control')),
+                'invalid_message' => 'fos_user.password.mismatch',
+            ))
+            ->add('phone',null,array('label' => 'Numéro de Téléphone','attr'   =>  array(
+                'class'   => 'form-control')))
+            ->add('datenaiss',BirthdayType::class, array('label' => 'Date de naissance','attr'   =>  array(
+                'class'   => 'form-control')))
+        ;
     }
 
     /**
@@ -98,8 +115,8 @@ class ProfileFormType extends AbstractType
     protected function buildUserForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle','attr'   =>  array(
+                'class'   => 'form-control')))
         ;
     }
 }

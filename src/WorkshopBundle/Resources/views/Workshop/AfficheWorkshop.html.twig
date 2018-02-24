@@ -1,0 +1,154 @@
+{% extends "SUserBundle::layout.html.twig" %}
+
+
+{% block title %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+
+{% block body %}
+
+
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="parallax header-stick bottommargin-lg dark" style="padding: 60px 0; background-image: url('{{ asset('Template/images/parallax/calendar.jpg') }}'); height: auto;" data-stellar-background-ratio="0.5">
+
+                <div class="container clearfix">
+
+                    <div class="events-calendar">
+                        <div class="events-calendar-header clearfix">
+                            <h2>Liste des Workshops </h2>                                        <div class="entry-content">
+                                <a href="{{ path('_AjoutWorkshop')}}" class="btn btn-default" >Ajouter Votre workshop</a>
+                            </div>
+                            <h3 class="calendar-month-year">
+                                <span id="calendar-month" class="calendar-month"></span>
+                                <span id="calendar-year" class="calendar-year"></span>
+                                <nav>
+                                    <span id="calendar-prev" class="calendar-prev"><i class="icon-chevron-left"></i></span>
+                                    <span id="calendar-next" class="calendar-next"><i class="icon-chevron-right"></i></span>
+                                    <span id="calendar-current" class="calendar-current" title="Got to current date"><i class="icon-reload"></i></span>
+                                </nav>
+                            </h3>
+                        </div>
+                        <div id="calendar" class="fc-calendar-container"></div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+                <div class="divider divider-center"><i class="icon-circle-blank"></i></div>
+
+                <h3>Ateliers à venir</h3>
+    {% for work in w | sort  %}
+
+                <div id="posts" class="events small-thumbs">
+
+                    <div class="entry clearfix">
+
+
+        <div class="entry-image">
+                            <a href="#">
+                                <img src="{{ asset('uploads/images/' )}} {{ work.image}}"  alt="{{ work.nomWorkshop }}">
+                                <div class="entry-date">10<span>Apr</span></div>
+                            </a>
+                        </div>
+
+                        <div class="entry-c">
+                            <div class="entry-title">
+
+                                <h2><a href="{{ path('_Redirect',{'id': work.id}) }}">{{ work.nomWorkshop }}</a></h2>
+                            </div>
+                            <ul class="entry-meta clearfix">
+                                <li><span class="label label-warning">{{ work.dateDebut| date("m/d/Y") }}</span></li>
+                                <li><a href="#"><i class="icon-time"></i>{{ work.dateFin| date("m/d/Y") }}  </a></li>
+                                <li><a href="#"><i class="icon-map-marker2"></i> {{ work.adresse }}</a></li>
+                            </ul>
+
+                            <div class="entry-content">
+                                <p>{{ work.description }}</p>
+                                {% if work.idUser.id == app.user.id %}
+                                <a href="{{ path('_DeleteWorkshop', {'id':work.id}) }}" class="btn btn-default" >Supprimer Workshop</a>
+                            </div>
+                            <div class="entry-content">
+                                <a href="{{ path('_UpdateWorkshop', {'id':work.id}) }}" class="btn btn-default" >Modifier Workshop</a>
+                                {% endif %}
+                        </div>
+
+                         <div class="entry-content">
+                                <a href="{{ path('_DetailsWorkshop', {'id':work.id}) }}" class="btn btn-default" >Details Workshop</a> <a href="#" class="btn btn-danger">Signaler</a>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </section><!-- #content end -->
+
+    <!-- Footer
+    ============================================= -->
+
+
+    >
+
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
+                        {% endfor %}
+{% endblock %}
+
+
+
+{% block javascript %}
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="{{ asset('Template/js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/plugins.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/jquery.calendario.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/events-data.js')}}"></script>
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="{{ asset('Template/js/functions.js')}}"></script>
+
+    <script type="text/javascript">
+
+        var cal = $( '#calendar' ).calendario( {
+                onDayClick : function( $el, $contentEl, dateProperties ) {
+
+                    for( var key in dateProperties ) {
+                        console.log( key + ' = ' + dateProperties[ key ] );
+                    }
+
+                },
+                caldata : canvasEvents
+            } ),
+            $month = $( '#calendar-month' ).html( cal.getMonthName() ),
+            $year = $( '#calendar-year' ).html( cal.getYear() );
+
+        $( '#calendar-next' ).on( 'click', function() {
+            cal.gotoNextMonth( updateMonthYear );
+        } );
+        $( '#calendar-prev' ).on( 'click', function() {
+            cal.gotoPreviousMonth( updateMonthYear );
+        } );
+        $( '#calendar-current' ).on( 'click', function() {
+            cal.gotoNow( updateMonthYear );
+        } );
+
+        function updateMonthYear() {
+            $month.html( cal.getMonthName() );
+            $year.html( cal.getYear() );
+        };
+
+    </script>
+
+{% endblock %}

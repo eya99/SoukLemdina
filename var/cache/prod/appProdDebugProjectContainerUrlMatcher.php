@@ -30,13 +30,75 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
         }
 
 
-        // workshop_homepage
-        if ('/workshop' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'workshop_homepage');
+        if (0 === strpos($pathinfo, '/workshop')) {
+            // workshop_homepage
+            if ('/workshop/workshop' === $pathinfo) {
+                return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => 'workshop_homepage',);
             }
 
-            return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => 'workshop_homepage',);
+            // _index
+            if ('/workshop/index' === $pathinfo) {
+                return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => '_index',);
+            }
+
+            if (0 === strpos($pathinfo, '/workshop/A')) {
+                // _AjoutWorkshop
+                if ('/workshop/AjoutWorkshop' === $pathinfo) {
+                    return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AjoutWorkshopAction',  '_route' => '_AjoutWorkshop',);
+                }
+
+                // _AfficheVisitWorkshop
+                if ('/workshop/AfficheVisitWorkshop' === $pathinfo) {
+                    return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AfficheVisitWorkshopAction',  '_route' => '_AfficheVisitWorkshop',);
+                }
+
+                // _AfficheWorkshop
+                if ('/workshop/AfficheWorkshop' === $pathinfo) {
+                    return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AfficheWorkshopAction',  '_route' => '_AfficheWorkshop',);
+                }
+
+            }
+
+            // _DeleteWorkshop
+            if (0 === strpos($pathinfo, '/workshop/DeleteWorkshop') && preg_match('#^/workshop/DeleteWorkshop/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DeleteWorkshop')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::DeleteWorkshopAction',));
+            }
+
+            // _DetailsWorkshop
+            if (0 === strpos($pathinfo, '/workshop/DetailsWorkshop') && preg_match('#^/workshop/DetailsWorkshop/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DetailsWorkshop')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::DetailsWorkshopAction',));
+            }
+
+            // _UpdateWorkshop
+            if (0 === strpos($pathinfo, '/workshop/UpdateWorkshop') && preg_match('#^/workshop/UpdateWorkshop/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateWorkshop')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::UpdateWorkshopAction',));
+            }
+
+            // _Redirect
+            if (0 === strpos($pathinfo, '/workshop/Redirect') && preg_match('#^/workshop/Redirect/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_Redirect')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::RedirectAction',));
+            }
+
+            // _RechercheWorkshop
+            if ('/workshop/RechercheWorkshop' === $pathinfo) {
+                return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::PasParticiper_workAction',  '_route' => '_RechercheWorkshop',);
+            }
+
+            // _Participer_work
+            if (0 === strpos($pathinfo, '/workshop/Participer_work') && preg_match('#^/workshop/Participer_work/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_Participer_work')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::Participer_workAction',));
+            }
+
+            // _PasParticiper_work
+            if (0 === strpos($pathinfo, '/workshop/PasParticiper_work') && preg_match('#^/workshop/PasParticiper_work/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_PasParticiper_work')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::PasParticiper_workAction',));
+            }
+
+            // _ListeParticipant
+            if (0 === strpos($pathinfo, '/workshop/ListeParticipant') && preg_match('#^/workshop/ListeParticipant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_ListeParticipant')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::ListeParticipantAction',));
+            }
+
         }
 
         // local_homepage

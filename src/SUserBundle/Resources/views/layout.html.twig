@@ -47,24 +47,45 @@
                        data-dark-logo="{{ asset('Template/images/logos/app-typo.png') }}"><img
                                 src="{{ asset('Template/images/logos/app-typo.png') }}" alt="Souk Lemdina Logo"></a>
                 </div><!-- #logo end -->
-
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <div id="top-account" class="dropdown">
+                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Mon Profile</a></li>
+                        <li><a href="#">Messages <span class="badge">5</span></a></li>
+                        <li><a href="#">Ma Boutique Personnelle</a></li>
+                        <li><a href="#">Mes Évènements</a></li>
+                        <li><a href="#">Mes Espaces</a></li>
+                        <li><a href="#">Mes Ateliers</a></li>
+                        <li><a href="{{ path('fos_user_profile_edit') }}">Paramètres</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">Déconnecter<i class="icon-signout"></i></a></li>
+                    </ul>
+                </div>
+                {% endif %}
                 <!-- Primary Navigation
                 ============================================= -->
                 <nav id="primary-menu">
 
                     <ul>
-                        <li class="current"><a href="{{ path('fos_visitor_home') }}">
+                        <li class="mega-menu"><a href="{{ path('fos_visitor_home') }}">
                                 <div>Accueil</div>
                             </a></li>
                         <li><a href="#">
-                                <div>Trending</div>
+                                <div>Hdith ElSouk</div>
                             </a></li>
                         <li class="mega-menu"><a href="#">
                                 <div>Évènements</div>
                             </a></li>
-                        <li class="mega-menu"><a href="#">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li class="mega-menu"><a href="{{ path('_AfficheWorkshop') }}">
+                                <div>Ateliers</div>
+                                {% else %}
+                        <li class="mega-menu"><a href="{{ path('_AfficheVisitWorkshop') }}">
                                 <div>Ateliers</div>
                             </a></li>
+                        {% endif %}
+
                         <li class="mega-menu"><a href="#">
                                 <div>Explore</div>
                             </a></li>
@@ -74,18 +95,21 @@
                     </ul>
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <div id="top-cart">
-                            <a href="{{ path('fos_visitor_home') }}"><i class="i-plain icon-globe"></i></a>
+                        <div id="top-search">
+                            <a href="#" title="Rechercher Artisans" id="top-search-trigger"><i class="icon-search3"></i><i class=" icon-line-cross"></i></a>
+                            <form action="#" method="post">
+                                <input type="text" name="q" class="form-control" value="" placeholder="Écrire &amp; Appuyer Entrer..">
+                            </form>
                         </div>
                         <div id="top-cart">
-                            <a href="{{ path('fos_user_security_logout') }}"><i class="i-plain icon-external-link"></i></a>
+                            <a href="{{ path('fos_user_security_logout') }}"><i class=" icon-external-link"></i></a>
                         </div>
                     {% else %}
                         <div id="top-cart">
-                            <a href="{{ path('fos_user_registration_register') }}"><i class="i-plain icon-user"></i></a>
+                            <a href="{{ path('fos_user_registration_register') }}"><i class=" icon-user"></i></a>
                         </div>
                         <div id="top-cart">
-                            <a href="{{ path('fos_user_security_login') }}"><i class="i-plain icon-download"></i></a>
+                            <a href="{{ path('fos_user_security_login') }}"><i class=" icon-download"></i></a>
                         </div>
                     {% endif %}
 
@@ -138,6 +162,7 @@
 
                     </div>
 
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <div class="col_one_third">
 
                         <div class="widget widget_links clearfix">
@@ -145,18 +170,19 @@
                             <h4>Mon Profile</h4>
 
                             <ul>
-                                <li><a href="#">Publications</a></li>
-                                <li><a href="#">Galerie</a></li>
+                                <li><a href="#">Mes Publications</a></li>
+                                <li><a href="#">Mes Évènements</a></li>
                                 <li><a href="#">Ma Boutique Personnelle</a></li>
                                 <li><a href="#">Mes Espaces</a></li>
-                                <li><a href="#">Mon dashboard</a></li>
-                                <li><a href="#">Paramètres</a></li>
-                                <li><a href="#"></a></li>
+                                <li><a href="#">Mes Ateliers</a></li>
+                                <li><a href="{{ path('fos_user_profile_edit') }}">Paramètres du Compte</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Déconnecter</a></li>
                             </ul>
 
                         </div>
 
                     </div>
+                    {% endif %}
 
                     <div class="col_one_third col_last">
 

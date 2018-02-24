@@ -1,3 +1,40 @@
 workshop_homepage:
-    path:     /
+    path:     /workshop
     defaults: { _controller: WorkshopBundle:Default:index }
+_index:
+    path:     /index
+    defaults: { _controller: WorkshopBundle:Default:index  }
+_AjoutWorkshop:
+    path:     /AjoutWorkshop
+    defaults: { _controller: WorkshopBundle:Workshop:AjoutWorkshop }
+_AfficheVisitWorkshop:
+    path:     /AfficheVisitWorkshop
+    defaults: { _controller: WorkshopBundle:Workshop:AfficheVisitWorkshop }
+_AfficheWorkshop:
+    path:     /AfficheWorkshop
+    defaults: { _controller: WorkshopBundle:Workshop:AfficheWorkshop }
+_DeleteWorkshop:
+    path:     /DeleteWorkshop/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:DeleteWorkshop }
+_UpdateWorkshop:
+    path:     /UpdateWorkshop/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:UpdateWorkshop }
+_DetailsWorkshop:
+    path:     /DetailsWorkshop/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:DetailsWorkshop }
+_Redirect:
+    path:     /Redirect/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:Redirect }
+_Participer_work:
+    path:     /Participer_work/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:Participer_work }
+_PasParticiper_work:
+    path:     /PasParticiper_work/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:PasParticiper_work }
+_RechercheWorkshop:
+    path:     /RechercheWorkshop
+    defaults: { _controller: WorkshopBundle:Workshop:PasParticiper_work }
+_ListeParticipant:
+    path:     /ListeParticipant/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:ListeParticipant }
+

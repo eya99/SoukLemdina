@@ -3,6 +3,7 @@
 namespace WorkshopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Workshop
@@ -20,6 +21,22 @@ class Workshop
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
 
     /**
      * @var string
@@ -44,14 +61,14 @@ class Workshop
 
     /**
      * @var \DateTime
-     *
+     * @Assert\GreaterThan("today UTC")
      * @ORM\Column(name="dateDebut", type="date")
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\GreaterThan("today UTC")
      * @ORM\Column(name="dateFin", type="date")
      */
     private $dateFin;
@@ -73,7 +90,7 @@ class Workshop
     /**
      * @var int
      *
-     * @ORM\Column(name="nbSignal", type="integer")
+     * @ORM\Column(name="nbSignal", type="integer", nullable=true)
      */
     private $nbSignal;
 
@@ -87,20 +104,27 @@ class Workshop
     /**
      * @var string
      *
-     * @ORM\Column(name="video", type="string", length=255)
+     * @ORM\Column(name="video", type="string", length=255,nullable=true)
      */
     private $video;
+    /**
+     * @var string
+     * @Assert\NotBlank(message="svp entrez une image")
+     * @Assert\Image()
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+private $image;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="planning", type="string", length=255)
+
+     * @ORM\Column(name= "planning", type= "string", length=255,nullable=true)
      */
     private $planning;
 
     /**
      * @var string
-     * @ORM\OneToOne(targetEntity="SUserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="SUserBundle\Entity\User")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
@@ -404,4 +428,3 @@ class Workshop
         return $this->idUser;
     }
 }
-
