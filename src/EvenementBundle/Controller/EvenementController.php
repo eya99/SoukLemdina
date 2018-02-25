@@ -4,6 +4,7 @@ namespace EvenementBundle\Controller;
 use EvenementBundle\Entity\ParticipantEvents;
 use EvenementBundle\EvenementBundle;
 use EvenementBundle\Form\ParticipantEventsType;
+use EvenementBundle\Form\RatingEventType;
 use EvenementBundle\Form\RechercheForm;
 use function PHPSTORM_META\type;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -285,5 +286,41 @@ return $this->render('EvenementBundle:Evenement:RechercheDQL.html.twig',
 
     public function CountPartiAction(){
 
+    }
+
+   /* public function RatingEventAction(Request $request, $id){
+        $user=$this->container->get('security.token_storage')->getToken()->getUser();
+        $rating= new Evenement();
+        $form=$this->createForm(RatingEventType::class,$rating);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $rating = $em->getRepository("EvenementBundle:Evenement")->find($id);
+            $em->persist($rating);
+            $em->flush();
+            return $this->redirectToRoute("_AfficheEvent");
+        }
+        return $this->render("EvenementBundle:Evenement:RatingEvent.html.twig",
+            array('form'=>$form->createView(),'user'=>$user,'id'=>$id));
+    }
+*/
+
+    public function ratingAction(Request $request, $id) {
+        $em= $this->getDoctrine()->getManager();
+        $event = $em->getRepository("EvenementBundle:Evenement")->find($id);
+        $r=$event->getNbrrating();
+        $form = $this->createForm(RatingEventType::class, $event);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            $event->setNbruser($event->getNbruser()+1);
+            $event->setNbrrating($event->getRating()+$r);
+            $a=($form['rating']->getData()+$r)/$event->getNbruser();
+            $event->setRating($a);
+            $em->persist($event);
+            $em->flush();
+            return $this->redirectToRoute("_AfficheEvent");
+
+        }
+        return $this->render('EvenementBundle:Evenement:RatingEvent.html.twig', array('form' => $form->createView()));
     }
 }

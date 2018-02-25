@@ -42,11 +42,11 @@ class EvenementType extends AbstractType
             ->add('photo',FileType::class,array('label' => 'Photo','attr'=>array('class' =>'form-control')))
             ->add('type',ChoiceType::class,
             array('choices'=>array('musical'=>'musical','culturel'=>'culturel','autres'=>'autres'),'attr'=>array('class'=>'form-control')))
-            ->add('rating', RatingType::class, ['label'=> 'Rating'])
 
         ->add('Ajouter',SubmitType::class,
             array('label'=>'Publier','attr' =>array('class'=>'button button-3d button-black nomargin')));
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

@@ -42,3 +42,7 @@ _sendNotification:
     path:     /sendNotification
     defaults: { _controller: EvenementBundle:Evenement:AfficheEvent }
 
+_Rating:
+    path:     /Ratingo/{id}
+    defaults: { _controller: EvenementBundle:Evenement:rating }
+

@@ -98,6 +98,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheDQLAction',  '_route' => '_RechercheDQL',);
             }
 
+            // _Rating
+            if (0 === strpos($pathinfo, '/evenement/Ratingo') && preg_match('#^/evenement/Ratingo/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_Rating')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::ratingAction',));
+            }
+
             // _ParticiperEvent
             if (0 === strpos($pathinfo, '/evenement/ParticiperEvent') && preg_match('#^/evenement/ParticiperEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_ParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::participerEventAction',));
