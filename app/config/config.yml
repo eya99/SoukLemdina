@@ -15,6 +15,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    image_directory: '%kernel.project_dir%/web/uploads/images'
 
 framework:
     #esi: ~
@@ -75,13 +76,7 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-vich_uploader:
-    db_driver: orm
-    mappings:
-        product_images:
-            uri_prefix:         /uploads/images/
-            upload_destination: '%kernel.root_dir%/../web/uploads/images/'
-            namer: vich_uploader.namer_uniqid
+
 knp_paginator:
     page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
     default_options:

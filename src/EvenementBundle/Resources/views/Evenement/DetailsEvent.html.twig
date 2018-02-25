@@ -15,8 +15,8 @@
             <div class="container clearfix">
                 <h1>{{ e.nomEvenement  }}</h1>
                 <ol class="breadcrumb">
-                    <li><a href="{{ path('fos_visitor_home') }}">Home</a></li>
-                    <li><a href="{{ path('_AfficheEvent') }}">Events</a></li>
+                    <li><a href="{{ path('fos_visitor_home') }}">Accueil</a></li>
+                    <li><a href="{{ path('_AfficheEvent') }}">Evenements</a></li>
                 </ol>
             </div>
 
@@ -58,9 +58,11 @@
 
                             <div class="col_full">
                                 <div class="entry-image nobottommargin">
-                                    <a href="#"><img src="{{ asset('Template/images/events/2.jpg')}}" alt="Event Single"></a>
+                                    <a href="#"><img src="{{ asset('uploads/images/') }}{{ e.photo }}" alt="{{ e.nomEvenement }}" ></a>
 
                                 </div>
+                            </div>
+
                             </div>
                             <div class="col_full">
                                 <div class="panel panel-default events-meta">
@@ -72,13 +74,21 @@
                                             <li><i class="icon-calendar3"></i>type: {{ e.type }}</li>
                                             <li><i class="icon-calendar3"></i>nombre de place: {{ e.nbPlace }}</li>
                                             <li><i class="icon-calendar3"></i> {{ e.dateDebut|date('Y-m-d')}}</li>
-                                            <li><i class="icon-time"></i> 20:00 - 02:00</li>
+                                            <li><i class="icon-time"></i>{{ e.heure| date("h:m") }}</li>
                                             <li><i class="icon-map-marker2"></i> {{ e.adresse }}</li>
                                             <li><i class="icon-euro"></i> <strong>{{ e.prix }}</strong></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-success btn-block btn-lg">Participer</a>
+
+                         {% if e.idUser.id != app.user.id %}
+
+                                {% if participants is null %}
+                                <a href="{{ path('_ParticiperEvent',{'id':e.id}) }}" class="btn btn-success btn-block btn-lg">Participer à {{ e.nomEvenement }}</a>
+                                {% else %}
+                                <a href="{{ path('_nParticiperEvent',{'id':participants.id}) }}" class="btn btn-success btn-block btn-lg">ne plus Participer à {{ e.nomEvenement }}</a>
+                                           {% endif %}
+                                {% endif %}
                             </div>
 
                             <div class="col_full">
@@ -132,6 +142,8 @@
                 </div>
 
             </div>
+            </div>
+
 
         <!-- #content end -->
 

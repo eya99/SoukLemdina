@@ -147,14 +147,14 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AjoutEventAction',  '_route' => '_AjoutEvent',);
                 }
 
-                // _AfficheEvent
-                if ('/evenement/AfficheEvent' === $pathinfo) {
-                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheEventAction',  '_route' => '_AfficheEvent',);
-                }
-
                 // _AfficheVEvent
                 if ('/evenement/AfficheVEvent' === $pathinfo) {
                     return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheVEventAction',  '_route' => '_AfficheVEvent',);
+                }
+
+                // _AfficheEvent
+                if ('/evenement/AfficheE' === $pathinfo) {
+                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheEventAction',  '_route' => '_AfficheEvent',);
                 }
 
             }
@@ -177,6 +177,21 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // _RechercheEvent
             if ('/evenement/RechercheEvent' === $pathinfo) {
                 return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheEventAction',  '_route' => '_RechercheEvent',);
+            }
+
+            // _RechercheDQL
+            if ('/evenement/RechercheDQL' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheDQLAction',  '_route' => '_RechercheDQL',);
+            }
+
+            // _ParticiperEvent
+            if (0 === strpos($pathinfo, '/evenement/ParticiperEvent') && preg_match('#^/evenement/ParticiperEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_ParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::participerEventAction',));
+            }
+
+            // _nParticiperEvent
+            if (0 === strpos($pathinfo, '/evenement/nParticiperEvent') && preg_match('#^/evenement/nParticiperEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_nParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::nParticierEventAction',));
             }
 
         }
@@ -396,6 +411,53 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::indexAction',  '_route' => 'fos_visitor_home',);
             }
             not_fos_visitor_home:
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/notifications')) {
+            // notification_list
+            if (preg_match('#^/notifications/(?P<notifiable>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_notification_list;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'notification_list')), array (  '_controller' => 'Mgilet\\NotificationBundle\\Controller\\NotificationController::listAction',));
+            }
+            not_notification_list:
+
+            // notification_mark_as_seen
+            if (preg_match('#^/notifications/(?P<notifiable>[^/]++)/mark_as_seen/(?P<notification>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_notification_mark_as_seen;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'notification_mark_as_seen')), array (  '_controller' => 'Mgilet\\NotificationBundle\\Controller\\NotificationController::markAsSeenAction',));
+            }
+            not_notification_mark_as_seen:
+
+            // notification_mark_as_unseen
+            if (preg_match('#^/notifications/(?P<notifiable>[^/]++)/mark_as_unseen/(?P<notification>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_notification_mark_as_unseen;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'notification_mark_as_unseen')), array (  '_controller' => 'Mgilet\\NotificationBundle\\Controller\\NotificationController::markAsUnSeenAction',));
+            }
+            not_notification_mark_as_unseen:
+
+            // notification_mark_all_as_seen
+            if (preg_match('#^/notifications/(?P<notifiable>[^/]++)/markAllAsSeen$#s', $pathinfo, $matches)) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_notification_mark_all_as_seen;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'notification_mark_all_as_seen')), array (  '_controller' => 'Mgilet\\NotificationBundle\\Controller\\NotificationController::markAllAsSeenAction',));
+            }
+            not_notification_mark_all_as_seen:
 
         }
 

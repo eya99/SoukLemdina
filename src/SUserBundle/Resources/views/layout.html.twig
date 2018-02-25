@@ -9,8 +9,8 @@
 
     <!-- Basic Stylesheets
     ============================================= -->
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
-          rel="stylesheet" type="text/css"/>
+    <!--link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+          rel="stylesheet" type="text/css"/-->
     <link rel="stylesheet" href="{{ asset('Template/css/bootstrap.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ asset('Template/style.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ asset('Template/css/swiper.css') }}" type="text/css"/>
@@ -19,6 +19,12 @@
     <link rel="stylesheet" href="{{ asset('Template/css/animate.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ asset('Template/css/magnific-popup.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ asset('Template/css/responsive.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/css/rating.css') }}" type="text/css"  />
+    <link rel="stylesheet" href="{{ asset('Template/css/font-awesome.min.css') }}" type="text/css"  />
+    <link rel="stylesheet" href="{{ asset('Template/css/font-awesome.css') }}" type="text/css"  />
+    <link rel="stylesheet" href="{{ asset('Template/css/components/bs-rating.css') }}" type="text/css"  />
+    <link rel="stylesheet" href="{{ asset('Template/include/rs-plugin/fonts/font-awesome/css/font-awesome.min.css') }}" type="text/css"  />
+
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     {% block stylesheets %}{% endblock %}
@@ -59,17 +65,11 @@
                         <li><a href="#">
                                 <div>Trending</div>
                             </a></li>
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
                         <li class="mega-menu"><a href="{{ path('_AfficheEvent') }}">
                             <div>Évènements</div>
 
-                        {% else %}
-                        <li class="mega-menu"><a href="{{ path('_AfficheVEvent') }}">
 
-                                <div>Évènements</div>
-                            </a></li>
-                        {% endif %}
 
                         <li class="mega-menu"><a href="#">
                                 <div>Ateliers</div>
@@ -299,12 +299,15 @@
 ============================================= -->
 <script type="text/javascript" src="{{ asset('Template/js/jquery.js') }}"></script>
 <script type="text/javascript" src="{{ asset('Template/js/plugins.js') }}"></script>
+<script type="text/javascript" src="{{ asset('Template/js/rating.js') }}"></script>
+
 
 <!-- Footer Scripts
 ============================================= -->
 <script type="text/javascript" src="{{ asset('Template/js/functions.js') }}"></script>
 <!-- Bootstrap Switch Plugin -->
 <script type="text/javascript" src="{{ asset('Template/js/components/bs-switches.js') }}"></script>
+
 <script type="text/javascript">
     jQuery(window).load(function () {
         var swiperParent = new Swiper('.swiper-parent', {

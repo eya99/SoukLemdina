@@ -18,7 +18,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class RechercheForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options){
-        $builder->add('nomevenement')->add('RechercheEvent',SubmitType::class);
+        $builder->add('nomevenement')
+            ->add('type')
+            ->add('prix')
+            ->add('RechercheDQL',SubmitType::class);
 
     }
 

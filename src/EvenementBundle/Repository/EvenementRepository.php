@@ -10,15 +10,23 @@ namespace EvenementBundle\Repository;
  */
 class EvenementRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function RechercheEvent($nomevenement){
-        $query=$this->getEntityManager()->createQuery("
-         select n from EvenementBundle:Evenement e
-          WHERE e.nomEvenement LIKE :s AND e.dateDebut<=CURRENT_DATE ()
-          ORDER BY e.dateDebut ASC ")
-            ->setParameter('s','%'.$nomevenement.'%');
-        return $query->getResult();
+    public function RechercheEventType($motcle){
+        $query= EvenementRepository::createQueryBuilder('t')
+            ->where('UPPER(t.type) LIKE UPPER(:motcle)')
+            ->orWhere('UPPER(t.nomEvenement) LIKE UPPER(:motcle)')
+            ->orWhere('UPPER(t.prix) LIKE UPPER(:motcle)')
+
+
+            ->setParameter('motcle','%'.$motcle.'%')
+            ->getQuery();
+
+        return  $query->getResult();
+
     }
 
-
+ /*   public function findAll()
+    {
+        return $this->findBy(array(), array('' => 'ASC'));
+    }*/
 
 }

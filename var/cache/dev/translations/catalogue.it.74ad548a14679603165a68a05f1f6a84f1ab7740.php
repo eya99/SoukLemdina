@@ -188,15 +188,18 @@ il Team.
     'form.new_password' => 'Nuova password',
     'form.new_password_confirmation' => 'Ripeti password',
   ),
-  'VichUploaderBundle' => 
-  array (
-    'download' => 'Scaricare',
-    'form.label.delete' => 'Rimuovere ?',
-  ),
   'KnpPaginatorBundle' => 
   array (
     'label_previous' => 'Precedente',
     'label_next' => 'Successivo',
+  ),
+  'MgiletNotificationBundle' => 
+  array (
+    'notifications' => 'Notifiche',
+    'mark_all_as_seen' => 'Segna tutti come si vede',
+    'mark_as_seen' => 'Mark come si è visto',
+    'all_notifications' => 'Tutte le notifiche',
+    'no_new_notification' => 'Non ci sono nuove notifiche',
   ),
 ));
 
@@ -386,15 +389,18 @@ L\'équipe
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
   ),
-  'VichUploaderBundle' => 
-  array (
-    'download' => 'Télécharger',
-    'form.label.delete' => 'Supprimer ?',
-  ),
   'KnpPaginatorBundle' => 
   array (
     'label_previous' => 'Précédent',
     'label_next' => 'Suivant',
+  ),
+  'MgiletNotificationBundle' => 
+  array (
+    'notifications' => 'Notifications',
+    'mark_all_as_seen' => 'Tout marquer comme lu',
+    'mark_as_seen' => 'Marquer comme lu',
+    'all_notifications' => 'Toutes mes notifications',
+    'no_new_notification' => 'Pas de nouvelles notifications',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

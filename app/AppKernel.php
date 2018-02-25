@@ -24,8 +24,10 @@ class AppKernel extends Kernel
             new LocalBundle\LocalBundle(),
             new WorkshopBundle\WorkshopBundle(),
             new SUserBundle\SUserBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Mgilet\NotificationBundle\MgiletNotificationBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+
 
         ];
 

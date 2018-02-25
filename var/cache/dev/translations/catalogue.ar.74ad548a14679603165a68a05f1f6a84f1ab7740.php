@@ -188,11 +188,6 @@ $catalogue = new MessageCatalogue('ar', array (
     'form.new_password' => 'كلمة المرور الجديدة',
     'form.new_password_confirmation' => 'تأكيد كلمة المرور',
   ),
-  'VichUploaderBundle' => 
-  array (
-    'download' => 'تحميل',
-    'form.label.delete' => 'حذف ؟',
-  ),
   'KnpPaginatorBundle' => 
   array (
     'label_previous' => 'السابق',
@@ -386,15 +381,18 @@ L\'équipe
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
   ),
-  'VichUploaderBundle' => 
-  array (
-    'download' => 'Télécharger',
-    'form.label.delete' => 'Supprimer ?',
-  ),
   'KnpPaginatorBundle' => 
   array (
     'label_previous' => 'Précédent',
     'label_next' => 'Suivant',
+  ),
+  'MgiletNotificationBundle' => 
+  array (
+    'notifications' => 'Notifications',
+    'mark_all_as_seen' => 'Tout marquer comme lu',
+    'mark_as_seen' => 'Marquer comme lu',
+    'all_notifications' => 'Toutes mes notifications',
+    'no_new_notification' => 'Pas de nouvelles notifications',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);
