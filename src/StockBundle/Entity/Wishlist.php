@@ -24,22 +24,16 @@ class Wishlist
     /**
      * @var int
      * @ORM\OneToOne(targetEntity="SUserBundle\Entity\User")
-     * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
+     * @ORM\JoinColumn(name="idUser",referencedColumnName="id")
+     *
      */
     private $idUser;
-
-    /**
-     * @var int
-     * @ORM\ManyToMany(targetEntity="StockBundle\Entity\Produit")
-     * @ORM\JoinColumn(name="id_produit",referencedColumnName="id")
-     */
-    private $idProduit;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -56,42 +50,18 @@ class Wishlist
     public function setIdUser($idUser)
     {
         $this->idUser = $idUser;
-
+    
         return $this;
     }
 
     /**
      * Get idUser
      *
-     * @return int
+     * @return integer
      */
     public function getIdUser()
     {
         return $this->idUser;
-    }
-
-    /**
-     * Set idProduit
-     *
-     * @param integer $idProduit
-     *
-     * @return Wishlist
-     */
-    public function setIdProduit($idProduit)
-    {
-        $this->idProduit = $idProduit;
-
-        return $this;
-    }
-
-    /**
-     * Get idProduit
-     *
-     * @return int
-     */
-    public function getIdProduit()
-    {
-        return $this->idProduit;
     }
 }
 

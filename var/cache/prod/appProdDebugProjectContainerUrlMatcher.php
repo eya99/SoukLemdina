@@ -58,25 +58,43 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'StockBundle\\Controller\\DefaultController::indexAction',  '_route' => 'stock_homepage',);
             }
 
-            // ajout_produit
-            if ('/ecommerce/ajout-produit' === $pathinfo) {
-                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::ajoutAction',  '_route' => 'ajout_produit',);
-            }
-
-            if (0 === strpos($pathinfo, '/ecommerce/affiche-produits')) {
-                // affiche_produits
-                if ('/ecommerce/affiche-produits' === $pathinfo) {
-                    return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::afficheAction',  '_route' => 'affiche_produits',);
+            if (0 === strpos($pathinfo, '/ecommerce/a')) {
+                // ajout_produit
+                if ('/ecommerce/ajout-produit' === $pathinfo) {
+                    return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::ajoutAction',  '_route' => 'ajout_produit',);
                 }
 
-                // modif_produits
-                if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/modif') && preg_match('#^/ecommerce/affiche\\-produits/modif/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'modif_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::modifierAction',));
+                // ajout_wishlist
+                if (0 === strpos($pathinfo, '/ecommerce/ajout-wishlist') && preg_match('#^/ecommerce/ajout\\-wishlist/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajout_wishlist')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::ajoutAction',));
                 }
 
-                // supp_produits
-                if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/supp') && preg_match('#^/ecommerce/affiche\\-produits/supp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'supp_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::supprimerAction',));
+                if (0 === strpos($pathinfo, '/ecommerce/affiche-produits')) {
+                    // affiche_produits
+                    if ('/ecommerce/affiche-produits' === $pathinfo) {
+                        return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::afficheAction',  '_route' => 'affiche_produits',);
+                    }
+
+                    // modif_produits
+                    if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/modif') && preg_match('#^/ecommerce/affiche\\-produits/modif/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'modif_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::modifierAction',));
+                    }
+
+                    // supp_produits
+                    if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/supp') && preg_match('#^/ecommerce/affiche\\-produits/supp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'supp_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::supprimerAction',));
+                    }
+
+                }
+
+                // affiche_wishlist
+                if ('/ecommerce/affiche-wishlist' === $pathinfo) {
+                    return array (  '_controller' => 'StockBundle\\Controller\\WishlistController::afficheAction',  '_route' => 'affiche_wishlist',);
+                }
+
+                // art_produits
+                if ('/ecommerce/art-produits' === $pathinfo) {
+                    return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::artAction',  '_route' => 'art_produits',);
                 }
 
             }
@@ -89,6 +107,51 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             // view_produit
             if (0 === strpos($pathinfo, '/ecommerce/view-produit') && preg_match('#^/ecommerce/view\\-produit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'view_produit')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::produitAction',));
+            }
+
+            // habillement_produits
+            if ('/ecommerce/habillement-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::habillementAction',  '_route' => 'habillement_produits',);
+            }
+
+            // bijoux_produits
+            if ('/ecommerce/bijoux-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::bijouxAction',  '_route' => 'bijoux_produits',);
+            }
+
+            // territoire_produits
+            if ('/ecommerce/terrtoire-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::territoireAction',  '_route' => 'territoire_produits',);
+            }
+
+            // maroquinerie_produits
+            if ('/ecommerce/maroquinerie-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::maroquinerieAction',  '_route' => 'maroquinerie_produits',);
+            }
+
+            // decoration_produits
+            if ('/ecommerce/decoration-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::decorationAction',  '_route' => 'decoration_produits',);
+            }
+
+            // libsort_produits
+            if ('/ecommerce/libsort-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::libsortAction',  '_route' => 'libsort_produits',);
+            }
+
+            // prixasc_produits
+            if ('/ecommerce/prixasc-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::prixascAction',  '_route' => 'prixasc_produits',);
+            }
+
+            // prixdesc_produits
+            if ('/ecommerce/prixdesc-produits' === $pathinfo) {
+                return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::prixdescAction',  '_route' => 'prixdesc_produits',);
+            }
+
+            // supprimer_wishlist
+            if (0 === strpos($pathinfo, '/ecommerce/supprimer-wishlist') && preg_match('#^/ecommerce/supprimer\\-wishlist/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'supprimer_wishlist')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::supprimerAction',));
             }
 
         }

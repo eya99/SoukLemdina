@@ -1,63 +1,154 @@
 {% extends "StockBundle::layout.html.twig" %}
- {% block head %}<title>Produits</title>{% endblock %}
+ {% block head %}<title>Produits</title>
+
+
+ {% endblock %}
     {% block body %}
         <section id="page-title">
 
-        <div class="container clearfix">
-            <h1>Nos produits</h1>
-            <span>Un vaste choix de produits</span>
-            <form class="navbar-form navbar-right"><input type="text" class="form-control" placeholder="Tapez votre texte..." method="post" action="{{ path('recherche_produits') }}" name="motcle"></form>
-            <div class="clear bottommargin-sm"></div>
-            <div class="center"></div> <a class="button button-border button-circle button-dark" href="{{ path('ajout_produit') }}">Ajouter un nouveau produit</a></form>
-        </div>
+            <div class="container clearfix">
+                <h1>Nos produits</h1>
+                <span>Un vaste choix de produits</span>
+                <form class="navbar-form navbar-right" action="{{ path('recherche_produits') }}" method="post"><input type="text" class="form-control"
+                                                              placeholder="Tapez votre texte..."
+                                                               name="motcle" id="motcle">
+                </form>
+                <div class="clear bottommargin-sm"></div>
+                <div class="center"></div>
+                <a class="button button-border button-circle button-dark" href="{{ path('ajout_produit') }}">Ajouter un
+                    nouveau produit</a></form>
+            </div>
         </section>
         <section id="content">
 
-        <div class="content-wrap">
+            <div class="content-wrap">
 
-        <div class="container clearfix">
-        <div id="shop" class="shop grid-container clearfix" data-layout="fitRows">
-        {% for produit in produits %}
+                <div class="container clearfix">
 
-            <div class="product clearfix">
-                <div class="product-image">
-                    <a href="#"><img src="{{ asset('Template/images/shop/dress/Artisanat-tunisien.jpg')}}" alt="Pillow"></a>
-                    <a href="#"><img src="{{ asset('Template/images/shop/dress/pocket-tassel-pink-small.jpg')}}" alt="Leather Bag"></a>
+                    <!-- Post Content
+                    ============================================= -->
+                    <div class="postcontent nobottommargin col_last">
+                        {% set a=0 %}{% set b=0 %}{% set c=0 %}{% set d=0 %}{% set e=0 %}{% set f=0 %}
+                        <!-- Shop
+                        ============================================= -->
+                        <div id="content1">
+                            <div id="shop" class="shop product-3 grid-container clearfix">
+                                {% for produit in produits %}
 
-                    {% if produit.promotion!=0  %}
-                        <div class="sale-flash">{{ produit.promotion }}% Off*</div>
-                    {% endif %}
-                    <div class="product-overlay">
-                        <!--  <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a> -->
-                         <a href="{{ path('modif_produits',{'id':produit.id}) }}" class="add-to-cart"><i class="icon-wrench"></i><span> Modifier</span></a>
-                        <a href="{{ path('supp_produits',{'id':produit.id}) }}" class="add-to-cart"><i class="icon-filter"></i><span> supprimer</span></a>
+                                    <div class="product sf-dress clearfix">
+                                        <div class="product-image">
+                                            <a href="#"><img src="{{ asset('uploads/images/') }}{{ produit.image }}"
+                                                             alt="{{ produit.libelle }}" width="200px"></a>
 
-                    </div>
-                </div>
-                <div class="product-desc">
-                    <div class="product-title"><h3><a href="{{ path('view_produit',{'id':produit.id}) }}">{{ produit.libelle }}</a></h3></div>
-            {% if produit.promotion!=0  %}<div class="product-price"><del>{{ produit.prix }} DT</del> <ins>{{ produit.prix-((produit.prix*produit.promotion)/100) }} DT</ins></div>
-            {% else %}
-                <div class="product-price">
-                    {{ produit.prix }} DT
-                </div>
-            {% endif %}
+                                            {% if produit.categorie=='Arts de la table' %}
+                                                {% set a=a+1 %}
+                                            {% endif %}
+                                            {% if produit.categorie=='Habillement' %}
+                                                {% set b=b+1 %}
+                                            {% endif %}
+                                            {% if produit.categorie=='Bijoux' %}
+                                                {% set c=c+1 %}
+                                            {% endif %}
+                                            {% if produit.categorie=='Produits du Terroire' %}
+                                                {% set d=d+1 %}
+                                            {% endif %}
+                                            {% if produit.categorie=='Maroquinerie' %}
+                                                {% set e=e+1 %}
+                                            {% endif %}
+                                            {% if produit.categorie=='Décoration' %}
+                                                {% set f=f+1 %}
+                                            {% endif %}
 
-                    <div class="product-rating">
-                        <i class="icon-star3"></i>
-                        <i class="icon-star3"></i>
-                        <i class="icon-star3"></i>
-                        <i class="icon-star3"></i>
-                        <i class="icon-star-half-full"></i>
-                    </div>
+
+
+                                            {% if produit.promotion!=0 %}
+                                                <div class="sale-flash">{{ produit.promotion }}% Off*</div>
+                                            {% endif %}
+                                            <div class="product-overlay">
+                                                <!--  <a href="{{ path('supp_produits',{'id':produit.id}) }}" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a> -->
+                                                <a href="{{ path('modif_produits',{'id':produit.id}) }}"
+                                                   class="add-to-cart"><i
+                                                            class="icon-wrench"></i><span> Modifier</span></a>
+                                                <a href="{{ path('supp_produits',{'id':produit.id}) }}"
+                                                   class="add-to-cart" onclick="return confirm('Are you sure?')"><i
+                                                            class="icon-filter"></i><span> supprimer</span></a>
+
+                                            </div>
+                                        </div>
+                                        <div class="product-desc">
+                                            <div class="product-title"><h3><a
+                                                            href="{{ path('view_produit',{'id':produit.id}) }}">{{ produit.libelle }}</a>
+                                                </h3></div>
+                                            {% if produit.promotion!=0 %}
+                                                <div class="product-price">
+                                                    <del>{{ produit.prix }} DT {% if produit.type=='Sur Commande' %} / Kg  {% endif %}</del>
+                                                    <ins>{{ produit.prix-((produit.prix*produit.promotion)/100) }}DT{% if produit.type=='Sur Commande' %}  / Kg  {% endif %}
+                                                    </ins>
+                                                </div>
+                                            {% else %}
+                                                <div class="product-price">
+                                                    {{ produit.prix }} DT {% if produit.type=='Sur Commande' %}  / Kg {% endif %}
+                                                </div>
+                                            {% endif %}
+
+                                            <div class="product-rating">
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star-half-full"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div><!-- #shop end -->
+                        </div>
+                    </div><!-- .postcontent end -->
+                    <div class="sidebar nobottommargin">
+                        <div class="sidebar-widgets-wrap">
+
+                            <div class="widget widget-filter-links clearfix">
+
+                                <h4>Sélectionner une catégorie</h4>
+                                <ul  id="cat">
+                                    <li><a href="{{ path('art_produits') }}" >Arts de la table</a> <span>{{ a }}</span></li>
+                                    <li><a href="{{ path('habillement_produits') }}" >Habillement</a><span>{{ b }}</span></li>
+                                    <li><a href="{{ path('bijoux_produits') }}" >Bijoux</a><span> {{ c }}</span></li>
+                                    <li><a href="{{ path('territoire_produits') }}" >Produits du Terroire</a><span>{{ d }}</span></li>
+                                    <li><a href="{{ path('maroquinerie_produits') }}" >Maroquinerie</a><span>{{ e }}</span></li>
+                                    <li><a href="{{ path('decoration_produits') }}" >Décoration</a><span>{{ f }}</span></li>
+                                </ul>
+
+                            </div>
+
+                            <div class="widget widget-filter-links clearfix">
+
+                                <h4>Trier par</h4>
+                                <ul class="shop-sorting">
+                                    <li class="widget-filter-reset active-filter"><a href="#"
+                                                                                     data-sort-by="original-order">Clear</a>
+                                    </li>
+                                    <li><a href="{{ path('libsort_produits') }}" >Nom</a></li>
+                                    <li><a href="{{ path('prixasc_produits') }}" >Prix: ascendant</a></li>
+                                    <li><a href="{{ path('prixdesc_produits') }}" >Prix: descendant</a></li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div><!-- .sidebar end -->
                 </div>
             </div>
-        {% endfor %}
-
-</div>
-        </div>
-        </div>
         </section>
 
+
+
+        {% block javascripts %}
+            <script>
+                $document.ready(function () {
+                });
+            </script>
+
+        {% endblock %}
 
     {% endblock %}

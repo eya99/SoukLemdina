@@ -25,7 +25,6 @@
       <parameter key="LocalBundle">LocalBundle\LocalBundle</parameter>
       <parameter key="WorkshopBundle">WorkshopBundle\WorkshopBundle</parameter>
       <parameter key="SUserBundle">SUserBundle\SUserBundle</parameter>
-      <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -108,11 +107,6 @@
         <parameter key="path">D:\Programs\wamp64\www\SoukLemdina\src\SUserBundle</parameter>
         <parameter key="namespace">SUserBundle</parameter>
       </parameter>
-      <parameter key="VichUploaderBundle" type="collection">
-        <parameter key="parent">null</parameter>
-        <parameter key="path">D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle</parameter>
-        <parameter key="namespace">Vich\UploaderBundle</parameter>
-      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appProdDebugProjectContainer</parameter>
@@ -127,6 +121,7 @@
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">69f9a72c7ea0bfc5f290da788a245d4ee295fccd</parameter>
     <parameter key="locale">fr</parameter>
+    <parameter key="image_directory">D:\Programs\wamp64\www\SoukLemdina/web/uploads/images</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">69f9a72c7ea0bfc5f290da788a245d4ee295fccd</parameter>
@@ -392,26 +387,6 @@
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
-    <parameter key="vich_uploader.default_filename_attribute_suffix">_name</parameter>
-    <parameter key="vich_uploader.mappings" type="collection">
-      <parameter key="product_images" type="collection">
-        <parameter key="namer" type="collection">
-          <parameter key="service">vich_uploader.namer_uniqid.product_images</parameter>
-          <parameter key="options" type="collection"/>
-        </parameter>
-        <parameter key="uri_prefix">/uploads/images/</parameter>
-        <parameter key="upload_destination">D:\Programs\wamp64\www\SoukLemdina\app/../web/uploads/images/</parameter>
-        <parameter key="directory_namer" type="collection">
-          <parameter key="service">null</parameter>
-          <parameter key="options">null</parameter>
-        </parameter>
-        <parameter key="delete_on_remove">true</parameter>
-        <parameter key="delete_on_update">true</parameter>
-        <parameter key="inject_on_load">false</parameter>
-        <parameter key="db_driver">orm</parameter>
-      </parameter>
-    </parameter>
-    <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
     <parameter key="console.command.ids" type="collection">
       <parameter key="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand">console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand">doctrine_cache.contains_command</parameter>
@@ -593,7 +568,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>Ldp2lEF5EY</argument>
       <argument>0</argument>
-      <argument>nejVK2yx-hu19IGE+1AiA8</argument>
+      <argument>RUxV907w6IwFNAiY2qaocf</argument>
       <argument>D:\Programs\wamp64\www\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -603,7 +578,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>XeJgTCaBbY</argument>
       <argument>0</argument>
-      <argument>nejVK2yx-hu19IGE+1AiA8</argument>
+      <argument>RUxV907w6IwFNAiY2qaocf</argument>
       <argument>D:\Programs\wamp64\www\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -613,7 +588,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>FOoTsCvn3y</argument>
       <argument>0</argument>
-      <argument>nejVK2yx-hu19IGE+1AiA8</argument>
+      <argument>RUxV907w6IwFNAiY2qaocf</argument>
       <argument>D:\Programs\wamp64\www\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -623,7 +598,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>p+M69r-YE2</argument>
       <argument>0</argument>
-      <argument>nejVK2yx-hu19IGE+1AiA8</argument>
+      <argument>RUxV907w6IwFNAiY2qaocf</argument>
       <argument>D:\Programs\wamp64\www\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -633,7 +608,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>nejVK2yx-hu19IGE+1AiA8</argument>
+      <argument>RUxV907w6IwFNAiY2qaocf</argument>
       <argument>D:\Programs\wamp64\www\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -643,7 +618,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>nejVK2yx-hu19IGE+1AiA8</argument>
+      <argument>RUxV907w6IwFNAiY2qaocf</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -756,7 +731,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.c08c3dc016a93d46daa9b4f4349bde4f"/>
+      <argument type="service" id="service_locator.61ce42ee314d3459d7339b36d3fecf2a"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -1145,7 +1120,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.ar.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ar.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ar.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ar.yml</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.az.xlf</argument>
@@ -1189,7 +1163,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.de.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.de.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.de.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.de.yml</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.el.xlf</argument>
@@ -1204,7 +1177,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.en.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.en.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.en.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.en.yml</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.es.xlf</argument>
@@ -1212,7 +1184,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.es.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.es.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.es.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.es.yml</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
@@ -1244,7 +1215,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.fr.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.fr.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.fr.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.fr.yml</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.gl.xlf</argument>
@@ -1272,7 +1242,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.hu.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.hu.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.hu.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.hu.yml</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.hy.xlf</argument>
@@ -1291,7 +1260,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.it.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.it.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.it.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.it.yml</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ja.xlf</argument>
@@ -1354,14 +1322,12 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.pl.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.pl.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.pl.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.pl.yml</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.pt.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.pt.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.pt.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.pt.yml</argument>
           </argument>
           <argument key="pt_BR" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt_BR.xlf</argument>
@@ -1383,7 +1349,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.ru.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ru.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ru.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ru.yml</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sk.xlf</argument>
@@ -1398,7 +1363,6 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.sl.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.sl.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.sl.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.sl.yml</argument>
           </argument>
           <argument key="sq" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sq.xlf</argument>
@@ -1433,14 +1397,12 @@
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.tr.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.tr.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.tr.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.tr.yml</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.uk.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.uk.xlf</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.uk.yml</argument>
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.uk.yml</argument>
-            <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.uk.yml</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.vi.xlf</argument>
@@ -2815,12 +2777,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a8841b79da1c6.46680398</argument>
+      <argument>5a8cffed4444f3.60933679</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a8841b79da1c6.46680398</argument>
+      <argument>5a8cffed4444f3.60933679</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2939,9 +2901,6 @@
       <call method="addExtension">
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
-      <call method="addExtension">
-        <argument type="service" id="vich_uploader.twig.extension.uploader"/>
-      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3049,10 +3008,6 @@
       <call method="addPath">
         <argument>D:\Programs\wamp64\www\SoukLemdina\src\SUserBundle/Resources/views</argument>
         <argument>SUser</argument>
-      </call>
-      <call method="addPath">
-        <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/views</argument>
-        <argument>VichUploader</argument>
       </call>
       <call method="addPath">
         <argument>D:\Programs\wamp64\www\SoukLemdina\app/Resources/views</argument>
@@ -3228,10 +3183,6 @@
       <call method="addPath">
         <argument>D:\Programs\wamp64\www\SoukLemdina\src\SUserBundle/Resources/views</argument>
         <argument>SUser</argument>
-      </call>
-      <call method="addPath">
-        <argument>D:\Programs\wamp64\www\SoukLemdina\vendor\vich\uploader-bundle/Resources/views</argument>
-        <argument>VichUploader</argument>
       </call>
       <call method="addPath">
         <argument>D:\Programs\wamp64\www\SoukLemdina\app/Resources/views</argument>
@@ -3513,16 +3464,7 @@
     <service id="doctrine.dbal.default_connection.event_manager" class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
       <argument type="service" id="service_container"/>
       <call method="addEventSubscriber">
-        <argument type="service" id="vich_uploader.listener.clean.product_images"/>
-      </call>
-      <call method="addEventSubscriber">
         <argument type="service" id="fos_user.user_listener"/>
-      </call>
-      <call method="addEventSubscriber">
-        <argument type="service" id="vich_uploader.listener.remove.product_images"/>
-      </call>
-      <call method="addEventSubscriber">
-        <argument type="service" id="vich_uploader.listener.upload.product_images"/>
       </call>
       <call method="addEventListener">
         <argument type="collection">
@@ -4013,237 +3955,6 @@
       <argument type="service" id="router.default"/>
       <argument>86400</argument>
     </service>
-    <service id="vich_uploader.namer_uniqid.product_images" class="Vich\UploaderBundle\Naming\UniqidNamer"/>
-    <service id="vich_uploader.adapter.propel" class="Vich\UploaderBundle\Adapter\Propel\PropelORMAdapter" public="false"/>
-    <service id="vich_uploader.adapter.mongodb" class="Vich\UploaderBundle\Adapter\ODM\MongoDB\MongoDBAdapter" public="false"/>
-    <service id="vich_uploader.adapter.orm" class="Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter" public="false"/>
-    <service id="vich_uploader.adapter.phpcr" class="Vich\UploaderBundle\Adapter\PHPCR\PHPCRAdapter" public="false"/>
-    <service id="vich_uploader.listener.doctrine.base" public="false" abstract="true">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.inject.orm" class="Vich\UploaderBundle\EventListener\Doctrine\InjectListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.upload.orm" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.clean.orm" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.remove.orm" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.inject.mongodb" class="Vich\UploaderBundle\EventListener\Doctrine\InjectListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.upload.mongodb" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.clean.mongodb" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.remove.mongodb" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.inject.phpcr" class="Vich\UploaderBundle\EventListener\Doctrine\InjectListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.upload.phpcr" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.clean.phpcr" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.remove.phpcr" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.propel.base" public="false" abstract="true">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.inject.propel" class="Vich\UploaderBundle\EventListener\Propel\InjectListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.upload.propel" class="Vich\UploaderBundle\EventListener\Propel\UploadListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.clean.propel" class="Vich\UploaderBundle\EventListener\Propel\CleanListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.remove.propel" class="Vich\UploaderBundle\EventListener\Propel\RemoveListener" public="false">
-      <argument></argument>
-      <argument></argument>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.storage.file_system" class="Vich\UploaderBundle\Storage\FileSystemStorage" public="false">
-      <argument type="service" id="vich_uploader.property_mapping_factory"/>
-    </service>
-    <service id="vich_uploader.file_injector" class="Vich\UploaderBundle\Injector\FileInjector" public="false">
-      <argument type="service" id="vich_uploader.storage.file_system"/>
-    </service>
-    <service id="vich_uploader.templating.helper.uploader_helper" class="Vich\UploaderBundle\Templating\Helper\UploaderHelper">
-      <tag name="templating.helper" alias="vich_uploader"/>
-      <argument type="service" id="vich_uploader.storage.file_system"/>
-    </service>
-    <service id="vich_uploader.metadata.file_locator" class="Vich\UploaderBundle\Metadata\Driver\FileLocator" public="false">
-      <argument type="collection"/>
-    </service>
-    <service id="vich_uploader.metadata_driver.annotation" class="Vich\UploaderBundle\Metadata\Driver\AnnotationDriver" public="false">
-      <argument type="service" id="annotations.cached_reader"/>
-    </service>
-    <service id="vich_uploader.metadata_driver.xml" class="Vich\UploaderBundle\Metadata\Driver\XmlDriver" public="false">
-      <argument type="service" id="vich_uploader.metadata.file_locator"/>
-    </service>
-    <service id="vich_uploader.metadata_driver.yaml" class="Vich\UploaderBundle\Metadata\Driver\YamlDriver" public="false">
-      <argument type="service" id="vich_uploader.metadata.file_locator"/>
-    </service>
-    <service id="vich_uploader.metadata_driver.chain" class="Vich\UploaderBundle\Metadata\Driver\ChainDriver" public="false">
-      <argument type="collection">
-        <argument type="service" id="vich_uploader.metadata_driver.annotation"/>
-        <argument type="service" id="vich_uploader.metadata_driver.yaml"/>
-        <argument type="service" id="vich_uploader.metadata_driver.xml"/>
-      </argument>
-    </service>
-    <service id="vich_uploader.metadata.cache.file_cache" class="Metadata\Cache\FileCache" public="false">
-      <argument>D:\Programs\wamp64\www\SoukLemdina\var\cache\prod/vich_uploader</argument>
-    </service>
-    <service id="vich_uploader.metadata_factory" class="Metadata\MetadataFactory" public="false">
-      <argument type="service" id="vich_uploader.metadata_driver.chain"/>
-      <argument>Metadata\ClassHierarchyMetadata</argument>
-      <argument>true</argument>
-      <call method="setCache">
-        <argument type="service" id="vich_uploader.metadata.cache.file_cache" on-invalid="ignore"/>
-      </call>
-    </service>
-    <service id="vich_uploader.metadata_reader" class="Vich\UploaderBundle\Metadata\MetadataReader" public="false">
-      <argument type="service" id="vich_uploader.metadata_factory"/>
-    </service>
-    <service id="vich_uploader.property_mapping_factory" class="Vich\UploaderBundle\Mapping\PropertyMappingFactory" public="false">
-      <argument type="service" id="service_container"/>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="collection">
-        <argument key="product_images" type="collection">
-          <argument key="namer" type="collection">
-            <argument key="service">vich_uploader.namer_uniqid.product_images</argument>
-            <argument key="options" type="collection"/>
-          </argument>
-          <argument key="uri_prefix">/uploads/images/</argument>
-          <argument key="upload_destination">D:\Programs\wamp64\www\SoukLemdina\app/../web/uploads/images/</argument>
-          <argument key="directory_namer" type="collection">
-            <argument key="service">null</argument>
-            <argument key="options">null</argument>
-          </argument>
-          <argument key="delete_on_remove">true</argument>
-          <argument key="delete_on_update">true</argument>
-          <argument key="inject_on_load">false</argument>
-          <argument key="db_driver">orm</argument>
-        </argument>
-      </argument>
-      <argument>_name</argument>
-    </service>
-    <service id="vich_uploader.namer_uniqid" class="Vich\UploaderBundle\Naming\UniqidNamer"/>
-    <service id="vich_uploader.namer_property" class="Vich\UploaderBundle\Naming\PropertyNamer"/>
-    <service id="vich_uploader.namer_origname" class="Vich\UploaderBundle\Naming\OrignameNamer"/>
-    <service id="vich_uploader.namer_hash" class="Vich\UploaderBundle\Naming\HashNamer"/>
-    <service id="vich_uploader.directory_namer_subdir" class="Vich\UploaderBundle\Naming\SubdirDirectoryNamer"/>
-    <service id="vich_uploader.form.type.file" class="Vich\UploaderBundle\Form\Type\VichFileType">
-      <tag name="form.type" alias="vich_file"/>
-      <argument type="service" id="vich_uploader.storage.file_system"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-      <argument type="service" id="translator.logging"/>
-    </service>
-    <service id="vich_uploader.form.type.image" class="Vich\UploaderBundle\Form\Type\VichImageType">
-      <tag name="form.type" alias="vich_image"/>
-      <argument type="service" id="vich_uploader.storage.file_system"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-      <argument type="service" id="translator.logging"/>
-    </service>
-    <service id="vich_uploader.download_handler" class="Vich\UploaderBundle\Handler\DownloadHandler">
-      <argument type="service" id="vich_uploader.property_mapping_factory"/>
-      <argument type="service" id="vich_uploader.storage.file_system"/>
-    </service>
-    <service id="vich_uploader.upload_handler" class="Vich\UploaderBundle\Handler\UploadHandler">
-      <argument type="service" id="vich_uploader.property_mapping_factory"/>
-      <argument type="service" id="vich_uploader.storage.file_system"/>
-      <argument type="service" id="vich_uploader.file_injector"/>
-      <argument type="service" id="debug.event_dispatcher"/>
-    </service>
-    <service id="vich_uploader.twig.extension.uploader" class="Vich\UploaderBundle\Twig\Extension\UploaderExtension" public="false">
-      <tag name="twig.extension"/>
-      <argument type="service" id="vich_uploader.templating.helper.uploader_helper"/>
-    </service>
-    <service id="vich_uploader.listener.clean.product_images" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
-      <tag name="doctrine.event_subscriber" priority="50"/>
-      <argument>product_images</argument>
-      <argument type="service" id="vich_uploader.adapter.orm"/>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.remove.product_images" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
-      <tag name="doctrine.event_subscriber" priority="0"/>
-      <argument>product_images</argument>
-      <argument type="service" id="vich_uploader.adapter.orm"/>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
-    <service id="vich_uploader.listener.upload.product_images" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
-      <tag name="doctrine.event_subscriber" priority="0"/>
-      <argument>product_images</argument>
-      <argument type="service" id="vich_uploader.adapter.orm"/>
-      <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="service" id="vich_uploader.upload_handler"/>
-    </service>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
@@ -4264,7 +3975,7 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id="service_locator.c08c3dc016a93d46daa9b4f4349bde4f" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.61ce42ee314d3459d7339b36d3fecf2a" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="FOS\UserBundle\Form\Type\ChangePasswordFormType" type="service" id="fos_user.change_password.form.type"/>
@@ -4275,8 +3986,6 @@
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
-        <argument key="Vich\UploaderBundle\Form\Type\VichFileType" type="service" id="vich_uploader.form.type.file"/>
-        <argument key="Vich\UploaderBundle\Form\Type\VichImageType" type="service" id="vich_uploader.form.type.image"/>
       </argument>
     </service>
     <service id="monolog.logger.request" class="Symfony\Bridge\Monolog\Logger">
@@ -4509,9 +4218,6 @@
     <service id="fos_user.util.token_generator" alias="fos_user.util.token_generator.default"/>
     <service id="fos_user.user_manager" alias="fos_user.user_manager.default"/>
     <service id="FOS\UserBundle\Model\UserManagerInterface" alias="fos_user.user_manager.default" public="false"/>
-    <service id="vich_uploader.storage" alias="vich_uploader.storage.file_system"/>
-    <service id="vich_uploader.metadata_driver" alias="vich_uploader.metadata_driver.chain" public="false"/>
-    <service id="vich_uploader.metadata.cache" alias="vich_uploader.metadata.cache.file_cache" public="false"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand" alias="security.console.user_password_encoder_command"/>

@@ -4,15 +4,15 @@ namespace StockBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * Produit
  *
  * @ORM\Table(name="produit")
  * @ORM\Entity(repositoryClass="StockBundle\Repository\ProduitRepository")
- * @Vich\Uploadable
  */
 class Produit
 {
@@ -24,16 +24,16 @@ class Produit
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255,nullable=true )
-     */
-    private $photo;
+
     /**
      * @var string
      *
      * @ORM\Column(name="libelle", type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Le libellé ne peut pas contenir des chiffres"
+     * )
      */
     private $libelle;
 
@@ -47,7 +47,7 @@ class Produit
     /**
      * @var int
      *
-     * @ORM\Column(name="quqntite", type="integer")
+     * @ORM\Column(name="quqntite", type="integer",nullable=true)
      */
     private $quqntite;
 
@@ -94,24 +94,21 @@ class Produit
     private $idUser;
 
     /**
-     * @var File
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="photo")
-     */
-    private $photoFile;
-
-    /**
      * @ORM\Column(type="datetime")
      *
      * @var \DateTime
      */
     private $updatedAt;
 
-
     /**
-     * Get id
+     * @var string
      *
-     * @return int
+     * @Assert\Image()
+     *
+     * @ORM\Column(name="image", type="string", length=255,nullable=true)
      */
+    private $image;
+
     public function getId()
     {
         return $this->id;
@@ -334,71 +331,38 @@ class Produit
     }
 
     /**
-     * @return string
-     */
-
-    /**
-     * Set photo
-     *
-     * @param string $photo
-     *
-     * @return Produit
-     */
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-    
-        return $this;
-    }
-
-    /**
-     * Get photo
-     *
-     * @return string
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-    public function setPhotoFile(File $photo = null)
-    {
-        $this->photoFile = $photo;
-
-        if ($photo){
-            $this->updatedAt = new \DateTime('now');
-        }
-
-        return $this;
-    }
-
-    public function getPhotoFile()
-    {
-        return $this->photoFile;
-    }
-
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Produit
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
      * @return \DateTime
      */
     public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
+
+
 }
