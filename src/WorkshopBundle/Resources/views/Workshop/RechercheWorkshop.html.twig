@@ -12,9 +12,8 @@
             <ol class="breadcrumb">
                 <li><a href="{{ path('fos_visitor_home') }}">Home</a></li>
                 <li> <a href="{{ path('_RechercheWorkshop') }}">Effectuer recherche par nom</a></li>
-                <form method="post">
-                    nom Workshop <input type="text" name="nomWorkshop">
-                    <input type="submit" value="rehercher">
+                <form method="post" action="{{ path('_RechercheWorkshop') }}">
+                    nom Workshop <input type="text" name="valeur">
                 </form>
 
             </ol>
@@ -82,6 +81,9 @@
           ============================================= -->
     <script type="text/javascript" src="{{ asset('Template/js/jquery.js')}}"></script>
     <script type="text/javascript" src="{{ asset('Template/js/plugins.js')}}"></script>
+    <script  src="{{ asset('Template/js/RechercheD.js') }}"></script>
+    <script  src="{{ asset('j') }}"></script>//bch njib lj3.2.
+
 
     <!-- Footer Scripts
     ============================================= -->

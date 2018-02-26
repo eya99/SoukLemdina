@@ -74,14 +74,22 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateWorkshop')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::UpdateWorkshopAction',));
             }
 
-            // _Redirect
-            if (0 === strpos($pathinfo, '/workshop/Redirect') && preg_match('#^/workshop/Redirect/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_Redirect')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::RedirectAction',));
-            }
+            if (0 === strpos($pathinfo, '/workshop/Re')) {
+                // _Redirect
+                if (0 === strpos($pathinfo, '/workshop/Redirect') && preg_match('#^/workshop/Redirect/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_Redirect')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::RedirectAction',));
+                }
 
-            // _RechercheWorkshop
-            if ('/workshop/RechercheWorkshop' === $pathinfo) {
-                return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::PasParticiper_workAction',  '_route' => '_RechercheWorkshop',);
+                // _RechercheWorkshop
+                if ('/workshop/RechercheWorkshop' === $pathinfo) {
+                    return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::RechercheWorkshopAction',  '_route' => '_RechercheWorkshop',);
+                }
+
+                // RechercheDynamiq
+                if (0 === strpos($pathinfo, '/workshop/RechercheDynamiq') && preg_match('#^/workshop/RechercheDynamiq/(?P<nom>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'RechercheDynamiq')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::RechercheDynamiqAction',));
+                }
+
             }
 
             // _Participer_work
@@ -102,6 +110,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             // graphePie
             if ('/workshop/pie' === $pathinfo) {
                 return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => 'graphePie',);
+            }
+
+            // FiltreDQL
+            if ('/workshop/FiltreDQL' === $pathinfo) {
+                return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::FiltreDQLAction',  '_route' => 'FiltreDQL',);
             }
 
         }

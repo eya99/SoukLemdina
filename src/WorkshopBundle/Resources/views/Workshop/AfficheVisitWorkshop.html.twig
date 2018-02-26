@@ -84,10 +84,11 @@
 
                         <h4>Workshops les plus proches </h4>
                         <div id="post-list-header">
-                            {% for work in w | sort %}
+                            {% for work in w| slice(0, 3) %}
+
                             <div class="spost clearfix">
                                 <div class="entry-image">
-                                    <a href="#" class="nobg"><img
+                                    <a href="{{ path('FiltreDQL') }}" ><img
                                                 src="{{ asset('Template/images/events/thumbs/1.jpg') }}" alt=""></a>
                                 </div>
                                 <div class="entry-c">

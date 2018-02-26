@@ -11,19 +11,13 @@ namespace WorkshopBundle\Repository;
 class WorkshopRepository extends \Doctrine\ORM\EntityRepository
 {
     function RechercheAv($valeur){
-        $query = WorkshopRepository::createQueryBuilder('w')
-            ->where('UPPER(r.subject) LIKE UPPER(:valeur)')
-            ->orWhere('UPPER(w.nomWorkshop) LIKE UPPER(:valeur)')
-            ->orWhere('UPPER(w.adresse) LIKE UPPER(:valeur)')
-            ->orWhere('UPPER(w.dateDebut) LIKE UPPER(:valeur)')
+        $QB = $this->getEntityManager()->createQueryBuilder()->select('w')->from('WorkshopBundle:Workshop','w')
+            ->where('w.nomWorkshop=:val')
+           // ->orWhere('UPPER(w.description) LIKE UPPER(:valeur)')
+            //->orWhere('UPPER(r.mobile) LIKE UPPER(:valeur)')
 
-
-
-
-            ->setParameter('valeur','%'.$valeur.'%')
-            ->getQuery();
-
-        return $query->getResult();
+            ->setParameter('val',$valeur);
+        return $QB->getQuery()->getResult();
     }
 
   public function getByDate(\Datetime $date)
@@ -69,4 +63,10 @@ class WorkshopRepository extends \Doctrine\ORM\EntityRepository
 
         return ['days' => $days];
     }*/
+   public  function  FiltreDQL(){
+       $query=$this->getEntityManager()->createQuery("SELECT w FROM WorkshopBundle:Workshop w
+ORDER by w.dateDebut DESC ");
+
+       return $query->getResult();
+   }
 }

@@ -33,10 +33,16 @@ _PasParticiper_work:
     defaults: { _controller: WorkshopBundle:Workshop:PasParticiper_work }
 _RechercheWorkshop:
     path:     /RechercheWorkshop
-    defaults: { _controller: WorkshopBundle:Workshop:PasParticiper_work }
+    defaults: { _controller: WorkshopBundle:Workshop:RechercheWorkshop }
 _ListeParticipant:
     path:     /ListeParticipant/{id}
     defaults: { _controller: WorkshopBundle:Workshop:ListeParticipant }
 graphePie:
  path: /pie
  defaults: { _controller: WorkshopBundle:Default:index}
+RechercheDynamiq:
+     path:     /RechercheDynamiq/{nom}
+     defaults: { _controller: WorkshopBundle:Workshop:RechercheDynamiq }
+FiltreDQL:
+     path:     /FiltreDQL
+     defaults: { _controller: WorkshopBundle:Workshop:FiltreDQL }

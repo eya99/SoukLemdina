@@ -12,22 +12,29 @@
 
         <div class="content-wrap">
 
-            <div class="parallax header-stick bottommargin-lg dark" style="padding: 60px 0; background-image: url('{{ asset('Template/images/parallax/calendar.jpg') }}'); height: auto;" data-stellar-background-ratio="0.5">
+            <div class="parallax header-stick bottommargin-lg dark"
+                 style="padding: 60px 0; background-image: url('{{ asset('Template/images/parallax/calendar.jpg') }}'); height: auto;"
+                 data-stellar-background-ratio="0.5">
 
                 <div class="container clearfix">
 
                     <div class="events-calendar">
                         <div class="events-calendar-header clearfix">
-                            <h2>Liste des Workshops </h2>                                        <div class="entry-content">
-                                <a href="{{ path('_AjoutWorkshop')}}" class="btn btn-default" >Ajouter Votre workshop</a>
+                            <h2>Liste des Workshops </h2>
+                            <div class="entry-content">
+                                <a href="{{ path('_AjoutWorkshop') }}" class="btn btn-default">Ajouter Votre
+                                    workshop</a>
                             </div>
                             <h3 class="calendar-month-year">
                                 <span id="calendar-month" class="calendar-month"></span>
                                 <span id="calendar-year" class="calendar-year"></span>
                                 <nav>
-                                    <span id="calendar-prev" class="calendar-prev"><i class="icon-chevron-left"></i></span>
-                                    <span id="calendar-next" class="calendar-next"><i class="icon-chevron-right"></i></span>
-                                    <span id="calendar-current" class="calendar-current" title="Got to current date"><i class="icon-reload"></i></span>
+                                    <span id="calendar-prev" class="calendar-prev"><i
+                                                class="icon-chevron-left"></i></span>
+                                    <span id="calendar-next" class="calendar-next"><i
+                                                class="icon-chevron-right"></i></span>
+                                    <span id="calendar-current" class="calendar-current" title="Got to current date"><i
+                                                class="icon-reload"></i></span>
                                 </nav>
                             </h3>
                         </div>
@@ -40,19 +47,20 @@
             </div>
 
 
-                <div class="divider divider-center"><i class="icon-circle-blank"></i></div>
+            <div class="divider divider-center"><i class="icon-circle-blank"></i></div>
 
-                <h3>Ateliers à venir</h3>
-    {% for work in w | sort  %}
+            <h3>Ateliers à venir</h3>
+            {% for work in w  %}
 
                 <div id="posts" class="events small-thumbs">
 
                     <div class="entry clearfix">
 
 
-        <div class="entry-image">
+                        <div class="entry-image">
                             <a href="#">
-                                <img src="{{ asset('uploads/images/' )}} {{ work.image}}"  alt="{{ work.nomWorkshop }}">
+                                <img src="{{ asset('uploads/images/' ) }} {{ work.image }}"
+                                     alt="{{ work.nomWorkshop }}">
                                 <div class="entry-date">10<span>Apr</span></div>
                             </a>
                         </div>
@@ -71,51 +79,30 @@
                             <div class="entry-content">
                                 <p>{{ work.description }}</p>
                                 {% if work.idUser.id == app.user.id %}
-                                <a href="{{ path('_DeleteWorkshop', {'id':work.id}) }}" class="btn btn-default" >Supprimer Workshop</a>
+                                <a href="{{ path('_DeleteWorkshop', {'id':work.id}) }}" class="btn btn-default">Supprimer
+                                    Workshop</a>
                             </div>
                             <div class="entry-content">
-                                <a href="{{ path('_UpdateWorkshop', {'id':work.id}) }}" class="btn btn-default" >Modifier Workshop</a>
+                                <a href="{{ path('_UpdateWorkshop', {'id':work.id}) }}" class="btn btn-default">Modifier
+                                    Workshop</a>
                                 {% endif %}
 
 
-
+                            </div>
 
 
                         </div>
 
-
+                    </div>
                 </div>
-
-            </div>
-        </div>
+            {% endfor %}
 
     </section><!-- #content end -->
-    {% endfor %}
-    <div id="gotoTop" class="icon-angle-up"></div>
-    <div class="widget quick-contact-widget clearfix" width="1000" height="250">
 
-                            <div class="subscribe-widget">
-                                <div class="widget-subscribe-form-result"></div>
-                                <form id="widget-subscribe-form2" action="include/subscribe.php"
-                                      role="form"
-                           >
-                                    <div class="input-group input-group-lg divcenter"
-                                         style="max-width:1000px;">
-                                        <span class="input-group-addon"><i class="icon-email2"></i></span>
-                                        <input type="email" name="widget-subscribe-form-email"
-                                               class="form-control required email"
-                                               placeholder="Enter le nom du workshop">
-                                        <span class="input-group-btn">
-                                          <li> <a href="{{ path('_RechercheWorkshop') }}"><button class="btn btn-default"
-                                                                                           type="submit">Effectuer recherche par nom</button></a></li>
-
-                    <input type="submit" value="rehercher">
-                </form>
-									</span>
-                                    </div>
-                                </form>
-                            </div>
-
+    <form method="POST" action="{{ path('_RechercheWorkshop') }}"> Trouver un evenement
+        <input type="text" name="valeur" id="zz">
+        <input type="submit" name="submit" value="recherche">
+    </form>
 {% endblock %}
 
 
@@ -123,43 +110,43 @@
 {% block javascript %}
     <!-- External JavaScripts
     ============================================= -->
-    <script type="text/javascript" src="{{ asset('Template/js/jquery.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('Template/js/plugins.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('Template/js/jquery.calendario.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('Template/js/events-data.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/plugins.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/jquery.calendario.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/events-data.js') }}"></script>
 
     <!-- Footer Scripts
     ============================================= -->
-    <script type="text/javascript" src="{{ asset('Template/js/functions.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/functions.js') }}"></script>
 
     <script type="text/javascript">
 
-        var cal = $( '#calendar' ).calendario( {
-                onDayClick : function( $el, $contentEl, dateProperties ) {
+        var cal = $('#calendar').calendario({
+                onDayClick: function ($el, $contentEl, dateProperties) {
 
-                    for( var key in dateProperties ) {
-                        console.log( key + ' = ' + dateProperties[ key ] );
+                    for (var key in dateProperties) {
+                        console.log(key + ' = ' + dateProperties[key]);
                     }
 
                 },
-                caldata : canvasEvents
-            } ),
-            $month = $( '#calendar-month' ).html( cal.getMonthName() ),
-            $year = $( '#calendar-year' ).html( cal.getYear() );
+                caldata: canvasEvents
+            }),
+            $month = $('#calendar-month').html(cal.getMonthName()),
+            $year = $('#calendar-year').html(cal.getYear());
 
-        $( '#calendar-next' ).on( 'click', function() {
-            cal.gotoNextMonth( updateMonthYear );
-        } );
-        $( '#calendar-prev' ).on( 'click', function() {
-            cal.gotoPreviousMonth( updateMonthYear );
-        } );
-        $( '#calendar-current' ).on( 'click', function() {
-            cal.gotoNow( updateMonthYear );
-        } );
+        $('#calendar-next').on('click', function () {
+            cal.gotoNextMonth(updateMonthYear);
+        });
+        $('#calendar-prev').on('click', function () {
+            cal.gotoPreviousMonth(updateMonthYear);
+        });
+        $('#calendar-current').on('click', function () {
+            cal.gotoNow(updateMonthYear);
+        });
 
         function updateMonthYear() {
-            $month.html( cal.getMonthName() );
-            $year.html( cal.getYear() );
+            $month.html(cal.getMonthName());
+            $year.html(cal.getYear());
         };
 
     </script>

@@ -19,6 +19,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
 use WorkshopBundle\Entity\ParticipantWork;
 use WorkshopBundle\Entity\Workshop;
 use WorkshopBundle\Form\WorkshopType;
+use WorkshopBundle\WorkshopBundle;
 
 
 class WorkshopController extends Controller
@@ -87,7 +88,7 @@ class WorkshopController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $work = $em->getRepository("WorkshopBundle:Workshop")
-            ->findAll();
+            ->FiltreDQL();
         return $this->render('WorkshopBundle:Workshop:AfficheVisitWorkshop.html.twig',
             array('w' => $work
 
@@ -183,13 +184,18 @@ class WorkshopController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $work = $em->getRepository('WorkshopBundle:Workshop')->findAll();
-        if ($request->isMethod('POST')) {
+            $nom = $_POST['valeur'];
+
+            $work = $em->getRepository('WorkshopBundle:Workshop')->RechercheAv($nom);
+            //$this->redirectToRoute('_AfficheWorkshop');
+
+        /*if ($request->isMethod('POST')) {
             $nom = $request->get('nomWorkshop');
             $work = $em->getRepository("WorkshopBundle:Workshop")->findBy(array("nomWorkshop" => $nom));
 
-        }
-        return $this->render('WorkshopBundle:Workshop:RechercheWorkshop.html.twig', array('w' => $work));
+        }*/
+
+        return $this->render('WorkshopBundle:Workshop:AfficheWorkshop.html.twig', array('w' => $work));
     }
 
     public
@@ -284,5 +290,19 @@ class WorkshopController extends Controller
             'p' => $participants,
             'w' => $id
         ));
+    }
+
+    public function FiltreDQL(){
+        $em = $this->getDoctrine()->getManager();
+        $work = $em->getRepository("WorkshopBundle:Workshop")->FiltreDQL();
+        return $this->render("WorkshopBundle:AfficheVisitWorkshop.html.twig",
+            array(
+                'w'=> $work
+            ));
+
+
+    }
+    public function RechercheDynamiq(){
+
     }
 }
