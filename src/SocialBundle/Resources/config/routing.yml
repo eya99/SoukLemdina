@@ -61,3 +61,7 @@ social_pasuivreAX_user:
 social_postsAX_home:
     path:     /postsAX/{deb}/{fin}
     defaults: { _controller: SocialBundle:Default:postsAX }
+
+social_chat_home:
+    path:     /chat
+    defaults: { _controller: SocialBundle:Default:chat }

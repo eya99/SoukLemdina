@@ -19,7 +19,7 @@
         resource="@FOSUserBundle/Resources/config/routing/change_password.xml"
         prefix="/profile" />
 
-    <route id="fos_visitor_home" path="/affichage" methods="GET POST">
+    <route id="fos_visitor_home" path="/" methods="GET POST">
         <default key="_controller">FOSUserBundle:Profile:index</default>
     </route>
 

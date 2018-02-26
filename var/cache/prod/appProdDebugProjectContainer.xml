@@ -26,6 +26,7 @@
       <parameter key="WorkshopBundle">WorkshopBundle\WorkshopBundle</parameter>
       <parameter key="SUserBundle">SUserBundle\SUserBundle</parameter>
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
+      <parameter key="FOSMessageBundle">FOS\MessageBundle\FOSMessageBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -112,6 +113,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle</parameter>
         <parameter key="namespace">Vich\UploaderBundle</parameter>
+      </parameter>
+      <parameter key="FOSMessageBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle</parameter>
+        <parameter key="namespace">FOS\MessageBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -412,6 +418,14 @@
       </parameter>
     </parameter>
     <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
+    <parameter key="fos_message.message_meta_class">SocialBundle\Entity\MessageMetadata</parameter>
+    <parameter key="fos_message.thread_meta_class">SocialBundle\Entity\ThreadMetadata</parameter>
+    <parameter key="fos_message.message_class">SocialBundle\Entity\Message</parameter>
+    <parameter key="fos_message.thread_class">SocialBundle\Entity\Thread</parameter>
+    <parameter key="fos_message.new_thread_form.model">FOS\MessageBundle\FormModel\NewThreadMessage</parameter>
+    <parameter key="fos_message.new_thread_form.name">message</parameter>
+    <parameter key="fos_message.reply_form.model">FOS\MessageBundle\FormModel\ReplyMessage</parameter>
+    <parameter key="fos_message.reply_form.name">message</parameter>
     <parameter key="console.command.ids" type="collection">
       <parameter key="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand">console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand">doctrine_cache.contains_command</parameter>
@@ -593,7 +607,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>tCrvzeGjeG</argument>
       <argument>0</argument>
-      <argument>I7wmdJGDsLZ2G3LT3whMfS</argument>
+      <argument>KK6ovw8kv0Tu9eSso+u3M+</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -603,7 +617,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>HOy0yiKtzu</argument>
       <argument>0</argument>
-      <argument>I7wmdJGDsLZ2G3LT3whMfS</argument>
+      <argument>KK6ovw8kv0Tu9eSso+u3M+</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -613,7 +627,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>NmstyEZV0d</argument>
       <argument>0</argument>
-      <argument>I7wmdJGDsLZ2G3LT3whMfS</argument>
+      <argument>KK6ovw8kv0Tu9eSso+u3M+</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -623,7 +637,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>VV4peFNPQd</argument>
       <argument>0</argument>
-      <argument>I7wmdJGDsLZ2G3LT3whMfS</argument>
+      <argument>KK6ovw8kv0Tu9eSso+u3M+</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -633,7 +647,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>I7wmdJGDsLZ2G3LT3whMfS</argument>
+      <argument>KK6ovw8kv0Tu9eSso+u3M+</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -643,7 +657,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>I7wmdJGDsLZ2G3LT3whMfS</argument>
+      <argument>KK6ovw8kv0Tu9eSso+u3M+</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -756,7 +770,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.c08c3dc016a93d46daa9b4f4349bde4f"/>
+      <argument type="service" id="service_locator.571a2490001bbff7367bf2201a49fc56"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -1045,6 +1059,7 @@
         <argument type="collection">
           <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
           <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/config/validation.xml</argument>
+          <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1077,7 +1092,7 @@
       <argument type="service" id="2_0db2d4d6f6927e67f6e08ea588abee4db872e5534ac33554a5c14fb9dbd1cbb5"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
-      <argument type="service" id="service_locator.39e66930232432ca5ba91e98fdd8a17b"/>
+      <argument type="service" id="service_locator.d1035efbd4e2f2796cab4e77371ef95b"/>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
       <tag name="validator.constraint_validator" alias="validator.expression"/>
@@ -1146,6 +1161,8 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ar.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ar.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ar.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.ar.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\validators.ar.yml</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.az.xlf</argument>
@@ -1172,6 +1189,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.cs.xlf</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.cs.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.cs.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.cs.yml</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.cy.xlf</argument>
@@ -1190,6 +1208,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.de.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.de.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.de.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.de.yml</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.el.xlf</argument>
@@ -1205,6 +1224,8 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.en.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.en.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.en.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.en.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\validators.en.yml</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.es.xlf</argument>
@@ -1213,6 +1234,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.es.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.es.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.es.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.es.yml</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
@@ -1231,6 +1253,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.fa.xlf</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.fa.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.fa.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.fa.yml</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fi.xlf</argument>
@@ -1245,6 +1268,8 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.fr.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.fr.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.fr.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.fr.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\validators.fr.yml</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.gl.xlf</argument>
@@ -1292,6 +1317,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.it.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.it.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.it.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.it.yml</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ja.xlf</argument>
@@ -1337,6 +1363,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.nl.xlf</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.nl.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.nl.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.nl.yml</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nn.xlf</argument>
@@ -1355,6 +1382,8 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.pl.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.pl.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.pl.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.pl.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\validators.pl.yml</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt.xlf</argument>
@@ -1384,6 +1413,8 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ru.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ru.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ru.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.ru.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\validators.ru.yml</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sk.xlf</argument>
@@ -1391,6 +1422,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.sk.xlf</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.sk.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.sk.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.sk.yml</argument>
           </argument>
           <argument key="sl" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sl.xlf</argument>
@@ -1399,6 +1431,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.sl.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.sl.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.sl.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.sl.yml</argument>
           </argument>
           <argument key="sq" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sq.xlf</argument>
@@ -1421,6 +1454,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.sv.xlf</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.sv.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.sv.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.sv.yml</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.th.xlf</argument>
@@ -2815,12 +2849,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a903ba79665a7.62191912</argument>
+      <argument>5a933611b95800.54895278</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a903ba79665a7.62191912</argument>
+      <argument>5a933611b95800.54895278</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2942,6 +2976,9 @@
       <call method="addExtension">
         <argument type="service" id="vich_uploader.twig.extension.uploader"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="fos_message.twig_extension.default"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3053,6 +3090,10 @@
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/views</argument>
         <argument>VichUploader</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/views</argument>
+        <argument>FOSMessage</argument>
       </call>
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\app/Resources/views</argument>
@@ -3232,6 +3273,10 @@
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/views</argument>
         <argument>VichUploader</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/views</argument>
+        <argument>FOSMessage</argument>
       </call>
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\app/Resources/views</argument>
@@ -3645,6 +3690,7 @@
           <argument key="LocalBundle">LocalBundle\Entity</argument>
           <argument key="WorkshopBundle">WorkshopBundle\Entity</argument>
           <argument key="SUserBundle">SUserBundle\Entity</argument>
+          <argument key="FOSMessageBundle">FOS\MessageBundle\Entity</argument>
         </argument>
       </call>
       <call method="setMetadataCacheImpl">
@@ -3699,6 +3745,14 @@
         <argument>D:\xampp\htdocs\SoukLemdina\src\SUserBundle\Entity</argument>
       </argument>
     </service>
+    <service id="doctrine.orm.default_xml_metadata_driver" class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
+      <argument type="collection">
+        <argument key="D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle\Resources\config\doctrine">FOS\MessageBundle\Entity</argument>
+      </argument>
+      <call method="setGlobalBasename">
+        <argument>mapping</argument>
+      </call>
+    </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
@@ -3727,6 +3781,10 @@
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
         <argument>SUserBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_xml_metadata_driver"/>
+        <argument>FOS\MessageBundle\Entity</argument>
       </call>
       <call method="addDriver">
         <argument type="service">
@@ -4237,6 +4295,130 @@
       <argument type="service" id="vich_uploader.metadata_reader"/>
       <argument type="service" id="vich_uploader.upload_handler"/>
     </service>
+    <service id="fos_message.message_manager.default" class="FOS\MessageBundle\EntityManager\MessageManager" public="false">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>SocialBundle\Entity\Message</argument>
+      <argument>SocialBundle\Entity\MessageMetadata</argument>
+    </service>
+    <service id="fos_message.thread_manager.default" class="FOS\MessageBundle\EntityManager\ThreadManager" public="false">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>SocialBundle\Entity\Thread</argument>
+      <argument>SocialBundle\Entity\ThreadMetadata</argument>
+      <argument type="service" id="fos_message.message_manager.default"/>
+    </service>
+    <service id="fos_message.sender.default" class="FOS\MessageBundle\Sender\Sender" public="false">
+      <argument type="service" id="fos_message.message_manager.default"/>
+      <argument type="service" id="fos_message.thread_manager.default"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.composer.default" class="FOS\MessageBundle\Composer\Composer" public="false">
+      <argument type="service" id="fos_message.message_manager.default"/>
+      <argument type="service" id="fos_message.thread_manager.default"/>
+    </service>
+    <service id="fos_message.participant_provider.default" class="FOS\MessageBundle\Security\ParticipantProvider" public="false">
+      <argument type="service" id="security.token_storage"/>
+    </service>
+    <service id="fos_message.authorizer.default" class="FOS\MessageBundle\Security\Authorizer" public="false">
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="fos_message.provider.default" class="FOS\MessageBundle\Provider\Provider" public="false">
+      <argument type="service" id="fos_message.thread_manager.default"/>
+      <argument type="service" id="fos_message.message_manager.default"/>
+      <argument type="service" id="fos_message.thread_reader.default"/>
+      <argument type="service" id="fos_message.authorizer.default"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="fos_message.message_reader.default" class="FOS\MessageBundle\Reader\Reader" public="false">
+      <argument type="service" id="fos_message.participant_provider.default"/>
+      <argument type="service" id="fos_message.message_manager.default"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.thread_reader.default" class="FOS\MessageBundle\Reader\Reader" public="false">
+      <argument type="service" id="fos_message.participant_provider.default"/>
+      <argument type="service" id="fos_message.thread_manager.default"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.deleter.default" class="FOS\MessageBundle\Deleter\Deleter" public="false">
+      <argument type="service" id="fos_message.authorizer.default"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.twig_extension.default" class="FOS\MessageBundle\Twig\Extension\MessageExtension" public="false">
+      <tag name="twig.extension" alias="fos_message"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+      <argument type="service" id="fos_message.provider.default"/>
+      <argument type="service" id="fos_message.authorizer.default"/>
+    </service>
+    <service id="fos_message.search_query_factory.default" class="FOS\MessageBundle\Search\QueryFactory">
+      <argument type="service" id="request_stack"/>
+      <argument>q</argument>
+    </service>
+    <service id="fos_message.search_finder.default" class="FOS\MessageBundle\Search\Finder">
+      <argument type="service" id="fos_message.participant_provider.default"/>
+      <argument type="service" id="fos_message.thread_manager.default"/>
+    </service>
+    <service id="fos_message.new_thread_form.type.default" class="FOS\MessageBundle\FormType\NewThreadMessageFormType" public="false"/>
+    <service id="fos_message.new_thread_multiple_form.type" class="FOS\MessageBundle\FormType\NewThreadMultipleMessageFormType" public="false"/>
+    <service id="fos_message.reply_form.type.default" class="FOS\MessageBundle\FormType\ReplyMessageFormType" public="false"/>
+    <service id="fos_message.new_thread_form.factory.default" class="FOS\MessageBundle\FormFactory\NewThreadMessageFormFactory" public="false">
+      <argument type="service" id="form.factory"/>
+      <argument>FOS\MessageBundle\FormType\NewThreadMessageFormType</argument>
+      <argument>message</argument>
+      <argument>FOS\MessageBundle\FormModel\NewThreadMessage</argument>
+    </service>
+    <service id="fos_message.reply_form.factory.default" class="FOS\MessageBundle\FormFactory\ReplyMessageFormFactory" public="false">
+      <argument type="service" id="form.factory"/>
+      <argument>FOS\MessageBundle\FormType\ReplyMessageFormType</argument>
+      <argument>message</argument>
+      <argument>FOS\MessageBundle\FormModel\ReplyMessage</argument>
+    </service>
+    <service id="fos_message.new_thread_form.handler.default" class="FOS\MessageBundle\FormHandler\NewThreadMessageFormHandler" public="false">
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="fos_message.composer.default"/>
+      <argument type="service" id="fos_message.sender.default"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="fos_message.new_thread_multiple_form.handler" class="FOS\MessageBundle\FormHandler\NewThreadMultipleMessageFormHandler" public="false">
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="fos_message.composer.default"/>
+      <argument type="service" id="fos_message.sender.default"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="fos_message.reply_form.handler.default" class="FOS\MessageBundle\FormHandler\ReplyMessageFormHandler" public="false">
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="fos_message.composer.default"/>
+      <argument type="service" id="fos_message.sender.default"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="fos_message.recipients_data_transformer" class="FOS\MessageBundle\DataTransformer\RecipientsDataTransformer" public="false">
+      <argument type="service" id="fos_user.user_to_username_transformer"/>
+    </service>
+    <service id="fos_message.recipients_selector" class="FOS\MessageBundle\FormType\RecipientsType">
+      <tag name="form.type" alias="recipients_selector"/>
+      <argument type="service" id="fos_message.recipients_data_transformer"/>
+    </service>
+    <service id="fos_message.validator.authorization" class="FOS\MessageBundle\Validator\AuthorizationValidator">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.authorization"/>
+      <argument type="service" id="fos_message.authorizer.default"/>
+    </service>
+    <service id="fos_message.validator.reply_authorization" class="FOS\MessageBundle\Validator\ReplyAuthorizationValidator">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.reply_authorization"/>
+      <argument type="service" id="fos_message.authorizer.default"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="fos_message.validator.spam" class="FOS\MessageBundle\Validator\SpamValidator">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.spam"/>
+      <argument type="service" id="fos_message.noop_spam_detector"/>
+    </service>
+    <service id="fos_message.validator.self_recipient" class="FOS\MessageBundle\Validator\SelfRecipientValidator">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.self_recipient"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="fos_message.noop_spam_detector" class="FOS\MessageBundle\SpamDetection\NoopSpamDetector" public="false"/>
+    <service id="fos_message.akismet_spam_detector" class="FOS\MessageBundle\SpamDetection\AkismetSpamDetector" public="false">
+      <argument type="service" id="ornicar_akismet"/>
+      <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
@@ -4257,9 +4439,10 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id="service_locator.c08c3dc016a93d46daa9b4f4349bde4f" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.571a2490001bbff7367bf2201a49fc56" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="FOS\MessageBundle\FormType\RecipientsType" type="service" id="fos_message.recipients_selector"/>
         <argument key="FOS\UserBundle\Form\Type\ChangePasswordFormType" type="service" id="fos_user.change_password.form.type"/>
         <argument key="FOS\UserBundle\Form\Type\ProfileFormType" type="service" id="fos_user.profile.form.type"/>
         <argument key="FOS\UserBundle\Form\Type\RegistrationFormType" type="service" id="fos_user.registration.form.type"/>
@@ -4390,14 +4573,22 @@
         <argument key="twig" type="service" id="twig"/>
       </argument>
     </service>
-    <service id="service_locator.39e66930232432ca5ba91e98fdd8a17b" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.d1035efbd4e2f2796cab4e77371ef95b" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="FOS\MessageBundle\Validator\AuthorizationValidator" type="service" id="fos_message.validator.authorization"/>
+        <argument key="FOS\MessageBundle\Validator\ReplyAuthorizationValidator" type="service" id="fos_message.validator.reply_authorization"/>
+        <argument key="FOS\MessageBundle\Validator\SelfRecipientValidator" type="service" id="fos_message.validator.self_recipient"/>
+        <argument key="FOS\MessageBundle\Validator\SpamValidator" type="service" id="fos_message.validator.spam"/>
         <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator" type="service" id="doctrine.orm.validator.unique"/>
         <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" type="service" id="security.validator.user_password"/>
         <argument key="Symfony\Component\Validator\Constraints\EmailValidator" type="service" id="validator.email"/>
         <argument key="Symfony\Component\Validator\Constraints\ExpressionValidator" type="service" id="validator.expression"/>
         <argument key="doctrine.orm.validator.unique" type="service" id="doctrine.orm.validator.unique"/>
+        <argument key="fos_message.validator.authorization" type="service" id="fos_message.validator.authorization"/>
+        <argument key="fos_message.validator.reply_authorization" type="service" id="fos_message.validator.reply_authorization"/>
+        <argument key="fos_message.validator.self_recipient" type="service" id="fos_message.validator.self_recipient"/>
+        <argument key="fos_message.validator.spam" type="service" id="fos_message.validator.spam"/>
         <argument key="security.validator.user_password" type="service" id="security.validator.user_password"/>
         <argument key="validator.expression" type="service" id="validator.expression"/>
       </argument>
@@ -4505,6 +4696,24 @@
     <service id="vich_uploader.storage" alias="vich_uploader.storage.file_system"/>
     <service id="vich_uploader.metadata_driver" alias="vich_uploader.metadata_driver.chain" public="false"/>
     <service id="vich_uploader.metadata.cache" alias="vich_uploader.metadata.cache.file_cache" public="false"/>
+    <service id="fos_message.message_manager" alias="fos_message.message_manager.default"/>
+    <service id="fos_message.thread_manager" alias="fos_message.thread_manager.default"/>
+    <service id="fos_message.sender" alias="fos_message.sender.default"/>
+    <service id="fos_message.composer" alias="fos_message.composer.default"/>
+    <service id="fos_message.provider" alias="fos_message.provider.default"/>
+    <service id="fos_message.participant_provider" alias="fos_message.participant_provider.default"/>
+    <service id="fos_message.authorizer" alias="fos_message.authorizer.default"/>
+    <service id="fos_message.message_reader" alias="fos_message.message_reader.default"/>
+    <service id="fos_message.thread_reader" alias="fos_message.thread_reader.default"/>
+    <service id="fos_message.deleter" alias="fos_message.deleter.default"/>
+    <service id="fos_message.spam_detector" alias="fos_message.noop_spam_detector"/>
+    <service id="fos_message.twig_extension" alias="fos_message.twig_extension.default"/>
+    <service id="fos_message.new_thread_form.factory" alias="fos_message.new_thread_form.factory.default"/>
+    <service id="fos_message.new_thread_form.handler" alias="fos_message.new_thread_form.handler.default"/>
+    <service id="fos_message.reply_form.factory" alias="fos_message.reply_form.factory.default"/>
+    <service id="fos_message.reply_form.handler" alias="fos_message.reply_form.handler.default"/>
+    <service id="fos_message.search_query_factory" alias="fos_message.search_query_factory.default"/>
+    <service id="fos_message.search_finder" alias="fos_message.search_finder.default"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand" alias="security.console.user_password_encoder_command"/>

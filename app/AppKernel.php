@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new WorkshopBundle\WorkshopBundle(),
             new SUserBundle\SUserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

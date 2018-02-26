@@ -98,6 +98,11 @@ fos_user:
             address: ramy.kader@esprit.tn
             sender_name: Administrateur_SoukLemdina
 
+fos_message:
+    db_driver: orm
+    thread_class: SocialBundle\Entity\Thread
+    message_class: SocialBundle\Entity\Message
+
 #fos_user:
 #    db_driver: orm
 #    firewall_name: main
