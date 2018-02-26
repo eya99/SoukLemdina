@@ -10,6 +10,3 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 69f9a72c7ea0bfc5f290da788a245d4ee295fccd
-
-    #mailer_user not null: ekteb ay haja
-    #mailer_user not null: ekteb ay haja

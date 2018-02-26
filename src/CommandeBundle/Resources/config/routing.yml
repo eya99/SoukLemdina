@@ -28,6 +28,9 @@ commander_produit:
 afficher_commande:
     path:     /afficherCommande
     defaults: { _controller: CommandeBundle:LigneDeCommande:afficherCommande }
+pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: PdfBundle:Pdf:pdf }
 
 
 

@@ -1,0 +1,45 @@
+{% set totalHT = 0 %}
+
+{% block content %}
+    <h1><font size="100">Souk El Madina</font></h1>     <h2 style="color:#0E76A8"> Facture Numero {{ commande.id }} </h2> <h3>Date {{ commande.dateCommande|date ("Y-m-d") }}</h3>
+
+
+    {{ commande.idUser }}<br>
+        <table border="1" class="table cart" style="width:100% ;">
+        <tr style="background-color: #00bed7">
+        <th>Produit</th>
+            <th>Quantité</th>
+        <th>Prix Unitaire</th>
+            <th>Remise</th>
+            <th>Total</th>
+        </tr>
+            {% for lcommande in lcommande %}
+
+                <tr style="text-align: center">
+            <td>
+                {{ lcommande.idProduit.getLibelle() }}
+            </td>
+                    <td>
+                        {{ lcommande.quntite }}
+                    </td>
+            <td>
+                {{ lcommande.idProduit.getPrix()-(lcommande.idProduit.getPrix()*lcommande.idProduit.getPromotion/100) }}
+            </td>
+                    <td>
+                        {{ lcommande.idProduit.getPromotion() }}
+                    </td>
+                    <td>
+                        {{ (lcommande.idProduit.getPrix()-(lcommande.idProduit.getPrix()*lcommande.idProduit.getPromotion/100))*lcommande.quntite }}
+                    </td>
+                    {% set totalHT = totalHT + (lcommande.idProduit.getPrix()-(lcommande.idProduit.getPrix()*lcommande.idProduit.getPromotion/100))*lcommande.quntite %}
+
+                </tr>
+        <br>
+        {% endfor %}
+
+    </table>
+    <div style="text-align: right">Total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ totalHT }}</div>
+    <figure>
+
+    </figure>
+{% endblock %}

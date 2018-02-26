@@ -1,3 +1,11 @@
+to_pdf:
+    resource: "@ToPdfBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pdf:
+    resource: "@PdfBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mail:
     resource: "@MailBundle/Resources/config/routing.yml"
     prefix:   /
