@@ -86,7 +86,7 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 }
 
                 // RechercheDynamiq
-                if (0 === strpos($pathinfo, '/workshop/RechercheDynamiq') && preg_match('#^/workshop/RechercheDynamiq/(?P<nom>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/workshop/RechercheDynamiq') && preg_match('#^/workshop/RechercheDynamiq/(?P<var>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'RechercheDynamiq')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::RechercheDynamiqAction',));
                 }
 

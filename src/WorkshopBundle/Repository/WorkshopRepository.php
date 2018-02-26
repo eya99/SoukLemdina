@@ -10,14 +10,10 @@ namespace WorkshopBundle\Repository;
  */
 class WorkshopRepository extends \Doctrine\ORM\EntityRepository
 {
-    function RechercheAv($valeur){
-        $QB = $this->getEntityManager()->createQueryBuilder()->select('w')->from('WorkshopBundle:Workshop','w')
-            ->where('w.nomWorkshop=:val')
-           // ->orWhere('UPPER(w.description) LIKE UPPER(:valeur)')
-            //->orWhere('UPPER(r.mobile) LIKE UPPER(:valeur)')
-
-            ->setParameter('val',$valeur);
-        return $QB->getQuery()->getResult();
+    public function RechercheAv($valeur)
+    {
+        $query=$this->getEntityManager()->createQuery("SELECT w FROM WorkshopBundle:Workshop w WHERE w.nomWorkshop like :no")->setParameter('no','%'.$valeur.'%');
+        return $query->getResult();
     }
 
   public function getByDate(\Datetime $date)

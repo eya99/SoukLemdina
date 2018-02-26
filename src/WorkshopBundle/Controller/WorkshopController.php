@@ -9,12 +9,15 @@
 namespace WorkshopBundle\Controller;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use SUserBundle\Entity\User;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Validator\Constraints\DateTime;
 use WorkshopBundle\Entity\ParticipantWork;
 use WorkshopBundle\Entity\Workshop;
@@ -302,7 +305,12 @@ class WorkshopController extends Controller
 
 
     }
-    public function RechercheDynamiq(){
-
+    public function RechercheDynamiqAction(Request $request ,$var){
+        $em = $this->getDoctrine()->getManager();
+        $work = $em->getRepository('WorkshopBundle:Workshop')->RechercheAv($var);
+        $zz=new Serializer(array(new ObjectNormalizer()));
+        $a=$zz->normalize($work,'json');
+        $response=new JsonResponse();
+        return $response->setData(array('y'=>$a));
     }
 }

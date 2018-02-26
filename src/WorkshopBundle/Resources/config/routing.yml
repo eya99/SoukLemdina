@@ -41,7 +41,7 @@ graphePie:
  path: /pie
  defaults: { _controller: WorkshopBundle:Default:index}
 RechercheDynamiq:
-     path:     /RechercheDynamiq/{nom}
+     path:     /RechercheDynamiq/{var}
      defaults: { _controller: WorkshopBundle:Workshop:RechercheDynamiq }
 FiltreDQL:
      path:     /FiltreDQL

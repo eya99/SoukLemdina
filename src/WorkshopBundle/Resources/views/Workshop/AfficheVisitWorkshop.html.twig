@@ -18,7 +18,7 @@
             </ol>
             <h1>Bienvenu(e) à la liste des Workshops</h1>
             <span> Workshops à venir</span>
-            <span> hey! Vous pouvez <a href="{{ path('fos_user_security_login') }}">ajouter votre workshop</span>
+            <span> hey! Vous pouvez <a href="{{ path('fos_user_security_login') }}">ajouter votre workshop</a></span>
 
         </div>
 
@@ -27,9 +27,13 @@
 <!-- Content
 ============================================= -->
 <section id="content">
+    <form method="POST" href="{{ path('_RechercheWorkshop') }}"> Effectuer Une Recherche Avancée
+        <input type="text" name="valeur" id="zzz">
+        <input type="submit" name="submit" value="Rechercher">
+    </form>
 
     <div class="content-wrap">
-        <div class="container clearfix">
+        <div id="fgh" class="container clearfix">
         {% for work in w | sort %}
 
 
