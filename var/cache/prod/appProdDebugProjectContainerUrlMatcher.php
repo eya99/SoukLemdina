@@ -99,6 +99,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_ListeParticipant')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::ListeParticipantAction',));
             }
 
+            // graphePie
+            if ('/workshop/pie' === $pathinfo) {
+                return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => 'graphePie',);
+            }
+
         }
 
         // local_homepage

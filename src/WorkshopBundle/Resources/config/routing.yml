@@ -37,4 +37,6 @@ _RechercheWorkshop:
 _ListeParticipant:
     path:     /ListeParticipant/{id}
     defaults: { _controller: WorkshopBundle:Workshop:ListeParticipant }
-
+graphePie:
+ path: /pie
+ defaults: { _controller: WorkshopBundle:Default:index}

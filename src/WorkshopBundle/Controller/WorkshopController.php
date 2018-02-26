@@ -61,6 +61,8 @@ class WorkshopController extends Controller
 
             if ( $dateDebut > $dateFin){
 
+                return $this->render("WorkshopBundle:Workshop:AjoutWorkshop.html.twig",array('fdate' => 'set',
+                    'form' => $form->createView()));
             }
 //
 //            $data = $em->getRepository("WorkshopBundle:Workshop")->getByDate($d);
@@ -208,12 +210,14 @@ class WorkshopController extends Controller
 //            $em->flush();
 //            return $this->redirectToRoute('_Redirect', array('id' => $id));
 //        }
-
+        $nb= $em->getRepository("WorkshopBundle:ParticipantWork")->findBy(array('idWorkshop'=>$id));
+        $nbparticip=count($nb);
 
         return $this->render('WorkshopBundle:Workshop:Redirect.html.twig', array(
             'workshop' => $workshop,
             // 'participant' => 'set',
-            'ParticipantWork' => $particip
+            'ParticipantWork' => $particip,
+            'nbparticip'=>$nbparticip
         ));
     }
 
@@ -227,9 +231,16 @@ class WorkshopController extends Controller
         $part = new ParticipantWork();
         $part->setIdWorkshop($work);
         $part->setIdUser($user);
+        $nb= $em->getRepository("WorkshopBundle:ParticipantWork")->findBy(array('idWorkshop'=>$id));
+        $nbplace=count($nb);
         $em->persist($part);
         $em->flush();
-        return $this->redirectToRoute('_Redirect', array('id' => $id));
+
+       /* var_dump($nbplace);
+        echo $aaa;*/
+        return $this->redirectToRoute('_Redirect', array('id' => $id,'ParticipantWork'=>$work));
+
+
     }
 
     public
@@ -237,24 +248,32 @@ class WorkshopController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $particip = $em->getRepository("WorkshopBundle:ParticipantWork")->find($id);
-        $workshop = $em->getRepository("WorkshopBundle:Workshop")->find($particip->getIdWorkshop());
+        $idw=$particip->getIdWorkshop();
+
+        $workshop = $em->getRepository("WorkshopBundle:Workshop")->find($idw);
+
 //        $part = new ParticipantWork();
 //        $part->setIdWorkshop($work);
 //        $part->setIdUser($particip);
 
         $em->remove($particip);
         $em->flush();
-        return $this->redirectToRoute('_Redirect', array('id' => $workshop->getId()));
+
+       // $nb= $em->getRepository("WorkshopBundle:ParticipantWork")->findBy(array('idWorkshop'=>$id));
+      //  $nbplace=count($nb);
+        return $this->redirectToRoute('_AfficheWorkshop', array('id' => $id,'ParticipantWork'=>$workshop));
+
     }
-    public function getNbParticipant()
+  /*  public function getNbParticipantAction()
     {
-        return $this->createQueryBuilder('p')
+        return $this->createQueryBuilder('v')
             ->select('COUNT(*)from PartcipantWork
                    where p.idWorkshop =:id')
             ->getQuery()
             ->getSingleScalarResult();
-    }
 
+    }
+*/
 
     public function ListeParticipantAction($id){
 

@@ -76,14 +76,12 @@
                             <div class="entry-content">
                                 <a href="{{ path('_UpdateWorkshop', {'id':work.id}) }}" class="btn btn-default" >Modifier Workshop</a>
                                 {% endif %}
+
+
+
+
+
                         </div>
-
-                         <div class="entry-content">
-                                <a href="{{ path('_DetailsWorkshop', {'id':work.id}) }}" class="btn btn-default" >Details Workshop</a> <a href="#" class="btn btn-danger">Signaler</a>
-                        </div>
-                    </div>
-
-
 
 
                 </div>
@@ -92,17 +90,32 @@
         </div>
 
     </section><!-- #content end -->
-
-    <!-- Footer
-    ============================================= -->
-
-
-    >
-
-    <!-- Go To Top
-    ============================================= -->
+    {% endfor %}
     <div id="gotoTop" class="icon-angle-up"></div>
-                        {% endfor %}
+    <div class="widget quick-contact-widget clearfix" width="1000" height="250">
+
+                            <div class="subscribe-widget">
+                                <div class="widget-subscribe-form-result"></div>
+                                <form id="widget-subscribe-form2" action="include/subscribe.php"
+                                      role="form"
+                           >
+                                    <div class="input-group input-group-lg divcenter"
+                                         style="max-width:1000px;">
+                                        <span class="input-group-addon"><i class="icon-email2"></i></span>
+                                        <input type="email" name="widget-subscribe-form-email"
+                                               class="form-control required email"
+                                               placeholder="Enter le nom du workshop">
+                                        <span class="input-group-btn">
+                                          <li> <a href="{{ path('_RechercheWorkshop') }}"><button class="btn btn-default"
+                                                                                           type="submit">Effectuer recherche par nom</button></a></li>
+
+                    <input type="submit" value="rehercher">
+                </form>
+									</span>
+                                    </div>
+                                </form>
+                            </div>
+
 {% endblock %}
 
 
