@@ -46,3 +46,6 @@ _Rating:
     path:     /Ratingo/{id}
     defaults: { _controller: EvenementBundle:Evenement:rating }
 
+_Recherche:
+    path:     /Recherche/{nom}
+    defaults: { _controller: EvenementBundle:Evenement:Recherche }

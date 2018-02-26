@@ -323,4 +323,27 @@ return $this->render('EvenementBundle:Evenement:RechercheDQL.html.twig',
         }
         return $this->render('EvenementBundle:Evenement:RatingEvent.html.twig', array('form' => $form->createView()));
     }
+
+
+    public function RechercheAction(Request $request,$nom){
+        $em = $this->getDoctrine()->getManager();
+        $event= $em->getRepository('EvenementBundle:Evenement')
+            ->RechercheEventType($nom);
+
+        /**
+         * @var $paginator\knp\Component\Pager\Paginator
+         */
+        $paginator  = $this->get('knp_paginator');
+        $result=$paginator->paginate(
+            $event,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',4)
+        );
+
+          $s=new Serializer(array(new ObjectNormalizer()));
+          $e=$s->normalize($result,'json');
+          $response=new JsonResponse();
+          return $response->setData(array('x'=>$e));
+    }
+
 }
