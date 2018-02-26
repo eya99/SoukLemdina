@@ -24,13 +24,16 @@ class Commande
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateCommande", type="date")
+     * @ORM\Column(name="dateCommande", type="datetime")
      */
     private $dateCommande;
 
 
+
+
+
     /**
-     * @ORM\Column(name="date_max", type="date", nullable=true)
+     * @ORM\Column(name="date_max", type="datetime", nullable=true)
      */private $dateMax;
 
     /**

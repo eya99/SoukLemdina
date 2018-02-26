@@ -10,6 +10,8 @@ namespace SUserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * Class User
@@ -60,7 +62,7 @@ class User extends BaseUser
     /**
      * @var
      *
-     * @ORM\Column(name="zip_code", type="string", length=255, nullable=true)
+     * @ORM\Column(name="zip_code", type="integer", length=255, nullable=true)
      */
     protected $zipCode;
 
@@ -91,6 +93,37 @@ class User extends BaseUser
      * @ORM\Column(name="nbsignal", type="integer", nullable=true)
      */
     protected $nbsignal;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datenaiss", type="date", nullable=true)
+     */
+    private $datenaiss;
+
+    /**
+     * Set datenaiss
+     *
+     * @param \DateTime $datenaiss
+     *
+     * @return User
+     */
+    public function setDatenaiss($datenaiss)
+    {
+        $this->datenaiss = $datenaiss;
+
+        return $this;
+    }
+
+    /**
+     * Get datenaiss
+     *
+     * @return \DateTime
+     */
+    public function getDatenaiss()
+    {
+        return $this->datenaiss;
+    }
 
     /**
      * Constructor
@@ -262,6 +295,24 @@ class User extends BaseUser
     public function setNbsignal($nbsignal)
     {
         $this->nbsignal = $nbsignal;
+    }
+
+    public function validate(ExecutionContextInterface $context, $payload)
+    {
+        $datemin = new \DateTime('01/01/2008');
+        // check if the user is aged enough
+        if ($this->getDatenaiss() >= $datemin) {
+            $context->buildViolation('Vous êtes trop jeune pour le Souk mon petit, êtes-vous sûr de votre date de naissance?')
+                ->atPath('datenaiss')
+                ->addViolation();
+        }
+
+        //check if he's not lying about his hood
+        if ($this->getZipCode() > 9999 || $this->getZipCode() < 1000) {
+            $context->buildViolation('Êtes-vous sûr de votre ZipCode? Vous habitez sur Mars?')
+                ->atPath('zipCode')
+                ->addViolation();
+        }
     }
 
 }

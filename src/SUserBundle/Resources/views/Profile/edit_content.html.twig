@@ -1,8 +1,36 @@
-{% trans_default_domain 'FOSUserBundle' %}
+<div class="content-wrap">
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    <div class="container clearfix">
+
+        <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register" style="max-width: 500px;">
+            {% trans_default_domain 'FOSUserBundle' %}
+            <div class="tab-container">
+                <div class="tab-content clearfix" id="tab-register">
+                    <div class="panel panel-default nobottommargin">
+                        <div class="panel-body" style="padding: 40px;">
+                            <h3>Register for an Account</h3>
+
+                            <form id="register-form" name="register-form" class="nobottommargin" action="#"
+                                  method="post">
+
+
+                                <div class="col_full">
+                                    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+                                    {{ form_widget(form) }}
+                                    <div>
+                                        <input type="submit" value="{{ 'profile.edit.submit'|trans }}"
+                                               class="button button-3d button-black"/>
+                                    </div>
+                                    {{ form_end(form) }}
+                                </div>
+                            </form>
+                            <a href="{{ path('social_delete_profile',{'id':app.user.id}) }}" onclick="return confirm('Voulez-vous vraiment' +
+                                     'supprimer votre compte ?')"> <input type="submit" value="Supprimer Inscription"
+                                                                               class="button button-3d button-black nomargin"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-{{ form_end(form) }}
+</div>

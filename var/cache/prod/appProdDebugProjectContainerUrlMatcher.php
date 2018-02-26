@@ -85,30 +85,30 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'CommandeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'commande_homepage',);
             }
 
-            if (0 === strpos($pathinfo, '/commande/a')) {
-                if (0 === strpos($pathinfo, '/commande/ajout')) {
-                    // commande_ajout
-                    if (preg_match('#^/commande/ajout/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_ajout')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::AjoutAction',));
-                    }
-
-                    // ligne_commande_ajouters
-                    if ('/commande/ajouterlcs' === $pathinfo) {
-                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::PutInSessionAction',  '_route' => 'ligne_commande_ajouters',);
-                    }
-
-                    // payement
-                    if ('/commande/ajoutlcs' === $pathinfo) {
-                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::aAction',  '_route' => 'payement',);
-                    }
-
-                    // ajout_ligne_commande
-                    if ('/commande/ajoutbd' === $pathinfo) {
-                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AjoutLigneDeCommandeAction',  '_route' => 'ajout_ligne_commande',);
-                    }
-
+            if (0 === strpos($pathinfo, '/commande/ajout')) {
+                // commande_ajout
+                if (preg_match('#^/commande/ajout/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_ajout')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::AjoutAction',));
                 }
 
+                // ligne_commande_ajouters
+                if ('/commande/ajouterlcs' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::PutInSessionAction',  '_route' => 'ligne_commande_ajouters',);
+                }
+
+                // payement
+                if ('/commande/ajoutlcs' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::aAction',  '_route' => 'payement',);
+                }
+
+                // ajout_ligne_commande
+                if ('/commande/ajoutbd' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AjoutLigneDeCommandeAction',  '_route' => 'ajout_ligne_commande',);
+                }
+
+            }
+
+            elseif (0 === strpos($pathinfo, '/commande/aff')) {
                 // ligne_commande_aff
                 if ('/commande/afflc' === $pathinfo) {
                     return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AfficherLigneDeCommandeAction',  '_route' => 'ligne_commande_aff',);
@@ -117,6 +117,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 // panier_afficher
                 if ('/commande/afficher' === $pathinfo) {
                     return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::ModifierPanierAction',  '_route' => 'panier_afficher',);
+                }
+
+                // affbase
+                if ('/commande/affb' === $pathinfo) {
+                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::assAction',  '_route' => 'affbase',);
                 }
 
             }

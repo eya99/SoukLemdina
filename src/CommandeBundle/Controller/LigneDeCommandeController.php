@@ -12,23 +12,32 @@ use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\LigneDeCommande;
 use CommandeBundle\Form\LigneDeCommandeType;
 use DateTime;
+use function Sodium\add;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\Date;
 
 class LigneDeCommandeController extends Controller
 {
-    /*ligne_commande_ajouter:
-    path:     /ajouterlc
-    defaults: { _controller: CommandeBundle:LigneDeCommande:AjoutLigneDeCommande }*/
-    public function PutInSessionAction(Request $request/*, $id*/)
-    {
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $lcommande = new LigneDeCommande();
 
+    public function PutInSessionAction(Request $request, $id)
+    {
+
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $session = $request->getSession();
+
+        if ($session->has('panier'))
+
+            $panier = $session->get('panier');
+        $lcommande = new LigneDeCommande();
+        $em = $this->getDoctrine()->getManager();
+
+        $produit = $em->getRepository("StockBundle:Produit")->findArray(array_keys($session->get('panier')/*'id' => $panier*/));
         $form = $this->createForm(LigneDeCommandeType::class, $lcommande);
         $form->handleRequest($request);
         if ($form->isValid()) {
-            //$this->get('session')->set('idprod', $id);
+            $this->get('session')->set('idprod', $produit);
+            $this->get('session')->set('prixtotal', $id);
 
             $this->get('session')->set('addresse', $lcommande->getAdresse());
             $this->get('session')->set('addresse2', $lcommande->getAdresse2());
@@ -36,86 +45,99 @@ class LigneDeCommandeController extends Controller
             $this->get('session')->set('codepostal', $lcommande->getCodePostal());
             $this->get('session')->set('numtel', $lcommande->getNumTel());
 
-            return $this->redirectToRoute('payement');
+            return $this->redirectToRoute('ajout_ligne_commande');
 
         }
         return $this->render("CommandeBundle:LigneDeCommande:AjoutLigneDeCommande.html.twig",
-            array('lcommande' => $lcommande, 'form' => $form->createView()));
-    }
-
-    public function aAction()
-    {
-        return $this->render("CommandeBundle:LigneDeCommande:payement.html.twig",
-            array());
+            array('produit' => $produit, 'lcommande' => $lcommande, 'form' => $form->createView()));
     }
 
     public function AjoutLigneDeCommandeAction(Request $request)
     {
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        //$fstname = $user->getFirstname();
-        //$lstname = $user->getLastname();
-        //$_SESSION['a']=$user;
-        $dateCommande = new DateTime();
-        //$_SESSION[dateLivraison] = new DateTime('+2 day')  ;
-        $dateLivraison = new DateTime('+2 day');    // ajouter 2 jour
-        $datmax = new DateTime('+3 minute');
+        $session = $request->getSession();
 
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+
+        $dateCommande = new \DateTime();
+        $dateLivraison = new \DateTime('+2 day');
+
+
+        $datmax = new DateTime('+ 1 minute');
 
         $commande = new Commande();
-        $lcommande = new LigneDeCommande();
-        //$a=$lcommande->getAdresse();
 
-        /*$form = $this->createForm(LigneDeCommandeType::class,$lcommande);
-        $form->handleRequest($request);
-        if ($form->isValid())
-        {*/
+        $this->get('session')->set('datmax', $datmax);
+
         $em = $this->getDoctrine()->getManager();
         $commande->setDateCommande($dateCommande);
         $commande->setDateMax($datmax);
+
         $commande->setIdUser($user);
         $em->persist($commande);
         $em->flush();
+        $panier = $this->get('session')->get('panier');
 
-        $commande = $em->getRepository("CommandeBundle:Commande", $user)->find($user);
-        $this->get('session')->set('datemax', $commande->getDateMax());
-//prix total !!!!!!!!!!!!!!!!!!!!!!!!!!
-        $lcommande->setDateLivraison($dateLivraison);
-        $lcommande->setAdresse($this->get('session')->get('addresse'));
-        $lcommande->setAdresse2($this->get('session')->get('addresse2'));
-        $lcommande->setVille($this->get('session')->get('ville'));
-        $lcommande->setCodePostal($this->get('session')->get('codepostal'));
-        $lcommande->setNumTel($this->get('session')->get('numtel'));
-        //$lcommande->setIdProduit($request->getSession('idprod'));
-        //$lcommande->setIdProduit();
-        $lcommande->setIdCommande($commande);
+        $commande = $em->getRepository("CommandeBundle:Commande", $user)->findOneBy(array('idUser' => $user->getId()), array('id' => 'DESC'));
+        $prod = $em->getRepository("StockBundle:Produit")->findArray(array_keys($session->get('panier')));
+        $i = 0;
+
+        ksort($panier);
+
+        foreach ($prod as $p) {
+            $lcommande = new LigneDeCommande();
+
+            $lcommande->setDateLivraison($dateLivraison);
+
+            $lcommande->setIdProduit($p);
+            $lcommande->setPrixTotal(array_values($panier)[$i] * $p->getPrix());
+            $lcommande->setQuntite(array_values($panier)[$i]);
+
+            $lcommande->setAdresse($this->get('session')->get('addresse'));
+            $lcommande->setAdresse2($this->get('session')->get('addresse2'));
+            $lcommande->setVille($this->get('session')->get('ville'));
+            $lcommande->setCodePostal($this->get('session')->get('codepostal'));
+            $lcommande->setNumTel($this->get('session')->get('numtel'));
+
+            $lcommande->setIdCommande($commande);
 
 
-        $em->persist($lcommande);
-        $em->flush();
-        return $this->redirectToRoute('ligne_commande_aff');
+            $em->persist($lcommande);
+            $em->flush();
+            $i++;
 
-        //}
-        return $this->render("CommandeBundle:LigneDeCommande:AjoutLigneDeCommande.html.twig",
-            array('lcommande' => $lcommande, 'form' => $form->createView()));
+        }
+
+        return $this->redirectToRoute('afficher_commande');
+
+        return $this->render("CommandeBundle:LigneDeCommande:afficheLigneDeCommande.html.twig",
+            array('lcommande' => $lcommande));
     }
 
-    public function AfficherLigneDeCommandeAction()
+    public function afficherCommandeAction()
     {
-        // $this->get('session')->set('datesys', $dateCommande);
-
-        // $this->get('session')->set('datemax', $datmax);
-        //   $dateLivraison = new DateTime('+5 minutes');
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
-        $commande = $em->getRepository("CommandeBundle:Commande", $user)->findby(array('idUser' => $user));
-        //$idcomm = $commande->getId();
-        $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande", $commande)->findby(array('idCommande' => $commande));
-        $dm = $this->get('session')->get('datemax');
+        $commande = $em->getRepository("CommandeBundle:Commande")->findby(array('idUser' => $user->getId()));
+
+
+        return $this->render('CommandeBundle:LigneDeCommande:afficherCommande.html.twig', array(
+            'commande' => $commande));
+    }
+
+
+    public function AfficherLigneDeCommandeAction($id)
+    {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+
+        $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande")->findby(array('idCommande' => $id));
+
+
         $datesys = new DateTime();
-//        {{ d|date ("Y-m-d H:i:s") }}
+
 
         return $this->render('CommandeBundle:LigneDeCommande:afficheLigneDeCommande.html.twig', array(
-            'commande' => $commande, 'lcommande' => $lcommande, 'dm' => $dm, 'datesys' => $datesys));
+            'lst' => $lcommande, 'datesys' => $datesys));
     }
 
     public function ModifierLigneDeCommandeAction(Request $request, $id)
@@ -125,6 +147,7 @@ class LigneDeCommandeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande", $id)->find($id);
+
         $form = $this->createForm(LigneDeCommandeType::class, $lcommande);
         $form->handleRequest($request);
 
@@ -140,19 +163,33 @@ class LigneDeCommandeController extends Controller
     public function SupprimerLigneDeCommandeAction(Request $request, $id)
     {
 
-        $dm = $this->get('session')->get('datemax');
         $datesys = new DateTime();
-        if ($datesys <= $dm) {
-            $em = $this->getDoctrine()->getManager();
-            $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande")->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande", $id)->find($id);
+        $idC = $lcommande->getIdCommande();
+        $dm = $this->get('session')->get('datmax');
 
+        if ($datesys >= $dm)
+            return $this->redirectToRoute('afficher_commande');
+
+
+        else if ($datesys <= $dm) {
             $em->remove($lcommande);
             $em->flush();
-            return $this->redirectToRoute('ligne_commande_aff');
-        } else {
-            return $this->redirectToRoute('ligne_commande_aff');
-
         }
+
+        $em->detach($lcommande);
+        $lcommandee = $em->getRepository("CommandeBundle:LigneDeCommande", $id)->findBy(array('idCommande' => $idC));
+
+        $commande = $em->getRepository("CommandeBundle:Commande")->find($idC);
+
+        if (empty($lcommandee)) {
+            $em->remove($commande);
+            $em->flush();
+        }
+        return $this->redirectToRoute('afficher_commande');
+
+
         return $this->render("CommandeBundle:LigneDeCommande:afficheLigneDeCommande.html.twig", array('dm' => $dm, 'datesys' => $datesys));
     }
 

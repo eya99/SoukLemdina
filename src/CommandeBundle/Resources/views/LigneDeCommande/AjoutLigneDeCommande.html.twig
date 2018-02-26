@@ -1,5 +1,20 @@
 {% extends "SUserBundle::layout.html.twig" %}
 {% block body %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <div id="top-cart">
+            <a href="{{ path('fos_visitor_home') }}"><i class="i-plain icon-globe"></i></a>
+        </div>
+        <div id="top-cart">
+            <a href="{{ path('fos_user_security_logout') }}"><i class="i-plain icon-external-link"></i></a>
+        </div>
+    {% else %}
+        <div id="top-cart">
+            <a href="{{ path('fos_user_registration_register') }}"><i class="i-plain icon-user"></i></a>
+        </div>
+        <div id="top-cart">
+            <a href="{{ path('fos_user_security_login') }}"><i class="i-plain icon-download"></i></a>
+        </div>
+    {% endif %}
     <div class="content-wrap">
 
         <div class="container clearfix">
@@ -13,7 +28,6 @@
                                 {{ form_start(form) }}
 
                                 {{ form_end(form) }}
-                                {{ app.request.session.get("addresse")}}
                             </div>
                         </div>
                     </div>

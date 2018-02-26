@@ -1,27 +1,33 @@
 commande_homepage:
     path:     /
     defaults: { _controller: CommandeBundle:Default:index }
-commande_ajout:
-    path:     /ajout/{id}
-    defaults: { _controller: CommandeBundle:LigneDePanier:Ajout }
 ligne_commande_aff:
-    path:     /afflc
+    path:     /afflc/{id}
     defaults: { _controller: CommandeBundle:LigneDeCommande:AfficherLigneDeCommande }
-panier_afficher:
-    path:     /afficher
-    defaults: { _controller: CommandeBundle:LigneDePanier:ModifierPanier }
 ligne_commande_modifier:
     path:     /modifierlc/{id}
     defaults: { _controller: CommandeBundle:LigneDeCommande:ModifierLigneDeCommande }
 ligne_commande_supprimer:
     path:     /supprimerlc/{id}
     defaults: { _controller: CommandeBundle:LigneDeCommande:SupprimerLigneDeCommande }
-ligne_commande_ajouters:
-    path:     /ajouterlcs
-    defaults: { _controller: CommandeBundle:LigneDeCommande:PutInSession }
-payement:
-    path:     /ajoutlcs
-    defaults: { _controller: CommandeBundle:LigneDeCommande:a }
 ajout_ligne_commande:
     path:     /ajoutbd
     defaults: { _controller: CommandeBundle:LigneDeCommande:AjoutLigneDeCommande }
+supprimer:
+    path:  /supprimer/{id}
+    defaults: { _controller: CommandeBundle:LigneDePanier:supprimer }
+ajouter:
+    path:  /ajouter/{id}
+    defaults: { _controller: CommandeBundle:LigneDePanier:ajouter }
+panier:
+    path:  /panier
+    defaults: { _controller: CommandeBundle:LigneDePanier:panier }
+commander_produit:
+        path:    /putinsession/{id}
+        defaults: { _controller: CommandeBundle:LigneDeCommande:PutInSession }
+afficher_commande:
+    path:     /afficherCommande
+    defaults: { _controller: CommandeBundle:LigneDeCommande:afficherCommande }
+
+
+

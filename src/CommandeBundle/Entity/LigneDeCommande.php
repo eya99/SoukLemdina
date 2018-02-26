@@ -3,6 +3,7 @@
 namespace CommandeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * LigneDeCommande
@@ -152,6 +153,7 @@ class LigneDeCommande
 
     /**
      * @return mixed
+     * @Assert\Length(min = 8, max = 20, minMessage = "min_lenght", maxMessage = "max_lenght")
      */
     public function getNumTel()
     {

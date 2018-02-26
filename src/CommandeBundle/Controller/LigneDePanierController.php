@@ -9,94 +9,84 @@
 namespace CommandeBundle\Controller;
 
 
-use CommandeBundle\Entity\LigneDeCommande;
-use CommandeBundle\Entity\LigneDePanier;
-use CommandeBundle\Form\LigneDePanierType;
-use StockBundle\Entity\Produit;
-use SUserBundle\Entity\User;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
+
 class LigneDePanierController extends Controller
 {
-
-
-    public function AjoutAction(Request $request)
+    public function menuAction()
     {
+        $session = $this->getRequest()->getSession();
+        if (!$session->has('panier'))
+            $articles = 0;
+        else
+            $articles = count($session->get('panier'));
 
-        $idproduit = $_GET['nchoufRahmaChsametLidProduitFelAffichageProduits'];
-        $con2 = new LigneDePanier();
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-
-        $em = $this->getDoctrine()->getManager();
-        $emp = $em->getRepository('ProduitBundle:Produit',$user,$idproduit)->find($idproduit);
-        // $con2->setLibelle($con->getLibelle());
-        //$con2->setDescription($con->getDescription());
-        $con3->setPrixUnitaire($con->getQuqntite());
-        $con3->setRemise($con->getPromotion());
-        //$type=$con->getType();
-        //$categorie=$con->getCategorie();
-        $con3->setPrixUnitaire($con->getPrix());
-
-        $em->persist($con2);
-        $em->flush();
-
-        return $this->render("CommandeBundle:LigneDePanier:ajout.html.twig");
+        return $this->render('CommandeBundle:Panier:panier.html.twig', array('articles' => $articles));
     }
-
-    public function consulterPanierAction(Request $request)
+    public function ajouterAction(Request $request,$id)
     {
 
-        //$user = $this->container->get('security.context')->getToken()->getUser();
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $idprod = 1;
-//    $user->getId();
-        $em = $this->getDoctrine()->getManager();
-        $demande = $em->getRepository('CommandeBundle:LigneDePanier', $user)->findBy(array('idUser' => $user));
-        $demande2 = $em->getRepository('StockBundle:Produit', $user, $idprod)->findBy(array('idUser' => $user, 'id' => $idprod));
-
-        return $this->render('CommandeBundle:Panier:consulterPanier.html.twig', array('demande' => $demande, 'demande2' => $demande2, 'user' => $user));
-    }
-
-    public function AfficherPanierAction(Request $request)
-    {
-        //$form->handleRequest($request);
-        $con = new LigneDePanier();
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
-
-        $panier = $em->getRepository('CommandeBundle:LigneDePanier', $user)->findAll(array('idUser' => $user));
-        $produits = array();
-
-        foreach ($panier as $l) {
-            $produit = $em->getRepository('StockBundle:Produit')->findOneBy(array('id' => $l->getIdProduit()));
-            $produits = array_merge($produits, array($produit));
-        }
-        $c = sizeof($panier);
-
-
-        return $this->render("CommandeBundle:Panier:modifierPanier.html.twig",
-            array('produits' => $produits, 'panier' => $panier, 'c' => $c));
-
-    }
-
-    public function ModifierPanierAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $panier = $em->getRepository("CommandeBundle:LigneDePanier")->find($_POST['id']);
-        if (isset($_POST['recherche']))
-        {$panier->setQte($_POST['recherche']);
-        //var_dump($panier);
-        //echo $gegege;
-        $em->persist($panier);
-        $em->flush();
+        $session = $request->getSession();
+        if (!$session->has('panier')) $session->set('panier',array());
+        $panier = $session->get('panier');
+        if (array_key_exists($id, $panier)) {
+            if ($request->query->get('qte') != null)
+            $panier[$id] = $request->query->get('qte');
+            $this->get('session')->getFlashBag()->add('success','Quantité modifié avec succès');
+        } else
+            if ($request->query->get('qte') != null){
+                $panier[$id] = $request->query->get('qte');
+            }
+        else if (!array_key_exists($id, $panier)){
+                $panier[$id] = 1;
+            $this->get('session')->getFlashBag()->add('success','Article ajouté avec succès');
         }
 
-        return $this->redirectToRoute('panier_afficher');
+        $session->set('panier',$panier);
+
+
+
+        return $this->redirect($this->generateUrl('panier'));
 
     }
+    public function panierAction(Request $request)
+    {
+      $session = $request->getSession();
+
+        if (!$session->has('panier')) $session->set('panier', array());
+
+
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository('StockBundle:Produit')->findArray(array_keys($session->get('panier')));
+
+        return $this->render('CommandeBundle:Panier:afficherPanier.html.twig', array('produits' => $produit,
+            'panier' => $session->get('panier')));
+
+    }
+
+    public function supprimerAction(Request $request,$id)
+    {
+        $session = $request->getSession();
+        $panier = $session->get('panier');
+
+        if (array_key_exists($id, $panier))
+        {
+            unset($panier[$id]);
+            $session->set('panier',$panier);
+            $this->get('session')->getFlashBag()->add('success','Article supprimé avec succès');
+        }
+
+        return $this->redirect($this->generateUrl('panier'));
+    }
+
+
+
+
+
 
 
 }

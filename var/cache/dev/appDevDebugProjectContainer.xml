@@ -25,6 +25,7 @@
       <parameter key="LocalBundle">LocalBundle\LocalBundle</parameter>
       <parameter key="WorkshopBundle">WorkshopBundle\WorkshopBundle</parameter>
       <parameter key="SUserBundle">SUserBundle\SUserBundle</parameter>
+      <parameter key="MailBundle">MailBundle\MailBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -111,6 +112,11 @@
         <parameter key="parent">FOSUserBundle</parameter>
         <parameter key="path">C:\wamp64\www\SoukLemdina\src\SUserBundle</parameter>
         <parameter key="namespace">SUserBundle</parameter>
+      </parameter>
+      <parameter key="MailBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\wamp64\www\SoukLemdina\src\MailBundle</parameter>
+        <parameter key="namespace">MailBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -705,7 +711,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>XlL4F1JVOI1usYbEPuiLtJ</argument>
+      <argument>bYVHeEy-Up09GIBtQnLJWQ</argument>
       <argument>C:\wamp64\www\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -715,7 +721,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>XlL4F1JVOI1usYbEPuiLtJ</argument>
+      <argument>bYVHeEy-Up09GIBtQnLJWQ</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -3098,12 +3104,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a878d6b594fd4.81731872</argument>
+      <argument>5a931afd2c2844.27164474</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a878d6b594fd4.81731872</argument>
+      <argument>5a931afd2c2844.27164474</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3334,6 +3340,10 @@
         <argument>SUser</argument>
       </call>
       <call method="addPath">
+        <argument>C:\wamp64\www\SoukLemdina\src\MailBundle/Resources/views</argument>
+        <argument>Mail</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -3513,6 +3523,10 @@
       <call method="addPath">
         <argument>C:\wamp64\www\SoukLemdina\src\SUserBundle/Resources/views</argument>
         <argument>SUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\SoukLemdina\src\MailBundle/Resources/views</argument>
+        <argument>Mail</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp64\www\SoukLemdina\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
@@ -4706,7 +4720,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>jmlvKoHcHC</argument>
       <argument>0</argument>
-      <argument>XlL4F1JVOI1usYbEPuiLtJ</argument>
+      <argument>bYVHeEy-Up09GIBtQnLJWQ</argument>
       <argument>C:\wamp64\www\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4714,7 +4728,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>H4SjqAzKlZ</argument>
       <argument>0</argument>
-      <argument>XlL4F1JVOI1usYbEPuiLtJ</argument>
+      <argument>bYVHeEy-Up09GIBtQnLJWQ</argument>
       <argument>C:\wamp64\www\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4722,7 +4736,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>htevbCKpgK</argument>
       <argument>0</argument>
-      <argument>XlL4F1JVOI1usYbEPuiLtJ</argument>
+      <argument>bYVHeEy-Up09GIBtQnLJWQ</argument>
       <argument>C:\wamp64\www\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4730,7 +4744,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>ond1iQhbEB</argument>
       <argument>0</argument>
-      <argument>XlL4F1JVOI1usYbEPuiLtJ</argument>
+      <argument>bYVHeEy-Up09GIBtQnLJWQ</argument>
       <argument>C:\wamp64\www\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
