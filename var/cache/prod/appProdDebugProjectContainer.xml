@@ -27,6 +27,7 @@
       <parameter key="SUserBundle">SUserBundle\SUserBundle</parameter>
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
       <parameter key="FOSMessageBundle">FOS\MessageBundle\FOSMessageBundle</parameter>
+      <parameter key="CMENGoogleChartsBundle">CMEN\GoogleChartsBundle\CMENGoogleChartsBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -118,6 +119,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle</parameter>
         <parameter key="namespace">FOS\MessageBundle</parameter>
+      </parameter>
+      <parameter key="CMENGoogleChartsBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:\xampp\htdocs\SoukLemdina\vendor\cmen\google-charts-bundle</parameter>
+        <parameter key="namespace">CMEN\GoogleChartsBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -426,6 +432,8 @@
     <parameter key="fos_message.new_thread_form.name">message</parameter>
     <parameter key="fos_message.reply_form.model">FOS\MessageBundle\FormModel\ReplyMessage</parameter>
     <parameter key="fos_message.reply_form.name">message</parameter>
+    <parameter key="cmen_google_charts.version">current</parameter>
+    <parameter key="cmen_google_charts.language"></parameter>
     <parameter key="console.command.ids" type="collection">
       <parameter key="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand">console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand">doctrine_cache.contains_command</parameter>
@@ -607,7 +615,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>tCrvzeGjeG</argument>
       <argument>0</argument>
-      <argument>vnRpCBE4S1bkH58liHa2Tb</argument>
+      <argument>NYvzit6rkzEqbD-a+eLcQG</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -617,7 +625,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>HOy0yiKtzu</argument>
       <argument>0</argument>
-      <argument>vnRpCBE4S1bkH58liHa2Tb</argument>
+      <argument>NYvzit6rkzEqbD-a+eLcQG</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -627,7 +635,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>NmstyEZV0d</argument>
       <argument>0</argument>
-      <argument>vnRpCBE4S1bkH58liHa2Tb</argument>
+      <argument>NYvzit6rkzEqbD-a+eLcQG</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -637,7 +645,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>VV4peFNPQd</argument>
       <argument>0</argument>
-      <argument>vnRpCBE4S1bkH58liHa2Tb</argument>
+      <argument>NYvzit6rkzEqbD-a+eLcQG</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -647,7 +655,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>vnRpCBE4S1bkH58liHa2Tb</argument>
+      <argument>NYvzit6rkzEqbD-a+eLcQG</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -657,7 +665,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>vnRpCBE4S1bkH58liHa2Tb</argument>
+      <argument>NYvzit6rkzEqbD-a+eLcQG</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2849,12 +2857,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a9435bf217ad0.71720920</argument>
+      <argument>5a94ab983705f8.05854312</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a9435bf217ad0.71720920</argument>
+      <argument>5a94ab983705f8.05854312</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2978,6 +2986,9 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="fos_message.twig_extension.default"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension"/>
       </call>
       <call method="addGlobal">
         <argument>app</argument>
@@ -4418,6 +4429,25 @@
     <service id="fos_message.akismet_spam_detector" class="FOS\MessageBundle\SpamDetection\AkismetSpamDetector" public="false">
       <argument type="service" id="ornicar_akismet"/>
       <argument type="service" id="fos_message.participant_provider.default"/>
+    </service>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput" public="false"/>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\OptionsOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\OptionsOutput" public="false">
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput"/>
+    </service>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\DataOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\DataOutput" public="false">
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput"/>
+    </service>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\EventsOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\EventsOutput" public="false"/>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput" public="false">
+      <argument>current</argument>
+      <argument></argument>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\OptionsOutput"/>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\DataOutput"/>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\EventsOutput"/>
+    </service>
+    <service id="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension" class="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput"/>
     </service>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>

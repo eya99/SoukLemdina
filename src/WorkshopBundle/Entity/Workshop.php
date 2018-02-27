@@ -3,12 +3,16 @@
 namespace WorkshopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Workshop
- *
+ * Class Workshop
+ * @package WorkshopBundle\Entity
  * @ORM\Table(name="workshop")
  * @ORM\Entity(repositoryClass="WorkshopBundle\Repository\WorkshopRepository")
+ * @Vich\Uploadable
  */
 class Workshop
 {
@@ -20,6 +24,36 @@ class Workshop
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+        return $this;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
 
     /**
      * @var string
@@ -44,14 +78,14 @@ class Workshop
 
     /**
      * @var \DateTime
-     *
+     * @Assert\GreaterThan("today UTC")
      * @ORM\Column(name="dateDebut", type="date")
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\GreaterThan("today UTC")
      * @ORM\Column(name="dateFin", type="date")
      */
     private $dateFin;
@@ -73,7 +107,7 @@ class Workshop
     /**
      * @var int
      *
-     * @ORM\Column(name="nbSignal", type="integer")
+     * @ORM\Column(name="nbSignal", type="integer", nullable=true)
      */
     private $nbSignal;
 
@@ -87,20 +121,37 @@ class Workshop
     /**
      * @var string
      *
-     * @ORM\Column(name="video", type="string", length=255)
+     * @ORM\Column(name="video", type="string", length=255,nullable=true)
      */
     private $video;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
-     *
-     * @ORM\Column(name="planning", type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    /**
+     * @var string
+     * @ORM\Column(name= "planning", type= "string", length=255,nullable=true)
      */
     private $planning;
 
     /**
      * @var string
-     * @ORM\OneToOne(targetEntity="SUserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="SUserBundle\Entity\User")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
@@ -404,4 +455,3 @@ class Workshop
         return $this->idUser;
     }
 }
-

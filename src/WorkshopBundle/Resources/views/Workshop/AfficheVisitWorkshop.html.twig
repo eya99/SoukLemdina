@@ -1,0 +1,134 @@
+{% extends "SUserBundle::layout.html.twig" %}
+
+
+{% block title %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+
+{% block body %}
+
+    <section id="page-title" style="background-color: #eac36e">
+
+
+        <div class="container clearfix" >
+                <h1>Bienvenu(e) à la liste des Workshops</h1>
+                <span> Workshops à venir</span>
+                <span> hey! Vous pouvez <a href="{{ path('fos_user_security_login') }}">ajouter votre workshop</a></span>
+
+            </ol>
+        </div>
+
+    </section>
+
+    <section id="content">
+
+        <div class="content-wrap">
+
+
+
+            <div class="container clearfix" >
+
+
+
+                {% for work in w | sort %}
+
+
+                <div class="postcontent nobottommargin col_last" style="background-color:#eac36e">
+
+                    <div id="posts" class="events small-thumbs" >
+
+                        <div class="entry clearfix">
+                            <div class="entry-image">
+                                <a href="#">
+                                    <img src="{{ asset('Template/images/events/thumbs/1.jpg') }}">
+                                    <div class="entry-date">10<span>Apr</span></div>
+                                </a>
+                            </div>
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <h2><a href="#">{{ work.nomWorkshop }}</a></h2>
+                                </div>
+                                <ul class="entry-meta clearfix">
+                                    <li><span class="label label-warning">Private</span></li>
+                                    <li><i class="icon-euro"></i> <strong>{{ work.type }}</strong></li>
+                                    <li><i class="icon-calendar3"></i>
+                                        <strong>Date: </strong>{{ work.dateDebut | date("m/d/Y") }}</li>
+                                    <li><i class="icon-map-marker2"></i> <strong>Adresse: </strong>{{ work.adresse }}
+                                    </li>
+                                    <li><i class="icon-euro"></i> <strong>prix: </strong>{{ work.prix }}</li>
+                                    <li><i class="icon-male"></i> <strong>nombre de place: </strong>{{ work.nbPlace }}
+                                    </li>
+
+                                </ul>
+
+                                <div class="entry-content">
+                                    <p>{{ work.description }}</p>
+
+                                </div>
+                                <div class="entry-content">
+                                    <li><a href="{{ path('fos_user_security_login') }}"
+                                           class="btn btn-default">Participer</a></li>
+                                </div>
+                                <div class="entry-title"><li><a href="{{ path('_DetailsWorkshop', {'id':work.id}) }}"
+                                                                class="btn btn-default">Plus de Détails</a></li>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+                    </div>
+
+                    <div class="sidebar nobottommargin clearfix" style="position: relative; top:50%;right:40%;">
+                        <div class="sidebar-widgets-wrap">
+
+                            <div class="widget clearfix">
+
+                                <h4>Workshops les plus proches </h4>
+                                <div id="post-list-header">
+                                    {% for work in w| slice(0, 3) %}
+
+                                    <div class="spost clearfix">
+                                        <div class="entry-image">
+                                            <a href="{{ path('FiltreDQL') }}" ><img
+                                                        src="{{ asset('Template/images/events/thumbs/1.jpg') }}" alt=""></a>
+                                        </div>
+                                        <div class="entry-c">
+                                            <div>
+                                                <ul class="entry-meta">
+                                                    <li>{{ work.nomWorkshop }}</li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+
+                            </div>
+
+
+                        </div>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

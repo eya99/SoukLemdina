@@ -77,9 +77,14 @@
                         <li class="mega-menu"><a href="#">
                                 <div>Évènements</div>
                             </a></li>
-                        <li class="mega-menu"><a href="#">
-                                <div>Ateliers</div>
-                            </a></li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li class="mega-menu"><a href="{{ path('_AfficheWorkshop') }}">
+                            <div>Ateliers</div>
+                        {% else %}
+                            <li class="mega-menu"><a href="{{ path('_AfficheVisitWorkshop') }}">
+                                    <div>Ateliers</div>
+                                </a></li>
+                        {% endif %}
                         <li class="mega-menu"><a href="#">
                                 <div>Explore</div>
                             </a></li>
