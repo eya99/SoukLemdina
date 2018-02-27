@@ -51,11 +51,6 @@ class DefaultController extends Controller
         } else return $this->redirectToRoute('fos_user_security_login');
     }
 
-    public function chatAction()
-    {
-        return $this->render('@Social/ChatbBox/chat.html.twig');
-    }
-
     public function postsAction($deb,$fin)
     {
         $em = $this->getDoctrine()->getManager();

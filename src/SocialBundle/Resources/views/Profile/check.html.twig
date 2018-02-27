@@ -66,6 +66,10 @@
                                        href="#">
                                         <strong>SUIVRE</strong></a>
                                 {% endif %}
+                                    &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;
+                                    <a title="Envoyer un message à {{ profile.idUser.firstname }}" href="#">
+                                        <i class="icon-comments"></i>
+                                    </a>
                             {% endif %}</div>
                             <h3>{{ profile.idUser.firstname ~ ' ' ~ profile.idUser.lastname }}</h3>
                             <span>{{ profile.tagline }}</span>
@@ -364,26 +368,6 @@
                     <div class="line visible-xs-block"></div>
 
                     <div class="col-sm-3 clearfix">
-
-                        {#% if profile.idUser.id != app.user.id %}
-                            <div class="list-group">
-                                <a href="{{ path('social_check_profile',{'id':app.user.id}) }}"
-                                   class="list-group-item clearfix">Mes Publications<i
-                                            class="icon-pencil2 pull-right"></i></a>
-                                <a href="#" class="list-group-item clearfix">Mes Évènements<i
-                                            class="icon-calendar3 pull-right"></i></a>
-                                <a href="#" class="list-group-item clearfix">Ma Boutique Personnelle<i
-                                            class="icon-gift pull-right"></i></a>
-                                <a href="#" class="list-group-item clearfix">Mes Espaces<i
-                                            class="icon-screenshot pull-right"></i></a>
-                                <a href="#" class="list-group-item clearfix">Mes Ateliers<i
-                                            class="icon-briefcase pull-right"></i></a>
-                                <a href="{{ path('fos_user_profile_edit') }}" class="list-group-item clearfix">Paramètres
-                                    du Compte<i class="icon-cogs pull-right"></i></a>
-                                <a href="{{ path('fos_user_security_logout') }}" class="list-group-item clearfix">Déconnecter<i
-                                            class="icon-line2-logout pull-right"></i></a>
-                            </div>
-                        {% endif %#}
 
                         <div class="fancy-title topmargin title-border">
                             {% if profile.idUser.id == app.user.id %}

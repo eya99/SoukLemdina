@@ -148,11 +148,6 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_check_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::checkAction',));
             }
 
-            // social_chat_home
-            if ('/social/chat' === $pathinfo) {
-                return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::chatAction',  '_route' => 'social_chat_home',);
-            }
-
             if (0 === strpos($pathinfo, '/social/del')) {
                 // social_delete_profile
                 if (preg_match('#^/social/del/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
@@ -192,22 +187,30 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
 
             }
 
-            elseif (0 === strpos($pathinfo, '/social/pasuiv')) {
-                // social_pasuivre_user
-                if (preg_match('#^/social/pasuiv/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_pasuivre_user')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::unfollowAction',));
+            elseif (0 === strpos($pathinfo, '/social/p')) {
+                if (0 === strpos($pathinfo, '/social/pasuiv')) {
+                    // social_pasuivre_user
+                    if (preg_match('#^/social/pasuiv/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_pasuivre_user')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::unfollowAction',));
+                    }
+
+                    // social_pasuivreAX_user
+                    if (0 === strpos($pathinfo, '/social/pasuivAX') && preg_match('#^/social/pasuivAX/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_pasuivreAX_user')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::unfollowAXAction',));
+                    }
+
                 }
 
-                // social_pasuivreAX_user
-                if (0 === strpos($pathinfo, '/social/pasuivAX') && preg_match('#^/social/pasuivAX/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_pasuivreAX_user')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::unfollowAXAction',));
+                // social_postsAX_home
+                if (0 === strpos($pathinfo, '/social/postsAX') && preg_match('#^/social/postsAX/(?P<deb>[^/]++)/(?P<fin>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_postsAX_home')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::postsAXAction',));
                 }
 
-            }
+                // social_message_pick
+                if (0 === strpos($pathinfo, '/social/pick') && preg_match('#^/social/pick/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_message_pick')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::pickAction',));
+                }
 
-            // social_postsAX_home
-            if (0 === strpos($pathinfo, '/social/postsAX') && preg_match('#^/social/postsAX/(?P<deb>[^/]++)/(?P<fin>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_postsAX_home')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::postsAXAction',));
             }
 
         }

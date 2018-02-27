@@ -62,6 +62,6 @@ social_postsAX_home:
     path:     /postsAX/{deb}/{fin}
     defaults: { _controller: SocialBundle:Default:postsAX }
 
-social_chat_home:
-    path:     /chat
-    defaults: { _controller: SocialBundle:Default:chat }
+social_message_pick:
+    path:     /pick/{id}
+    defaults: { _controller: SocialBundle:Default:pick }
