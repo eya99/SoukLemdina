@@ -39,9 +39,9 @@ class EvenementType extends AbstractType
             ->add('prix',null,array('label' => 'prix','attr'=>array('class' =>'form-control')))
             ->add('description',TextareaType::class,array('label' => 'Description','attr'=>array('class' =>'form-control')))
             ->add('nbPlace',null,array('label' => 'nombre de places ','attr'=>array('class' =>'form-control')))
-            ->add('photo',FileType::class,array('label' => 'Photo','attr'=>array('class' =>'form-control')))
+            ->add('photo',FileType::class,array('label' => 'Photo','data_class'=>null,))
             ->add('type',ChoiceType::class,
-            array('choices'=>array('musical'=>'musical','culturel'=>'culturel','autres'=>'autres'),'attr'=>array('class'=>'form-control')))
+            array('choices'=>array('musical'=>'musical','culturel'=>'culturel','vide dressing'=>'vide dressing','autres'=>'autres'),'attr'=>array('class'=>'form-control')))
 
         ->add('Ajouter',SubmitType::class,
             array('label'=>'Publier','attr' =>array('class'=>'button button-3d button-black nomargin')));

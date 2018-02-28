@@ -29,4 +29,12 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $this->findBy(array(), array('' => 'ASC'));
     }*/
 
+      public function RecentDql(){
+          $query=$this->getEntityManager()->createQuery("SELECT e FROM EvenementBundle:Evenement e 
+ORDER BY  e.dateDebut ASC ");
+
+          return $query->getResult();
+
+      }
+
 }

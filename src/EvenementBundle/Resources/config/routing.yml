@@ -38,9 +38,9 @@ _AfficheEvent:
     path:     /AfficheE
     defaults: { _controller: EvenementBundle:Evenement:AfficheEvent }
 
-_sendNotification:
-    path:     /sendNotification
-    defaults: { _controller: EvenementBundle:Evenement:AfficheEvent }
+_AfficheProfil:
+    path:     /ProfilEv/{id}
+    defaults: { _controller: EvenementBundle:Evenement:AfficheProfil }
 
 _Rating:
     path:     /Ratingo/{id}
@@ -49,3 +49,7 @@ _Rating:
 _Recherche:
     path:     /Recherche/{nom}
     defaults: { _controller: EvenementBundle:Evenement:Recherche }
+
+_RecentDql:
+    path:     /Recent
+    defaults: { _controller: EvenementBundle:Evenement:RecentDql }

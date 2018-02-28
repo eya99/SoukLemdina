@@ -1,4 +1,5 @@
 {% extends "SUserBundle::layout.html.twig" %}
+
 {% block head %}{% endblock %}
 {% block stylesheets %}{% endblock %}
 
@@ -6,7 +7,7 @@
 {% block body %}
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-        <section id="page-title">
+        <section id="page-title" style="background-color: #ff7c4e">
 
         <div class="container clearfix">
             <h1>Evenements à venir </h1>
@@ -41,7 +42,10 @@
                         <h2><a href="{{ path('_DetailsEvent',{'id':event.id}) }}" >{{ event.nomEvenement }}</a></h2>
 
                         <ul class="iconlist">
+                            {% if event.idUser.id != app.user.id %}
+
                             <a href ="{{  path ('_Rating', {'id':event.id}) }}"> {{ event.rating|rating }}</a>
+                            {% endif %}
 
                                 <li><i class="icon-euro"></i> <strong>{{ event.type }}</strong></li>
                             <li><i class="icon-calendar3"></i> <strong>Date:</strong>{{ event.dateDebut | date("m/d/Y") }}</li>
@@ -69,7 +73,6 @@
                     <div class="entry-overlay">
                         <div id="event-countdown5" class="countdown"></div>
                     </div>
-                </img>
 
             </div>
 
@@ -110,7 +113,7 @@
                 <div class="event entry-image parallax nobottommargin" style="background-image: url({{ asset('uploads/images/') }}{{ event.photo }}); height:600px" data-stellar-background-ratio="0.3" >
                 <div class="entry-overlay-meta">
 
-                    <h2><a  >{{ event.nomEvenement }}</a></h2>
+                    <h2><a >{{ event.nomEvenement }}</a></h2>
                     <ul class="iconlist">
                         {{ 4|rating }}
                         <li><i class="icon-euro"></i> <strong>{{ event.type }}</strong></li>
@@ -138,6 +141,9 @@
 </section>
     {% endif %}
 
+
+
+
 {# display navigation #}
     <div class="navigation text-right">
         {{ knp_pagination_render(e) }}
@@ -157,27 +163,7 @@
     ============================================= -->
     <script type="text/javascript" src="{{ asset('Template/js/functions.js') }}"></script>
 
-    <script>
-        jQuery(document).ready(function ($) {
 
-            var eventStartDate1 = new Date(2016, 6, 15);
-            $('#event-countdown1').countdown({until: eventStartDate1});
-
-            var eventStartDate2 = new Date(2015, 12, 23);
-            $('#event-countdown2').countdown({until: eventStartDate2});
-
-            var eventStartDate3 = new Date(2016, 1, 31);
-            $('#event-countdown3').countdown({until: eventStartDate3});
-
-            var eventStartDate4 = new Date(2015, 7, 24);
-            $('#event-countdown4').countdown({until: eventStartDate4});
-
-            var eventStartDate5 = new Date(2017, 1, 5);
-            $('#event-countdown5').countdown({until: eventStartDate5});
-
-        });
-
-    </script>
 
 {% endblock %}
 

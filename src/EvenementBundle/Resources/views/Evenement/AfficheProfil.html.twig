@@ -1,0 +1,51 @@
+
+{% extends "SUserBundle::layout.html.twig" %}
+
+{% block head %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+
+<table class="table">
+    <thead>
+    <tr style="background-color:#ff9c2c">
+        <th> nom de l'événement </th>
+        <th> Date </th>
+        <th> Informations supplémentaires</th>
+    </tr>
+    </thead>
+    {% for event in e  %}
+    <tbody>
+
+    <tr class="success">
+        <td></td>
+        <td>{{ event.nomEvenement }}</td>
+        <td>{{ event.dateDebut }}</td>
+            <td href="{{ path('_DetailsEvent',{'id':event.id}) }}"  > Description </td>
+
+        {% if event.idUser.id == app.user.id %}
+
+     <code><td href="{{ path('_UpdateEvent',{'id':event.id}) }}" class="btn btn-warning btn-block btn-lg">Modifier votre événement</td>></code>
+      <code><td href="{{ path('_DeleteEvent',{'id':event.id}) }}" class="btn btn-danger btn-block btn-lg">Supprimer l'événement</td></code>
+                    {% endif %}
+
+    </tr>
+
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+    <script type="text/javascript" src="{{ asset('Template/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/plugins.js') }}"></script>
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="{{ asset('Template/js/functions.js') }}"></script>
+
+
+{% endblock %}

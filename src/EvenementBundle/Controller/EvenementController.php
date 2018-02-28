@@ -22,6 +22,7 @@ class EvenementController extends Controller
 {
 
 public function AjoutEventAction(Request $request){
+
     $user=$this->container->get('security.token_storage')->getToken()->getUser();
   //  $id=$user;
 
@@ -48,7 +49,6 @@ if($form->isSubmitted() && $form->isValid()){
 
     if($dateDebut>$dateFin){
         echo '<script type="text/javascript">' . 'alert("date non valide ");' . '</script>';
-
     }
     $em->persist($event);
     $em->flush();
@@ -107,6 +107,15 @@ return $this ->render('EvenementBundle:Evenement:AfficheEvent.html.twig',
 $form=$this->createForm(EvenementType::class,$event);
 $form->handleRequest($request);
 if($form->isSubmitted() && $form->isValid() ){
+    /**
+     * @var UploadedFile $file
+     */
+    $file=$event->getPhoto();
+    $fileName=md5(uniqid()).'.'.$file->guessExtension();
+    $file->move(
+        $this->getParameter('image_directory'),$fileName
+    );
+    $event->setPhoto($fileName);
 $user=$this->getUser();
     $event->setIdUser($user);
     $event->setNbrrating(0);
@@ -266,44 +275,6 @@ return $this->render('EvenementBundle:Evenement:RechercheDQL.html.twig',
         return $this->redirectToRoute('_DetailsEvent', array('id' => $event->getId()));
     }
 
-    /**
-     * @Route("/send-notification", name="send_notification")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-
-    public function sendNotification(Request $request){
-        $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $manager=$this->get('mgilet.notification');
-        $notif=$manager->createNotification(' vous avez une nouvelle notification');
-        $notif->setMessage('il y a un nouveau événement prochainement');
-        $notif->setLink('http://symfony.com/');
-        $manager->addNotification(array($this->getUser()),$notif,true);
-        return $this->redirectToRoute('_AfficheEvent');
-    }
-
-
-
-    public function CountPartiAction(){
-
-    }
-
-   /* public function RatingEventAction(Request $request, $id){
-        $user=$this->container->get('security.token_storage')->getToken()->getUser();
-        $rating= new Evenement();
-        $form=$this->createForm(RatingEventType::class,$rating);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            $em=$this->getDoctrine()->getManager();
-            $rating = $em->getRepository("EvenementBundle:Evenement")->find($id);
-            $em->persist($rating);
-            $em->flush();
-            return $this->redirectToRoute("_AfficheEvent");
-        }
-        return $this->render("EvenementBundle:Evenement:RatingEvent.html.twig",
-            array('form'=>$form->createView(),'user'=>$user,'id'=>$id));
-    }
-*/
 
     public function ratingAction(Request $request, $id) {
         $em= $this->getDoctrine()->getManager();
@@ -321,6 +292,7 @@ return $this->render('EvenementBundle:Evenement:RechercheDQL.html.twig',
             return $this->redirectToRoute("_AfficheEvent");
 
         }
+
         return $this->render('EvenementBundle:Evenement:RatingEvent.html.twig', array('form' => $form->createView()));
     }
 
@@ -346,4 +318,28 @@ return $this->render('EvenementBundle:Evenement:RechercheDQL.html.twig',
           return $response->setData(array('x'=>$e));
     }
 
+
+
+    public function AfficheProfilAction(Request $request ,$id){
+
+        $em=$this->getDoctrine()->getManager();
+        $event=$em->getRepository("EvenementBundle:Evenement")->findBy(array('idUser'=>$id));
+
+        return $this ->render('EvenementBundle:Evenement:AfficheProfil.html.twig',
+            array(
+                'e'=>$event,
+               // 'p'=>$profile
+            ));
+
+    }
+    public function RecentDqlAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $event = $em->getRepository('EvenementBundle:Evenement')->RecentDql();
+        return
+            $this->render("EvenementBundle:Evenement:recentEvents.html.twig",
+                array(
+                    'e' => $event
+                ));
+    }
 }

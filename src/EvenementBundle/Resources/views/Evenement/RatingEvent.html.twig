@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="{{ asset('Template/css/components/bs-rating.css') }}" type="text/css"  />
 <link rel="stylesheet" href="{{ asset('Template/include/rs-plugin/fonts/font-awesome/css/font-awesome.min.css') }}" type="text/css"  />
 
-<section id="page-title">
+<section id="page-title" style="background-color:#F4A460">
 
     <div class="container clearfix">
-        <h1>Evaluer l'évenement  </h1>
+        <h1 style="color:#7c1212">Evaluer l'évenement  </h1>
 
         <div class="center-block" align="center">
         </div>
@@ -22,7 +22,8 @@
 </section>
 <div class="center">
 
-{{ form_widget(form) }}
+{{ form_start(form) }}
+    {{ form_end(form) }}
 
 </div>
 

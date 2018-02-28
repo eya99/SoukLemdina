@@ -5,19 +5,24 @@
 
 {% block body %}
 
-    <section id="page-title">
+    <section id="page-title" style="background-color: papayawhip">
 
         <div class="container clearfix">
-            <h1>Evenements à venir </h1>
-            <ol class="breadcrumb">
-                <li><a href="{{ path('fos_visitor_home') }}">Home</a></li>
-                <li> <a href="{{ path('_AjoutEvent') }}">Ajouter un événement</a></li>
-  <form method="POST" href="{{ path('_RechercheDQL') }}"> Trouver un evenement
-  <input type="text" name="motcle" id="xyz">
-   <input type="submit" name="submit" value="recherche">
-</form>
-            </ol>
+            <h1 style="color:#ff4b05">Tapez un événement</h1>
 
+            <ol class="breadcrumb">
+                <li><a href="{{ path('fos_visitor_home') }}">Accueil</a></li>
+                <li> <a href="{{ path('_AjoutEvent') }}">Ajouter un événement</a></li>
+
+            </ol>
+            <form id="widget-subscribe-form"  method="post" class="nobottommargin row clearfix"  href="{{ path('_RechercheDQL') }}">
+                <div class="col-md-9">
+                    <input type="text" id="xyz" name="motcle" class="sm-form-control required email" placeholder="Rechercher un événement">
+                </div>
+                <!--    <div class="col-md-2">
+                       <a class="button button-xlarge button-border button-amber" type="submit" name="submit" value="rechercher"><i class="icon-ok"></i> </a>
+                   </div>!-->
+            </form>
         </div>
 
     </section>
@@ -35,6 +40,7 @@
                 </div>
         </div>
     </section>
+
     {# display navigation #}
     <div class="navigation text-right">
         {{ knp_pagination_render(e) }}

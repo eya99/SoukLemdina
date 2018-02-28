@@ -130,3 +130,5 @@ fos_user:
 #    from_email:
 #        address: mail@domain.tld
 #        sender_name: user
+
+

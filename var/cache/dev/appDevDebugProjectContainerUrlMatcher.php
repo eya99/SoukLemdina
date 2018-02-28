@@ -166,22 +166,30 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_DetailsEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DetailsEventAction',));
             }
 
-            if (0 === strpos($pathinfo, '/evenement/Recherche')) {
-                // _RechercheDQL
-                if ('/evenement/RechercheDQL' === $pathinfo) {
-                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheDQLAction',  '_route' => '_RechercheDQL',);
+            if (0 === strpos($pathinfo, '/evenement/R')) {
+                if (0 === strpos($pathinfo, '/evenement/Recherche')) {
+                    // _RechercheDQL
+                    if ('/evenement/RechercheDQL' === $pathinfo) {
+                        return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheDQLAction',  '_route' => '_RechercheDQL',);
+                    }
+
+                    // _Recherche
+                    if (preg_match('#^/evenement/Recherche/(?P<nom>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_Recherche')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheAction',));
+                    }
+
                 }
 
-                // _Recherche
-                if (preg_match('#^/evenement/Recherche/(?P<nom>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_Recherche')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheAction',));
+                // _RecentDql
+                if ('/evenement/Recent' === $pathinfo) {
+                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RecentDqlAction',  '_route' => '_RecentDql',);
                 }
 
-            }
+                // _Rating
+                if (0 === strpos($pathinfo, '/evenement/Ratingo') && preg_match('#^/evenement/Ratingo/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_Rating')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::ratingAction',));
+                }
 
-            // _Rating
-            if (0 === strpos($pathinfo, '/evenement/Ratingo') && preg_match('#^/evenement/Ratingo/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_Rating')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::ratingAction',));
             }
 
             // _ParticiperEvent
@@ -189,14 +197,14 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_ParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::participerEventAction',));
             }
 
+            // _AfficheProfil
+            if (0 === strpos($pathinfo, '/evenement/ProfilEv') && preg_match('#^/evenement/ProfilEv/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_AfficheProfil')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheProfilAction',));
+            }
+
             // _nParticiperEvent
             if (0 === strpos($pathinfo, '/evenement/nParticiperEvent') && preg_match('#^/evenement/nParticiperEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_nParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::nParticierEventAction',));
-            }
-
-            // _sendNotification
-            if ('/evenement/sendNotification' === $pathinfo) {
-                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheEventAction',  '_route' => '_sendNotification',);
             }
 
         }
