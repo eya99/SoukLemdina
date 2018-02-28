@@ -24,31 +24,39 @@ class Commande
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateCommande", type="date")
+     * @ORM\Column(name="dateCommande", type="datetime")
      */
     private $dateCommande;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateLivraison", type="date")
-     */
-    private $dateLivraison;
+
+
+
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=255)
-     */
-    private $adresse;
+     * @ORM\Column(name="date_max", type="datetime", nullable=true)
+     */private $dateMax;
 
+    /**
+     * @return mixed
+     */
+    public function getDateMax()
+    {
+        return $this->dateMax;
+    }
+
+    /**
+     * @param mixed $dateMax
+     */
+    public function setDateMax($dateMax)
+    {
+        $this->dateMax = $dateMax;
+    }
     /**
      * @var int
      * @ORM\ManyToOne(targetEntity="SUserBundle\Entity\User")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
-
 
     /**
      * Get id
@@ -84,53 +92,9 @@ class Commande
         return $this->dateCommande;
     }
 
-    /**
-     * Set dateLivraison
-     *
-     * @param \DateTime $dateLivraison
-     *
-     * @return Commande
-     */
-    public function setDateLivraison($dateLivraison)
-    {
-        $this->dateLivraison = $dateLivraison;
 
-        return $this;
-    }
 
-    /**
-     * Get dateLivraison
-     *
-     * @return \DateTime
-     */
-    public function getDateLivraison()
-    {
-        return $this->dateLivraison;
-    }
 
-    /**
-     * Set adresse
-     *
-     * @param string $adresse
-     *
-     * @return Commande
-     */
-    public function setAdresse($adresse)
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    /**
-     * Get adresse
-     *
-     * @return string
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
 
     /**
      * Set idUser
@@ -156,4 +120,3 @@ class Commande
         return $this->idUser;
     }
 }
-

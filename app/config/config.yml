@@ -10,6 +10,7 @@ imports:
     - { resource: "@LocalBundle/Resources/config/services.yml" }
     - { resource: "@WorkshopBundle/Resources/config/services.yml" }
     - { resource: "@SUserBundle/Resources/config/services.yml" }
+    - { resource: "@PdfBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -135,3 +136,16 @@ fos_message:
 #    from_email:
 #        address: mail@domain.tld
 #        sender_name: user
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        # If you have wkhtmltopdf as an environment variable you don't need to provide the
+        # full path to the executable, use it in the same way as you use in the console
+        #binary:  "wkhtmltopdf"
+        binary:     "\"D:\\xampp\\htdocs\\SoukLemdina\\vendor\\h4cc\\wkhtmltopdf-amd64\\bin\\wkhtmltopdf.exe\""
+        options:    []
+    image:
+        enabled:    true
+        binary:     "\"D:\\xampp\\htdocs\\SoukLemdina\\vendor\\h4cc\\wkhtmltopdf-amd64\\bin\\wkhtmltoimage.exe\""
+        options:    []

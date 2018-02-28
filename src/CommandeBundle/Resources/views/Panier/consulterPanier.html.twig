@@ -1,0 +1,28 @@
+<h1>panier</h1>
+<table border="1">
+    <tr>
+        <th>Cathegorie</th>
+        <th>Libelle</th>
+        <th>Description</th>
+        <th>Etat</th>
+        <th>Quantité</th>
+        <th>Remise</th>
+        <th>Type</th>
+        <th>Prix</th>
+    </tr>
+    <tr>
+{% for demande in demande %}
+    {% for demande2 in demande2 %}
+        <td>{{ demande2.categorie }}</td>
+        <td>{{ demande2.libelle }}</td>
+        <td>{{ demande2.description }}</td>
+        <td>{{ demande.etat }}</td>
+        <td>{{ demande.qte }}</td>
+        <td>{{ demande2.promotion }}</td>
+        <td>{{ demande2.type }}</td>
+        <td>{{ demande2.prix*demande.qte }}</td>
+     {% endfor %}
+        </tr>
+{% endfor %}
+
+</table>

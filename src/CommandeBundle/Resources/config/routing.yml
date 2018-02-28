@@ -1,3 +1,46 @@
 commande_homepage:
     path:     /
     defaults: { _controller: CommandeBundle:Default:index }
+
+ligne_commande_aff:
+    path:     /afflc/{id}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:AfficherLigneDeCommande }
+
+ligne_commande_modifier:
+    path:     /modifierlc/{id}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:ModifierLigneDeCommande }
+
+ligne_commande_supprimer:
+    path:     /supprimerlc/{id}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:SupprimerLigneDeCommande }
+
+ajout_ligne_commande:
+    path:     /ajoutbd
+    defaults: { _controller: CommandeBundle:LigneDeCommande:AjoutLigneDeCommande }
+
+supprimer:
+    path:  /supprimer/{id}
+    defaults: { _controller: CommandeBundle:LigneDePanier:supprimer }
+
+ajouter:
+    path:  /ajouter/{id}
+    defaults: { _controller: CommandeBundle:LigneDePanier:ajouter }
+
+panier:
+    path:  /panier
+    defaults: { _controller: CommandeBundle:LigneDePanier:panier }
+
+commander_produit:
+        path:    /putinsession/{id}
+        defaults: { _controller: CommandeBundle:LigneDeCommande:PutInSession }
+
+afficher_commande:
+    path:     /afficherCommande
+    defaults: { _controller: CommandeBundle:LigneDeCommande:afficherCommande }
+
+pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: PdfBundle:Pdf:pdf }
+
+
+

@@ -77,6 +77,11 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
             'Monolog\\' => 8,
             'Mgilet\\NotificationBundle\\' => 26,
         ),
+        'K' => 
+        array (
+            'Knp\\Snappy\\' => 11,
+            'Knp\\Bundle\\SnappyBundle\\' => 24,
+        ),
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
@@ -253,6 +258,14 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
         'Mgilet\\NotificationBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/mgilet/notification-bundle',
+        ),
+        'Knp\\Snappy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy',
+        ),
+        'Knp\\Bundle\\SnappyBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
         ),
         'Incenteev\\ParameterHandler\\' => 
         array (

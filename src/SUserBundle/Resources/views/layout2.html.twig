@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--Based on Index/Portfolio.2-->
+<html dir="ltr" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="CodeBusters"/>
+
+    {% block head %}{% endblock %}
+
+    <!-- Basic Stylesheets
+    ============================================= -->
+    <!--link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+          rel="stylesheet" type="text/css"/-->
+    <link rel="stylesheet" href="{{ asset('Template/css/bootstrap.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/style.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/css/swiper.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/css/dark.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/css/font-icons.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/css/animate.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/css/magnific-popup.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('Template/css/responsive.css') }}" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    {% block stylesheets %}{% endblock %}
+
+</head>
+<body class="stretched">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+    <!-- Header
+    ============================================= -->
+    <br>
+
+    <div>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </div>
+
+    {% block body %}{% endblock %}
+
+    <!-- Footer
+    ============================================= -->
+    <footer id="footer" class="dark">
+
+        <div class="container">
+
+            <!-- Footer Widgets
+            ============================================= -->
+
+        </div>
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+            <div class="container clearfix">
+
+                <div class="col_half">
+                    Copyrights &copy; 2018 All Rights Reserved by Souk Lemdina Inc.<br>
+                    <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+                </div>
+
+                <div class="col_half col_last tright">
+                    <div class="fright clearfix">
+                        <a href="https://github.com/RKayX2/SoukLemdina"
+                           class="social-icon si-small si-borderless si-github">
+                            <i class="icon-github"></i>
+                            <i class="icon-github"></i>
+                        </a>
+                    </div>
+
+                    <div class="clear"></div>
+                    <i class="icon-envelope2"></i> info@souklemdina.tn <span class="middot">&middot;</span> <i
+                            class="icon-headphones"></i> +00216-52-888-256 <span class="middot">&middot;</span> <i
+                            class="icon-skype2"></i> SoukLemdinaOnSkype
+                </div>
+
+            </div>
+
+        </div><!-- #copyrights end -->
+
+    </footer><!-- #footer end -->
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- External JavaScripts
+============================================= -->
+<script type="text/javascript" src="{{ asset('Template/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('Template/js/plugins.js') }}"></script>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="{{ asset('Template/js/functions.js') }}"></script>
+<!-- Bootstrap Switch Plugin -->
+<script type="text/javascript" src="{{ asset('Template/js/components/bs-switches.js') }}"></script>
+<script type="text/javascript">
+    jQuery(window).load(function () {
+        var swiperParent = new Swiper('.swiper-parent', {
+            paginationClickable: false,
+            slidesPerView: 4,
+            grabCursor: true,
+            prevButton: '#slider-arrow-left',
+            nextButton: '#slider-arrow-right'
+        });
+
+        var swiperNested1 = new Swiper('.swiper-nested-1', {
+            direction: 'vertical',
+            paginationClickable: false,
+            slidesPerView: 3,
+            prevButton: '#sw1-arrow-top',
+            nextButton: '#sw1-arrow-bottom'
+        });
+
+        var swiperNested2 = new Swiper('.swiper-nested-2', {
+            direction: 'vertical',
+            paginationClickable: false,
+            slidesPerView: 2,
+            prevButton: '#sw2-arrow-top',
+            nextButton: '#sw2-arrow-bottom'
+        });
+
+        var swiperNested3 = new Swiper('.swiper-nested-3', {
+            direction: 'vertical',
+            paginationClickable: false,
+            slidesPerView: 2,
+            prevButton: '#sw3-arrow-top',
+            nextButton: '#sw3-arrow-bottom'
+        });
+    });
+</script>
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>
+
+

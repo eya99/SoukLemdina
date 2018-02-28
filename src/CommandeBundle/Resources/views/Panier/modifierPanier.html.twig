@@ -1,0 +1,70 @@
+{% extends 'SUserBundle::layout.html.twig' %}
+{% block head %}
+    <title>Panier - {{ app.user.firstname ~ app.user.lastname }}</title>
+{% endblock %}
+{% block body %}
+
+    <div class="tab-container">
+        <div class="tab-content clearfix" id="tab-register">
+            <div class="panel panel-default nobottommargin">
+                <div class="panel-body" style="padding: 40px;">
+                    <form name="f" method="POST" action="{{ path('panier_afficher') }}" class="nobottommargin">
+                        <table border="1" >
+                            <tr>
+                                <th>Libelle</th>
+                                <th>Remise</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Confirmer</th>
+
+
+                            </tr>
+                            {% for p in panier %}
+                                <tr>
+                                    <td><input value="{{ p.id }}" name="id"></td>
+                                    <td>{{ p.idProduit.libelle }}</td>
+                                    <td>{{ p.idProduit.promotion }}</td>
+                                    <td>{{ p.idProduit.prix*p.qte }}</td>
+
+                                    <td><select id='recherche' name='recherche'>
+                                            {% for i in 1..10 %}
+                                                {% if p.qte==i %}
+                                                  <a href="" > <OPTION selected="selected"
+                                                            name="q" value='{{ i }}'>{{ i }}</OPTION></a>
+                                                {% else %}
+                                            <a href="" > <OPTION name="q" value='{{ i }}'>{{ i }}</OPTION></a>
+
+                                                {% endif %}
+                                            {% endfor %}
+
+                                    <td class="button button-3d button-white">
+                                            <input type="submit" value="Modifier Panier" >
+                                        <a href="{{ path('panier_afficher',{'id':p.id}) }}">Modifier</a>
+
+                                    </td>
+                                    </select></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("recherche").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "", true);
+            xhttp.send();
+        }
+    </script>
+{% endblock %}

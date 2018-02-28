@@ -1,0 +1,72 @@
+{% extends "SUserBundle::layout2.html.twig" %}
+
+{% set totalHT = 0 %}
+
+{% block body %}
+    <h1 style="position: fixed;left: 70%">Souk El Madina</h1><br><br><br><br>
+
+    <div>
+        <fieldset>
+            <h1>Facture</h1> <h2 ><br> N° {{ commande.id }} <br> Date {{ commande.dateCommande|date ("Y-m-d") }}  </h2>
+            <br>
+        </fieldset>
+    </div>
+    <br>
+    <div >
+        <fieldset>
+            <h2>
+                {% if commande.idUser.getGender=='Homme' %}
+                    Mr
+                {% endif %}
+                {% if commande.idUser.getGender=='Femme' %}
+                    Mme
+                {% endif %}
+                {{ commande.idUser.firstname ~' '~ commande.idUser.lastname }}<br>
+                {{ commande.idUser.ville ~', Rue '~commande.idUser.rue }}</h2><br>
+        </fieldset>
+    </div>
+    <table border="1" style="width: 100% ;">
+        <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire</th>
+            <th>Remise</th>
+            <th>Total</th>
+            <th>Adresse de livraison 1</th>
+            <th>Adresse de livraison 2</th>
+
+        </tr>
+        {% for lcommande in lcommande %}
+
+            <tr style="text-align: center">
+                <td>
+                    {{ lcommande.idProduit.getLibelle() }}
+                </td>
+                <td>
+                    {{ lcommande.quntite }}
+                </td>
+                <td>
+                    {{ lcommande.idProduit.getPrix()-(lcommande.idProduit.getPrix()*lcommande.idProduit.getPromotion/100) }}
+                </td>
+                <td>
+                    {{ lcommande.idProduit.getPromotion() }}
+                </td>
+                <td>
+                    {{ (lcommande.idProduit.getPrix()-(lcommande.idProduit.getPrix()*lcommande.idProduit.getPromotion/100))*lcommande.quntite }}
+                </td>
+                {% set totalHT = totalHT + (lcommande.idProduit.getPrix()-(lcommande.idProduit.getPrix()*lcommande.idProduit.getPromotion/100))*lcommande.quntite %}
+
+                <td>
+                    {{ lcommande.adresse }}
+                </td>
+                <td>
+                    {{ lcommande.adresse2 }}
+                </td>
+            </tr>
+            <br>
+        {% endfor %}
+
+    </table>
+    <div style="text-align: right">Total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ totalHT }}</div><br><br><br>
+
+{% endblock %}

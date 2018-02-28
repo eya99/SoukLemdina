@@ -119,7 +119,9 @@
         </div>
 
     </header><!-- #header end -->
-    {{ mgilet_notification_render(app.user,{'template':'StockBundle::notification_list.html.twig'}) }}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ mgilet_notification_render(app.user,{'template':'StockBundle::notification_list.html.twig'}) }}
+    {% endif %}
     <br>
 
     <div>

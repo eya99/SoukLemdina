@@ -12,6 +12,7 @@
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="TwigBundle">Symfony\Bundle\TwigBundle\TwigBundle</parameter>
+      <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
       <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
@@ -23,6 +24,7 @@
       <parameter key="SocialBundle">SocialBundle\SocialBundle</parameter>
       <parameter key="StockBundle">StockBundle\StockBundle</parameter>
       <parameter key="LocalBundle">LocalBundle\LocalBundle</parameter>
+      <parameter key="PdfBundle">PdfBundle\PdfBundle</parameter>
       <parameter key="WorkshopBundle">WorkshopBundle\WorkshopBundle</parameter>
       <parameter key="SUserBundle">SUserBundle\SUserBundle</parameter>
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
@@ -45,6 +47,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
+      </parameter>
+      <parameter key="KnpSnappyBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:/xampp/htdocs/SoukLemdina/vendor/knplabs/knp-snappy-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -100,6 +107,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">D:\xampp\htdocs\SoukLemdina\src\LocalBundle</parameter>
         <parameter key="namespace">LocalBundle</parameter>
+      </parameter>
+      <parameter key="PdfBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:\xampp\htdocs\SoukLemdina\src\PdfBundle</parameter>
+        <parameter key="namespace">PdfBundle</parameter>
       </parameter>
       <parameter key="WorkshopBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -208,6 +220,12 @@
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
+    <parameter key="knp_snappy.pdf.binary">"D:\xampp\htdocs\SoukLemdina\vendor\h4cc\wkhtmltopdf-amd64\bin\wkhtmltopdf.exe"</parameter>
+    <parameter key="knp_snappy.pdf.options" type="collection"/>
+    <parameter key="knp_snappy.pdf.env" type="collection"/>
+    <parameter key="knp_snappy.image.binary">"D:\xampp\htdocs\SoukLemdina\vendor\h4cc\wkhtmltopdf-amd64\bin\wkhtmltoimage.exe"</parameter>
+    <parameter key="knp_snappy.image.options" type="collection"/>
+    <parameter key="knp_snappy.image.env" type="collection"/>
     <parameter key="monolog.use_microseconds">true</parameter>
     <parameter key="monolog.swift_mailer.handlers" type="collection"/>
     <parameter key="monolog.handlers_to_channels" type="collection">
@@ -622,7 +640,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>tCrvzeGjeG</argument>
       <argument>0</argument>
-      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
+      <argument>tjx3tL4-CwB+PLVHOX6YIn</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -632,7 +650,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>HOy0yiKtzu</argument>
       <argument>0</argument>
-      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
+      <argument>tjx3tL4-CwB+PLVHOX6YIn</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -642,7 +660,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>NmstyEZV0d</argument>
       <argument>0</argument>
-      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
+      <argument>tjx3tL4-CwB+PLVHOX6YIn</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -652,7 +670,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>VV4peFNPQd</argument>
       <argument>0</argument>
-      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
+      <argument>tjx3tL4-CwB+PLVHOX6YIn</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -662,7 +680,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
+      <argument>tjx3tL4-CwB+PLVHOX6YIn</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -672,7 +690,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
+      <argument>tjx3tL4-CwB+PLVHOX6YIn</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2878,12 +2896,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a961f3d2c92b6.06540129</argument>
+      <argument>5a96339e822202.58266611</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a961f3d2c92b6.06540129</argument>
+      <argument>5a96339e822202.58266611</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3115,6 +3133,10 @@
         <argument>Local</argument>
       </call>
       <call method="addPath">
+        <argument>D:\xampp\htdocs\SoukLemdina\src\PdfBundle/Resources/views</argument>
+        <argument>Pdf</argument>
+      </call>
+      <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\src\WorkshopBundle/Resources/views</argument>
         <argument>Workshop</argument>
       </call>
@@ -3302,6 +3324,10 @@
         <argument>Local</argument>
       </call>
       <call method="addPath">
+        <argument>D:\xampp\htdocs\SoukLemdina\src\PdfBundle/Resources/views</argument>
+        <argument>Pdf</argument>
+      </call>
+      <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\src\WorkshopBundle/Resources/views</argument>
         <argument>Workshop</argument>
       </call>
@@ -3336,6 +3362,24 @@
     <service id="twig.extension.weblink" class="Symfony\Bridge\Twig\Extension\WebLinkExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="request_stack"/>
+    </service>
+    <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>"D:\xampp\htdocs\SoukLemdina\vendor\h4cc\wkhtmltopdf-amd64\bin\wkhtmltopdf.exe"</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="knp_snappy.image" class="Knp\Snappy\Image">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>"D:\xampp\htdocs\SoukLemdina\vendor\h4cc\wkhtmltopdf-amd64\bin\wkhtmltoimage.exe"</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
     </service>
     <service id="monolog.logger" class="Symfony\Bridge\Monolog\Logger" public="false">
       <argument>app</argument>
@@ -4617,6 +4661,15 @@
         <argument type="service" id="monolog.handler.main"/>
       </call>
     </service>
+    <service id="monolog.logger.snappy" class="Symfony\Bridge\Monolog\Logger">
+      <argument>snappy</argument>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+    </service>
     <service id="monolog.logger.doctrine" class="Symfony\Bridge\Monolog\Logger">
       <argument>doctrine</argument>
       <call method="pushHandler">
@@ -4747,6 +4800,8 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="Twig_Environment" alias="twig" public="false"/>
     <service id="Twig\Environment" alias="twig" public="false"/>
+    <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
+    <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="swiftmailer.mailer.default.transport" alias="swiftmailer.mailer.default.transport.spool"/>
