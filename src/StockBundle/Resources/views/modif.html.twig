@@ -1,0 +1,74 @@
+{% extends "StockBundle::layout.html.twig" %}
+ {% block head %}<title>Ajouter un produit</title>
+
+     {% block stylesheets %}
+
+
+         <link rel="stylesheet" href="{{ asset('Template/css/components/ion.rangeslider.css" type="text/css') }}"/>
+         <link rel="stylesheet" href="{{ asset('Template/css/components/ion.rangeslider.css" type="text/css') }}" />
+
+         <link rel="stylesheet" href="{{ asset('Template/css/responsive.css') }}" type="text/css" />
+
+
+     {% endblock %}
+ {% endblock %}
+    {% block body %}
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Modifier un produit</h1>
+                <span>Vous pouvez ajouter  une promotion</span>
+
+            </div>
+
+        </section><!-- #page-title end -->
+        <section id="content">
+
+            <div class="content-wrap">
+                <div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: url('{{ asset('souk-tn.jpg') }}') center center no-repeat; background-size: cover;"></div>
+
+
+                <div class="container clearfix">
+                    <div class="panel panel-default divcenter noradius noborder" style="max-width: 400px; background-color: rgba(255,255,255,0.93);">
+                        <div class="panel-body" style="padding: 40px;">
+
+                    <!-- Shop
+                    ============================================= -->
+
+                    {{ form_start(form) }}
+                    {#{ form_widget(form) }#}
+                    <!--div class="line line-sm"></div>
+                    <div-- class="center">
+                        <input type="submit" value="Ajouter" class="button button-3d button-black nomargin"/>
+                    </div-->
+                    {{ form_end(form) }}
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('Template/js/components/rangeslider.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/components/moment.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".range_01").ionRangeSlider();
+
+            $(".range_02").ionRangeSlider({
+                min: 0,
+                max: 100,
+                from: 00
+            });
+
+
+
+
+        });
+    </script>
+{% endblock %}

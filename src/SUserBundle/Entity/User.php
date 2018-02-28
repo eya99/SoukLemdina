@@ -11,15 +11,18 @@ namespace SUserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\MessageBundle\Model\ParticipantInterface;
 use FOS\UserBundle\Model\User as BaseUser;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class User
  * @package SUserBundle\Entity
  * @ORM\Table(name="fos_user")
+ * @Notifiable(name="User")
  * @ORM\Entity
  */
-class User extends BaseUser implements ParticipantInterface
+class User extends BaseUser implements ParticipantInterface, NotifiableInterface
 {
 
     /**

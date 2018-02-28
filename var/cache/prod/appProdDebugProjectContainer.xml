@@ -28,6 +28,7 @@
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
       <parameter key="FOSMessageBundle">FOS\MessageBundle\FOSMessageBundle</parameter>
       <parameter key="CMENGoogleChartsBundle">CMEN\GoogleChartsBundle\CMENGoogleChartsBundle</parameter>
+      <parameter key="MgiletNotificationBundle">Mgilet\NotificationBundle\MgiletNotificationBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -125,6 +126,11 @@
         <parameter key="path">D:\xampp\htdocs\SoukLemdina\vendor\cmen\google-charts-bundle</parameter>
         <parameter key="namespace">CMEN\GoogleChartsBundle</parameter>
       </parameter>
+      <parameter key="MgiletNotificationBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle</parameter>
+        <parameter key="namespace">Mgilet\NotificationBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appProdDebugProjectContainer</parameter>
@@ -139,6 +145,7 @@
     <parameter key="mailer_password">souklemdina2018</parameter>
     <parameter key="secret">69f9a72c7ea0bfc5f290da788a245d4ee295fccd</parameter>
     <parameter key="locale">fr</parameter>
+    <parameter key="image_directory">D:\xampp\htdocs\SoukLemdina/web/uploads/images</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">69f9a72c7ea0bfc5f290da788a245d4ee295fccd</parameter>
@@ -615,7 +622,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>tCrvzeGjeG</argument>
       <argument>0</argument>
-      <argument>-4jZoYksh5uGB4iMV8Fm+P</argument>
+      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -625,7 +632,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>HOy0yiKtzu</argument>
       <argument>0</argument>
-      <argument>-4jZoYksh5uGB4iMV8Fm+P</argument>
+      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -635,7 +642,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>NmstyEZV0d</argument>
       <argument>0</argument>
-      <argument>-4jZoYksh5uGB4iMV8Fm+P</argument>
+      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -645,7 +652,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>VV4peFNPQd</argument>
       <argument>0</argument>
-      <argument>-4jZoYksh5uGB4iMV8Fm+P</argument>
+      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -655,7 +662,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>-4jZoYksh5uGB4iMV8Fm+P</argument>
+      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -665,7 +672,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>-4jZoYksh5uGB4iMV8Fm+P</argument>
+      <argument>WMiO68L2AbAUlOEQv2Zv2L</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1217,6 +1224,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.de.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.de.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.de.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/translations\MgiletNotificationBundle.de.yml</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.el.xlf</argument>
@@ -1234,6 +1242,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.en.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.en.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\validators.en.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/translations\MgiletNotificationBundle.en.yml</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.es.xlf</argument>
@@ -1243,6 +1252,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.es.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.es.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.es.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/translations\MgiletNotificationBundle.es.yml</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
@@ -1262,6 +1272,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.fa.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.fa.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.fa.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/translations\MgiletNotificationBundle.fa.yml</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fi.xlf</argument>
@@ -1278,6 +1289,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.fr.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.fr.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\validators.fr.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/translations\MgiletNotificationBundle.fr.yml</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.gl.xlf</argument>
@@ -1326,6 +1338,7 @@
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.it.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.it.yml</argument>
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/translations\FOSMessageBundle.it.yml</argument>
+            <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/translations\MgiletNotificationBundle.it.yml</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>D:\xampp\htdocs\SoukLemdina\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ja.xlf</argument>
@@ -2865,12 +2878,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a960ead96fa91.21551399</argument>
+      <argument>5a961f3d2c92b6.06540129</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a960ead96fa91.21551399</argument>
+      <argument>5a961f3d2c92b6.06540129</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2998,6 +3011,9 @@
       <call method="addExtension">
         <argument type="service" id="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="mgilet.twig_extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3113,6 +3129,10 @@
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/views</argument>
         <argument>FOSMessage</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/views</argument>
+        <argument>MgiletNotification</argument>
       </call>
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\app/Resources/views</argument>
@@ -3296,6 +3316,10 @@
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\vendor\friendsofsymfony\message-bundle\FOS\MessageBundle/Resources/views</argument>
         <argument>FOSMessage</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle/Resources/views</argument>
+        <argument>MgiletNotification</argument>
       </call>
       <call method="addPath">
         <argument>D:\xampp\htdocs\SoukLemdina\app/Resources/views</argument>
@@ -3710,6 +3734,7 @@
           <argument key="WorkshopBundle">WorkshopBundle\Entity</argument>
           <argument key="SUserBundle">SUserBundle\Entity</argument>
           <argument key="FOSMessageBundle">FOS\MessageBundle\Entity</argument>
+          <argument key="MgiletNotificationBundle">Mgilet\NotificationBundle\Entity</argument>
         </argument>
       </call>
       <call method="setMetadataCacheImpl">
@@ -3762,6 +3787,7 @@
         <argument>D:\xampp\htdocs\SoukLemdina\src\LocalBundle\Entity</argument>
         <argument>D:\xampp\htdocs\SoukLemdina\src\WorkshopBundle\Entity</argument>
         <argument>D:\xampp\htdocs\SoukLemdina\src\SUserBundle\Entity</argument>
+        <argument>D:\xampp\htdocs\SoukLemdina\vendor\mgilet\notification-bundle\Entity</argument>
       </argument>
     </service>
     <service id="doctrine.orm.default_xml_metadata_driver" class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
@@ -3800,6 +3826,10 @@
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
         <argument>SUserBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>Mgilet\NotificationBundle\Entity</argument>
       </call>
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_xml_metadata_driver"/>
@@ -4463,6 +4493,21 @@
     <service id="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension" class="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput"/>
+    </service>
+    <service id="mgilet.notification" class="Mgilet\NotificationBundle\Manager\NotificationManager">
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="mgilet.notifiable_discovery"/>
+    </service>
+    <service id="mgilet.notifiable_discovery" class="Mgilet\NotificationBundle\NotifiableDiscovery" public="false">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="annotations.cached_reader"/>
+    </service>
+    <service id="mgilet.twig_extension" class="Mgilet\NotificationBundle\Twig\NotificationExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="mgilet.notification"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="twig"/>
+      <argument type="service" id="router.default"/>
     </service>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>

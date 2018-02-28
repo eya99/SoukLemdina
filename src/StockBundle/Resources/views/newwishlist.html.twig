@@ -1,0 +1,48 @@
+<div class="col-md-4">
+    <div class="table-responsive clearfix">
+
+        {% for flashMessage in app.session.flashBag.get('notice') %}
+            <div class="alert alert-danger">{{ flashMessage }}</div>
+        {% endfor %}
+        <table class="table cart">
+            <thead>
+            <tr>
+                <th class="cart-product-remove">&nbsp;</th>
+                <th class="cart-product-thumbnail">&nbsp;</th>
+                <th class="cart-product-name">Produit</th>
+                <th class="cart-product-price">Prix</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for l in lwishlist %}
+
+
+
+            <tr class="cart_item">
+                <td class="cart-product-remove">
+                    <a href="{{ path('supprimer_wishlist',{'id':l.id}) }}" class="remove" title="Supprimer ce produit"><i class="icon-trash2"></i></a>
+                </td>
+
+                <td class="cart-product-thumbnail">
+                    <a href="#"><img width="64" height="64" src="{{ asset('uploads/images/') }}{{ l.idProduit.image }}" alt="{{ l.idProduit.libelle }}"></a>
+                </td>
+
+                <td class="cart-product-name">
+                    <a href="#">{{ l.idProduit.libelle }}</a>
+                </td>
+
+                <td class="cart-product-price">
+                    <span class="amount">{{ l.idProduit.prix }} DT </span>
+                </td>
+
+
+            </tr>
+
+            </tbody>
+            {% endfor %}
+        </table>
+
+    </div>
+
+
+</div>

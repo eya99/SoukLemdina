@@ -75,6 +75,7 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Mgilet\\NotificationBundle\\' => 26,
         ),
         'I' => 
         array (
@@ -248,6 +249,10 @@ class ComposerStaticInit1c56b9f8baaef3511324c8a024f1eb72
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Mgilet\\NotificationBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mgilet/notification-bundle',
         ),
         'Incenteev\\ParameterHandler\\' => 
         array (

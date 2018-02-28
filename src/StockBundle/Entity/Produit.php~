@@ -1,0 +1,405 @@
+<?php
+
+namespace StockBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+/**
+ * Produit
+ *
+ * @ORM\Table(name="produit")
+ * @ORM\Entity(repositoryClass="StockBundle\Repository\ProduitRepository")
+ * @Vich\Uploadable
+ */
+class Produit
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=255)
+     */
+    private $libelle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="quqntite", type="integer")
+     */
+    private $quqntite;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="promotion", type="integer")
+     */
+    private $promotion;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbSignal", type="integer")
+     */
+    private $nbSignal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categorie", type="string", length=255)
+     */
+    private $categorie;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix", type="float")
+     */
+    private $prix;
+
+    /**
+     * @var int
+     * @ORM\ManyToOne(targetEntity="SUserBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
+     */
+    private $idUser;
+
+    /**
+     * @Vich\UploadableField(mapping="produc", fileNameProperty="photo")
+     *
+     * @var File
+     */
+    private $photoFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     *
+     * @return Produit
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Produit
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set quqntite
+     *
+     * @param integer $quqntite
+     *
+     * @return Produit
+     */
+    public function setQuqntite($quqntite)
+    {
+        $this->quqntite = $quqntite;
+
+        return $this;
+    }
+
+    /**
+     * Get quqntite
+     *
+     * @return int
+     */
+    public function getQuqntite()
+    {
+        return $this->quqntite;
+    }
+
+    /**
+     * Set promotion
+     *
+     * @param integer $promotion
+     *
+     * @return Produit
+     */
+    public function setPromotion($promotion)
+    {
+        $this->promotion = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * Get promotion
+     *
+     * @return int
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * Set nbSignal
+     *
+     * @param integer $nbSignal
+     *
+     * @return Produit
+     */
+    public function setNbSignal($nbSignal)
+    {
+        $this->nbSignal = $nbSignal;
+
+        return $this;
+    }
+
+    /**
+     * Get nbSignal
+     *
+     * @return int
+     */
+    public function getNbSignal()
+    {
+        return $this->nbSignal;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Produit
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param string $categorie
+     *
+     * @return Produit
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return string
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param float $prix
+     *
+     * @return Produit
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return float
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set idUser
+     *
+     * @param integer $idUser
+     *
+     * @return Produit
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    /**
+     * Get idUser
+     *
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @return string
+     */
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return Produit
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    public function setPhotoFile(File $produit = null)
+    {
+        $this->photoFile = $produit;
+
+        if ($produit){
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    public function getPhotoFile()
+    {
+        return $this->photoFile;
+    }
+
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Produit
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+}

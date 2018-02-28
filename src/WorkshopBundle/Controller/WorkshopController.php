@@ -211,22 +211,15 @@ class WorkshopController extends Controller
 //        $Form->handleRequest($request);
         $workshop = $em->getRepository("WorkshopBundle:Workshop")->find($id);
         $particip = $em->getRepository("WorkshopBundle:ParticipantWork")->findOneBy(array('idUser' => $user, 'idWorkshop' => $id));
-//
-//        if ($Form->isValid() && $Form->isSubmitted()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $work->setIdUser($user);
-//            $em->persist($work);
-//            $em->flush();
-//            return $this->redirectToRoute('_Redirect', array('id' => $id));
-//        }
         $nb= $em->getRepository("WorkshopBundle:ParticipantWork")->findBy(array('idWorkshop'=>$id));
         $nbparticip=count($nb);
-
+        $profile = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $workshop->getIdUser()));
         return $this->render('WorkshopBundle:Workshop:Redirect.html.twig', array(
             'workshop' => $workshop,
             // 'participant' => 'set',
             'ParticipantWork' => $particip,
-            'nbparticip'=>$nbparticip
+            'nbparticip'=>$nbparticip,
+            'profile'=>$profile
         ));
     }
 
@@ -295,16 +288,28 @@ class WorkshopController extends Controller
         ));
     }
 
-    public function FiltreDQL(){
+    public function FiltreDQL()
+    {
         $em = $this->getDoctrine()->getManager();
         $work = $em->getRepository("WorkshopBundle:Workshop")->FiltreDQL();
         return $this->render("WorkshopBundle:AfficheVisitWorkshop.html.twig",
             array(
-                'w'=> $work
+                'w' => $work
             ));
-
-
     }
+        public function FiltrePrix()
+        {
+            $em = $this->getDoctrine()->getManager();
+            $work = $em->getRepository("WorkshopBundle:Workshop")->findBy(array(),array('prix'=>'ASC'));
+           $a="aaaaaaaaaaaaaa";
+            var_dump($a);
+            echo $rr;
+            return $this->render("WorkshopBundle:AfficheVisitWorkshop.html.twig",
+                array(
+                    'w' => $work
+                ));
+        }
+
     public function RechercheDynamiqAction(Request $request ,$var){
         $em = $this->getDoctrine()->getManager();
         $work = $em->getRepository('WorkshopBundle:Workshop')->RechercheAv($var);
@@ -313,4 +318,15 @@ class WorkshopController extends Controller
         $response=new JsonResponse();
         return $response->setData(array('y'=>$a));
     }
+    public  function AfficheProfileAction(Request $request, $id){
+
+        $em = $this->getDoctrine()->getManager();
+        $work = $em->getRepository("WorkshopBundle:Workshop")->findBy(array('idUser'=>$id));
+        return $this->render('WorkshopBundle:Workshop:AfficheProfile.html.twig',
+            array(
+                'w' => $work,
+            ));
+    }
+
 }
+

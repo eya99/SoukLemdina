@@ -65,4 +65,11 @@ ORDER by w.dateDebut DESC ");
 
        return $query->getResult();
    }
+   /* public  function  FiltrePrix(){
+
+        $query=$this->getEntityManager()->createQuery("SELECT * FROM WorkshopBundle:Workshop w
+ORDER by w.prix ASC ");
+
+        return $query->getResult();
+    }*/
 }

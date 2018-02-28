@@ -1,0 +1,19 @@
+
+
+    {#{%  if  notificationItem.date|date('Y-m-d') < ("now" - 7) |date('Y-m-d')  %} #}
+
+
+<marquee Class="Scroller" behavior="scroll" direction="left" width="100%" height="19" scrollamount="15" scrolldelay="0" onmouseover="this.stop()" onmouseout="this.start()"><font color="#333399"><strong>
+        {% for notificationItem in notificationList %}
+
+
+    {{ notificationItem[0] }} &emsp; &emsp;&emsp;&emsp;&emsp;
+
+
+{% endfor %}
+        </strong></font></marquee>
+
+
+    {#  {% endif %} #}
+
+</nav>

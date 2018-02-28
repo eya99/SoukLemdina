@@ -7,24 +7,80 @@
 
 {% block body %}
 
-    <section id="page-title" style="background-color: #eac36e">
+    <section id="page-title" style="background-color:#ffc537">
 
 
         <div class="container clearfix" >
-                <h1>Bienvenu(e) à la liste des Workshops</h1>
-                <span> Workshops à venir</span>
-                <span> hey! Vous pouvez <a href="{{ path('fos_user_security_login') }}">ajouter votre workshop</a></span>
+                <h1 align="center" style="color: #6016ff">Bienvenu(e) à la liste des Workshops </h1>
+            <span style="color: #3e14ff"> hey! Vous pouvez <a href="{{ path('fos_user_security_login') }}" data-textAlign="center">ajouter votre workshop</a></span>
 
-            </ol>
         </div>
+
 
     </section>
 
-    <section id="content">
+
+
+
+
+
+        <div >
+        <div class="sidebar-widgets-wrap">
+
+            <div class="widget clearfix">
+
+                <h2 align="center" style="color: #110aff">Les 3 plus proches Workshops  </h2>
+                <div id="post-list-header"  style="margin-left:237px">
+                    {% for work in w| slice(0, 3) %}
+
+                    <div class="spost clearfix">
+                        <div class="entry-image">
+                            <a href="{{ path('FiltreDQL') }}" ><img
+                                        src="{{  asset('uploads/images/' ~ work.image) }}" alt=""></a>
+                        </div>
+                        <div class="entry-c">
+                            <div>
+                                <ul class="entry-meta">
+                                    <li>{{ work.nomWorkshop }}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                    <h2 align="center" style="color: #110aff">Les 3 Moins Chers Workshop  </h2>
+                    <div id="post-list-header"  style="margin-left:285px">
+                        {% for work in w| slice(0, 3) %}
+
+                            <div class="spost clearfix">
+                                <div class="entry-image">
+                                    <a href="{{ path('FiltrePrix') }}" ><img
+                                                src="{{  asset('uploads/images/' ~ work.image) }}" alt=""></a>
+                                </div>
+                                <div class="entry-c">
+                                    <div>
+                                        <ul class="entry-meta">
+                                            <li>{{ work.nomWorkshop }}</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                </div>
+
+
+
+
+
+                <section id="content">
 
         <div class="content-wrap">
 
-
+            <h3 style="color: #110aff" align="center"> Workshops à venir</h3>
 
             <div class="container clearfix" >
 
@@ -33,15 +89,14 @@
                 {% for work in w | sort %}
 
 
-                <div class="postcontent nobottommargin col_last" style="background-color:#eac36e">
+                <div class="postcontent nobottommargin col_last" style="background-color:#fff2f9">
 
-                    <div id="posts" class="events small-thumbs" >
+                    <div id="posts" class="events small-thumbs" style="background-color:#ffe2d6">
 
                         <div class="entry clearfix">
                             <div class="entry-image">
                                 <a href="#">
-                                    <img src="{{ asset('Template/images/events/thumbs/1.jpg') }}">
-                                    <div class="entry-date">10<span>Apr</span></div>
+                                    <img src="{{ asset('uploads/images/' ~ work.image) }}">
                                 </a>
                             </div>
                             <div class="entry-c">
@@ -49,7 +104,6 @@
                                     <h2><a href="#">{{ work.nomWorkshop }}</a></h2>
                                 </div>
                                 <ul class="entry-meta clearfix">
-                                    <li><span class="label label-warning">Private</span></li>
                                     <li><i class="icon-euro"></i> <strong>{{ work.type }}</strong></li>
                                     <li><i class="icon-calendar3"></i>
                                         <strong>Date: </strong>{{ work.dateDebut | date("m/d/Y") }}</li>
@@ -79,34 +133,6 @@
 
 
                     </div>
-
-                    <div class="sidebar nobottommargin clearfix" style="position: relative; top:50%;right:40%;">
-                        <div class="sidebar-widgets-wrap">
-
-                            <div class="widget clearfix">
-
-                                <h4>Workshops les plus proches </h4>
-                                <div id="post-list-header">
-                                    {% for work in w| slice(0, 3) %}
-
-                                    <div class="spost clearfix">
-                                        <div class="entry-image">
-                                            <a href="{{ path('FiltreDQL') }}" ><img
-                                                        src="{{ asset('Template/images/events/thumbs/1.jpg') }}" alt=""></a>
-                                        </div>
-                                        <div class="entry-c">
-                                            <div>
-                                                <ul class="entry-meta">
-                                                    <li>{{ work.nomWorkshop }}</li>
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-
-
 
                             </div>
 

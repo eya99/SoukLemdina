@@ -46,3 +46,11 @@ RechercheDynamiq:
 FiltreDQL:
      path:     /FiltreDQL
      defaults: { _controller: WorkshopBundle:Workshop:FiltreDQL }
+
+FiltrePrix:
+     path:     /FiltrePrix
+     defaults: { _controller: WorkshopBundle:Workshop:FiltrePrix }
+
+_AfficheProfile:
+     path:     /AffichePr/{id}
+     defaults: { _controller: WorkshopBundle:Workshop:AfficheProfile }

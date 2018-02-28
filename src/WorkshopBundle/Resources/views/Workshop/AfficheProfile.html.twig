@@ -1,0 +1,30 @@
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Nom du workshop</th>
+        <th>Date Début</th>
+        <th>Date Fin</th>
+        <th>Acceder au Workshop</th>
+    </tr>
+
+    </thead>
+    {% for work in w | sort %}
+        <tbody>
+        <tr class="active">
+            <td>{{ work.nomWorkshop }}</td>
+            <td>{{ work.dateDebut | date("m/d/Y") }}</td>
+            <td>{{ work.dateFin | date("m/d/Y") }}</td>
+            <td>
+                <a href="{{ path('_Redirect',{'id':work.id}) }}">Accéder à La page du Workshop </a></td>
+            {% if work.idUser.id == app.user.id %}
+                <td>
+                    <code><a href="{{ path('_UpdateWorkshop',{'id':work.id}) }}">Modifier</a></code>
+                </td>
+                <td>
+                    <code><a href="{{ path('_DeleteWorkshop',{'id':work.id}) }}">Supprimer</a></code>
+                </td>
+            {% endif %}
+        </tr>
+        </tbody>
+    {% endfor %}
+</table>

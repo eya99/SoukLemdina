@@ -2,15 +2,23 @@
 
 namespace StockBundle\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
+
 
 /**
  * Produit
  *
+ *
  * @ORM\Table(name="produit")
+ * @Notifiable(name="produit")
  * @ORM\Entity(repositoryClass="StockBundle\Repository\ProduitRepository")
  */
-class Produit
+class Produit implements NotifiableInterface
 {
     /**
      * @var int
@@ -25,6 +33,11 @@ class Produit
      * @var string
      *
      * @ORM\Column(name="libelle", type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Le libellé ne peut pas contenir des chiffres"
+     * )
      */
     private $libelle;
 
@@ -38,7 +51,7 @@ class Produit
     /**
      * @var int
      *
-     * @ORM\Column(name="quqntite", type="integer")
+     * @ORM\Column(name="quqntite", type="integer",nullable=true)
      */
     private $quqntite;
 
@@ -84,12 +97,22 @@ class Produit
      */
     private $idUser;
 
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
-     * Get id
+     * @var string
      *
-     * @return int
+     * @Assert\Image()
+     *
+     * @ORM\Column(name="image", type="string", length=255)
      */
+    private $image;
+
     public function getId()
     {
         return $this->id;
@@ -310,5 +333,40 @@ class Produit
     {
         return $this->idUser;
     }
-}
 
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
+
+
+}

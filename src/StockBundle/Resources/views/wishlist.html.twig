@@ -1,0 +1,82 @@
+{% extends "SUserBundle::layout.html.twig" %}
+ {% block head %}<title>Wishlist</title>{% endblock %}
+    {% block body %}
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Wishlist</h1>
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li class="active">Wishlist</li>
+                </ol>
+            </div>
+
+        </section><!-- #page-title end -->
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+                    <div class="col-md-12">
+                        <div class="table-responsive clearfix">
+                    <div class="table-responsive bottommargin">
+{% for flashMessage in app.session.flashBag.get('notice') %}
+    <div class="alert alert-danger">{{ flashMessage }}</div>
+    {% endfor %}
+                        <table class="table cart">
+                            <thead>
+                            <tr>
+                                <th class="cart-product-remove">&nbsp;</th>
+                                <th class="cart-product-thumbnail">&nbsp;</th>
+                                <th class="cart-product-name">Produit</th>
+                                <th class="cart-product-price">Prix</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+        {% for l in lwishlist %}
+
+
+
+        <tr class="cart_item">
+                                <td class="cart-product-remove">
+                                    <a href="{{ path('supprimer_wishlist',{'id':l.id}) }}" class="remove" title="Supprimer ce produit"><i class="icon-trash2"></i></a>
+                                </td>
+
+                                <td class="cart-product-thumbnail">
+                                    <a href="#"><img width="64" height="64" src="{{ asset('uploads/images/') }}{{ l.idProduit.image }}" alt="{{ l.idProduit.libelle }}"></a>
+                                </td>
+
+                                <td class="cart-product-name">
+                                    <a href="#">{{ l.idProduit.libelle }}</a>
+                                </td>
+
+                                <td class="cart-product-price">
+                                    <span class="amount">{{ l.idProduit.prix }} DT </span>
+                                </td>
+
+
+                            </tr>
+
+                      </tbody>
+  {% endfor %}
+                  </table>
+
+              </div>
+
+
+
+
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </section><!-- #content end -->
+
+
+{% endblock %}
