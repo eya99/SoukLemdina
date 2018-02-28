@@ -90,7 +90,7 @@ class Evenement implements NotifiableInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=1000)
      */
     private $description;
 

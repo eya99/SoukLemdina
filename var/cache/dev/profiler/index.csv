@@ -104,3 +104,7 @@ a4d54b,::1,GET,http://localhost/SoukLemdina/web/app_dev.php/evenement/Recherche/
 a7ec94,::1,GET,http://localhost/SoukLemdina/web/app_dev.php/evenement/AjoutEvent,1519781392,,200
 2309d3,127.0.0.1,GET,http://localhost/SoukLemdina/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DEvenementBundle%253AEvenement%253ARecentDql,1519781492,a7b632,200
 a7b632,::1,GET,http://localhost/SoukLemdina/web/app_dev.php/evenement/AfficheE,1519781492,,200
+2da197,::1,GET,http://localhost/SoukLemdina/web/app_dev.php/evenement/Recherche/m,1519789567,,200
+1e7739,::1,GET,http://localhost/SoukLemdina/web/app_dev.php/evenement/Recherche/me,1519789568,,200
+a48d43,::1,GET,http://localhost/SoukLemdina/web/app_dev.php/evenement/Recherche/2,1519789623,,200
+b020e2,::1,GET,http://localhost/SoukLemdina/web/app_dev.php/evenement/Recherche/20,1519789624,,200
