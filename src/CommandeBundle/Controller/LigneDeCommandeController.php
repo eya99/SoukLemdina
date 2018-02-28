@@ -24,6 +24,8 @@ class LigneDeCommandeController extends Controller
     {
 
         $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user=='anon.')
+            return $this->redirectToRoute('fos_user_security_login');
         $session = $request->getSession();
 
         if ($session->has('panier'))
@@ -57,6 +59,8 @@ class LigneDeCommandeController extends Controller
         $session = $request->getSession();
 
         $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user=='anon.')
+            return $this->redirectToRoute('fos_user_security_login');
 
         $dateCommande = new \DateTime();
         $dateLivraison = new \DateTime('+2 day');
@@ -104,18 +108,31 @@ class LigneDeCommandeController extends Controller
             $em->persist($lcommande);
             $em->flush();
             $i++;
+            $em = $this->getDoctrine()->getManager();
+            $commande = $em->getRepository("CommandeBundle:Commande", $user)->findOneBy(array('idUser' => $user->getId()), array('id' => 'DESC'));
 
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Souk El Madina')
+                ->setFrom('souklemdinaa@gmail.com')
+                ->setTo('zeineb.laabidi.1@esprit.tn')
+                ->setBody('Nous vous informons que votre commande N° '.$commande->getId().' a été prise en compte, vous avez au maximum 5 heures pour annuler votre commande - merci pour votre achat
+            Cordialement l\'equipe CodeBusters ')
+
+            ;
+            $this->get('mailer')->send($message);
         }
-
+        unset($panier);
         return $this->redirectToRoute('afficher_commande');
 
-        return $this->render("CommandeBundle:LigneDeCommande:afficheLigneDeCommande.html.twig",
-            array('lcommande' => $lcommande));
+        return $this->render("CommandeBundle:LigneDeCommande:afficheLigneDeCommande.html.twig",array('lcommande' => $lcommande));
     }
 
     public function afficherCommandeAction()
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user=='anon.')
+            return $this->redirectToRoute('fos_user_security_login');
+
         $em = $this->getDoctrine()->getManager();
         $commande = $em->getRepository("CommandeBundle:Commande")->findby(array('idUser' => $user->getId()));
 
@@ -128,6 +145,9 @@ class LigneDeCommandeController extends Controller
     public function AfficherLigneDeCommandeAction($id)
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user=='anon.')
+            return $this->redirectToRoute('fos_user_security_login');
+
         $em = $this->getDoctrine()->getManager();
 
         $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande")->findby(array('idCommande' => $id));
@@ -143,6 +163,8 @@ class LigneDeCommandeController extends Controller
     public function ModifierLigneDeCommandeAction(Request $request, $id)
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user=='anon.')
+            return $this->redirectToRoute('fos_user_security_login');
 
         $em = $this->getDoctrine()->getManager();
 
@@ -162,6 +184,9 @@ class LigneDeCommandeController extends Controller
 
     public function SupprimerLigneDeCommandeAction(Request $request, $id)
     {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user=='anon.')
+            return $this->redirectToRoute('fos_user_security_login');
 
         $datesys = new DateTime();
         $em = $this->getDoctrine()->getManager();

@@ -12,7 +12,6 @@
                                 <h1>Commande(s)</h1>
                                 <table class="table table-hover" border="1" style="width:100% ;" >
                                     <tr>
-                                       <th style="width: 150px">Prenom et Nom</th>
                                         <th>ID Commande</th>
                                         <th style="width: 150px">Date Commande</th>
                                         <th>Mes lignes de commande</th>
@@ -20,7 +19,6 @@
 
                                     {% for commande in commande %}
                                        <tr class="aaa" >
-                                            <td>{{ app.user.firstname ~ ' '~ app.user.lastname }}</td>
                                             <td>{{ commande.id }}</td>
                                             <td>{{ commande.dateCommande|date('Y-m-d') }}</td>
                                            <td>

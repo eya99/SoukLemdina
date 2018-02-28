@@ -5,8 +5,8 @@ parameters:
     database_name: souklemdina
     database_user: root
     database_password: null
+    mailer_host: aspmx.l.google.com
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    secret: 69f9a72c7ea0bfc5f290da788a245d4ee295fccd
+    mailer_user: souklemdinaa@gmail.com
+    mailer_password: souklemdina2018
+    secret: a820bc7f28317f7ecf00fcaccd8b737e696e442f

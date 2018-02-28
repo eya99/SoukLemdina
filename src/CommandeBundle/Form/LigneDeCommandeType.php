@@ -20,15 +20,17 @@ class LigneDeCommandeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse',null,array('label' => 'adresse 1','attr'   =>  array(
-            'class'   => 'form-control')))
-            ->add('adresse2',null,array('label' => 'adresse 2','attr'   =>  array(
-                'class'   => 'form-control')))
+        $builder->add('adresse',null,array('label' => 'Adresse','attr'   =>  array(
+            'class'   => 'form-control', 'id' => 'user_input_autocomplete_address', 'placeholder' => 'Votre adresse...')))
+            ->add('adresse2',null,array('label' => 'Adresse alternative','attr'   =>  array(
+                'class'   => 'form-control','required'=>false, 'placeholder' => 'Votre deuxième adresse'
+            )))
             ->add('ville',null,array('attr'   =>  array(
-                'class'   => 'form-control')))
+                'class'   => 'form-control', 'name'=>'locality',
+                'id' => 'ville')))
             ->add('codePostal',null,array('attr'   =>  array(
-                'class'   => 'form-control')))
-            ->add('numTel',null,array('attr'   =>  array(
+                'class'   => 'form-control', 'id'=> 'codepostal')))
+            ->add('numTel',null,array('label' => 'Numero de telephone','attr'   =>  array(
                 'class'   => 'form-control')))
             ->add('save',SubmitType::class,array('label' => 'Livrer à cette adresse','attr'   =>  array(
                 'class'   => 'button button-3d button-black')));
