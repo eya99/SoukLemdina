@@ -71,6 +71,7 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
+    port:   25
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
@@ -94,8 +95,11 @@ fos_user:
     user_class: SUserBundle\Entity\User
     service:
         mailer: fos_user.mailer.twig_swift
+    registration:
+            confirmation:
+                enabled: true
     from_email:
-            address: ramy.kader@esprit.tn
+            address: souklemdinaa@gmail.com
             sender_name: Administrateur_SoukLemdina
 
 # FOS Message Bundle

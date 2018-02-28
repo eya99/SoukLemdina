@@ -81,7 +81,7 @@
                             <div class="entry-content">
                                 <p>{{ work.description }}</p>
                                 {% if work.idUser.id == app.user.id %}
-                                <a href="{{ path('_DeleteWorkshop', {'id':work.id}) }}" class="btn btn-default">Supprimer
+                                <a onclick="return confirm('Voulez-vous vraiment supprimer cet atelier ?')" href="{{ path('_DeleteWorkshop', {'id':work.id}) }}" class="btn btn-default">Supprimer
                                     Workshop</a>
                             </div>
                             <div class="entry-content">

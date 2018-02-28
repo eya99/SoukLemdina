@@ -67,7 +67,7 @@
                                         <strong>SUIVRE</strong></a>
                                 {% endif %}
                                     &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;
-                                    <a title="Envoyer un message à {{ profile.idUser.firstname }}" href="#">
+                                    <a title="Envoyer un message à {{ profile.idUser.firstname }}" href="{{ path('fos_message_thread_new2',{'username': profile.idUser.username}) }}">
                                         <i class="icon-comments"></i>
                                     </a>
                             {% endif %}</div>

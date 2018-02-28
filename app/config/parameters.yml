@@ -6,7 +6,7 @@ parameters:
     database_user: root
     database_password: null
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_host: aspmx.l.google.com
+    mailer_user: souklemdinaa@gmail.com
+    mailer_password: souklemdina2018
     secret: 69f9a72c7ea0bfc5f290da788a245d4ee295fccd

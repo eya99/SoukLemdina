@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html>
+{% if is_granted("ROLE_SUPER_ADMIN") %}
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Back-Office{% endblock %}</title>
@@ -42,4 +43,15 @@
 
 </div>
 </body>
+{% else %}
+    <head>
+        <title>
+            No Route For You User
+        </title>
+        <meta http-equiv="refresh" content="2;url={{ path('fos_visitor_home') }}">
+    </head>
+    <body>
+    <div align="center">Access Denied for Users and Visitors</div>
+    </body>
+{% endif %}
 </html>

@@ -14,7 +14,8 @@
 
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background: url('{{ asset('Template/images/gallerie/1.jpg') }}') center center; background-size:cover;">
+                <div class="swiper-slide"
+                     style="background: url('{{ asset('Template/images/gallerie/1.jpg') }}') center center; background-size:cover;">
                     <a href="{{ path('fos_visitor_home') }}">
                         <div class="overlay">
                             <div class="text-overlay">
@@ -28,7 +29,8 @@
                 <div class="swiper-slide">
                     <div class="swiper-container swiper-nested-2">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="background: url('{{ asset('Template/images/gallerie/2.jpeg') }}') center center; background-size:cover;">
+                            <div class="swiper-slide"
+                                 style="background: url('{{ asset('Template/images/gallerie/2.jpeg') }}') center center; background-size:cover;">
                                 <a href="{{ path('social_homepage') }}">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -39,7 +41,8 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="background: url('{{ asset('Template/images/gallerie/2.jpg') }}') center center; background-size:cover;">
+                            <div class="swiper-slide"
+                                 style="background: url('{{ asset('Template/images/gallerie/2.jpg') }}') center center; background-size:cover;">
                                 <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -53,46 +56,54 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide" style="background: url('{{ asset('Template/images/gallerie/4.jpg') }}') center center; background-size:cover;">
-                    <a href="#">
-                        <div class="overlay">
-                            <div class="text-overlay">
-                                <div class="text-overlay-title">
-                                    <h3>Ateliers</h3>
+                <div class="swiper-slide"
+                     style="background: url('{{ asset('Template/images/gallerie/4.jpg') }}') center center; background-size:cover;">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('_AfficheWorkshop') }}">
+                        {% else %}
+                        <a href="{{ path('_AfficheVisitWorkshop') }}">
+                            {% endif %}
+                            <div class="overlay">
+                                <div class="text-overlay">
+                                    <div class="text-overlay-title">
+                                            <h3>Ateliers</h3>
+                        </a>
+                </div>
+            </div>
+        </div>
+        </a>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-container swiper-nested-2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"
+                         style="background: url('{{ asset('Template/images/gallerie/5.jpg') }}') center center; background-size:cover;">
+                        <a href="#">
+                            <div class="overlay">
+                                <div class="text-overlay">
+                                    <div class="text-overlay-title">
+                                        <h3>Explore</h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-container swiper-nested-2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="background: url('{{ asset('Template/images/gallerie/5.jpg') }}') center center; background-size:cover;">
-                                <a href="#">
-                                    <div class="overlay">
-                                        <div class="text-overlay">
-                                            <div class="text-overlay-title">
-                                                <h3>Explore</h3>
-                                            </div>
-                                        </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide"
+                         style="background: url('{{ asset('Template/images/gallerie/3.jpg') }}') center center; background-size:cover;">
+                        <a href="#">
+                            <div class="overlay">
+                                <div class="text-overlay">
+                                    <div class="text-overlay-title">
+                                        <h3>Boutique En Ligne</h3>
                                     </div>
-                                </a>
+                                </div>
                             </div>
-                            <div class="swiper-slide" style="background: url('{{ asset('Template/images/gallerie/3.jpg') }}') center center; background-size:cover;">
-                                <a href="#">
-                                    <div class="overlay">
-                                        <div class="text-overlay">
-                                            <div class="text-overlay-title">
-                                                <h3>Boutique En Ligne</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
 
 
@@ -121,7 +132,8 @@
                             <div class="slider-wrap">
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="{{ asset('Template/images/testimonials/3.jpg') }}" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="{{ asset('Template/images/testimonials/3.jpg') }}"
+                                                         alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>والله مشروع هايل، حتى مالدولاب يزيد يدور.</p>
@@ -133,7 +145,8 @@
                                 </div>
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="{{ asset('Template/images/testimonials/2.jpg') }}" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="{{ asset('Template/images/testimonials/2.jpg') }}"
+                                                         alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>آفار هايل بصراحة. أعز ماعمل الواحد كي قيد، حتى مالحانوت وماعاش تحتاجو.</p>
@@ -145,7 +158,8 @@
                                 </div>
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="{{ asset('Template/images/testimonials/1.jpg') }}" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="{{ asset('Template/images/testimonials/1.jpg') }}"
+                                                         alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>يعطيه الصحة لي خرج الزبدة متع الفكرة. وليت تقولش عليا نهار كامل في السوق.</p>
@@ -157,7 +171,8 @@
                                 </div>
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="{{ asset('Template/images/testimonials/4.jpg') }}" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="{{ asset('Template/images/testimonials/4.jpg') }}"
+                                                         alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>شعندي نقول؟ يعطيكم الصحة اما مازال ماكملش؟</p>
@@ -169,7 +184,8 @@
                                 </div>
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="{{ asset('Template/images/testimonials/5.jpg') }}" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="{{ asset('Template/images/testimonials/5.jpg') }}"
+                                                         alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>مافما مايتقال عالخدمة. أما مش كلي مازال فارغ مالعباد؟</p>

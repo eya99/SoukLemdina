@@ -164,9 +164,9 @@
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">null</parameter>
     <parameter key="mailer_transport">smtp</parameter>
-    <parameter key="mailer_host">127.0.0.1</parameter>
-    <parameter key="mailer_user">null</parameter>
-    <parameter key="mailer_password">null</parameter>
+    <parameter key="mailer_host">aspmx.l.google.com</parameter>
+    <parameter key="mailer_user">souklemdinaa@gmail.com</parameter>
+    <parameter key="mailer_password">souklemdina2018</parameter>
     <parameter key="secret">69f9a72c7ea0bfc5f290da788a245d4ee295fccd</parameter>
     <parameter key="locale">fr</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
@@ -269,9 +269,9 @@
     <parameter key="swiftmailer.mailer.default.transport.name">smtp</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.host">127.0.0.1</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.username">null</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.password">null</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.host">aspmx.l.google.com</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.username">souklemdinaa@gmail.com</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.password">souklemdina2018</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
@@ -423,9 +423,9 @@
       <parameter>Default</parameter>
     </parameter>
     <parameter key="fos_user.registration.confirmation.from_email" type="collection">
-      <parameter key="ramy.kader@esprit.tn">Administrateur_SoukLemdina</parameter>
+      <parameter key="souklemdinaa@gmail.com">Administrateur_SoukLemdina</parameter>
     </parameter>
-    <parameter key="fos_user.registration.confirmation.enabled">false</parameter>
+    <parameter key="fos_user.registration.confirmation.enabled">true</parameter>
     <parameter key="fos_user.registration.form.type">FOS\UserBundle\Form\Type\RegistrationFormType</parameter>
     <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
     <parameter key="fos_user.registration.form.validation_groups" type="collection">
@@ -439,7 +439,7 @@
       <parameter>Default</parameter>
     </parameter>
     <parameter key="fos_user.resetting.email.from_email" type="collection">
-      <parameter key="ramy.kader@esprit.tn">Administrateur_SoukLemdina</parameter>
+      <parameter key="souklemdinaa@gmail.com">Administrateur_SoukLemdina</parameter>
     </parameter>
     <parameter key="fos_user.resetting.retry_ttl">7200</parameter>
     <parameter key="fos_user.resetting.token_ttl">86400</parameter>
@@ -753,7 +753,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>Q7pZUuU9-EKEt7BFJ48ly4</argument>
+      <argument>-vobzst+eokRhVY-AboGk9</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -763,7 +763,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>Q7pZUuU9-EKEt7BFJ48ly4</argument>
+      <argument>-vobzst+eokRhVY-AboGk9</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2414,6 +2414,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>fos_user.registration.success</argument>
+        <argument type="collection">
+          <argument type="service" id="fos_user.listener.email_confirmation"/>
+          <argument>onRegistrationSuccess</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>fos_user.resetting.reset.initialize</argument>
         <argument type="collection">
           <argument type="service" id="fos_user.listener.resetting"/>
@@ -2778,7 +2786,7 @@
       <call method="add">
         <argument type="service" id="security.request_matcher.fc1361a081a79d43baa3b010f55efe95a2cf43369ee73dcd2182ec1b9334ab99334e0826"/>
         <argument type="collection">
-          <argument>ROLE_ADMIN</argument>
+          <argument>ROLE_SUPER_ADMIN</argument>
         </argument>
         <argument>null</argument>
       </call>
@@ -3179,12 +3187,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a94ae0c620d53.71905684</argument>
+      <argument>5a960fdee0f653.12074185</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a94ae0c620d53.71905684</argument>
+      <argument>5a960fdee0f653.12074185</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3756,10 +3764,10 @@
         <argument type="service" id="3_cdef586e372d16c28d09e5bb14bb76823fb2a166990186a1a8ae720538f4abc2"/>
       </argument>
       <call method="setUsername">
-        <argument>null</argument>
+        <argument>souklemdinaa@gmail.com</argument>
       </call>
       <call method="setPassword">
-        <argument>null</argument>
+        <argument>souklemdina2018</argument>
       </call>
       <call method="setAuthMode">
         <argument>null</argument>
@@ -3779,7 +3787,7 @@
       </argument>
       <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
       <call method="setHost">
-        <argument>127.0.0.1</argument>
+        <argument>aspmx.l.google.com</argument>
       </call>
       <call method="setPort">
         <argument>25</argument>
@@ -4315,10 +4323,10 @@
         <argument key="resetting.template">@FOSUser/Resetting/email.txt.twig</argument>
         <argument key="from_email" type="collection">
           <argument key="confirmation" type="collection">
-            <argument key="ramy.kader@esprit.tn">Administrateur_SoukLemdina</argument>
+            <argument key="souklemdinaa@gmail.com">Administrateur_SoukLemdina</argument>
           </argument>
           <argument key="resetting" type="collection">
-            <argument key="ramy.kader@esprit.tn">Administrateur_SoukLemdina</argument>
+            <argument key="souklemdinaa@gmail.com">Administrateur_SoukLemdina</argument>
           </argument>
         </argument>
       </argument>
@@ -4334,10 +4342,10 @@
         </argument>
         <argument key="from_email" type="collection">
           <argument key="confirmation" type="collection">
-            <argument key="ramy.kader@esprit.tn">Administrateur_SoukLemdina</argument>
+            <argument key="souklemdinaa@gmail.com">Administrateur_SoukLemdina</argument>
           </argument>
           <argument key="resetting" type="collection">
-            <argument key="ramy.kader@esprit.tn">Administrateur_SoukLemdina</argument>
+            <argument key="souklemdinaa@gmail.com">Administrateur_SoukLemdina</argument>
           </argument>
         </argument>
       </argument>
@@ -4385,6 +4393,13 @@
     <service id="fos_user.registration.form.type" class="FOS\UserBundle\Form\Type\RegistrationFormType">
       <tag name="form.type" alias="fos_user_registration"/>
       <argument>SUserBundle\Entity\User</argument>
+    </service>
+    <service id="fos_user.listener.email_confirmation" class="FOS\UserBundle\EventListener\EmailConfirmationListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="fos_user.mailer.twig_swift"/>
+      <argument type="service" id="fos_user.util.token_generator.default"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="session"/>
     </service>
     <service id="fos_user.change_password.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
@@ -5212,7 +5227,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>h2mtRMt5CS</argument>
       <argument>0</argument>
-      <argument>Q7pZUuU9-EKEt7BFJ48ly4</argument>
+      <argument>-vobzst+eokRhVY-AboGk9</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5220,7 +5235,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>nK0jv0xxWw</argument>
       <argument>0</argument>
-      <argument>Q7pZUuU9-EKEt7BFJ48ly4</argument>
+      <argument>-vobzst+eokRhVY-AboGk9</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5228,7 +5243,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>aiXxLJa9s8</argument>
       <argument>0</argument>
-      <argument>Q7pZUuU9-EKEt7BFJ48ly4</argument>
+      <argument>-vobzst+eokRhVY-AboGk9</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5236,7 +5251,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>-JRGsuY2j7</argument>
       <argument>0</argument>
-      <argument>Q7pZUuU9-EKEt7BFJ48ly4</argument>
+      <argument>-vobzst+eokRhVY-AboGk9</argument>
       <argument>D:\xampp\htdocs\SoukLemdina\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

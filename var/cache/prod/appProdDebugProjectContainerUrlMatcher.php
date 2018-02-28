@@ -494,9 +494,17 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::deletedAction',  '_route' => 'fos_message_deleted',);
             }
 
-            // fos_message_thread_new
-            if ('/messages/new' === $pathinfo) {
-                return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::newThreadAction',  '_route' => 'fos_message_thread_new',);
+            if (0 === strpos($pathinfo, '/messages/new')) {
+                // fos_message_thread_new
+                if ('/messages/new' === $pathinfo) {
+                    return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::newThreadAction',  '_route' => 'fos_message_thread_new',);
+                }
+
+                // fos_message_thread_new2
+                if (preg_match('#^/messages/new/(?P<username>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_message_thread_new2')), array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::newThread2Action',));
+                }
+
             }
 
             // fos_message_thread_delete

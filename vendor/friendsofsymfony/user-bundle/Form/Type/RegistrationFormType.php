@@ -72,7 +72,7 @@ class RegistrationFormType extends AbstractType
                 'class'   => 'form-control')))
             ->add('ville',null,array('label' => 'ville','attr'   =>  array(
                 'class'   => 'form-control')))
-            ->add('pays',CountryType::class,array('label' => 'Prénom','attr'   =>  array(
+            ->add('pays',CountryType::class,array('label' => 'Pays','attr'   =>  array(
                 'class'   => 'form-control')))
             ->add('phone',null,array('label' => 'Numéro de Téléphone','attr'   =>  array(
                 'class'   => 'form-control')))
