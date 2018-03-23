@@ -1,0 +1,25 @@
+{% extends "SUserBundle::layout.html.twig" %}
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
+    <title>{{ app.user.firstname }} {{  app.user.lastname }} - Messagerie</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container clearfix">
+                <div class="col-md-12">
+                            {#<h1>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</h1>#}
+
+                            <div align="center">
+                                <a href="{{ url('fos_message_inbox') }}" class="button button-3d button-black">{% trans from 'FOSMessageBundle' %}
+                                        Reçus{% endtrans %}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="{{ url('fos_message_sent') }}" class="button button-3d button-black">{% trans from 'FOSMessageBundle' %}
+                                        Envoyés{% endtrans %}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="{{ url('fos_message_deleted') }}" class="button button-3d button-black">{% trans from 'FOSMessageBundle' %}
+                                        Supprimés{% endtrans %}</a>
+                            </div>
+<br><br>
+                            {% block fos_message_content %}{% endblock %}
+
+        </div>
+    </div>
+{% endblock %}

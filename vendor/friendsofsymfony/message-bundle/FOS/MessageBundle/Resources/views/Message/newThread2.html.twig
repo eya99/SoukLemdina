@@ -1,0 +1,25 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+{% block fos_message_content %}
+
+    <h2 align="center">{% trans from 'FOSMessageBundle' %}Nouveau Message{% endtrans %}</h2>
+    <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register" style="max-width: 500px;">
+        <div class="tab-content clearfix" id="tab-register">
+            <br><br>
+            <form action="{{ url('fos_message_thread_new') }}" method="post">
+                {{ form_widget(form) }}
+                <br>
+                <input value="Envoyer" type="submit" class="button button-3d button-black"/>
+            </form>
+            <br><br>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        jQuery(window).load(function(){
+            console.log('jawi behy');
+            jQuery('#message_recipient').val('{{ username }}');
+        });
+    </script>
+{% endblock %}

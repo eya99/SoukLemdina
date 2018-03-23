@@ -83,17 +83,13 @@
 {% block javascripts %}
     <script>
         deb = 0;
-        fin = 4;
+        fin = 1;
         var pathToRedirect = '{{ path('social_postsAX_home', {'deb': 'ABC','fin':'DEF'} ) }}';
         $(window).scroll(function () {
             if ($(window).scrollTop() + $(window).height() >= $(document).height()-700) {
-                if (fin + 3 <= {{ (posts|length - 1) }}) {
+                if (fin + 1 <= {{ (posts|length - 1) }}) {
                     deb = fin + 1;
-                    fin = deb + 3;
-                }
-                else if (fin +1 <= {{ (posts|length - 1) }}){
-                    deb = fin + 1;
-                    fin = {{ (posts|length - 1) }};
+                    fin = deb + 1;
                 }
                 else {
                     return 0;
