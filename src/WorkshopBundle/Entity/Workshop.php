@@ -79,14 +79,14 @@ class Workshop
     /**
      * @var \DateTime
      * @Assert\GreaterThan("today UTC")
-     * @ORM\Column(name="dateDebut", type="date")
+     * @ORM\Column(name="dateDebut", type="datetime")
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
      * @Assert\GreaterThan("today UTC")
-     * @ORM\Column(name="dateFin", type="date")
+     * @ORM\Column(name="dateFin", type="datetime")
      */
     private $dateFin;
 
