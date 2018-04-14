@@ -1,0 +1,172 @@
+{% extends "SUserBundle::layout.html.twig" %}
+
+{% block head %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+
+{% block body %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+        <section id="page-title" style="background-color: #ff7c4e">
+
+        <div class="container clearfix">
+            <h1>Evenements à venir </h1>
+            <ol class="breadcrumb">
+                <li><a href="{{ path('fos_visitor_home') }}">Accueil </a></li>
+                <li> <a href="{{ path('_RechercheDQL') }}">Trouver un événement</a></li>
+                <li> <a href="{{ path('_AjoutEvent') }}">Ajouter un événement</a></li>
+
+
+<div class="center-block" align="center">
+        </div>
+            </ol>
+
+        </div>
+
+    </section>
+    <section id="content">
+
+        <div class="content-wrap">
+
+
+
+            <div id="events" class="single-event header-stick footer-stick clearfix">
+
+
+                {% for event in e | sort   %}
+
+                <div class="event entry-image parallax nobottommargin" style="background-image: url({{ asset('uploads/images/') }}{{ event.photo }}); height:600px" data-stellar-background-ratio="0.3" >
+                    <div class="entry-overlay-meta">
+
+
+                        <h2><a href="{{ path('_DetailsEvent',{'id':event.id}) }}" >{{ event.nomEvenement }}</a></h2>
+
+                        <ul class="iconlist">
+                            {% if event.idUser.id != app.user.id %}
+
+                            <a href ="{{  path ('_Rating', {'id':event.id}) }}"> {{ event.rating|rating }}</a>
+                            {% endif %}
+
+                                <li><i class="icon-euro"></i> <strong>{{ event.type }}</strong></li>
+                            <li><i class="icon-calendar3"></i> <strong>Date:</strong>{{ event.dateDebut | date("m/d/Y") }}</li>
+                            <li><i class="icon-time"></i> <strong>Timing:</strong> {{ event.heure| date("h:m") }}</li>
+                            <li><i class="icon-map-marker2"></i> <strong>Adresse:</strong>{{ event.adresse }}</li>
+                            <li><i class="icon-euro"></i> <strong>prix</strong>{{ event.prix }}</li>
+                            <li><i class="icon-male"></i> <strong>nombre de place</strong>{{ event.nbPlace }}</li>
+
+
+                        </ul>
+
+                        <a href="{{ path('_DetailsEvent',{'id':event.id}) }}"  class="btn btn-info btn-block btn-lg">Détails</a>
+
+{% if event.idUser.id == app.user.id %}
+
+                        <a href="{{ path('_UpdateEvent',{'id':event.id }) }}"  class="btn btn-warning btn-block btn-lg">Modifier</a>
+
+                            <a href="{{ path('_DeleteEvent',{'id':event.id}) }}" class="btn btn-danger btn-block btn-lg">Delete</a>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="entry-overlay">
+                        <div id="event-countdown5" class="countdown"></div>
+                    </div>
+
+            </div>
+
+        </div>
+                    </div>
+    </section>
+
+
+
+    <div id="gotoTop" class="icon-angle-up"></div>
+
+                {% endfor %}
+     {% else %}
+
+         <section id="page-title">
+
+             <div class="container clearfix">
+                 <h1>Evenements à venir </h1>
+                 <ol class="breadcrumb">
+                     <li><a href="{{ path('fos_visitor_home') }}">Accueil</a></li>
+
+                 </ol>
+             </div>
+
+         </section>
+
+<section id="content">
+
+    <div class="content-wrap">
+
+
+
+        <div id="events" class="single-event header-stick footer-stick clearfix">
+
+
+            {% for event in e | sort  %}
+
+                <div class="event entry-image parallax nobottommargin" style="background-image: url({{ asset('uploads/images/') }}{{ event.photo }}); height:600px" data-stellar-background-ratio="0.3" >
+                <div class="entry-overlay-meta">
+
+                    <h2><a >{{ event.nomEvenement }}</a></h2>
+                    <ul class="iconlist">
+                        {{ 4|rating }}
+                        <li><i class="icon-euro"></i> <strong>{{ event.type }}</strong></li>
+                        <li><i class="icon-calendar3"></i> <strong>Date:</strong>{{ event.dateDebut | date("m/d/Y") }}</li>
+                        <li><i class="icon-time"></i> <strong>Timing:</strong>{{ event.heure| date("h:m") }}</li>
+                        <li><i class="icon-map-marker2"></i> <strong>Adresse:</strong>{{ event.adresse }}</li>
+                        <li><i class="icon-euro"></i> <strong>prix</strong>{{ event.prix }}</li>
+                        <li><i class="icon-male"></i> <strong>nombre de place</strong>{{ event.nbPlace }}</li>
+
+
+                    </ul>
+
+                </div>
+
+
+                <div class="entry-overlay">
+                    <div id="event-countdown5" class="countdown"></div>
+                </div>
+            </div>
+                     {% endfor %}
+        </div>
+
+    </div>
+
+</section>
+    {% endif %}
+
+
+
+
+{# display navigation #}
+    <div class="navigation text-right">
+        {{ knp_pagination_render(e) }}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+    <!-- External JavaScripts
+          ============================================= -->
+    <script type="text/javascript" src="{{ asset('Template/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/plugins.js') }}"></script>
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="{{ asset('Template/js/functions.js') }}"></script>
+
+
+
+{% endblock %}
+
+
+
+

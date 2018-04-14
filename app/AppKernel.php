@@ -30,6 +30,9 @@ class AppKernel extends Kernel
             new FOS\MessageBundle\FOSMessageBundle(),
             new \CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new \Mgilet\NotificationBundle\MgiletNotificationBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

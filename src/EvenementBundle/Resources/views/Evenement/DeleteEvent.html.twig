@@ -1,0 +1,23 @@
+
+{% extends "SUserBundle::layout.html.twig" %}
+{% block head %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ user.id}}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+
+    {% endfor %}
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
+
+{% block javascripts %}{% endblock %}

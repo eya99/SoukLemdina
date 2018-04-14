@@ -36,11 +36,6 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => 'workshop_homepage',);
             }
 
-            // _index
-            if ('/workshop/index' === $pathinfo) {
-                return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => '_index',);
-            }
-
             // _AjoutWorkshop
             if ('/workshop/AjoutWorkshop' === $pathinfo) {
                 return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AjoutWorkshopAction',  '_route' => '_AjoutWorkshop',);
@@ -130,16 +125,99 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
         }
 
         elseif (0 === strpos($pathinfo, '/lo')) {
-            // local_homepage
-            if ('/local' === $trimmedPathinfo) {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($rawPathinfo.'/', 'local_homepage');
+            if (0 === strpos($pathinfo, '/local')) {
+                // local_homepage
+                if ('/local/local' === $pathinfo) {
+                    return array (  '_controller' => 'LocalBundle\\Controller\\DefaultController::indexAction',  '_route' => 'local_homepage',);
                 }
 
-                return array (  '_controller' => 'LocalBundle\\Controller\\DefaultController::indexAction',  '_route' => 'local_homepage',);
+                if (0 === strpos($pathinfo, '/local/A')) {
+                    if (0 === strpos($pathinfo, '/local/Affiche')) {
+                        // _affiche
+                        if ('/local/Affiche' === $pathinfo) {
+                            return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheAction',  '_route' => '_affiche',);
+                        }
+
+                        // _afficheUser
+                        if ('/local/AfficheUser' === $pathinfo) {
+                            return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheUserAction',  '_route' => '_afficheUser',);
+                        }
+
+                        // _afficheDetail
+                        if (0 === strpos($pathinfo, '/local/AfficheDetail') && preg_match('#^/local/AfficheDetail(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => '_afficheDetail')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheDetailAction',));
+                        }
+
+                    }
+
+                    // _ajout
+                    if ('/local/Ajout' === $pathinfo) {
+                        return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AjoutAction',  '_route' => '_ajout',);
+                    }
+
+                    // _aimer
+                    if (0 === strpos($pathinfo, '/local/Aimer') && preg_match('#^/local/Aimer(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_aimer')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::LikeAction',));
+                    }
+
+                }
+
+                // _supprime
+                if (0 === strpos($pathinfo, '/local/Supprime') && preg_match('#^/local/Supprime(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_supprime')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::SupprimeAction',));
+                }
+
+                // _signaler
+                if (0 === strpos($pathinfo, '/local/Signaler') && preg_match('#^/local/Signaler(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_signaler')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::SignalerAction',));
+                }
+
+                // _modifie
+                if (0 === strpos($pathinfo, '/local/Modifie') && preg_match('#^/local/Modifie(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_modifie')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::ModifieAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/local/Recherche')) {
+                    // _recherche
+                    if ('/local/Recherche' === $pathinfo) {
+                        return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::RechercheAction',  '_route' => '_recherche',);
+                    }
+
+                    // _recherchePrix
+                    if ('/local/RecherchePrix' === $pathinfo) {
+                        return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::RecherchePrixAction',  '_route' => '_recherchePrix',);
+                    }
+
+                    // _rechercheSuperficie
+                    if ('/local/RechercheSuperficie' === $pathinfo) {
+                        return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::RechercheSuperficieAction',  '_route' => '_rechercheSuperficie',);
+                    }
+
+                    // _rechercheAdresse
+                    if ('/local/RechercheAdresse' === $pathinfo) {
+                        return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::RechercheAdresseAction',  '_route' => '_rechercheAdresse',);
+                    }
+
+                }
+
+                // _louer
+                if (0 === strpos($pathinfo, '/local/Louer') && preg_match('#^/local/Louer(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_louer')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::LouerAction',));
+                }
+
+                // _pasaimer
+                if (0 === strpos($pathinfo, '/local/PasAimer') && preg_match('#^/local/PasAimer(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_pasaimer')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::DislikeAction',));
+                }
+
+                // _deleteCommentaire
+                if (0 === strpos($pathinfo, '/local/DeleteCommentaire') && preg_match('#^/local/DeleteCommentaire(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_deleteCommentaire')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::DeleteCommentaireAction',));
+                }
+
             }
 
-            if (0 === strpos($pathinfo, '/login')) {
+            elseif (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login
                 if ('/login' === $pathinfo) {
                     if (!in_array($canonicalMethod, array('GET', 'POST'))) {
@@ -285,16 +363,86 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
 
         }
 
-        // evenement_homepage
-        if ('/evenement' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($rawPathinfo.'/', 'evenement_homepage');
+        elseif (0 === strpos($pathinfo, '/evenement')) {
+            // evenement_homepage
+            if ('/evenement/evenement' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheEventAction',  '_route' => 'evenement_homepage',);
             }
 
-            return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => 'evenement_homepage',);
+            // _index
+            if ('/evenement/index' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\DefaultController::indexAction',  '_route' => '_index',);
+            }
+
+            // _AjoutEvent
+            if ('/evenement/AjoutEvent' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AjoutEventAction',  '_route' => '_AjoutEvent',);
+            }
+
+            // _AfficheEvent
+            if ('/evenement/AfficheE' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheEventAction',  '_route' => '_AfficheEvent',);
+            }
+
+            // _UpdateEvent
+            if (0 === strpos($pathinfo, '/evenement/UpdateEvent') && preg_match('#^/evenement/UpdateEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::UpdateEventAction',));
+            }
+
+            // _DeleteEvent
+            if (0 === strpos($pathinfo, '/evenement/DeleteEvent') && preg_match('#^/evenement/DeleteEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DeleteEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DeleteEventAction',));
+            }
+
+            // _DetailsEvent
+            if (0 === strpos($pathinfo, '/evenement/DetailsEvent') && preg_match('#^/evenement/DetailsEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DetailsEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DetailsEventAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/evenement/R')) {
+                if (0 === strpos($pathinfo, '/evenement/Recherche')) {
+                    // _RechercheDQL
+                    if ('/evenement/RechercheDQL' === $pathinfo) {
+                        return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheDQLAction',  '_route' => '_RechercheDQL',);
+                    }
+
+                    // _Recherche
+                    if (preg_match('#^/evenement/Recherche/(?P<nom>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_Recherche')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RechercheAction',));
+                    }
+
+                }
+
+                // _RecentDql
+                if ('/evenement/Recent' === $pathinfo) {
+                    return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::RecentDqlAction',  '_route' => '_RecentDql',);
+                }
+
+                // _Rating
+                if (0 === strpos($pathinfo, '/evenement/Ratingo') && preg_match('#^/evenement/Ratingo/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_Rating')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::ratingAction',));
+                }
+
+            }
+
+            // _ParticiperEvent
+            if (0 === strpos($pathinfo, '/evenement/ParticiperEvent') && preg_match('#^/evenement/ParticiperEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_ParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::participerEventAction',));
+            }
+
+            // _AfficheProfil
+            if (0 === strpos($pathinfo, '/evenement/ProfilEv') && preg_match('#^/evenement/ProfilEv/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_AfficheProfil')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::AfficheProfilAction',));
+            }
+
+            // _nParticiperEvent
+            if (0 === strpos($pathinfo, '/evenement/nParticiperEvent') && preg_match('#^/evenement/nParticiperEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_nParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::nParticierEventAction',));
+            }
+
         }
 
-        if (0 === strpos($pathinfo, '/social')) {
+        elseif (0 === strpos($pathinfo, '/social')) {
             // social_homepage
             if ('/social' === $trimmedPathinfo) {
                 if (substr($pathinfo, -1) !== '/') {

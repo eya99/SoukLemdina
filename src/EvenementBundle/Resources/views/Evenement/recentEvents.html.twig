@@ -1,0 +1,20 @@
+{% for event in e | slice(0,3) %}
+
+    <div id="post-list-footer">
+        <div class="spost clearfix">
+            <div class="entry-c">
+                <div class="entry-title">
+                    <h4>{{ event.nomEvenement ~ ' - ' ~ event.idUser.firstname ~ ' ' ~ event.idUser.lastname }}</h4>
+                </div>
+                <ul class="entry-meta">
+                    <li>{{ event.dateDebut | date("m/d/Y") }}</li>
+                    <li>{{ event.Heure | date("h:m") }}</li>
+
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <br>
+{% endfor %}

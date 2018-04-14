@@ -1,0 +1,90 @@
+{% extends "SUserBundle::layout.html.twig" %}
+{% block head %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+
+{% block body %}
+
+    <section id="page-title" style="background-color: papayawhip">
+
+        <div class="container clearfix">
+            <h1 style="color:#ff4b05">Tapez un événement</h1>
+
+            <ol class="breadcrumb">
+                <li><a href="{{ path('fos_visitor_home') }}">Accueil</a></li>
+                <li> <a href="{{ path('_AjoutEvent') }}">Ajouter un événement</a></li>
+
+            </ol>
+            <form id="widget-subscribe-form"  method="post" class="nobottommargin row clearfix"  href="{{ path('_RechercheDQL') }}">
+                <div class="col-md-9">
+                    <input type="text" id="xyz" name="motcle" class="sm-form-control required email" placeholder="Rechercher un événement">
+                </div>
+                <!--    <div class="col-md-2">
+                       <a class="button button-xlarge button-border button-amber" type="submit" name="submit" value="rechercher"><i class="icon-ok"></i> </a>
+                   </div>!-->
+            </form>
+        </div>
+
+    </section>
+
+    <section id="content">
+
+        <div class="content-wrap">
+
+
+
+            <div id="ev" class="fgh">
+
+
+
+                </div>
+        </div>
+    </section>
+
+    {# display navigation #}
+    <div class="navigation text-right">
+        {{ knp_pagination_render(e) }}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+    <!-- External JavaScripts
+          ============================================= -->
+    <script type="text/javascript" src="{{ asset('Template/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Template/js/plugins.js') }}"></script>
+    <script  src="{{ asset('Template/js/recherche.js') }}"></script>
+    <script  src="{{ asset('jquery-3.2.1.min.js') }}"></script>
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="{{ asset('Template/js/functions.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+            var eventStartDate1 = new Date(2016, 6, 15);
+            $('#event-countdown1').countdown({until: eventStartDate1});
+
+            var eventStartDate2 = new Date(2015, 12, 23);
+            $('#event-countdown2').countdown({until: eventStartDate2});
+
+            var eventStartDate3 = new Date(2016, 1, 31);
+            $('#event-countdown3').countdown({until: eventStartDate3});
+
+            var eventStartDate4 = new Date(2015, 7, 24);
+            $('#event-countdown4').countdown({until: eventStartDate4});
+
+            var eventStartDate5 = new Date(2017, 1, 5);
+            $('#event-countdown5').countdown({until: eventStartDate5});
+
+        });
+
+    </script>
+{% endblock %}
+
+
+
+

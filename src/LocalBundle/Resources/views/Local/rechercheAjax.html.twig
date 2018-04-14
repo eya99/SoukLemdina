@@ -1,0 +1,13 @@
+{% extends 'SUserBundle::layout.html.twig' %}
+  {% block title %}Local{% endblock %}
+    {% block stylesheets %}{% endblock %}
+{% block body %}
+    <form method="POST" href="{{ path('_rechercheAdresse') }}">
+        <input type="text" name="xyz" id="xyz">
+        <input type="submit" name="submit" value="recherche">
+
+    </form>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

@@ -118,7 +118,7 @@ class User extends BaseUser implements ParticipantInterface, NotifiableInterface
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datenaiss", type="date")
+     * @ORM\Column(name="datenaiss", type="datetime", nullable=true)
      * @Assert\DateTime()
      * @Assert\Range(
      *      min = "first day of January 1950",

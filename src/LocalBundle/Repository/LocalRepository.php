@@ -10,4 +10,166 @@ namespace LocalBundle\Repository;
  */
 class LocalRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function recherche($prixMin,$prixMax,$type,$superficie)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->andWhere('r.prix <= :prixMax')
+            ->andWhere('r.type like :type')
+            ->andWhere('r.superficie = :superficie')
+            ->setParameters(array('prixMin'=>$prixMin,'prixMax'=>$prixMax,'type'=>$type,'superficie'=>$superficie))
+            ->getQuery();
+       return $query->getResult();
+    }
+
+    public function recherche2($prixMax,$type,$superficie)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix <= :prixMax ')
+            ->andWhere('r.type like :type')
+            ->andWhere('r.superficie = :superficie')
+            ->setParameters(array('prixMax'=>$prixMax,'type'=>$type,'superficie'=>$superficie))
+            ->getQuery();
+        return $query->getResult();
+    }
+
+    public function recherche3($prixMin,$type,$superficie)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->andWhere('r.type like :type')
+            ->andWhere('r.superficie = :superficie')
+            ->setParameters(array('prixMin'=>$prixMin,'type'=>$type,'superficie'=>$superficie))
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche4($prixMin,$type,$prixMax)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->andWhere('r.type like :type')
+            ->andWhere('r.prix <= :prixMax')
+            ->setParameters(array('prixMin'=>$prixMin,'type'=>$type,'prixMax'=>$prixMax))
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche5($prixMin,$superficie,$prixMax)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->andWhere('r.superficie like :superficie')
+            ->andWhere('r.prix <= :prixMax')
+            ->setParameters(array('prixMin'=>$prixMin,'superficie'=>$superficie,'prixMax'=>$prixMax))
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche6($superficie,$prixMax)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMax ')
+            ->andWhere('r.superficie like :superficie')
+
+            ->setParameters(array('superficie'=>$superficie,'prixMax'=>$prixMax))
+            ->getQuery();
+        return $query->getResult();
+    }
+
+    public function recherche7($superficie,$prixMin)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->andWhere('r.superficie like :superficie')
+
+            ->setParameters(array('superficie'=>$superficie,'prixMin'=>$prixMin))
+            ->getQuery();
+        return $query->getResult();
+    }
+
+    public function recherche8($prixMax,$prixMin)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->andWhere('r.prix <= :prixMax ')
+
+            ->setParameters(array('prixMax'=>$prixMax,'prixMin'=>$prixMin))
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche9($type,$prixMin)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->andWhere('r.type like :type ')
+
+            ->setParameters(array('type'=>$type,'prixMin'=>$prixMin))
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche10($type,$prixMax)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMax ')
+            ->andWhere('r.type like :type ')
+
+            ->setParameters(array('type'=>$type,'prixMax'=>$prixMax))
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche11($type,$superficie)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.superficie like :superficie ')
+            ->andWhere('r.type like :type ')
+
+            ->setParameters(array('type'=>$type,'superficie'=>$superficie))
+            ->getQuery();
+        return $query->getResult();
+    }
+
+    public function recherche12($prixMax)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix <= :prixMax ')
+            ->setParameter('prixMax',$prixMax)
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche13($prixMin)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.prix >= :prixMin ')
+            ->setParameter('prixMin',$prixMin)
+            ->getQuery();
+        return $query->getResult();
+    }
+
+    public function recherche14($superficie)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.superficie like :superficie ')
+            ->setParameter('superficie',$superficie)
+            ->getQuery();
+        return $query->getResult();
+    }
+    public function recherche15($type)
+    {
+        $query= LocalRepository::createQueryBuilder('r')
+            ->where('r.type like :type ')
+            ->setParameter('type',$type)
+            ->getQuery();
+        return $query->getResult();
+    }
+
+    public function rechercheAjax($adresse)
+    {
+       $query=LocalRepository::createQueryBuilder('r')
+           ->where('r.adresse like :adresse')
+           ->setParameter('adresse','%'.$adresse.'%')
+           ->getQuery();
+       return $query->getResult();
+    }
+
+
+
+
 }

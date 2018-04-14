@@ -3,14 +3,20 @@
 namespace EvenementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
+
 
 /**
  * Evenement
  *
  * @ORM\Table(name="evenement")
+ * @Notifiable(name="evenement")
  * @ORM\Entity(repositoryClass="EvenementBundle\Repository\EvenementRepository")
  */
-class Evenement
+class Evenement implements NotifiableInterface
 {
     /**
      * @var int
@@ -30,17 +36,42 @@ class Evenement
 
     /**
      * @var \DateTime
-     *
+     *@Assert\GreaterThan("today UTC")
      * @ORM\Column(name="dateDebut", type="date")
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
-     *
+     *@Assert\GreaterThan("today UTC")
      * @ORM\Column(name="dateFin", type="date")
      */
+
     private $dateFin;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="heure", type="time")
+     */
+
+    private $heure;
+
+    /**
+     * @return \DateTime
+     */
+    public function getHeure()
+    {
+        return $this->heure;
+    }
+
+    /**
+     * @param \DateTime $heure
+     */
+    public function setHeure($heure)
+    {
+        $this->heure = $heure;
+    }
+
 
     /**
      * @var string
@@ -59,21 +90,20 @@ class Evenement
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=1000)
      */
     private $description;
 
     /**
      * @var int
-     *
+     *@Assert\GreaterThan(19)
      * @ORM\Column(name="nbPlace", type="integer")
      */
     private $nbPlace;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="nbSignal", type="integer")
+     * @ORM\Column(name="nbSignal", type="integer", nullable=true)
      */
     private $nbSignal;
 
@@ -90,6 +120,99 @@ class Evenement
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
+
+    /**
+     * @var string
+     * @Assert\NotBlank(message="entrez une image")
+     * @Assert\Image()
+     * @ORM\Column(name="photo", type="string", length=255,nullable=true)
+     */
+    private $photo;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="rating", type="integer", nullable=true)
+     */
+    private $rating;
+
+    /**
+     * @return int
+     */
+    public function getNbrrating()
+    {
+        return $this->nbrrating;
+    }
+
+    /**
+     * @param int $nbrrating
+     */
+    public function setNbrrating($nbrrating)
+    {
+        $this->nbrrating = $nbrrating;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbruser()
+    {
+        return $this->nbruser;
+    }
+
+    /**
+     * @param int $nbruser
+     */
+    public function setNbruser($nbruser)
+    {
+        $this->nbruser = $nbruser;
+    }
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrrating", type="integer",nullable=true)
+     */
+    private $nbrrating;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbruser", type="integer",nullable=true)
+     */
+    private $nbruser;
+
+    /**
+     * @return int
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param int $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
+
+
+
+
+    /**
+     * @return string|null
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
 
 
     /**
