@@ -1,3 +1,55 @@
 evenement_homepage:
-    path:     /
+    path:     /evenement
+    defaults: { _controller: EvenementBundle:Evenement:AfficheEvent }
+
+_index:
+    path:     /index
     defaults: { _controller: EvenementBundle:Default:index }
+
+_AjoutEvent:
+    path:     /AjoutEvent
+    defaults: { _controller: EvenementBundle:Evenement:AjoutEvent }
+
+_UpdateEvent:
+    path:     /UpdateEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:UpdateEvent }
+
+_DeleteEvent:
+    path:     /DeleteEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:DeleteEvent }
+
+_DetailsEvent:
+    path:     /DetailsEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:DetailsEvent }
+
+_RechercheDQL:
+    path:     /RechercheDQL
+    defaults: { _controller: EvenementBundle:Evenement:RechercheDQL }
+
+_ParticiperEvent:
+    path:     /ParticiperEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:participerEvent }
+
+_nParticiperEvent:
+    path:     /nParticiperEvent/{id}
+    defaults: { _controller: EvenementBundle:Evenement:nParticierEvent }
+
+_AfficheEvent:
+    path:     /AfficheE
+    defaults: { _controller: EvenementBundle:Evenement:AfficheEvent }
+
+_AfficheProfil:
+    path:     /ProfilEv/{id}
+    defaults: { _controller: EvenementBundle:Evenement:AfficheProfil }
+
+_Rating:
+    path:     /Ratingo/{id}
+    defaults: { _controller: EvenementBundle:Evenement:rating }
+
+_Recherche:
+    path:     /Recherche/{nom}
+    defaults: { _controller: EvenementBundle:Evenement:Recherche }
+
+_RecentDql:
+    path:     /Recent
+    defaults: { _controller: EvenementBundle:Evenement:RecentDql }

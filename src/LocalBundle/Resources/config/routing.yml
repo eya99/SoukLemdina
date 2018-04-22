@@ -1,3 +1,68 @@
 local_homepage:
-    path:     /
+    path:     /local
     defaults: { _controller: LocalBundle:Default:index }
+
+_affiche:
+    path:   /Affiche
+    defaults: { _controller: LocalBundle:Local:Affiche }
+
+_supprime:
+    path:   /Supprime{id}
+    defaults: { _controller: LocalBundle:Local:Supprime }
+
+_modifie:
+    path:   /Modifie{id}
+    defaults: { _controller: LocalBundle:Local:Modifie }
+
+_ajout:
+    path:   /Ajout
+    defaults: { _controller: LocalBundle:Local:Ajout }
+
+_afficheUser:
+    path:   /AfficheUser
+    defaults: { _controller: LocalBundle:Local:AfficheUser }
+
+
+_recherche:
+    path:   /Recherche
+    defaults: { _controller: LocalBundle:Local:Recherche }
+
+_louer:
+    path:   /Louer{id}
+    defaults: { _controller: LocalBundle:Local:Louer }
+
+
+_afficheDetail:
+    path:   /AfficheDetail{id}
+    defaults: { _controller: LocalBundle:Local:AfficheDetail }
+
+_signaler:
+    path:   /Signaler{id}
+    defaults: { _controller: LocalBundle:Local:Signaler }
+
+
+_aimer:
+    path:   /Aimer{id}
+    defaults: { _controller: LocalBundle:Local:Like }
+
+_pasaimer:
+    path:   /PasAimer{id}
+    defaults: { _controller: LocalBundle:Local:Dislike }
+
+_deleteCommentaire:
+    path:   /DeleteCommentaire{id}
+    defaults: { _controller: LocalBundle:Local:DeleteCommentaire }
+
+_recherchePrix:
+    path:   /RecherchePrix
+    defaults: { _controller: LocalBundle:Local:RecherchePrix }
+
+_rechercheSuperficie:
+    path:   /RechercheSuperficie
+    defaults: { _controller: LocalBundle:Local:RechercheSuperficie }
+
+_rechercheAdresse:
+    path:   /RechercheAdresse
+    defaults: { _controller: LocalBundle:Local:RechercheAdresse }
+
+

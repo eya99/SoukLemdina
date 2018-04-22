@@ -1,0 +1,62 @@
+{% extends 'SUserBundle::layout.html.twig' %}
+  {% block title %}Local{% endblock %}
+    {% block stylesheets %}{% endblock %}
+{% block body %}
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Rechercher un local</h1>
+
+        </div>
+
+    </section>
+    <section id="content">
+        <div class="content-wrap " >
+            <div class="container clearfix" style="width:30%;">
+
+
+                <div class="line line-sm"></div>
+                <div class="center">
+
+
+                </div>
+
+
+                <div id="shop" class="shop grid-container clearfix" data-layout="fitRows" id="d">
+                    {% for l in local %}
+                        <div class="product clearfix">
+                            <div class="product-image">
+                                <a href="#"><img src="{{ asset ('uploads/images/' ~ l.image)}}" style="height: 100px; width: 200px"></a>
+                                <a href="#"><img src="{{ asset ('uploads/images/' ~ l.image) }}" style="height: 100px; width: 200px"></a>
+                                <div class="product-overlay">
+                                    <a href="{{ path('_afficheDetail', {'id':l.id}) }}" class="icon-book"><i class=""></i><span>Afficher détails</span></a>
+
+                                </div>
+                            </div>
+                            <div class="product-desc" >
+                                <div class="product-title"><h5><a href="{{ path('_recherche') }}">{{ l.type }}</a></h5></div>
+                                <div class="product-price">{{ l.prix }}DT</div>
+                                <div class="product-price">{{ l.superficie }}m²</div>
+                                <div class="product-price">{{ l.adresse}}</div>
+                                <div class="product-rating">
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star-half-full"></i>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

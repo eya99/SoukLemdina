@@ -35,7 +35,6 @@ class ParticipantEvents
      */
     private $idEvenement;
 
-
     /**
      * Get id
      *

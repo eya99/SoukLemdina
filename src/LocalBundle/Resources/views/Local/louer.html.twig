@@ -1,0 +1,229 @@
+{% extends 'SUserBundle::layout.html.twig' %}
+  {% block title %}Local{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css" />
+        <link rel="stylesheet" href="css/components/timepicker.css" type="text/css" />
+        <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css" />
+
+        <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    {% endblock %}
+{% block body %}
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Louer un local</h1>
+
+        </div>
+
+    </section>
+    <section id="content">
+        <div class="content-wrap " >
+            <div class="container clearfix" style="width:30%;">
+{{ form_start(form) }}
+
+                <div class="line line-sm"></div>
+
+{{ form(form) }}
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+
+                    <div class="alert alert-success">
+                        {{ flashMessage }}
+                    </div>
+
+                {% endfor %}
+
+
+                <div id="shop" class="shop grid-container clearfix" data-layout="fitRows">
+
+
+
+                        <div class="product clearfix">
+                            <div class="product-image">
+                                <a href="#"><img src="{{ asset ('uploads/images/' ~ local.image)}}"></a>
+
+
+                            </div>
+                            <div class="product-desc">
+                                <div class="product-title"><h5>{{ local.type }}</h5></div>
+                                <div class="product-price">{{ local.prix }}DT</div>
+                                <div class="product-price">{{ local.superficie }}m²</div>
+                                <div class="product-rating">
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star3"></i>
+                                    <i class="icon-star-half-full"></i>
+
+
+                                </div>
+                            </div>
+                            <div class="center">
+                                <div class="product-desc">
+
+                            </div>
+                            </div>
+                        </div>
+
+                </div>
+{{ form_end(form) }}
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="js/components/moment.js"></script>
+    <script type="text/javascript" src="demos/travel/js/datepicker.js"></script>
+    <script type="text/javascript" src="js/components/timepicker.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="js/components/daterangepicker.js"></script>
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="js/functions.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('.travel-date-group .default').datepicker({
+                autoclose: true,
+                startDate: "today",
+            });
+
+            $('.travel-date-group .today').datepicker({
+                autoclose: true,
+                startDate: "today",
+                todayHighlight: true
+            });
+
+            $('.travel-date-group .past-enabled').datepicker({
+                autoclose: true,
+            });
+            $('.travel-date-group .format').datepicker({
+                autoclose: true,
+                format: "dd-mm-yyyy",
+            });
+
+            $('.travel-date-group .autoclose').datepicker();
+
+            $('.travel-date-group .disabled-week').datepicker({
+                autoclose: true,
+                daysOfWeekDisabled: "0"
+            });
+
+            $('.travel-date-group .highlighted-week').datepicker({
+                autoclose: true,
+                daysOfWeekHighlighted: "0"
+            });
+
+            $('.travel-date-group .mnth').datepicker({
+                autoclose: true,
+                minViewMode: 1,
+                format: "mm/yy"
+            });
+
+            $('.travel-date-group .multidate').datepicker({
+                multidate: true,
+                multidateSeparator: " , "
+            });
+
+            $('.travel-date-group .input-daterange').datepicker({
+                autoclose: true
+            });
+
+            $('.travel-date-group .inline-calendar').datepicker();
+
+            $('.datetimepicker').datetimepicker({
+                showClose: true
+            });
+
+            $('.datetimepicker1').datetimepicker({
+                format: 'LT',
+                showClose: true
+            });
+
+            $('.datetimepicker2').datetimepicker({
+                inline: true,
+                sideBySide: true
+            });
+
+        });
+
+        $(function() {
+            // .daterange1
+            $(".daterange1").daterangepicker({
+                "buttonClasses": "button button-rounded button-mini nomargin",
+                "applyClass": "button-color",
+                "cancelClass": "button-light"
+            });
+
+            // .daterange2
+            $(".daterange2").daterangepicker({
+                "opens": "center",
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY h:mm A'
+                },
+                "buttonClasses": "button button-rounded button-mini nomargin",
+                "applyClass": "button-color",
+                "cancelClass": "button-light"
+            });
+
+            // .daterange3
+            $(".daterange3").daterangepicker({
+                    singleDatePicker: true,
+                    showDropdowns: true
+                },
+                function(start, end, label) {
+                    var years = moment().diff(start, 'years');
+                    alert("You are " + years + " years old.");
+                });
+
+            // reportrange
+            function cb(start, end) {
+                $(".reportrange span").html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+            cb(moment().subtract(29, 'days'), moment());
+
+            $(".reportrange").daterangepicker({
+                "buttonClasses": "button button-rounded button-mini nomargin",
+                "applyClass": "button-color",
+                "cancelClass": "button-light",
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+            // .daterange4
+            $(".daterange4").daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                },
+                "buttonClasses": "button button-rounded button-mini nomargin",
+                "applyClass": "button-color",
+                "cancelClass": "button-light"
+            });
+
+            $(".daterange4").on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+            });
+
+            $(".daterange4").on('cancel.daterangepicker', function(ev, picker) {
+                $(this).val('');
+            });
+
+        });
+
+    </script>
+
+
+{% endblock %}

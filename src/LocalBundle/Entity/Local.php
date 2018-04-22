@@ -3,12 +3,16 @@
 namespace LocalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Local
  *
  * @ORM\Table(name="local")
  * @ORM\Entity(repositoryClass="LocalBundle\Repository\LocalRepository")
+ * @Vich\Uploadable
  */
 class Local
 {
@@ -28,54 +32,83 @@ class Local
      */
     private $idUser;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="superficie", type="float")
-     */
-    private $superficie;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="prix", type="float")
+     * @ORM\Column(name="superficie", type="float",nullable=true)
+     */
+    private $superficie;
+
+
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix", type="float",nullable=true)
      */
     private $prix;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255,nullable=true)
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255,nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="longitude", type="float")
+     * @ORM\Column(name="adresse", type="string", length=255,nullable=true)
      */
-    private $longitude;
+    private $adresse;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="latitude", type="float")
+     * @ORM\Column(name="telephone", type="string", length=255,nullable=true)
      */
-    private $latitude;
+    private $telephone;
+
+
 
     /**
      * @var int
      *
-     * @ORM\Column(name="nbSignal", type="integer")
+     * @ORM\Column(name="nbSignal", type="integer",nullable=true)
      */
     private $nbSignal;
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre",type="string",length=255,nullable=true)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     * @Assert\NotBlank(message="entrez image")
+     * @Assert\Image()
+     * @ORM\Column(name="image",type="string",length=255)
+     */
+    private $image;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="located",type="string",length=255,nullable=true)
+     */
+    private $located;
+
 
 
     /**
@@ -88,6 +121,13 @@ class Local
         return $this->id;
     }
 
+
+
+
+
+
+
+
     /**
      * Set idUser
      *
@@ -95,6 +135,7 @@ class Local
      *
      * @return Local
      */
+
     public function setIdUser($idUser)
     {
         $this->idUser = $idUser;
@@ -125,6 +166,40 @@ class Local
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocated()
+    {
+        return $this->located;
+    }
+
+    /**
+     * @param string $located
+     */
+    public function setLocated($located)
+    {
+        $this->located = $located;
+    }
+
+
+    /**
+     * @param string $telephone
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+    }
+
 
     /**
      * Get superficie
@@ -184,6 +259,8 @@ class Local
         return $this->type;
     }
 
+
+
     /**
      * Set description
      *
@@ -209,52 +286,30 @@ class Local
     }
 
     /**
-     * Set longitude
+     * Set adresse
      *
-     * @param string $longitude
+     * @param string $adresse
      *
      * @return Local
+     *
      */
-    public function setLongitude($longitude)
+    public function setAdresse($adresse)
     {
-        $this->longitude = $longitude;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Get longitude
+     * Get adresse
      *
      * @return string
      */
-    public function getLongitude()
+    public function getAdresse()
     {
-        return $this->longitude;
+        return $this->adresse;
     }
 
-    /**
-     * Set latitude
-     *
-     * @param float $latitude
-     *
-     * @return Local
-     */
-    public function setLatitude($latitude)
-    {
-        $this->latitude = $latitude;
-
-        return $this;
-    }
-
-    /**
-     * Get latitude
-     *
-     * @return float
-     */
-    public function getLatitude()
-    {
-        return $this->latitude;
-    }
 
     /**
      * Set nbSignal
@@ -279,5 +334,42 @@ class Local
     {
         return $this->nbSignal;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @param string $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
+
+
+
 }
 

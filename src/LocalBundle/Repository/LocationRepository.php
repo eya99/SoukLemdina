@@ -10,4 +10,18 @@ namespace LocalBundle\Repository;
  */
 class LocationRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findDate($dateDeb,$dateFin)
+    {
+        $query= LocationRepository::createQueryBuilder('r')
+            ->where('r.dateDebutLocation >= :dateDeb ')
+            ->andWhere('r.dateDebutLocation <= :dateFin ')
+            ->orWhere('r.dateFinLocation <= :dateFin')
+            ->andWhere('r.dateFinLocation >= :dateDeb')
+            ->setParameters(array('dateFin'=>$dateFin,'dateDeb'=>$dateDeb))
+            ->getQuery();
+        return $query->getResult();
+    }
+
+
 }

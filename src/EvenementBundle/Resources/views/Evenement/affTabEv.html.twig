@@ -1,0 +1,29 @@
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th> nom de l'événement</th>
+        <th> Date</th>
+        <th> Informations supplémentaires</th>
+    </tr>
+    </thead>
+    {% for event in e %}
+        <tbody>
+
+        <tr class="success">
+            <td>{{ event.nomEvenement }}</td>
+            <td>{{ event.dateDebut | date("m/d/Y") }}</td>
+            <td href="{{ path('_DetailsEvent',{'id':event.id}) }}"> Description</td>
+
+            {% if event.idUser.id == app.user.id %}
+                    <td><a href="{{ path('_UpdateEvent',{'id':event.id}) }}">
+                            Modifier votre événement</a>
+                    </td>
+                    <td><a href="{{ path('_DeleteEvent',{'id':event.id}) }}">
+                            Supprimer l'événement</a>
+                    </td>
+            {% endif %}
+
+        </tr>
+        </tbody>
+    {% endfor %}
+</table>

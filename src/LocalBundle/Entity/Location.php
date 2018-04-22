@@ -45,9 +45,9 @@ class Location
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateFinLocatiom", type="date")
+     * @ORM\Column(name="dateFinLocation", type="date")
      */
-    private $dateFinLocatiom;
+    private $dateFinLocation;
 
 
     /**
@@ -135,25 +135,25 @@ class Location
     /**
      * Set dateFinLocatiom
      *
-     * @param \DateTime $dateFinLocatiom
+     * @param \DateTime $dateFinLocation
      *
      * @return Location
      */
-    public function setDateFinLocatiom($dateFinLocatiom)
+    public function setDateFinLocation($dateFinLocation)
     {
-        $this->dateFinLocatiom = $dateFinLocatiom;
+        $this->dateFinLocation = $dateFinLocation;
 
         return $this;
     }
 
     /**
-     * Get dateFinLocatiom
+     * Get dateFinLocation
      *
      * @return \DateTime
      */
-    public function getDateFinLocatiom()
+    public function getDateFinLocation()
     {
-        return $this->dateFinLocatiom;
+        return $this->dateFinLocation;
     }
 }
 

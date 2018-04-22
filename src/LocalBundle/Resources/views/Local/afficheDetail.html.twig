@@ -1,0 +1,388 @@
+{% extends 'SUserBundle::layout.html.twig' %}
+  {% block title %}Local{% endblock %}
+    {% block stylesheets %}{% endblock %}
+{% block body %}
+
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h3>Détails local</h3>
+            <ol class="breadcrumb">
+                <li><a href="#">Acceuil</a></li>
+                <li><a href="#">Locaux</a></li>
+                <li class="active">Détails</li>
+            </ol>
+        </div>
+
+    </section>
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <div class="single-product">
+
+                    <div class="product">
+
+                        <div class="col_two_fifth">
+
+                            {% for flashMessage in app.session.flashbag.get('notice') %}
+
+                                <div class="alert alert-success">
+                                    {{ flashMessage }}
+                                </div>
+
+                            {% endfor %}
+                            <!-- Product Single - Gallery
+                            ============================================= -->
+                            <div class="product-image">
+                                <div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
+                                    <div class="flexslider">
+                                        <div class="slider-wrap" data-lightbox="gallery">
+                                            <div class="slide"
+                                                 data-thumb="{{ asset ('uploads/images/' ~ local.image) }}"><a
+                                                        href="{{ asset ('uploads/images/' ~ local.image) }}"
+                                                        data-lightbox="gallery-item"><img
+                                                            src="{{ asset ('uploads/images/' ~ local.image) }}"
+                                                            ></a></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- Product Single - Gallery End -->
+
+                        </div>
+
+                        <div class="col_two_fifth product-desc">
+
+                            <!-- Product Single - Price
+                            ============================================= -->
+                            <div class="product-price">
+                                <ins>{{ local.prix }}DT</ins>
+                            </div><!-- Product Single - Price End -->
+
+                            <!-- Product Single - Rating
+                            ============================================= -->
+                            <div class="product-rating">
+
+
+                            </div><!-- Product Single - Rating End -->
+
+                            <div class="clear"></div>
+                            <div class="line"></div>
+
+                            <!-- Product Single - Quantity & Cart Button
+                            ============================================= -->
+                            <form class="cart nobottommargin clearfix" method="post" enctype='multipart/form-data'>
+                                <div class="quantity clearfix">
+
+                                </div>
+                                <a href="{{ path('_louer',{'id':local.id}) }}" class="button button-circle">Louer</a>
+                            </form><!-- Product Single - Quantity & Cart Button End -->
+
+                            <div class="clear"></div>
+                            <div class="line"></div>
+
+                            <!-- Product Single - Short Description
+                            ============================================= -->
+                            <p>{{ local.description }}</p>
+                            <p></p>
+                            <ul class="iconlist">
+                                <li><i class="icon-caret-right"></i> 3 Fourchettes</li>
+                                <li><i class="icon-caret-right"></i> Ambiance familiale</li>
+                                <li><i class="icon-caret-right"></i> Musique douce</li>
+                            </ul><!-- Product Single - Short Description End -->
+
+                            <!-- Product Single - Meta
+                            ============================================= -->
+                            <div class="panel panel-default product-meta">
+                                <div class="panel-body">
+                                    <span itemprop="productID" class="sku_wrapper">Ref: <span class="sku">{{ local.id }}
+                                            tun</span></span>
+                                    <span class="posted_in">Category: <a href="#" rel="tag">{{ local.type }}</a>.</span>
+                                    <span class="tagged_as">Superficie:<a href="#" rel="tag">{{ local.superficie }}
+                                            m²</a> .</span>
+                                </div>
+                            </div><!-- Product Single - Meta End -->
+
+                            <!-- Product Single - Share
+                            ============================================= -->
+                            <div class="si-share noborder clearfix">
+
+
+                            </div><!-- Product Single - Share End -->
+                            <div id="sss">
+                                {% if app.user.id != local.idUser.id %}
+                                    {% if f is defined %}
+                                        <a onclick="hotlilike()" href=""
+                                           class="icon-like">Dislike</a>
+                                    {% else %}
+                                        <a onclick="hotlidislike()" href=""
+                                           class="icon-like">Like</a>
+                                    {% endif %}
+                                {% endif %}
+
+                                <p>      </p><a href="{{ path('_signaler',{'id':local.id}) }}" class="icon-warning-sign"> <span>Signaler</span></a>
+                                <p>      </p>
+                                {{ twitterButton() }}
+                                {{ linkedinButton() }}
+                                {{ googleplusButton() }}
+                                {{ pinterestButton() }}
+
+
+                            </div>
+                        </div>
+
+                        <div class="col_one_fifth col_last">
+
+
+                            <div class="divider divider-center"></div>
+
+                            <div class="feature-box fbox-plain fbox-dark fbox-small">
+                                <div class="fbox-icon">
+
+                                </div>
+
+                                <p class="notopmargin"></p>
+                            </div>
+
+                            <div class="feature-box fbox-plain fbox-dark fbox-small">
+                                <div class="fbox-icon">
+
+                                </div>
+
+                                <p class="notopmargin"></p>
+                            </div>
+
+                            <div class="feature-box fbox-plain fbox-dark fbox-small">
+                                <div class="fbox-icon">
+
+                                </div>
+
+                                <p class="notopmargin"></p>
+                            </div>
+
+                            <div class="feature-box fbox-plain fbox-dark fbox-small">
+                                <div class="fbox-icon">
+
+                                </div>
+
+                                <p class="notopmargin"></p>
+                            </div>
+
+                        </div>
+
+                        <div class="col_full nobottommargin">
+
+                            <div class="tabs clearfix nobottommargin" id="tab-1">
+
+                                <ul class="tab-nav clearfix">
+                                    <li><a href="#tabs-1"><i class="icon-align-justify2"></i><span class="hidden-xs"> Description</span></a>
+                                    </li>
+                                    <li><a href="#tabs-2"><i class="icon-info-sign"></i><span class="hidden-xs"> Plus d'informations</span></a>
+                                    </li>
+                                    <li><a href="#tabs-3"><i class="icon-star3"></i><span
+                                                    class="hidden-xs"> Reviews </span></a></li>
+                                </ul>
+
+                                <div class="tab-container">
+
+                                    <div class="tab-content clearfix" id="tabs-1">
+                                        <p>{{ local.description }}.</p>
+
+                                    </div>
+                                    <div class="tab-content clearfix" id="tabs-2">
+
+                                        <table class="table table-striped table-bordered">
+                                            <tbody>
+                                            <tr>
+                                                <td>Adresse</td>
+                                                <td>{{ local.adresse }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Téléphone</td>
+                                                <td>{{ local.telephone }}</td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="tab-content clearfix" id="tabs-3">
+
+                                        <div id="reviews" class="clearfix">
+                                            {% for c in commentaires %}
+                                                <ol class="commentlist clearfix">
+
+                                                    <li class="comment even thread-even depth-1" id="li-comment-1">
+                                                        <div id="comment-1" class="comment-wrap clearfix">
+
+                                                            <div class="comment-meta">
+                                                                <div class="comment-author vcard">
+																	<span class="comment-avatar clearfix">
+																	<img alt=''
+                                                                         src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60'
+                                                                         height='60' width='60'/></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="comment-content clearfix">
+                                                                <div class="comment-author"
+                                                                     id="commentaires"> {{ c.idUser.firstname }} {{ c.idUser.lastname }}
+                                                                    <span><a href="#"
+                                                                             title="Permalink to this comment">{{ c.date|date }}</a></span>
+                                                                </div>
+                                                                <p>{{ c.contenu }}</p>
+                                                                {% if app.user.id==c.idUser.id %}
+                                                                <div>
+                                                                    <a href="{{ path('_deleteCommentaire',{'id':c.id}) }}" class="icon-line-delete"> <span>Supprimer</span></a>
+                                                                </div>
+                                                                {% endif %}
+                                                                {% if c.rate==1 %}
+                                                                <div class="review-comment-ratings">
+                                                                    <i class="icon-star3"></i>
+                                                                    <i class="icon-star-empty"></i>
+                                                                    <i class="icon-star-empty"></i>
+                                                                    <i class="icon-star-empty"></i>
+                                                                    <i class="icon-star-empty"></i>
+                                                                </div>
+                                                                {% endif %}
+                                                                {% if c.rate==2 %}
+                                                                    <div class="review-comment-ratings">
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star-empty"></i>
+                                                                        <i class="icon-star-empty"></i>
+                                                                        <i class="icon-star-empty"></i>
+                                                                    </div>
+                                                                {% endif %}
+                                                                {% if c.rate==3 %}
+                                                                    <div class="review-comment-ratings">
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star-empty"></i>
+                                                                        <i class="icon-star-empty"></i>
+                                                                    </div>
+                                                                {% endif %}
+                                                                {% if c.rate==4 %}
+                                                                    <div class="review-comment-ratings">
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star-empty"></i>
+                                                                    </div>
+                                                                {% endif %}
+                                                                {% if c.rate==5 %}
+                                                                    <div class="review-comment-ratings">
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                        <i class="icon-star3"></i>
+                                                                    </div>
+                                                                {% endif %}
+                                                            </div>
+
+
+
+                                                            <div class="clear"></div>
+
+                                                        </div>
+                                                    </li>
+
+                                                </ol>
+                                            {% endfor %}
+
+                                            <!-- Modal Reviews
+                                           ============================================= -->
+
+                                            <a href="#" data-toggle="modal" data-target="#reviewFormModal"
+                                               class="button button-3d nomargin fright">Ajouter un commentaire</a>
+
+                                            <div class="modal fade" id="reviewFormModal" tabindex="-1" role="dialog"
+                                                 aria-labelledby="reviewFormModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-hidden="true">&times;
+                                                            </button>
+
+                                                            <h4 class="modal-title" id="reviewFormModalLabel">Ajout
+                                                                commentaire</h4>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            {{ form_start(form) }}
+
+                                                            {{ form_end(form) }}
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                        </div>
+
+                                                    </div><!-- /.modal-content -->
+                                                </div><!-- /.modal-dialog -->
+                                            </div><!-- /.modal -->
+                                            <!-- Modal Reviews End -->
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        function hotlilike(){
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('_pasaimer',{'id': local.id}) }}',
+                contentType: 'application\json; charset=utf-8',
+                dataType: 'json',
+                success: function(){
+                    console.log(response);
+                    document.getElementById('sss').innerHTML='<a onclick="hotlidislike()" href="#" class="icon-like">Like</a>';
+                }
+            });
+        }
+        function hotlidislike(){
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('_aimer',{'id': local.id}) }}',
+                contentType: 'application\json; charset=utf-8',
+                dataType: 'json',
+                success: function(){
+                    console.log(response);
+                    document.getElementById('sss').innerHTML='<a onclick="hotlilike()" href="#" class="icon-dislike">Dislike</a>';
+                }
+            });
+        }
+    </script>
+{% endblock %}

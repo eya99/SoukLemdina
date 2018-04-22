@@ -98,6 +98,52 @@ class Workshop
     private $nbPlace;
 
     /**
+     * @return int
+     */
+    public function getNbrrating()
+    {
+        return $this->nbrrating;
+    }
+
+    /**
+     * @param int $nbrrating
+     */
+    public function setNbrrating($nbrrating)
+    {
+        $this->nbrrating = $nbrrating;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param int $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrrating", type="integer", nullable=true)
+     */
+    private $nbrrating;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="rating", type="integer", nullable=true)
+     */
+    private $rating;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="prix", type="float")

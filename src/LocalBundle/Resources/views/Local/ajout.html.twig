@@ -1,0 +1,31 @@
+{% extends 'SUserBundle::layout.html.twig' %}
+  {% block title %}Local{% endblock %}
+    {% block stylesheets %}{% endblock %}
+{% block body %}
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Ajouter un local</h1>
+
+        </div>
+
+    </section>
+    <section id="content">
+        <div class="content-wrap " >
+            <div class="container clearfix" style="width:30%;">
+                {{ form_start(form) }}
+
+                <div class="line line-sm"></div>
+                <div class="center">
+                    {{ form(form) }}
+
+                    <input type="submit" value="Ajouter" class="button button-3d button-black nomargin">
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+{% block javascripts %}{% endblock %}
