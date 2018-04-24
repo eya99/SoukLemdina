@@ -452,25 +452,41 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'social_homepage',);
             }
 
-            // social_ajout_profile
-            if ('/social/add' === $pathinfo) {
-                return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::addAction',  '_route' => 'social_ajout_profile',);
-            }
-
-            // social_modifier_profile
-            if (0 === strpos($pathinfo, '/social/mod') && preg_match('#^/social/mod/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modifierAction',));
-            }
-
-            if (0 === strpos($pathinfo, '/social/modp')) {
-                // social_modifier_post
-                if (preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
+            if (0 === strpos($pathinfo, '/social/add')) {
+                // social_ajout_profile
+                if ('/social/add' === $pathinfo) {
+                    return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::addAction',  '_route' => 'social_ajout_profile',);
                 }
 
-                // social_modifier_post_fromWelcome
-                if (preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post_fromWelcome')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
+                // social_addWS
+                if (0 === strpos($pathinfo, '/social/addPostWS') && preg_match('#^/social/addPostWS/(?P<id>[^/]++)/(?P<titre>[^/]++)/(?P<texte>[^/]++)/(?P<image>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_addWS')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::addPostHomeWSAction',));
+                }
+
+            }
+
+            elseif (0 === strpos($pathinfo, '/social/mod')) {
+                // social_modifier_profile
+                if (preg_match('#^/social/mod/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_profile')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modifierAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/social/modp')) {
+                    // social_modifier_post
+                    if (preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
+                    }
+
+                    // social_modifier_post_fromWelcome
+                    if (preg_match('#^/social/modp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modifier_post_fromWelcome')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostAction',));
+                    }
+
+                }
+
+                // social_modWS
+                if (0 === strpos($pathinfo, '/social/modPostWS') && preg_match('#^/social/modPostWS/(?P<id>[^/]++)/(?P<titre>[^/]++)/(?P<texte>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_modWS')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::modPostHomeWSAction',));
                 }
 
             }
@@ -509,6 +525,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
 
                 }
 
+                // social_deleteWS
+                if (0 === strpos($pathinfo, '/social/delPostWS') && preg_match('#^/social/delPostWS/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_deleteWS')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::deleteHomeWSAction',));
+                }
+
             }
 
             elseif (0 === strpos($pathinfo, '/social/suiv')) {
@@ -543,11 +564,21 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_postsAX_home')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::postsAXAction',));
                 }
 
-                // social_message_pick
-                if (0 === strpos($pathinfo, '/social/pick') && preg_match('#^/social/pick/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_message_pick')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::pickAction',));
+                // social_postsWS
+                if (0 === strpos($pathinfo, '/social/postsHomeWS') && preg_match('#^/social/postsHomeWS/(?P<userid>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_postsWS')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::postsHomeWSAction',));
                 }
 
+            }
+
+            // social_followWS
+            if (0 === strpos($pathinfo, '/social/followSwitchWS') && preg_match('#^/social/followSwitchWS/(?P<idProfileFollower>[^/]++)/(?P<idProfileFollowed>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_followWS')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::followHomeSwitchWSAction',));
+            }
+
+            // social_uniqWS
+            if ('/social/uniqWS' === $pathinfo) {
+                return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::getUniqWSAction',  '_route' => 'social_uniqWS',);
             }
 
         }

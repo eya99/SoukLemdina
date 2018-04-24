@@ -62,6 +62,26 @@ social_postsAX_home:
     path:     /postsAX/{deb}/{fin}
     defaults: { _controller: SocialBundle:Default:postsAX }
 
-social_message_pick:
-    path:     /pick/{id}
-    defaults: { _controller: SocialBundle:Default:pick }
+social_postsWS:
+    path:     /postsHomeWS/{userid}
+    defaults: { _controller: SocialBundle:Default:postsHomeWS }
+
+social_followWS:
+    path:     /followSwitchWS/{idProfileFollower}/{idProfileFollowed}
+    defaults: { _controller: SocialBundle:Default:followHomeSwitchWS }
+
+social_deleteWS:
+    path:     /delPostWS/{id}
+    defaults: { _controller: SocialBundle:Default:deleteHomeWS }
+
+social_addWS:
+    path:     /addPostWS/{id}/{titre}/{texte}/{image}
+    defaults: { _controller: SocialBundle:Default:addPostHomeWS }
+
+social_modWS:
+    path:     /modPostWS/{id}/{titre}/{texte}
+    defaults: { _controller: SocialBundle:Default:modPostHomeWS }
+
+social_uniqWS:
+    path:     /uniqWS
+    defaults: { _controller: SocialBundle:Default:getUniqWS }

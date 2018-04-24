@@ -1,70 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" line="117" />
+    <bookmark url="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" line="146" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcaf1890-b1cc-4b28-8607-564818c6ecd2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SoukLemdina.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SoukLemdina.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Entity/Evenement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Entity/Evenement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Entity/ParticipantEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Entity/ParticipantEvents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/EvenementBundle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/EvenementBundle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Repository/EvenementRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Repository/EvenementRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Repository/ParticipantEventsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Repository/ParticipantEventsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/services.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Entity/Local.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Entity/Local.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Entity/Location.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Entity/Location.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/LocalBundle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/LocalBundle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Repository/LocalRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Repository/LocalRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Repository/LocationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Repository/LocationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Resources/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Resources/config/services.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocalBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocalBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SUserBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SUserBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SUserBundle/Resources/views/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorkshopBundle/Entity/Workshop.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkshopBundle/Entity/Workshop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorkshopBundle/Resources/views/Workshop/AfficheProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkshopBundle/Resources/views/Workshop/AfficheProfile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/bootstrap.php.cache" beforeDir="false" afterPath="$PROJECT_DIR$/var/bootstrap.php.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.map" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerDeprecations.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerDeprecations.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/classes.map" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/classes.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainer.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerCompiler.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlGenerator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlGenerator.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlMatcher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlMatcher.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/appProdDebugProjectContainerUrlMatcher.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__SUserBundleEntityUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__SUserBundleEntityUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__SocialBundleEntityProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__SocialBundleEntityProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/prod/twig/73/734b57de5ad4a1c049f7145b242ae84136c65888b825285b34723e515306fd21.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/prod/twig/73/734b57de5ad4a1c049f7145b242ae84136c65888b825285b34723e515306fd21.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/logs/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/logs/dev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/logs/prod.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/logs/prod.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/uploads/images/5ac50d4fac63a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nomaya/social-bundle/Nomaya/SocialBundle" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nomaya/social-bundle/Nomaya/SocialBundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/uploads/images/5a8a0f21c427a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/uploads/images/5ac7a3ba2e69c.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -78,7 +35,81 @@
     <pharPath>D:\xampp\htdocs\SoukLemdina\composer.phar</pharPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1749">
+              <caret line="369" column="48" selection-start-line="369" selection-start-column="48" selection-end-line="369" selection-end-column="48" />
+              <folding>
+                <element signature="e#43#74#0#PHP" expanded="true" />
+                <element signature="e#20802#20820#1#PHP" expanded="true" />
+                <marker date="1524428723557" expanded="true" signature="1091:1529" ph="SELECT p FRO... SocialBundle" />
+                <marker date="1524428723557" expanded="true" signature="3057:3495" ph="SELECT p FRO... SocialBundle" />
+                <marker date="1524428723557" expanded="true" signature="7715:7833" ph="SELECT u FRO... SUserBundle" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPrPos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/MapPrPos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="47">
+              <caret line="116" column="56" lean-forward="true" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
+              <folding>
+                <element signature="e#125#154#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Profile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Profile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Post.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Post.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadImages.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadImages.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadImagesMob.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadImagesMob.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="91" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -143,15 +174,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/FormHandler/NewThreadMessageFormHandler.php" />
-        <option value="$PROJECT_DIR$/src/SocialBundle/Controller/MessageController.php" />
-        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/views/Message/newThread.html.twig" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/WorkshopBundle/Controller/WorkshopController.php" />
@@ -183,7 +208,6 @@
         <option value="$PROJECT_DIR$/upload.php" />
         <option value="$PROJECT_DIR$/uploadImages.php" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Form/PostForm.php" />
-        <option value="$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/SUserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/WorkshopBundle/Entity/Workshop.php" />
@@ -200,6 +224,10 @@
         <option value="$PROJECT_DIR$/src/LocalBundle/Resources/views/Local/affTab.html.twig" />
         <option value="$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/check.html.twig" />
         <option value="$PROJECT_DIR$/src/LocalBundle/Resources/views/Local/affiche.html.twig" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Controller/MapPrPos.php" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/uploadImagesMob.php" />
+        <option value="$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php" />
       </list>
     </option>
   </component>
@@ -276,8 +304,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="257" />
-    <option name="y" value="142" />
+    <option name="x" value="383" />
+    <option name="y" value="225" />
     <option name="width" value="1392" />
     <option name="height" value="823" />
   </component>
@@ -289,6 +317,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -310,58 +339,42 @@
             <path>
               <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LocalBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LocalBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LocalBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LocalBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SocialBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LocalBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoukLemdina" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LocalBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Local" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SoukLemdina" type="b2602c69:ProjectViewProjectNode" />
@@ -378,7 +391,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -463,36 +475,62 @@
       <workItem from="1523363112438" duration="31000" />
       <workItem from="1523438408483" duration="460000" />
       <workItem from="1523704012351" duration="8508000" />
+      <workItem from="1524175866663" duration="4444000" />
+      <workItem from="1524220673325" duration="6095000" />
+      <workItem from="1524230117992" duration="4000" />
+      <workItem from="1524314596670" duration="28844000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438794000" />
+    <option name="totallyTimeSpent" value="478181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="257" y="142" width="1392" height="823" extended-state="0" />
+    <frame x="383" y="225" width="1392" height="823" extended-state="0" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="1" weight="0.27985612" />
       <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50208336" side_tool="true" weight="0.38128492" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="1" sideWeight="0.49791667" weight="0.3048523" />
+      <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.27985612" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="0" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="1" sideWeight="0.49791667" weight="0.3048523" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="6" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.27985612" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="1" sideWeight="0.49791667" weight="0.3048523" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50208336" side_tool="true" weight="0.38128492" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -506,76 +544,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/StockBundle/Resources/views/notification_list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="102" selection-start-line="5" selection-start-column="102" selection-end-line="5" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockBundle/Resources/views/produits.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockBundle/Resources/views/wishlist.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockBundle/Controller/WishlistController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockBundle/Resources/views/produit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CommandeBundle/Entity/LigneDeCommande.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CommandeBundle/Form/LigneDeCommandeType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="90" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CommandeBundle/Resources/views/Panier/afficherPanier.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1044">
@@ -660,20 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CommandeBundle/Controller/LigneDeCommandeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="117" column="178" selection-start-line="117" selection-start-column="175" selection-end-line="117" selection-end-column="180" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CommandeBundle/Controller/LigneDePanierController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -702,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadImages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/views/Profile/followers.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -723,31 +670,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EvenementBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="181" column="20" selection-start-line="181" selection-start-column="20" selection-end-line="181" selection-end-column="35" />
-          <folding>
-            <element signature="e#3818#3853#0#PHP" expanded="true" />
-            <element signature="e#8907#8944#0#PHP" expanded="true" />
-            <marker date="1521763454663" expanded="true" signature="1013:1451" ph="SELECT p FRO... SocialBundle" />
-            <marker date="1521763454663" expanded="true" signature="2978:3416" ph="SELECT p FRO... SocialBundle" />
-            <marker date="1521763454663" expanded="true" signature="6382:6500" ph="SELECT u FRO... SUserBundle" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -776,9 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="301" column="53" lean-forward="true" selection-start-line="301" selection-start-column="52" selection-end-line="301" selection-end-column="53" />
-          <folding>
-            <element signature="e#11764#11814#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -814,10 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="319" column="66" selection-start-line="319" selection-start-column="66" selection-end-line="319" selection-end-column="66" />
-          <folding>
-            <element signature="e#45#90#0#PHP" expanded="true" />
-            <element signature="e#11184#11225#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,12 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="59" column="180" lean-forward="true" selection-start-line="59" selection-start-column="180" selection-end-line="59" selection-end-column="180" />
-          <folding>
-            <element signature="e#3622#3636#0#Twig" expanded="true" />
-            <element signature="e#3686#3698#0#Twig" expanded="true" />
-            <element signature="e#5389#5397#0#Twig" expanded="true" />
-            <element signature="e#9308#9320#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,10 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
-          <folding>
-            <element signature="e#1976#2017#0#PHP" expanded="true" />
-            <element signature="e#2519#2555#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -856,9 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="659">
           <caret line="48" column="32" selection-start-line="25" selection-start-column="20" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="e#12#41#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,9 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#12#41#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -879,6 +782,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="200" column="52" selection-start-line="200" selection-start-column="52" selection-end-line="200" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_types.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="105" column="13" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/date/date_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="311" column="25" selection-start-line="311" selection-start-column="25" selection-end-line="311" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Util/OrderedHashMap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -886,10 +831,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="200" column="52" selection-start-line="200" selection-start-column="52" selection-end-line="200" selection-end-column="52" />
+        <state relative-caret-position="270">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CommandeBundle/Entity/LigneDeCommande.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CommandeBundle/Controller/LigneDeCommandeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="117" column="178" selection-start-line="117" selection-start-column="175" selection-end-line="117" selection-end-column="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Entity/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadImages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadImagesMob.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="91" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/MapPrPos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="116" column="56" lean-forward="true" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
+          <folding>
+            <element signature="e#125#154#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SocialBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1749">
+          <caret line="369" column="48" selection-start-line="369" selection-start-column="48" selection-end-line="369" selection-end-column="48" />
+          <folding>
+            <element signature="e#43#74#0#PHP" expanded="true" />
+            <element signature="e#20802#20820#1#PHP" expanded="true" />
+            <marker date="1524428723557" expanded="true" signature="1091:1529" ph="SELECT p FRO... SocialBundle" />
+            <marker date="1524428723557" expanded="true" signature="3057:3495" ph="SELECT p FRO... SocialBundle" />
+            <marker date="1524428723557" expanded="true" signature="7715:7833" ph="SELECT u FRO... SUserBundle" />
+          </folding>
         </state>
       </provider>
     </entry>

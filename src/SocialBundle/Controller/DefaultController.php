@@ -7,11 +7,12 @@ use SocialBundle\Entity\Post;
 use SocialBundle\Entity\Profile;
 use SocialBundle\Form\PostForm;
 use SocialBundle\Form\ProfileForm;
-use SUserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class DefaultController extends Controller
 {
@@ -51,7 +52,7 @@ class DefaultController extends Controller
         } else return $this->redirectToRoute('fos_user_security_login');
     }
 
-    public function postsAction($deb,$fin)
+    public function postsAction($deb, $fin)
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
@@ -74,12 +75,40 @@ class DefaultController extends Controller
         return $this->render('SocialBundle:Post:posts.html.twig', array('posts' => $posts, 'profiles' => $profiles, 'deb' => $deb, 'fin' => $fin));
     }
 
-    public function postsAXAction(Request $request,$deb,$fin){
+    public function postsAXAction(Request $request, $deb, $fin)
+    {
         if ($request->isXMLHttpRequest()) {
-            $template = $this->forward('SocialBundle:Default:posts',array('deb'=>$deb,'fin'=>$fin))->getContent();
+            $template = $this->forward('SocialBundle:Default:posts', array('deb' => $deb, 'fin' => $fin))->getContent();
             return new JsonResponse($template);
         }
         return new Response('Error!', 400);
+    }
+
+    public function postsHomeWSAction($userid)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $profile_follower = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $userid));
+        $query = $em->createQuery(
+            'SELECT p FROM SocialBundle:Post p
+             ORDER BY p.date DESC ');
+        $posts = $query->getResult();
+        $mapprpos = array();
+        foreach ($posts as $p) {
+            $pr = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $p->getIdUser()));
+            $Follow = $em->getRepository("SocialBundle:Follow")->findOneBy(array(
+                'idProfileFollowed' => $pr->getId(),
+                'idProfileFollower' => $profile_follower->getId()));
+            if (isset($Follow)) {
+                $mfollowi = true;
+            } else {
+                $mfollowi = false;
+            }
+            $mp = new MapPrPos($p,$pr,$pr->getIdUser()->getFirstname(),$pr->getIdUser()->getLastname(),$mfollowi);
+            $mapprpos = array_merge($mapprpos,array($mp));
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($mapprpos);
+        return new JsonResponse($formatted);
     }
 
     public function addAction(Request $request)
@@ -144,7 +173,7 @@ class DefaultController extends Controller
             $users = $query->getResult();
             foreach ($users as $u) {
 //                $profile = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $u->getId()));
-                $profile = $em ->getRepository(Profile::class)->findProfileUserId($u->getId());
+                $profile = $em->getRepository(Profile::class)->findProfileUserId($u->getId());
                 $profiles = array_merge($profiles, $profile);
             }
         } else {
@@ -287,13 +316,58 @@ class DefaultController extends Controller
             $user = $this->container->get('security.token_storage')->getToken()->getUser();
             $follower = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $user->getId()));
             $Follow = $em->getRepository("SocialBundle:Follow")->findOneBy(array('idProfileFollowed' => $id, 'idProfileFollower' => $follower->getId()));
-            $followed = $em->getRepository("SocialBundle:Profile")->find($id);
             $em->remove($Follow);
             $em->flush();
             $template = $this->forward('SocialBundle:Default:followers', array('id' => $id))->getContent();
             return new JsonResponse($template);
         }
         return new Response('Error!', 400);
+    }
+
+    public function followHomeSwitchWSAction($idProfileFollower, $idProfileFollowed)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $Follow = $em->getRepository("SocialBundle:Follow")->findOneBy(array(
+            'idProfileFollowed' => $idProfileFollowed,
+            'idProfileFollower' => $idProfileFollower));
+        if (isset($Follow)) {
+            $em->remove($Follow);
+            $em->flush();
+            return new JsonResponse("Unfollowed");
+        } else {
+            $Follow = new Follow();
+            $follower = $em->getRepository("SocialBundle:Profile")->find($idProfileFollower);
+            $followed = $em->getRepository("SocialBundle:Profile")->find($idProfileFollowed);
+            $Follow->setIdProfileFollower($follower);
+            $Follow->setIdProfileFollowed($followed);
+            $em->persist($Follow);
+            $em->flush();
+            return new JsonResponse("followed");
+        }
+    }
+
+    public function deleteHomeWSAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $likes = $em->getRepository("SocialBundle:Jaime")->findBy(array('idPost' => $id));
+        if ($likes)
+            foreach ($likes as $j) {
+                $em->remove($j);
+                $em->flush();
+            }
+
+        $comms = $em->getRepository("SocialBundle:Comment")->findBy(array('idPost' => $id));
+        if ($comms) {
+            foreach ($comms as $c) {
+                $em->remove($c);
+                $em->flush();
+            }
+        }
+
+        $Post = $em->getRepository("SocialBundle:Post")->find($id);
+        $em->remove($Post);
+        $em->flush();
+        return new JsonResponse("post deleted");
     }
 
     public function delPostAction($id)
@@ -391,6 +465,38 @@ class DefaultController extends Controller
 
         return $this->render('SocialBundle:Post:modifier.html.twig', array(
             'form' => $Form->createView()));
+    }
+
+    public function modPostHomeWSAction($id,$titre,$texte)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository("SocialBundle:Post")->find($id);
+        $post->setTexte($texte);
+        $post->setTitre($titre);
+        $em->persist($post);
+        $em->flush();
+        return new JsonResponse("updated");
+    }
+
+    public function addPostHomeWSAction($id,$titre,$texte,$image)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $post = new Post();
+        $user = $em->getRepository("SUserBundle:User")->find($id);
+        $post->setIdUser($user);
+        $post->setTexte($texte);
+        $post->setTitre($titre);
+        $post->setImage($image);
+        $post->setUpdatedAt(new \DateTime());
+        $post->setDate(new \DateTime());
+        $post->setNbSignal(0);
+        $em->persist($post);
+        $em->flush();
+        return new JsonResponse("post added");
+    }
+
+    public function getUniqWSAction(){
+        return new JsonResponse(uniqid().".jpg");
     }
 
 }
