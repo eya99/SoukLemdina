@@ -18,7 +18,7 @@
                     <td><a href="{{ path('_UpdateEvent',{'id':event.id}) }}">
                             Modifier votre événement</a>
                     </td>
-                    <td><a href="{{ path('_DeleteEvent',{'id':event.id}) }}">
+                    <td><a href="{{ path('_DeleteEvent',{'id':event.id}) }}" onclick="return confirm('Voulez-vous vraiment supprimer cette publication ?')">
                             Supprimer l'événement</a>
                     </td>
             {% endif %}

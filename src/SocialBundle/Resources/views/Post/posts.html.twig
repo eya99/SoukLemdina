@@ -1,49 +1,61 @@
-{% for n in deb..fin %} {#7atta el grand max (posts|length - 1)#}
-    <br>
-    <div class="col-xs-12 bottommargin-sm">
-        <div class="ipost clearfix">
-            <div class="row clearfix">
-                <div class="col-sm-offset-0">
-                    <a href="{{ path('social_check_profile',{'id':profiles[n].idUser.id}) }}">
-                        {% if profiles[n].image %}
-                            <img class="alignright img-circle img-thumbnail notopmargin nobottommargin fish" src="{{ asset('uploads/images/' ~ profiles[n].image) }}" alt="Image du profile" style="max-width: 74px;">
-                        {% else %}
-                            <img class="alignright img-circle img-thumbnail notopmargin nobottommargin fish" src="{{ asset('Template/images/icons/avatar.jpg') }}" alt="Avatar" style="max-width: 74px;">
-                        {% endif %}
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <div class="entry-image cccontainer">
-                        <a href="{{ asset('uploads/images/' ~ posts[n].image) }}" data-lightbox="image" ><img class="image_fade fishes iiimg" src="{{ asset('uploads/images/' ~ posts[n].image) }}" alt="Image de la publication"></a>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="entry-title">
-                        <h3>
-                            <a href="#comments">{{ posts[n].titre }}</a>
-                        </h3>
-                    </div>
-                    <ul class="entry-meta clearfix">
-                        <li>
-                            <i class="icon-calendar3"></i> {{ posts[n].date|date }}
-                        </li>
-                        <li><a href="#comments"><i class="icon-comments"></i>13</a></li>
-                        {% if posts[n].idUser.id == app.user.id %}
-                            <li>
-                                <a href="{{ path('social_modifier_post_fromWelcome',{'id':posts[n].id}) }}">Modifier</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('social_delete_post_fromWelcome',{'id':posts[n].id}) }}"
-                                   onclick="return confirm('Voulez-vous vraiment supprimer cette publication ?')">Supprimer</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                    <div class="entry-content">
-                        <p>{{ posts[n].texte }}</p>
+{% if profiles is not empty %}
+    {% if profiles[deb] is not null %}
+        {% if profiles[fin] is null %}
+            {% set fin = fin - 1 %}
+        {% endif %}
+        {% for n in deb..fin %} {#7atta el grand max (posts|length - 1)#}
+            <div class="col-xs-12 bottommargin-sm">
+                <div class="ipost clearfix">
+                    <div class="row clearfix">
+                        <div class="col-sm-offset-0">
+                            <a href="{{ path('social_check_profile',{'id':profiles[n].idUser.id}) }}">
+                                {% if profiles[n].image %}
+                                    <img class="alignright img-circle img-thumbnail notopmargin nobottommargin fish"
+                                         src="{{ asset('uploads/images/' ~ profiles[n].image) }}" alt="Image du profile"
+                                         style="max-width: 74px;">
+                                {% else %}
+                                    <img class="alignright img-circle img-thumbnail notopmargin nobottommargin fish"
+                                         src="{{ asset('Template/images/icons/avatar.jpg') }}" alt="Avatar"
+                                         style="max-width: 74px;">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="entry-image">
+                                <a href="{{ asset('uploads/images/' ~ posts[n].image) }}" data-lightbox="image"><img
+                                            class="image_fade fishes iiimg"
+                                            src="{{ asset('uploads/images/' ~ posts[n].image) }}"
+                                            alt="Image de la publication"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="entry-title">
+                                <h3>
+                                    <a href="#comments">{{ posts[n].titre }}</a>
+                                </h3>
+                            </div>
+                            <ul class="entry-meta clearfix">
+                                <li>
+                                    <i class="icon-calendar3"></i> {{ posts[n].date|date }}
+                                </li>
+                                <li><a href="#comments"><i class="icon-comments"></i>13</a></li>
+                                {% if posts[n].idUser.id == app.user.id %}
+                                    <li>
+                                        <a href="{{ path('social_modifier_post_fromWelcome',{'id':posts[n].id}) }}">Modifier</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('social_delete_post_fromWelcome',{'id':posts[n].id}) }}"
+                                           onclick="return confirm('Voulez-vous vraiment supprimer cette publication ?')">Supprimer</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            <div class="entry-content">
+                                <p>{{ posts[n].texte }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <br>
-{% endfor %}
+        {% endfor %}
+    {% endif %}
+{% endif %}

@@ -24,42 +24,42 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_71f23c5c371f5ce30d3048670270c520e756c55660104fb6f08bb9fc63ff6f06 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_71f23c5c371f5ce30d3048670270c520e756c55660104fb6f08bb9fc63ff6f06->enter($__internal_71f23c5c371f5ce30d3048670270c520e756c55660104fb6f08bb9fc63ff6f06_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WorkshopBundle:Workshop:AfficheWorkshop.html.twig"));
+        $__internal_b82f841e72f86d7193e203a82f408c877586569162b84ce6df10d488cb31f658 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b82f841e72f86d7193e203a82f408c877586569162b84ce6df10d488cb31f658->enter($__internal_b82f841e72f86d7193e203a82f408c877586569162b84ce6df10d488cb31f658_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WorkshopBundle:Workshop:AfficheWorkshop.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_71f23c5c371f5ce30d3048670270c520e756c55660104fb6f08bb9fc63ff6f06->leave($__internal_71f23c5c371f5ce30d3048670270c520e756c55660104fb6f08bb9fc63ff6f06_prof);
+        $__internal_b82f841e72f86d7193e203a82f408c877586569162b84ce6df10d488cb31f658->leave($__internal_b82f841e72f86d7193e203a82f408c877586569162b84ce6df10d488cb31f658_prof);
 
     }
 
     // line 4
     public function block_title($context, array $blocks = array())
     {
-        $__internal_ebd557de61076c30de42a512960842f02280b5003086d9f6bc7194588675e580 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ebd557de61076c30de42a512960842f02280b5003086d9f6bc7194588675e580->enter($__internal_ebd557de61076c30de42a512960842f02280b5003086d9f6bc7194588675e580_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_e7ace7a0d85f3f826de91e23266375e65548b1b867d95b8853a790458d2ced67 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e7ace7a0d85f3f826de91e23266375e65548b1b867d95b8853a790458d2ced67->enter($__internal_e7ace7a0d85f3f826de91e23266375e65548b1b867d95b8853a790458d2ced67_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         
-        $__internal_ebd557de61076c30de42a512960842f02280b5003086d9f6bc7194588675e580->leave($__internal_ebd557de61076c30de42a512960842f02280b5003086d9f6bc7194588675e580_prof);
+        $__internal_e7ace7a0d85f3f826de91e23266375e65548b1b867d95b8853a790458d2ced67->leave($__internal_e7ace7a0d85f3f826de91e23266375e65548b1b867d95b8853a790458d2ced67_prof);
 
     }
 
     // line 5
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_9c495107ec5328c46dc3ef17c47a76b21f7b095acac15eea97f232f86a77ccf5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9c495107ec5328c46dc3ef17c47a76b21f7b095acac15eea97f232f86a77ccf5->enter($__internal_9c495107ec5328c46dc3ef17c47a76b21f7b095acac15eea97f232f86a77ccf5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_bc5534abe6649507b1ab2e78344f5ebabc3479380fc8fc4cc75ebdd68232a2d5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bc5534abe6649507b1ab2e78344f5ebabc3479380fc8fc4cc75ebdd68232a2d5->enter($__internal_bc5534abe6649507b1ab2e78344f5ebabc3479380fc8fc4cc75ebdd68232a2d5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         
-        $__internal_9c495107ec5328c46dc3ef17c47a76b21f7b095acac15eea97f232f86a77ccf5->leave($__internal_9c495107ec5328c46dc3ef17c47a76b21f7b095acac15eea97f232f86a77ccf5_prof);
+        $__internal_bc5534abe6649507b1ab2e78344f5ebabc3479380fc8fc4cc75ebdd68232a2d5->leave($__internal_bc5534abe6649507b1ab2e78344f5ebabc3479380fc8fc4cc75ebdd68232a2d5_prof);
 
     }
 
     // line 8
     public function block_body($context, array $blocks = array())
     {
-        $__internal_231a477a0fd0ef34559a15068edd448e928330e4d82ae464ed11ad4fb204930c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_231a477a0fd0ef34559a15068edd448e928330e4d82ae464ed11ad4fb204930c->enter($__internal_231a477a0fd0ef34559a15068edd448e928330e4d82ae464ed11ad4fb204930c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_0f216fe8dc68d0afdbdebbb31a7bf14346f7b6b845e9161b452a2e638bdc05bb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0f216fe8dc68d0afdbdebbb31a7bf14346f7b6b845e9161b452a2e638bdc05bb->enter($__internal_0f216fe8dc68d0afdbdebbb31a7bf14346f7b6b845e9161b452a2e638bdc05bb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
         echo "
@@ -98,12 +98,11 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
                                 <span id=\"calendar-month\" class=\"calendar-month\"></span>
                                 <span id=\"calendar-year\" class=\"calendar-year\"></span>
                                 <nav>
-                                    <span id=\"calendar-prev\" class=\"calendar-prev\"><i
-                                                class=\"icon-chevron-left\"></i></span>
-                                    <span id=\"calendar-next\" class=\"calendar-next\"><i
-                                                class=\"icon-chevron-right\"></i></span>
-                                    <span id=\"calendar-current\" class=\"calendar-current\" title=\"Got to current date\"><i
-                                                class=\"icon-reload\"></i></span>
+                                    <span id=\"calendar-prev\" class=\"calendar-prev\">
+
+                                    <span id=\"calendar-next\" class=\"calendar-next\">
+
+                                    <span id=\"calendar-current\" class=\"calendar-current\" title=\"Got to current date\"></span>
                                 </nav>
                             </h3>
                         </div>
@@ -120,11 +119,11 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
 
             <h3>Ateliers à venir</h3>
             ";
-        // line 57
+        // line 56
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["w"]) ? $context["w"] : $this->getContext($context, "w")));
         foreach ($context['_seq'] as $context["_key"] => $context["work"]) {
-            // line 58
+            // line 57
             echo "
                 <div id=\"posts\" class=\"events small-thumbs\" >
 
@@ -134,7 +133,7 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
                         <div class=\"entry-image\" >
                             <a href=\"#\">
                                 <img src=\"";
-            // line 66
+            // line 65
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($context["work"], "image", array()))), "html", null, true);
             echo "\">
                             </a>
@@ -144,7 +143,7 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
                             <div class=\"entry-title\">
 
                                 <h2><a href=\"";
-            // line 73
+            // line 72
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_Redirect", array("id" => $this->getAttribute($context["work"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["work"], "nomWorkshop", array()), "html", null, true);
@@ -152,28 +151,28 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
                             </div>
                             <ul class=\"entry-meta clearfix\">
                                 <li><span class=\"label label-warning\">";
-            // line 76
+            // line 75
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["work"], "dateDebut", array()), "m/d/Y"), "html", null, true);
             echo "</span></li>
                                 <li><a href=\"#\"><i class=\"icon-time\"></i>";
-            // line 77
+            // line 76
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["work"], "dateFin", array()), "m/d/Y"), "html", null, true);
             echo "  </a></li>
                                 <li><a href=\"#\"><i class=\"icon-map-marker2\"></i> ";
-            // line 78
+            // line 77
             echo twig_escape_filter($this->env, $this->getAttribute($context["work"], "adresse", array()), "html", null, true);
             echo "</a></li>
                             </ul>
 
                             <div class=\"entry-content\">
                                 <p>";
-            // line 82
+            // line 81
             echo twig_escape_filter($this->env, $this->getAttribute($context["work"], "description", array()), "html", null, true);
             echo "</p>
                                 ";
-            // line 83
+            // line 82
             if (($this->getAttribute($this->getAttribute($context["work"], "idUser", array()), "id", array()) == $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))) {
-                // line 84
+                // line 83
                 echo "                                <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_DeleteWorkshop", array("id" => $this->getAttribute($context["work"], "id", array()))), "html", null, true);
                 echo "\" class=\"btn btn-default\">Supprimer
@@ -181,13 +180,13 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
                             </div>
                             <div class=\"entry-content\">
                                 <a href=\"";
-                // line 88
+                // line 87
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_UpdateWorkshop", array("id" => $this->getAttribute($context["work"], "id", array()))), "html", null, true);
                 echo "\" class=\"btn btn-default\">Modifier
                                     Workshop</a>
                                 ";
             }
-            // line 91
+            // line 90
             echo "
 
                             </div>
@@ -202,47 +201,47 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['work'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 101
+        // line 100
         echo "
     </section><!-- #content end -->
 
 
 ";
         
-        $__internal_231a477a0fd0ef34559a15068edd448e928330e4d82ae464ed11ad4fb204930c->leave($__internal_231a477a0fd0ef34559a15068edd448e928330e4d82ae464ed11ad4fb204930c_prof);
+        $__internal_0f216fe8dc68d0afdbdebbb31a7bf14346f7b6b845e9161b452a2e638bdc05bb->leave($__internal_0f216fe8dc68d0afdbdebbb31a7bf14346f7b6b845e9161b452a2e638bdc05bb_prof);
 
     }
 
-    // line 109
+    // line 108
     public function block_javascript($context, array $blocks = array())
     {
-        $__internal_a53d9daf9a228cbd517f76f2aa8f5f31b751e6d5def9dee65f942ecb91297ce2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a53d9daf9a228cbd517f76f2aa8f5f31b751e6d5def9dee65f942ecb91297ce2->enter($__internal_a53d9daf9a228cbd517f76f2aa8f5f31b751e6d5def9dee65f942ecb91297ce2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
+        $__internal_93fa825396257b17f4e1e5ddc048ceb0a48b77e5a4b29534e9f2899b1d94fe82 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_93fa825396257b17f4e1e5ddc048ceb0a48b77e5a4b29534e9f2899b1d94fe82->enter($__internal_93fa825396257b17f4e1e5ddc048ceb0a48b77e5a4b29534e9f2899b1d94fe82_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
 
-        // line 110
+        // line 109
         echo "    <!-- External JavaScripts
     ============================================= -->
     <script type=\"text/javascript\" src=\"";
-        // line 112
+        // line 111
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Template/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script type=\"text/javascript\" src=\"";
-        // line 113
+        // line 112
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Template/js/plugins.js"), "html", null, true);
         echo "\"></script>
     <script type=\"text/javascript\" src=\"";
-        // line 114
+        // line 113
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Template/js/jquery.calendario.js"), "html", null, true);
         echo "\"></script>
     <script type=\"text/javascript\" src=\"";
-        // line 115
+        // line 114
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Template/js/events-data.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Footer Scripts
     ============================================= -->
     <script type=\"text/javascript\" src=\"";
-        // line 119
+        // line 118
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Template/js/functions.js"), "html", null, true);
         echo "\"></script>
 
@@ -280,7 +279,7 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
 
 ";
         
-        $__internal_a53d9daf9a228cbd517f76f2aa8f5f31b751e6d5def9dee65f942ecb91297ce2->leave($__internal_a53d9daf9a228cbd517f76f2aa8f5f31b751e6d5def9dee65f942ecb91297ce2_prof);
+        $__internal_93fa825396257b17f4e1e5ddc048ceb0a48b77e5a4b29534e9f2899b1d94fe82->leave($__internal_93fa825396257b17f4e1e5ddc048ceb0a48b77e5a4b29534e9f2899b1d94fe82_prof);
 
     }
 
@@ -296,7 +295,7 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
 
     public function getDebugInfo()
     {
-        return array (  246 => 119,  239 => 115,  235 => 114,  231 => 113,  227 => 112,  223 => 110,  217 => 109,  206 => 101,  191 => 91,  185 => 88,  177 => 84,  175 => 83,  171 => 82,  164 => 78,  160 => 77,  156 => 76,  148 => 73,  138 => 66,  128 => 58,  124 => 57,  93 => 29,  81 => 20,  70 => 12,  65 => 9,  59 => 8,  48 => 5,  37 => 4,  11 => 1,);
+        return array (  245 => 118,  238 => 114,  234 => 113,  230 => 112,  226 => 111,  222 => 109,  216 => 108,  205 => 100,  190 => 90,  184 => 87,  176 => 83,  174 => 82,  170 => 81,  163 => 77,  159 => 76,  155 => 75,  147 => 72,  137 => 65,  127 => 57,  123 => 56,  93 => 29,  81 => 20,  70 => 12,  65 => 9,  59 => 8,  48 => 5,  37 => 4,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -344,12 +343,11 @@ class __TwigTemplate_6bed0da5f7d0a0ba51c7340ce09219fcb34107d1575d42d82b8e3ef41d6
                                 <span id=\"calendar-month\" class=\"calendar-month\"></span>
                                 <span id=\"calendar-year\" class=\"calendar-year\"></span>
                                 <nav>
-                                    <span id=\"calendar-prev\" class=\"calendar-prev\"><i
-                                                class=\"icon-chevron-left\"></i></span>
-                                    <span id=\"calendar-next\" class=\"calendar-next\"><i
-                                                class=\"icon-chevron-right\"></i></span>
-                                    <span id=\"calendar-current\" class=\"calendar-current\" title=\"Got to current date\"><i
-                                                class=\"icon-reload\"></i></span>
+                                    <span id=\"calendar-prev\" class=\"calendar-prev\">
+
+                                    <span id=\"calendar-next\" class=\"calendar-next\">
+
+                                    <span id=\"calendar-current\" class=\"calendar-current\" title=\"Got to current date\"></span>
                                 </nav>
                             </h3>
                         </div>

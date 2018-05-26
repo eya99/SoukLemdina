@@ -12,11 +12,14 @@
 namespace FOS\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class SecurityController extends Controller
 {
@@ -83,4 +86,35 @@ class SecurityController extends Controller
     {
         throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
     }
+
+    public function loginWSAction($username, $password)
+    {
+        $user_manager = $this->get('fos_user.user_manager');
+        $factory = $this->get('security.encoder_factory');
+
+        $user = $user_manager->findUserByUsername($username);
+
+
+        $uf = array();
+
+
+        $encoder = $factory->getEncoder($user);
+
+        $bool = ($encoder->isPasswordValid($user->getPassword(), $password, $user->getSalt())) ? $user : "false";
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($bool);
+        return new JsonResponse($formatted);
+    }
+
+    public function findWSAction($id)
+    {
+        $user = $this->getDoctrine()->getManager()
+            ->getRepository('SUserBundle:User')
+            ->find($id);
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($user);
+        return new JsonResponse($formatted);
+    }
+
 }

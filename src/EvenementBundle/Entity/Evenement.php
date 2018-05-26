@@ -465,4 +465,3 @@ class Evenement implements NotifiableInterface
         return $this->idUser;
     }
 }
-

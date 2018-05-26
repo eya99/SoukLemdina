@@ -20,7 +20,7 @@ parameters:
 
 framework:
     #esi: ~
-    translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ["en"] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -199,3 +199,33 @@ nomaya_social:
             facebook:           "https://www.facebook.com/malek.touzri"
             googleplus:         "https://plus.google.com/105931415830389032796"
         theme:                  'default' # optional
+
+easy_admin:
+    design:
+        form_theme: 'vertical'
+    list:
+            title: "Liste de %%entity_label%%"
+    site_name: Souk Lemdina
+    entities:
+        Commande:
+            class: CommandeBundle\Entity\Commande
+        LigneDeCommande:
+            class: CommandeBundle\Entity\LigneDeCommande
+        Evenement:
+            class: EvenementBundle\Entity\Evenement
+        ParticipantEvents:
+            class: EvenementBundle\Entity\ParticipantEvents
+        Local:
+            class: LocalBundle\Entity\Local
+        Post:
+            class: SocialBundle\Entity\Post
+        Profile:
+            class: SocialBundle\Entity\Profile
+        Produit:
+            class: StockBundle\Entity\Produit
+        LigneWishlist:
+            class: StockBundle\Entity\LigneWishlist
+        Workshop:
+            class: WorkshopBundle\Entity\Workshop
+        ParticipantWork:
+            class: WorkshopBundle\Entity\ParticipantWork

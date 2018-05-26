@@ -72,4 +72,19 @@ ORDER by w.prix ASC ");
 
         return $query->getResult();
     }*/
+    public function nbParticipants($id)
+    {
+//SELECT COUNT( * ) from participant_work p ,workshop w WHERE w.id = p.id_workshop GROUP by w.id
+
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT COUNT ( p.id ) as nb 
+            FROM WorkshopBundle:ParticipantWork p
+            WHERE p.idWorkshop = :n")
+            ->setParameters([
+                'n' => $id
+            ]);
+
+        return $query->getResult();
+
+    }
 }

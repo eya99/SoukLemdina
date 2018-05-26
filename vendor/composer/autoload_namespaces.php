@@ -7,8 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'blackknight467\\StarRatingBundle' => array($vendorDir . '/blackknight467/star-rating-bundle'),
+    'Twig_Extensions_' => array($vendorDir . '/twig/extensions/lib'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'SensioLabs\\Security' => array($vendorDir . '/sensiolabs/security-checker'),
+    'Pagerfanta\\' => array($vendorDir . '/pagerfanta/pagerfanta/src'),
     'Nomaya\\SocialBundle\\' => array($vendorDir . '/nomaya/social-bundle'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
     'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),

@@ -15,8 +15,8 @@ class __TwigTemplate_330dc2f73d70f0c27160f981b87dcf8d38e1986b542f11abdf7434aadf5
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b88d8f8f20a7e2d186d37989def9f4d345c0b23320ce2c3efcc66aefcbf3c736 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b88d8f8f20a7e2d186d37989def9f4d345c0b23320ce2c3efcc66aefcbf3c736->enter($__internal_b88d8f8f20a7e2d186d37989def9f4d345c0b23320ce2c3efcc66aefcbf3c736_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Evenement/Evenement/affTabEv.html.twig"));
+        $__internal_2e7d72cee8ae212bf653e94ea32db846a37c896640fc51262f9f503f2f204afc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2e7d72cee8ae212bf653e94ea32db846a37c896640fc51262f9f503f2f204afc->enter($__internal_2e7d72cee8ae212bf653e94ea32db846a37c896640fc51262f9f503f2f204afc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Evenement/Evenement/affTabEv.html.twig"));
 
         // line 1
         echo "<table class=\"table table-bordered table-striped\">
@@ -61,7 +61,7 @@ class __TwigTemplate_330dc2f73d70f0c27160f981b87dcf8d38e1986b542f11abdf7434aadf5
                     <td><a href=\"";
                 // line 21
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_DeleteEvent", array("id" => $this->getAttribute($context["event"], "id", array()))), "html", null, true);
-                echo "\">
+                echo "\" onclick=\"return confirm('Voulez-vous vraiment supprimer cette publication ?')\">
                             Supprimer l'événement</a>
                     </td>
             ";
@@ -79,7 +79,7 @@ class __TwigTemplate_330dc2f73d70f0c27160f981b87dcf8d38e1986b542f11abdf7434aadf5
         echo "</table>
 ";
         
-        $__internal_b88d8f8f20a7e2d186d37989def9f4d345c0b23320ce2c3efcc66aefcbf3c736->leave($__internal_b88d8f8f20a7e2d186d37989def9f4d345c0b23320ce2c3efcc66aefcbf3c736_prof);
+        $__internal_2e7d72cee8ae212bf653e94ea32db846a37c896640fc51262f9f503f2f204afc->leave($__internal_2e7d72cee8ae212bf653e94ea32db846a37c896640fc51262f9f503f2f204afc_prof);
 
     }
 
@@ -128,7 +128,7 @@ class __TwigTemplate_330dc2f73d70f0c27160f981b87dcf8d38e1986b542f11abdf7434aadf5
                     <td><a href=\"{{ path('_UpdateEvent',{'id':event.id}) }}\">
                             Modifier votre événement</a>
                     </td>
-                    <td><a href=\"{{ path('_DeleteEvent',{'id':event.id}) }}\">
+                    <td><a href=\"{{ path('_DeleteEvent',{'id':event.id}) }}\" onclick=\"return confirm('Voulez-vous vraiment supprimer cette publication ?')\">
                             Supprimer l'événement</a>
                     </td>
             {% endif %}

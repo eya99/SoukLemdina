@@ -62,7 +62,41 @@ _rechercheSuperficie:
     defaults: { _controller: LocalBundle:Local:RechercheSuperficie }
 
 _rechercheAdresse:
-    path:   /RechercheAdresse
+    path:     /RechercheAdresse
     defaults: { _controller: LocalBundle:Local:RechercheAdresse }
 
+_afficheUserMobile:
+    path:   /AfficheUserMobile{id}
+    defaults: { _controller: LocalBundle:Local:AfficheUserMobile }
 
+_afficheMobile:
+    path:     /afficheMobile
+    defaults: { _controller: LocalBundle:Local:AfficheMobile }
+
+_supprimeMobile:
+    path:   /supprimeMobile{id}
+    defaults: { _controller: LocalBundle:Local:SupprimeMobile }
+
+_louerMobile:
+    path:   /louerMobile{id,dateDeb,dateFin,idUser}
+    defaults: { _controller: LocalBundle:Local:LouerMobile }
+
+_modifierMobile:
+    path:   /modifierMobile{id}/{adr}/{tel}/{type}/{prix}/{desc}/{sup}
+    defaults: { _controller: LocalBundle:Local:ModifierMobile }
+
+_ajoutMobile:
+    path:   /ajoutMobile{id}/{adr}/{tel}/{type}/{prix}/{image}/{superficie}/{desc}
+    defaults: { _controller: LocalBundle:Local:AjoutMobile }
+
+_afficheLocMobile:
+    path:   /AfficheLocMobile{idLoc}
+    defaults: { _controller: LocalBundle:Local:AfficheLocMobile }
+
+_uniqMobile:
+    path:   /getUniq
+    defaults: { _controller: LocalBundle:Local:getUniq }
+
+_ajoutLocation:
+    path:   /AjoutLocation{id}/{dateDeb}/{dateFin}/{idUser}
+    defaults: { _controller: LocalBundle:Local:AjoutLocation }

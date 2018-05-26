@@ -11,7 +11,11 @@ namespace CommandeBundle\Controller;
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\LigneDeCommande;
 use CommandeBundle\Form\LigneDeCommandeType;
+use CommandeBundle\PHPfiles\CommandeJson;
 use DateTime;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use function Sodium\add;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,7 +70,7 @@ class LigneDeCommandeController extends Controller
         $dateLivraison = new \DateTime('+2 day');
 
 
-        $datmax = new DateTime('+ 1 minute');
+        $datmax = new DateTime('+ 5 minute');
 
         $commande = new Commande();
 
@@ -95,7 +99,7 @@ class LigneDeCommandeController extends Controller
             $lcommande->setIdProduit($p);
             $lcommande->setPrixTotal(array_values($panier)[$i] * $p->getPrix());
             $lcommande->setQuntite(array_values($panier)[$i]);
-            $prod->setQuqntite($prod->getQuqntite() - $lcommande->getQuntite());
+            $p->setQuqntite($p->getQuqntite() - $lcommande->getQuntite());
             $lcommande->setAdresse($this->get('session')->get('addresse'));
             $lcommande->setAdresse2($this->get('session')->get('addresse2'));
             $lcommande->setVille($this->get('session')->get('ville'));
@@ -214,9 +218,178 @@ class LigneDeCommandeController extends Controller
         }
         return $this->redirectToRoute('afficher_commande');
 
-
         return $this->render("CommandeBundle:LigneDeCommande:afficheLigneDeCommande.html.twig", array('dm' => $dm, 'datesys' => $datesys));
     }
 
+    public function AjoutCommandeJsonAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $user = $em->getRepository("SUserBundle:User")->find($id);
+
+
+        $dateCommande = new \DateTime();
+        $dateLivraison = new \DateTime('+2 day');
+
+
+        $datmax = new DateTime('+ 5 minute');
+
+        $commande = new Commande();
+
+        //$this->get('session')->set('datmax', $datmax);
+
+        $em = $this->getDoctrine()->getManager();
+        $commande->setDateCommande($dateCommande);
+        $commande->setDateMax($datmax);
+
+        $commande->setIdUser($user);
+        $em->persist($commande);
+        $em->flush();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted=$serializer->normalize($commande);
+        return new JsonResponse($formatted);
+        // $panier = $this->get('session')->get('panier');
+
+
+        //unset($panier);
+        /* $serializer=new Serializer([new ObjectNormalizer()]);
+         $formatted=$serializer->normalize($wrk);
+         return new JsonResponse($formatted);
+        */
+    }
+
+    public function AjoutLigneDeCommandeJsonAction(Request $request,$id,$idP)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $em->getRepository("SUserBundle:User")->find($id);
+        $dateLivraison = new \DateTime('+2 day');
+
+        $commande = $em->getRepository("CommandeBundle:Commande", $user)->findOneBy(array('idUser' => $user->getId()), array('id' => 'DESC'));
+        $prod = $em->getRepository("StockBundle:Produit")->findBy(array('id'=>$idP));
+        $i = 0;
+
+        //ksort($panier);
+
+        foreach ($prod as $p) {
+            $lcommande = new LigneDeCommande();
+
+            $lcommande->setDateLivraison($dateLivraison);
+
+            $lcommande->setIdProduit($p);
+            $lcommande->setPrixTotal($request->get('prixtot'));
+            $lcommande->setQuntite($request->get('qte'));
+
+            $lcommande->setAdresse($request->get('adresse'));
+            $lcommande->setAdresse2($request->get('adresse2'));
+            $lcommande->setVille($request->get('ville'));
+            $lcommande->setCodePostal($request->get('codepostal'));
+            $lcommande->setNumTel($request->get('numtel'));
+
+            $lcommande->setIdCommande($commande);
+
+            $em->persist($lcommande);
+            $em->flush();
+            $i++;
+            $em = $this->getDoctrine()->getManager();
+            $commande = $em->getRepository("CommandeBundle:Commande", $user)->findOneBy(array('idUser' => $user->getId()), array('id' => 'DESC'));
+            $headers = "\r\n" . "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+            $headers .= "Message-ID: <" . time() . " TheSystem@" . $_SERVER['SERVER_NAME'] . ">\r\n";
+            $headers .= "X-Mailer: PHP v" . phpversion() . "\r\n";
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Souk El Madina')
+                ->setFrom('souklemdinaa@gmail.com')
+                ->setTo('zeineb.laabidi.1@esprit.tn')
+                ->setBody('Nous vous informons que votre commande N° ' . $commande->getId() . ' a été prise en compte, vous avez au maximum 5 heures pour annuler votre commande - merci pour votre achat
+            Cordialement l\'equipe CodeBusters ');
+            $this->get('mailer')->send($message);
+
+            $serializer=new Serializer([new ObjectNormalizer()]);
+            $formatted=$serializer->normalize($commande);
+            return new JsonResponse($formatted);
+        }
+    }
+
+    public function ModifierLigneDeCommandeJsonAction(Request $request, $id)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande", $id)->find($id);
+
+        $lcommande->setAdresse($request->get('adresse'));
+        $lcommande->setAdresse2($request->get('adresse2'));
+        $lcommande->setVille($request->get('ville'));
+        $lcommande->setCodePostal($request->get('codepostal'));
+        $lcommande->setNumTel($request->get('numtel'));
+        $em->persist($lcommande);
+        $em->flush();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+
+        $formatted=$serializer->normalize($lcommande);
+
+        return new JsonResponse($formatted);
+    }
+
+    public function AfficherLigneDeCommandeJsonAction($id)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        //$user = $em->getRepository("SUserBundle:User")->find($idU);
+
+        $lcommande = $em->getRepository("CommandeBundle:LigneDeCommande")->findby(array('idCommande' => $id));
+
+
+        $datesys = new DateTime();
+        foreach ($lcommande as $l) {
+            $produit = $em->getRepository("StockBundle:Produit")->findby(array('id' => $l->getIdProduit()));
+            foreach ($produit as $p) {
+                $lc[] = array(
+                    'id'=>$l->getId(),
+                    'libelle' => $p->getLibelle(),
+                    'description' => $p->getDescription(),
+                    'prixTotal' => $l->getPrixTotal(),
+                    'dateLivraison' => $l->getDateLivraison()->getTimestamp() * 1000,
+                    'qte'=>(String)$l->getQuntite(),
+                    'adresse1' => $l->getAdresse(),
+                    'adresse2' => $l->getAdresse2(),
+                    'ville' => $l->getVille(),
+                    'codePostal' => (String)$l->getCodePostal(),
+                    'numTel' => $l->getNumTel());
+
+            }
+
+
+        }
+
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formated = $serializer->normalize($lc);
+        return new JsonResponse($formated);
+
+    }
+
+    public function afficherCommandeJsonAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $em->getRepository("SUserBundle:User")->find($id);
+
+        $commande = $em->getRepository("CommandeBundle:Commande")->findBy(array('idUser' => $user->getId()));
+        $lstC = array();
+        foreach ($commande as $c) {
+            $cmd = new CommandeJson();
+            $cmd->setId($c->getId());
+            $cmd->setDateCommande($c->getDateCommande()->getTimestamp() * 1000);
+            $cmd->setDateMax($c->getDateMax()->getTimestamp() * 1000);
+            $lstC = array_merge($lstC,array($cmd));
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formated = $serializer->normalize($lstC);
+        return new JsonResponse($formated);
+    }
 }

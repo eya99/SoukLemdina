@@ -24,20 +24,20 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_739d84103e60ec959bb21ef653b6a2dc105ccad4660c05f07f8dd759bedecedd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_739d84103e60ec959bb21ef653b6a2dc105ccad4660c05f07f8dd759bedecedd->enter($__internal_739d84103e60ec959bb21ef653b6a2dc105ccad4660c05f07f8dd759bedecedd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SocialBundle:Profile:check.html.twig"));
+        $__internal_2d6b41564aa872ab14276999dcc82fd5ebe1adc164b977b7bcc49c725d1244d9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2d6b41564aa872ab14276999dcc82fd5ebe1adc164b977b7bcc49c725d1244d9->enter($__internal_2d6b41564aa872ab14276999dcc82fd5ebe1adc164b977b7bcc49c725d1244d9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SocialBundle:Profile:check.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_739d84103e60ec959bb21ef653b6a2dc105ccad4660c05f07f8dd759bedecedd->leave($__internal_739d84103e60ec959bb21ef653b6a2dc105ccad4660c05f07f8dd759bedecedd_prof);
+        $__internal_2d6b41564aa872ab14276999dcc82fd5ebe1adc164b977b7bcc49c725d1244d9->leave($__internal_2d6b41564aa872ab14276999dcc82fd5ebe1adc164b977b7bcc49c725d1244d9_prof);
 
     }
 
     // line 2
     public function block_head($context, array $blocks = array())
     {
-        $__internal_eaa2f4f5f03eb5ce7a2ed727dcf9974c774e9159d8f82214063a95ebffd1570f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_eaa2f4f5f03eb5ce7a2ed727dcf9974c774e9159d8f82214063a95ebffd1570f->enter($__internal_eaa2f4f5f03eb5ce7a2ed727dcf9974c774e9159d8f82214063a95ebffd1570f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "head"));
+        $__internal_cd21efde1e0a84f88ad090d33e2c4483cfc9545cdd78b99d6fad83a19b15b5ff = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_cd21efde1e0a84f88ad090d33e2c4483cfc9545cdd78b99d6fad83a19b15b5ff->enter($__internal_cd21efde1e0a84f88ad090d33e2c4483cfc9545cdd78b99d6fad83a19b15b5ff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "head"));
 
         // line 3
         echo "    ";
@@ -56,15 +56,15 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
     ";
         }
         
-        $__internal_eaa2f4f5f03eb5ce7a2ed727dcf9974c774e9159d8f82214063a95ebffd1570f->leave($__internal_eaa2f4f5f03eb5ce7a2ed727dcf9974c774e9159d8f82214063a95ebffd1570f_prof);
+        $__internal_cd21efde1e0a84f88ad090d33e2c4483cfc9545cdd78b99d6fad83a19b15b5ff->leave($__internal_cd21efde1e0a84f88ad090d33e2c4483cfc9545cdd78b99d6fad83a19b15b5ff_prof);
 
     }
 
     // line 10
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_617ade38a479da6bf28fd4a6687b835bcd88c25ebba5dab2a138289e47902887 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_617ade38a479da6bf28fd4a6687b835bcd88c25ebba5dab2a138289e47902887->enter($__internal_617ade38a479da6bf28fd4a6687b835bcd88c25ebba5dab2a138289e47902887_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_64fe33ac498fb336aaadcb44f1b7f16446026f4aaa28cbfc660e9db6eea9af6d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_64fe33ac498fb336aaadcb44f1b7f16446026f4aaa28cbfc660e9db6eea9af6d->enter($__internal_64fe33ac498fb336aaadcb44f1b7f16446026f4aaa28cbfc660e9db6eea9af6d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 11
         echo "    <style type=\"text/css\">
@@ -83,15 +83,15 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
     </style>
 ";
         
-        $__internal_617ade38a479da6bf28fd4a6687b835bcd88c25ebba5dab2a138289e47902887->leave($__internal_617ade38a479da6bf28fd4a6687b835bcd88c25ebba5dab2a138289e47902887_prof);
+        $__internal_64fe33ac498fb336aaadcb44f1b7f16446026f4aaa28cbfc660e9db6eea9af6d->leave($__internal_64fe33ac498fb336aaadcb44f1b7f16446026f4aaa28cbfc660e9db6eea9af6d_prof);
 
     }
 
     // line 26
     public function block_body($context, array $blocks = array())
     {
-        $__internal_7f594fdf30bb569f0f17cbdf1502debb18400b24561c2e1e6a32086493f56d6f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7f594fdf30bb569f0f17cbdf1502debb18400b24561c2e1e6a32086493f56d6f->enter($__internal_7f594fdf30bb569f0f17cbdf1502debb18400b24561c2e1e6a32086493f56d6f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_09f7bf52575dfef7f81f44c139f749e581b04a209d9d6946f8eafdb79e2fed65 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_09f7bf52575dfef7f81f44c139f749e581b04a209d9d6946f8eafdb79e2fed65->enter($__internal_09f7bf52575dfef7f81f44c139f749e581b04a209d9d6946f8eafdb79e2fed65_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 27
         echo "    ";
@@ -148,48 +148,52 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
             // line 53
             if (($this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "id", array()) != $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))) {
                 // line 54
-                echo "                                ";
+                echo "                                    ";
                 if (array_key_exists("f", $context)) {
                     // line 55
-                    echo "                                    ";
+                    echo "                                        ";
                     // line 58
-                    echo "                                    <a onclick=\"hottlisuivre()\" title=\"Ne Plus Suivre ";
+                    echo "                                        <a onclick=\"hottlisuivre()\"
+                                           title=\"Ne Plus Suivre ";
+                    // line 59
                     echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "firstname", array()), "html", null, true);
                     echo "\"
-                                       href=\"#\">
-                                        <strong>NE PLUS SUIVRE</strong></a>
-                                ";
+                                           href=\"#\">
+                                            <strong>NE PLUS SUIVRE</strong></a>
+                                    ";
                 } else {
-                    // line 62
-                    echo "                                    ";
-                    // line 65
-                    echo "                                    <a onclick=\"hottlineplussuivre()\" title=\"Suivre ";
+                    // line 63
+                    echo "                                        ";
+                    // line 66
+                    echo "                                        <a onclick=\"hottlineplussuivre()\" title=\"Suivre ";
                     echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "firstname", array()), "html", null, true);
                     echo "\"
-                                       href=\"#\">
-                                        <strong>SUIVRE</strong></a>
-                                ";
+                                           href=\"#\">
+                                            <strong>SUIVRE</strong></a>
+                                    ";
                 }
-                // line 69
+                // line 70
                 echo "                                    &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;
                                     <a title=\"Envoyer un message à ";
-                // line 70
+                // line 71
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "firstname", array()), "html", null, true);
-                echo "\" href=\"";
+                echo "\"
+                                       href=\"";
+                // line 72
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_message_thread_new2", array("username" => $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "username", array()))), "html", null, true);
                 echo "\">
                                         <i class=\"icon-comments\"></i>
                                     </a>
-                            ";
+                                ";
             }
-            // line 73
+            // line 75
             echo "</div>
                             <h3>";
-            // line 74
+            // line 76
             echo twig_escape_filter($this->env, (($this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "firstname", array()) . " ") . $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "lastname", array())), "html", null, true);
             echo "</h3>
                             <span>";
-            // line 75
+            // line 77
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "tagline", array()), "html", null, true);
             echo "</span>
                         </div>
@@ -207,7 +211,8 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                         <li><a href=\"#tab-posts\"><i class=\"icon-pencil2\"></i>Publications</a></li>
                                         <li><a href=\"#tab-followers\"><i class=\"icon-users\"></i>Followers</a></li>
                                         <li><a href=\"#tab-events\"><i class=\"icon-calendar3\"></i>Évènements</a></li>
-                                        <li><a href=\"#tab-boutique\"><i class=\"icon-gift\"></i>Boutique Personnelle</a></li>
+                                        <li><a href=\"#tab-boutique\"><i class=\"icon-gift\"></i>Boutique Personnelle</a>
+                                        </li>
                                         <li><a href=\"#tab-spaces\"><i class=\"icon-screenshot\"></i>Espaces</a></li>
                                         <li><a href=\"#tab-workshops\"><i class=\"icon-briefcase\"></i>Ateliers</a></li>
                                     </ul>
@@ -216,19 +221,19 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
 
                                         <div class=\"tab-content clearfix\" id=\"tab-posts\">
                                             ";
-            // line 99
+            // line 102
             if (($this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "id", array()) == $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))) {
-                // line 100
+                // line 103
                 echo "                                                <div class=\"panel-body\" style=\"padding: 40px;\">
                                                     <div class=\"ipost clearfix\">
                                                         <div class=\"row clearfix\">
                                                             <div class=\"col-xs-12 bottommargin-sm\">
                                                                 ";
-                // line 104
+                // line 107
                 echo                 $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
                 echo "
                                                                 ";
-                // line 105
+                // line 108
                 echo                 $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
                 echo "
                                                             </div>
@@ -237,26 +242,26 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                                 </div>
                                             ";
             }
-            // line 111
+            // line 114
             echo "                                            <div class=\"row topmargin-sm clearfix\">
                                                 ";
-            // line 112
+            // line 115
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")));
             foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
-                // line 113
+                // line 116
                 echo "                                                    <div class=\"col-xs-12 bottommargin-sm\">
                                                         <div class=\"ipost clearfix\">
                                                             <div class=\"row clearfix\">
                                                                 <div class=\"col-sm-4\">
                                                                     <div class=\"entry-image\">
                                                                         <a href=\"";
-                // line 118
+                // line 121
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($context["post"], "image", array()))), "html", null, true);
                 echo "\"
                                                                            data-lightbox=\"image\"><img class=\"image_fade\"
                                                                                                       src=\"";
-                // line 120
+                // line 123
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($context["post"], "image", array()))), "html", null, true);
                 echo "\"
                                                                                                       alt=\"Image de la publication\"></a>
@@ -265,7 +270,7 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                                                 <div class=\"col-sm-8\">
                                                                     <div class=\"entry-title\">
                                                                         <h3><a href=\"#comments\">";
-                // line 126
+                // line 129
                 echo twig_escape_filter($this->env, $this->getAttribute($context["post"], "titre", array()), "html", null, true);
                 echo "</a>
                                                                         </h3>
@@ -273,7 +278,7 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                                                     <ul class=\"entry-meta clearfix\">
                                                                         <li>
                                                                             <i class=\"icon-calendar3\"></i> ";
-                // line 131
+                // line 134
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["post"], "date", array())), "html", null, true);
                 echo "
                                                                         </li>
@@ -281,18 +286,18 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                                                                         class=\"icon-comments\"></i>
                                                                                 13</a></li>
                                                                         ";
-                // line 136
+                // line 139
                 if (($this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "id", array()) == $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))) {
-                    // line 137
+                    // line 140
                     echo "                                                                            <li>
                                                                                 <a href=\"";
-                    // line 138
+                    // line 141
                     echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_modifier_post", array("id" => $this->getAttribute($context["post"], "id", array()))), "html", null, true);
                     echo "\">Modifier</a>
                                                                             </li>
                                                                             <li>
                                                                                 <a href=\"";
-                    // line 141
+                    // line 144
                     echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_delete_post", array("id" => $this->getAttribute($context["post"], "id", array()))), "html", null, true);
                     echo "\"
                                                                                    onclick=\"return confirm('Voulez-vous vraiment' +
@@ -300,11 +305,11 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                                                             </li>
                                                                         ";
                 }
-                // line 146
+                // line 149
                 echo "                                                                    </ul>
                                                                     <div class=\"entry-content\">
                                                                         <p>";
-                // line 148
+                // line 151
                 echo twig_escape_filter($this->env, $this->getAttribute($context["post"], "texte", array()), "html", null, true);
                 echo "</p>
                                                                     </div>
@@ -317,46 +322,37 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 155
+            // line 158
             echo "                                            </div>
 
                                         </div>
                                         <div class=\"tab-content clearfix\" id=\"tab-followers\">
                                             ";
-            // line 159
+            // line 162
             echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("SocialBundle:Default:followers", array("id" => $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "id", array()))));
             echo "
                                         </div>
                                         <div class=\"tab-content clearfix\" id=\"tab-events\">
                                             ";
-            // line 162
+            // line 165
             echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("EvenementBundle:Evenement:AfficheTabEv", array("id" => $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()))));
             echo "
                                         </div>
                                         <div class=\"tab-content clearfix\" id=\"tab-boutique\">
-
-                                            <div class=\"row topmargin-sm\">
-                                                <div class=\"col-md-3 col-sm-6 bottommargin\">
-
-                                                    <div class=\"team\">
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
+                                            ";
+            // line 168
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("StockBundle:Produit:prods", array("id" => $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()))));
+            echo "
                                         </div>
-
                                         <div class=\"tab-content clearfix\" id=\"tab-spaces\">
                                             ";
-            // line 180
+            // line 171
             echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("LocalBundle:Local:AfficheUserTab"));
             echo "
                                         </div>
                                         <div class=\"tab-content clearfix\" id=\"tab-workshops\">
                                             ";
-            // line 183
+            // line 174
             echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("WorkshopBundle:Workshop:AfficheProfile", array("id" => $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "id", array()))));
             echo "
                                         </div>
@@ -377,23 +373,23 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
 
                         <div class=\"fancy-title topmargin title-border\">
                             ";
-            // line 201
+            // line 192
             if (($this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "id", array()) == $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))) {
-                // line 202
+                // line 193
                 echo "                                <h4>About Me</h4>
                             ";
             } else {
-                // line 204
+                // line 195
                 echo "                                <h4>About ";
                 echo twig_escape_filter($this->env, (($this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "firstname", array()) . " ") . $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "lastname", array())), "html", null, true);
                 echo "</h4>
                             ";
             }
-            // line 206
+            // line 197
             echo "                        </div>
 
                         <p>Date de naissance: ";
-            // line 208
+            // line 199
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "datenaiss", array()), "d/m/Y"), "html", null, true);
             echo "<br>";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "aboutMe", array()), "html", null, true);
@@ -409,40 +405,40 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
         </section>
     ";
         } else {
-            // line 219
+            // line 210
             echo "        <br>
         Vous devez vous connecter avant d'accéder à un des profiles des utilisateurs.
         <br>
     ";
         }
         
-        $__internal_7f594fdf30bb569f0f17cbdf1502debb18400b24561c2e1e6a32086493f56d6f->leave($__internal_7f594fdf30bb569f0f17cbdf1502debb18400b24561c2e1e6a32086493f56d6f_prof);
+        $__internal_09f7bf52575dfef7f81f44c139f749e581b04a209d9d6946f8eafdb79e2fed65->leave($__internal_09f7bf52575dfef7f81f44c139f749e581b04a209d9d6946f8eafdb79e2fed65_prof);
 
     }
 
-    // line 224
+    // line 215
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_5d425a8a20091f3f1c5e7e3a99d3cf035ad9da7d63dfd9047aa149207dea0f77 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5d425a8a20091f3f1c5e7e3a99d3cf035ad9da7d63dfd9047aa149207dea0f77->enter($__internal_5d425a8a20091f3f1c5e7e3a99d3cf035ad9da7d63dfd9047aa149207dea0f77_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_02080ec8c20ffd761385d9c380b6050407288acb37a2e3afb994fade8d89ba56 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_02080ec8c20ffd761385d9c380b6050407288acb37a2e3afb994fade8d89ba56->enter($__internal_02080ec8c20ffd761385d9c380b6050407288acb37a2e3afb994fade8d89ba56_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 225
+        // line 216
         echo "    <script>
         function hottlineplussuivre() {
             \$.ajax({
                 type: 'POST',
                 url: '";
-        // line 229
+        // line 220
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_suivreAX_user", array("id" => $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "id", array()))), "html", null, true);
         echo "',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-                success: function(response){
+                success: function (response) {
                     document.getElementById(\"tab-followers\").innerHTML = response;
                 }
             });
             ";
-        // line 237
+        // line 228
         echo "            document.getElementById(\"sss\").innerHTML = '<a onclick=\"hottlisuivre()\" title=\"Ne Plus Suivre ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "firstname", array()), "html", null, true);
         echo "\" href=\"#\"> <strong>NE PLUS SUIVRE</strong></a>';
@@ -452,17 +448,17 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
             \$.ajax({
                 type: 'POST',
                 url: '";
-        // line 243
+        // line 234
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_pasuivreAX_user", array("id" => $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "id", array()))), "html", null, true);
         echo "',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-                success: function(response){
+                success: function (response) {
                     document.getElementById(\"tab-followers\").innerHTML = response;
                 }
             });
             ";
-        // line 251
+        // line 242
         echo "            document.getElementById(\"sss\").innerHTML = '<a onclick=\"hottlineplussuivre()\" title=\"Suivre ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "idUser", array()), "firstname", array()), "html", null, true);
         echo "\" href=\"#\"><strong>SUIVRE</strong></a>';
@@ -475,7 +471,7 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
     </script>
 ";
         
-        $__internal_5d425a8a20091f3f1c5e7e3a99d3cf035ad9da7d63dfd9047aa149207dea0f77->leave($__internal_5d425a8a20091f3f1c5e7e3a99d3cf035ad9da7d63dfd9047aa149207dea0f77_prof);
+        $__internal_02080ec8c20ffd761385d9c380b6050407288acb37a2e3afb994fade8d89ba56->leave($__internal_02080ec8c20ffd761385d9c380b6050407288acb37a2e3afb994fade8d89ba56_prof);
 
     }
 
@@ -491,7 +487,7 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
 
     public function getDebugInfo()
     {
-        return array (  466 => 251,  456 => 243,  446 => 237,  436 => 229,  430 => 225,  424 => 224,  413 => 219,  397 => 208,  393 => 206,  387 => 204,  383 => 202,  381 => 201,  360 => 183,  354 => 180,  333 => 162,  327 => 159,  321 => 155,  308 => 148,  304 => 146,  296 => 141,  290 => 138,  287 => 137,  285 => 136,  277 => 131,  269 => 126,  260 => 120,  255 => 118,  248 => 113,  244 => 112,  241 => 111,  232 => 105,  228 => 104,  222 => 100,  220 => 99,  193 => 75,  189 => 74,  186 => 73,  177 => 70,  174 => 69,  166 => 65,  164 => 62,  156 => 58,  154 => 55,  151 => 54,  149 => 53,  145 => 51,  141 => 49,  138 => 48,  130 => 44,  123 => 41,  120 => 40,  115 => 38,  112 => 37,  110 => 36,  100 => 28,  97 => 27,  91 => 26,  70 => 11,  64 => 10,  52 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  462 => 242,  452 => 234,  442 => 228,  432 => 220,  426 => 216,  420 => 215,  409 => 210,  393 => 199,  389 => 197,  383 => 195,  379 => 193,  377 => 192,  356 => 174,  350 => 171,  344 => 168,  338 => 165,  332 => 162,  326 => 158,  313 => 151,  309 => 149,  301 => 144,  295 => 141,  292 => 140,  290 => 139,  282 => 134,  274 => 129,  265 => 123,  260 => 121,  253 => 116,  249 => 115,  246 => 114,  237 => 108,  233 => 107,  227 => 103,  225 => 102,  197 => 77,  193 => 76,  190 => 75,  183 => 72,  179 => 71,  176 => 70,  168 => 66,  166 => 63,  159 => 59,  156 => 58,  154 => 55,  151 => 54,  149 => 53,  145 => 51,  141 => 49,  138 => 48,  130 => 44,  123 => 41,  120 => 40,  115 => 38,  112 => 37,  110 => 36,  100 => 28,  97 => 27,  91 => 26,  70 => 11,  64 => 10,  52 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -557,26 +553,28 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
 
                         <div class=\"heading-block noborder\">
                             <div id=\"sss\">{% if profile.idUser.id != app.user.id %}
-                                {% if f is defined %}
-                                    {#<a title=\"Ne Plus Suivre {{ profile.idUser.firstname }}\"
-                                       href=\"{{ path('social_pasuivre_user',{'id': profile.id}) }}\">
-                                        <strong>NE PLUS SUIVRE</strong></a>#}
-                                    <a onclick=\"hottlisuivre()\" title=\"Ne Plus Suivre {{ profile.idUser.firstname }}\"
-                                       href=\"#\">
-                                        <strong>NE PLUS SUIVRE</strong></a>
-                                {% else %}
-                                    {#<a title=\"Suivre {{ profile.idUser.firstname }}\"
-                                       href=\"{{ path('social_suivre_user',{'id': profile.id}) }}\">
-                                        <strong>SUIVRE</strong></a>#}
-                                    <a onclick=\"hottlineplussuivre()\" title=\"Suivre {{ profile.idUser.firstname }}\"
-                                       href=\"#\">
-                                        <strong>SUIVRE</strong></a>
-                                {% endif %}
+                                    {% if f is defined %}
+                                        {#<a title=\"Ne Plus Suivre {{ profile.idUser.firstname }}\"
+                                           href=\"{{ path('social_pasuivre_user',{'id': profile.id}) }}\">
+                                            <strong>NE PLUS SUIVRE</strong></a>#}
+                                        <a onclick=\"hottlisuivre()\"
+                                           title=\"Ne Plus Suivre {{ profile.idUser.firstname }}\"
+                                           href=\"#\">
+                                            <strong>NE PLUS SUIVRE</strong></a>
+                                    {% else %}
+                                        {#<a title=\"Suivre {{ profile.idUser.firstname }}\"
+                                           href=\"{{ path('social_suivre_user',{'id': profile.id}) }}\">
+                                            <strong>SUIVRE</strong></a>#}
+                                        <a onclick=\"hottlineplussuivre()\" title=\"Suivre {{ profile.idUser.firstname }}\"
+                                           href=\"#\">
+                                            <strong>SUIVRE</strong></a>
+                                    {% endif %}
                                     &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;
-                                    <a title=\"Envoyer un message à {{ profile.idUser.firstname }}\" href=\"{{ path('fos_message_thread_new2',{'username': profile.idUser.username}) }}\">
+                                    <a title=\"Envoyer un message à {{ profile.idUser.firstname }}\"
+                                       href=\"{{ path('fos_message_thread_new2',{'username': profile.idUser.username}) }}\">
                                         <i class=\"icon-comments\"></i>
                                     </a>
-                            {% endif %}</div>
+                                {% endif %}</div>
                             <h3>{{ profile.idUser.firstname ~ ' ' ~ profile.idUser.lastname }}</h3>
                             <span>{{ profile.tagline }}</span>
                         </div>
@@ -594,7 +592,8 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                         <li><a href=\"#tab-posts\"><i class=\"icon-pencil2\"></i>Publications</a></li>
                                         <li><a href=\"#tab-followers\"><i class=\"icon-users\"></i>Followers</a></li>
                                         <li><a href=\"#tab-events\"><i class=\"icon-calendar3\"></i>Évènements</a></li>
-                                        <li><a href=\"#tab-boutique\"><i class=\"icon-gift\"></i>Boutique Personnelle</a></li>
+                                        <li><a href=\"#tab-boutique\"><i class=\"icon-gift\"></i>Boutique Personnelle</a>
+                                        </li>
                                         <li><a href=\"#tab-spaces\"><i class=\"icon-screenshot\"></i>Espaces</a></li>
                                         <li><a href=\"#tab-workshops\"><i class=\"icon-briefcase\"></i>Ateliers</a></li>
                                     </ul>
@@ -668,20 +667,8 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                                             {{ render(controller('EvenementBundle:Evenement:AfficheTabEv',{'id' : profile.idUser})) }}
                                         </div>
                                         <div class=\"tab-content clearfix\" id=\"tab-boutique\">
-
-                                            <div class=\"row topmargin-sm\">
-                                                <div class=\"col-md-3 col-sm-6 bottommargin\">
-
-                                                    <div class=\"team\">
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
+                                            {{ render(controller('StockBundle:Produit:prods',{'id':profile.idUser})) }}
                                         </div>
-
                                         <div class=\"tab-content clearfix\" id=\"tab-spaces\">
                                             {{ render(controller('LocalBundle:Local:AfficheUserTab')) }}
                                         </div>
@@ -735,7 +722,7 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                 url: '{{ path('social_suivreAX_user',{'id': profile.id}) }}',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-                success: function(response){
+                success: function (response) {
                     document.getElementById(\"tab-followers\").innerHTML = response;
                 }
             });
@@ -749,7 +736,7 @@ class __TwigTemplate_325084c37a7dab7b7c86dbfd0ff5540493d55ddff578ab09dbfe43f8891
                 url: '{{ path('social_pasuivreAX_user',{'id': profile.id}) }}',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-                success: function(response){
+                success: function (response) {
                     document.getElementById(\"tab-followers\").innerHTML = response;
                 }
             });

@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new blackknight467\StarRatingBundle\StarRatingBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

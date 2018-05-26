@@ -1,48 +1,95 @@
 workshop_homepage:
     path:     /workshop
     defaults: { _controller: WorkshopBundle:Default:index }
+
 _index:
     path:     /index
     defaults: { _controller: WorkshopBundle:Default:index  }
+
 _AjoutWorkshop:
     path:     /AjoutWorkshop
     defaults: { _controller: WorkshopBundle:Workshop:AjoutWorkshop }
+
+_UpdateWorkshopWS:
+    path:     /UpdateWorkshopWS/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:UpdateWorkshopWS }
+
+_AjoutWorkshopWS:
+    path:     /AjoutWorkshopWS/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:AjoutWorkshopWS }
+
+_ParticiperWS:
+    path:     /ParticiperWS/{id}/{idU}
+    defaults: { _controller: WorkshopBundle:Workshop:ParticiperWS }
+
+_PasParticiperWS:
+    path:     /PasParticiperWS/{id}
+    defaults: { _controller: WorkshopBundle:Workshop:PasParticiperWS }
+
+_SwitchWS:
+    path:     /SwitchWS/{idW}/{idU}
+    defaults: { _controller: WorkshopBundle:Workshop:SwitchWS }
+
+_DeleteMob:
+    path:     /DeleteMob/{id}/{idW}
+    defaults: { _controller: WorkshopBundle:Workshop:DeleteMob }
+
+_SwitchBTN:
+    path:     /SwitchBTn/{idW}/{idU}
+    defaults: { _controller: WorkshopBundle:Workshop:SwitchBTn }
+
 _AfficheVisitWorkshop:
     path:     /AfficheVisitWorkshop
     defaults: { _controller: WorkshopBundle:Workshop:AfficheVisitWorkshop }
+
+_AfficheWorkshopWS:
+    path:     /AfficheWorkshopWS
+    defaults: { _controller: WorkshopBundle:Workshop:AfficheWorkshopWS }
+
 _AfficheWorkshop:
     path:     /AfficheWorkshop
     defaults: { _controller: WorkshopBundle:Workshop:AfficheWorkshop }
+
 _DeleteWorkshop:
     path:     /DeleteWorkshop/{id}
     defaults: { _controller: WorkshopBundle:Workshop:DeleteWorkshop }
+
 _UpdateWorkshop:
     path:     /UpdateWorkshop/{id}
     defaults: { _controller: WorkshopBundle:Workshop:UpdateWorkshop }
+
 _DetailsWorkshop:
     path:     /DetailsWorkshop/{id}
     defaults: { _controller: WorkshopBundle:Workshop:DetailsWorkshop }
+
 _Redirect:
     path:     /Redirect/{id}
     defaults: { _controller: WorkshopBundle:Workshop:Redirect }
+
 _Participer_work:
     path:     /Participer_work/{id}
     defaults: { _controller: WorkshopBundle:Workshop:Participer_work }
+
 _PasParticiper_work:
     path:     /PasParticiper_work/{id}
     defaults: { _controller: WorkshopBundle:Workshop:PasParticiper_work }
+
 _RechercheWorkshop:
     path:     /RechercheWorkshop
     defaults: { _controller: WorkshopBundle:Workshop:RechercheWorkshop }
+
 _ListeParticipant:
     path:     /ListeParticipant/{id}
     defaults: { _controller: WorkshopBundle:Workshop:ListeParticipant }
+
 graphePie:
- path: /pie
- defaults: { _controller: WorkshopBundle:Default:index}
+    path: /pie
+    defaults: { _controller: WorkshopBundle:Default:index}
+
 RechercheDynamiq:
-     path:     /RechercheDynamiq/{var}
-     defaults: { _controller: WorkshopBundle:Workshop:RechercheDynamiq }
+    path:     /RechercheDynamiq/{var}
+    defaults: { _controller: WorkshopBundle:Workshop:RechercheDynamiq }
+
 FiltreDQL:
      path:     /FiltreDQL
      defaults: { _controller: WorkshopBundle:Workshop:FiltreDQL }
@@ -54,3 +101,11 @@ FiltrePrix:
 _AfficheProfile:
      path:     /AffichePr/{id}
      defaults: { _controller: WorkshopBundle:Workshop:AfficheProfile }
+
+nbParticipantsW:
+     path:     /nbParticipantsW/{id}
+     defaults: { _controller: WorkshopBundle:Workshop:nbParticipantsW }
+
+_getUniqWS:
+     path:     /getUniqWS
+     defaults: { _controller: WorkshopBundle:Workshop:getUniqWS }

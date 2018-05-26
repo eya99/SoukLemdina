@@ -34,6 +34,7 @@
       <parameter key="StarRatingBundle">blackknight467\StarRatingBundle\StarRatingBundle</parameter>
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="NomayaSocialBundle">Nomaya\SocialBundle\NomayaSocialBundle</parameter>
+      <parameter key="EasyAdminBundle">EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -160,6 +161,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/opt/lampp/htdocs/SoukLemdina/vendor/nomaya/social-bundle/Nomaya/SocialBundle</parameter>
         <parameter key="namespace">Nomaya\SocialBundle</parameter>
+      </parameter>
+      <parameter key="EasyAdminBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src</parameter>
+        <parameter key="namespace">EasyCorp\Bundle\EasyAdminBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -541,6 +547,96 @@
       <parameter key="theme">default</parameter>
     </parameter>
     <parameter key="social.theme">default</parameter>
+    <parameter key="easyadmin.config" type="collection">
+      <parameter key="design" type="collection">
+        <parameter key="form_theme" type="collection">
+          <parameter>@EasyAdmin/form/bootstrap_3_layout.html.twig</parameter>
+        </parameter>
+        <parameter key="theme">default</parameter>
+        <parameter key="color_scheme">dark</parameter>
+        <parameter key="brand_color">#205081</parameter>
+        <parameter key="assets" type="collection">
+          <parameter key="css" type="collection"/>
+          <parameter key="js" type="collection"/>
+          <parameter key="favicon" type="collection">
+            <parameter key="path">favicon.ico</parameter>
+            <parameter key="mime_type">image/x-icon</parameter>
+          </parameter>
+        </parameter>
+        <parameter key="menu" type="collection"/>
+      </parameter>
+      <parameter key="list" type="collection">
+        <parameter key="title">Liste de %entity_label%</parameter>
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">15</parameter>
+      </parameter>
+      <parameter key="site_name">Souk Lemdina</parameter>
+      <parameter key="entities" type="collection">
+        <parameter key="Commande" type="collection">
+          <parameter key="class">CommandeBundle\Entity\Commande</parameter>
+          <parameter key="name">Commande</parameter>
+        </parameter>
+        <parameter key="LigneDeCommande" type="collection">
+          <parameter key="class">CommandeBundle\Entity\LigneDeCommande</parameter>
+          <parameter key="name">LigneDeCommande</parameter>
+        </parameter>
+        <parameter key="Evenement" type="collection">
+          <parameter key="class">EvenementBundle\Entity\Evenement</parameter>
+          <parameter key="name">Evenement</parameter>
+        </parameter>
+        <parameter key="ParticipantEvents" type="collection">
+          <parameter key="class">EvenementBundle\Entity\ParticipantEvents</parameter>
+          <parameter key="name">ParticipantEvents</parameter>
+        </parameter>
+        <parameter key="Local" type="collection">
+          <parameter key="class">LocalBundle\Entity\Local</parameter>
+          <parameter key="name">Local</parameter>
+        </parameter>
+        <parameter key="Post" type="collection">
+          <parameter key="class">SocialBundle\Entity\Post</parameter>
+          <parameter key="name">Post</parameter>
+        </parameter>
+        <parameter key="Profile" type="collection">
+          <parameter key="class">SocialBundle\Entity\Profile</parameter>
+          <parameter key="name">Profile</parameter>
+        </parameter>
+        <parameter key="Produit" type="collection">
+          <parameter key="class">StockBundle\Entity\Produit</parameter>
+          <parameter key="name">Produit</parameter>
+        </parameter>
+        <parameter key="LigneWishlist" type="collection">
+          <parameter key="class">StockBundle\Entity\LigneWishlist</parameter>
+          <parameter key="name">LigneWishlist</parameter>
+        </parameter>
+        <parameter key="Workshop" type="collection">
+          <parameter key="class">WorkshopBundle\Entity\Workshop</parameter>
+          <parameter key="name">Workshop</parameter>
+        </parameter>
+        <parameter key="ParticipantWork" type="collection">
+          <parameter key="class">WorkshopBundle\Entity\ParticipantWork</parameter>
+          <parameter key="name">ParticipantWork</parameter>
+        </parameter>
+      </parameter>
+      <parameter key="formats" type="collection">
+        <parameter key="date">Y-m-d</parameter>
+        <parameter key="time">H:i:s</parameter>
+        <parameter key="datetime">F j, Y H:i</parameter>
+      </parameter>
+      <parameter key="disabled_actions" type="collection"/>
+      <parameter key="translation_domain">messages</parameter>
+      <parameter key="search" type="collection"/>
+      <parameter key="edit" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="new" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="show" type="collection">
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">10</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="easyadmin.cache.dir">/opt/lampp/htdocs/SoukLemdina/var/cache/prod/easy_admin</parameter>
     <parameter key="console.command.ids" type="collection">
       <parameter key="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand">console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand">doctrine_cache.contains_command</parameter>
@@ -722,7 +818,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>rXHI9KFqWE</argument>
       <argument>0</argument>
-      <argument>rFtQ5j4yYyUCnFJCMMxJcu</argument>
+      <argument>uME8nzQZQNoB4pStY7Qk-x</argument>
       <argument>/opt/lampp/htdocs/SoukLemdina/var/cache/prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -732,7 +828,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>r+2t8EL2fB</argument>
       <argument>0</argument>
-      <argument>rFtQ5j4yYyUCnFJCMMxJcu</argument>
+      <argument>uME8nzQZQNoB4pStY7Qk-x</argument>
       <argument>/opt/lampp/htdocs/SoukLemdina/var/cache/prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -742,7 +838,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>7F-9odswY2</argument>
       <argument>0</argument>
-      <argument>rFtQ5j4yYyUCnFJCMMxJcu</argument>
+      <argument>uME8nzQZQNoB4pStY7Qk-x</argument>
       <argument>/opt/lampp/htdocs/SoukLemdina/var/cache/prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -752,7 +848,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>rhkxuCq0bP</argument>
       <argument>0</argument>
-      <argument>rFtQ5j4yYyUCnFJCMMxJcu</argument>
+      <argument>uME8nzQZQNoB4pStY7Qk-x</argument>
       <argument>/opt/lampp/htdocs/SoukLemdina/var/cache/prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -762,7 +858,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>rFtQ5j4yYyUCnFJCMMxJcu</argument>
+      <argument>uME8nzQZQNoB4pStY7Qk-x</argument>
       <argument>/opt/lampp/htdocs/SoukLemdina/var/cache/prod/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -772,7 +868,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>rFtQ5j4yYyUCnFJCMMxJcu</argument>
+      <argument>uME8nzQZQNoB4pStY7Qk-x</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -885,13 +981,14 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.02da6008217a5881b59f0cc26b0493a8"/>
+      <argument type="service" id="service_locator.d723dd4aabca5f4fdb7906b3f9ed5acf"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
           <argument type="service" id="form.type_extension.form.validator"/>
           <argument type="service" id="form.type_extension.upload.validator"/>
           <argument type="service" id="form.type_extension.csrf"/>
+          <argument type="service" id="easyadmin.form.type.extension"/>
         </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="iterator">
           <argument type="service" id="form.type_extension.repeated.validator"/>
@@ -903,6 +1000,7 @@
       <argument type="iterator">
         <argument type="service" id="form.type_guesser.validator"/>
         <argument type="service" id="form.type_guesser.doctrine"/>
+        <argument type="service" id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser"/>
       </argument>
       <argument>null</argument>
     </service>
@@ -1279,6 +1377,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.uk.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.uk.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/vich/uploader-bundle/Resources/translations/VichUploaderBundle.uk.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.uk.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.uk.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
@@ -1300,6 +1400,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/validators.ar.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.ar.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ar.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ar.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ar.xlf</argument>
           </argument>
           <argument key="bg" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
@@ -1307,6 +1409,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.bg.xlf</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.bg.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.bg.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.bg.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.bg.xlf</argument>
           </argument>
           <argument key="en" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf</argument>
@@ -1319,6 +1423,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.en.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/mgilet/notification-bundle/Resources/translations/MgiletNotificationBundle.en.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.en.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.en.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.en.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf</argument>
@@ -1344,6 +1450,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.zh_CN.xlf</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.zh_CN.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.zh_CN.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.zh_CN.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.zh_CN.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf</argument>
@@ -1360,6 +1468,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.ru.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/validators.ru.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ru.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ru.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ru.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
@@ -1368,12 +1478,16 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.cs.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.cs.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.cs.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.cs.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.cs.xlf</argument>
           </argument>
           <argument key="eu" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eu.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eu.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.eu.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.eu.xlf</argument>
           </argument>
           <argument key="hr" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf</argument>
@@ -1381,6 +1495,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hr.xlf</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hr.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hr.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.hr.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hr.xlf</argument>
           </argument>
           <argument key="ro" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf</argument>
@@ -1389,6 +1505,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ro.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ro.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ro.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ro.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ro.xlf</argument>
           </argument>
           <argument key="nb" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf</argument>
@@ -1411,6 +1529,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nl.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.nl.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.nl.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.nl.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.nl.xlf</argument>
           </argument>
           <argument key="zh_TW" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf</argument>
@@ -1423,6 +1543,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sl.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/vich/uploader-bundle/Resources/translations/VichUploaderBundle.sl.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.sl.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sl.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sl.xlf</argument>
           </argument>
           <argument key="ca" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf</argument>
@@ -1430,6 +1552,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ca.xlf</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ca.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ca.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ca.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ca.xlf</argument>
           </argument>
           <argument key="af" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf</argument>
@@ -1445,6 +1569,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/validators.pl.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.pl.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.pl.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.pl.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.pl.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
@@ -1473,6 +1599,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fi.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fi.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fi.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fi.xlf</argument>
           </argument>
           <argument key="id" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf</argument>
@@ -1488,6 +1616,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.tr.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.tr.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/vich/uploader-bundle/Resources/translations/VichUploaderBundle.tr.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.tr.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.tr.xlf</argument>
           </argument>
           <argument key="sr_Latn" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf</argument>
@@ -1504,6 +1634,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hu.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/vich/uploader-bundle/Resources/translations/VichUploaderBundle.hu.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.hu.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.hu.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hu.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
@@ -1519,6 +1651,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.es.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/mgilet/notification-bundle/Resources/translations/MgiletNotificationBundle.es.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.es.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.es.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf</argument>
@@ -1545,6 +1679,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.de.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/mgilet/notification-bundle/Resources/translations/MgiletNotificationBundle.de.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.de.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.de.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.de.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
@@ -1556,6 +1692,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lt.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lt.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.lt.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.lt.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.lt.xlf</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
@@ -1573,6 +1711,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.it.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/mgilet/notification-bundle/Resources/translations/MgiletNotificationBundle.it.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.it.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.it.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.it.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
@@ -1580,6 +1720,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/vich/uploader-bundle/Resources/translations/VichUploaderBundle.pt.yml</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.pt.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.pt.xlf</argument>
           </argument>
           <argument key="da" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
@@ -1588,6 +1730,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.da.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.da.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.da.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.da.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.da.xlf</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
@@ -1606,6 +1750,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.fr.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/mgilet/notification-bundle/Resources/translations/MgiletNotificationBundle.fr.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.fr.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fr.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fr.xlf</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lv.xlf</argument>
@@ -1622,6 +1768,8 @@
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sv.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.sv.yml</argument>
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.sv.xliff</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sv.xlf</argument>
+            <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sv.xlf</argument>
           </argument>
           <argument key="he" type="collection">
             <argument>/opt/lampp/htdocs/SoukLemdina/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
@@ -1663,7 +1811,7 @@
       </call>
       <call method="setFallbackLocales">
         <argument type="collection">
-          <argument>fr</argument>
+          <argument>en</argument>
         </argument>
       </call>
     </service>
@@ -1886,6 +2034,22 @@
         <argument type="collection">
           <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
           <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument type="service" id="easyadmin.listener.controller"/>
+          <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>easy_admin.post_initialize</argument>
+        <argument type="collection">
+          <argument type="service" id="easyadmin.listener.request_post_initialize"/>
+          <argument>initializeRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -3047,12 +3211,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5add039e6ea413.57279875</argument>
+      <argument>5b07fb8d45f165.26162520</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5add039e6ea413.57279875</argument>
+      <argument>5b07fb8d45f165.26162520</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3195,6 +3359,9 @@
       <call method="addExtension">
         <argument type="service" id="twig.extension.nomaya_social_links"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="easyadmin.twig.extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3330,6 +3497,10 @@
       <call method="addPath">
         <argument>/opt/lampp/htdocs/SoukLemdina/vendor/nomaya/social-bundle/Nomaya/SocialBundle/Resources/views</argument>
         <argument>NomayaSocial</argument>
+      </call>
+      <call method="addPath">
+        <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
+        <argument>EasyAdmin</argument>
       </call>
       <call method="addPath">
         <argument>/opt/lampp/htdocs/SoukLemdina/app/Resources/views</argument>
@@ -3534,6 +3705,10 @@
       <call method="addPath">
         <argument>/opt/lampp/htdocs/SoukLemdina/vendor/nomaya/social-bundle/Nomaya/SocialBundle/Resources/views</argument>
         <argument>NomayaSocial</argument>
+      </call>
+      <call method="addPath">
+        <argument>/opt/lampp/htdocs/SoukLemdina/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
+        <argument>EasyAdmin</argument>
       </call>
       <call method="addPath">
         <argument>/opt/lampp/htdocs/SoukLemdina/app/Resources/views</argument>
@@ -4813,6 +4988,260 @@
       <tag name="twig.extension"/>
       <argument type="service" id="service_container"/>
     </service>
+    <service id="easyadmin.cache.manager" class="EasyCorp\Bundle\EasyAdminBundle\Cache\CacheManager">
+      <argument>/opt/lampp/htdocs/SoukLemdina/var/cache/prod/easy_admin</argument>
+    </service>
+    <service id="easyadmin.config.manager" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigManager">
+      <argument type="service" id="easyadmin.cache.manager"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="collection">
+        <argument key="design" type="collection">
+          <argument key="form_theme" type="collection">
+            <argument>@EasyAdmin/form/bootstrap_3_layout.html.twig</argument>
+          </argument>
+          <argument key="theme">default</argument>
+          <argument key="color_scheme">dark</argument>
+          <argument key="brand_color">#205081</argument>
+          <argument key="assets" type="collection">
+            <argument key="css" type="collection"/>
+            <argument key="js" type="collection"/>
+            <argument key="favicon" type="collection">
+              <argument key="path">favicon.ico</argument>
+              <argument key="mime_type">image/x-icon</argument>
+            </argument>
+          </argument>
+          <argument key="menu" type="collection"/>
+        </argument>
+        <argument key="list" type="collection">
+          <argument key="title">Liste de %%entity_label%%</argument>
+          <argument key="actions" type="collection"/>
+          <argument key="max_results">15</argument>
+        </argument>
+        <argument key="site_name">Souk Lemdina</argument>
+        <argument key="entities" type="collection">
+          <argument key="Commande" type="collection">
+            <argument key="class">CommandeBundle\Entity\Commande</argument>
+            <argument key="name">Commande</argument>
+          </argument>
+          <argument key="LigneDeCommande" type="collection">
+            <argument key="class">CommandeBundle\Entity\LigneDeCommande</argument>
+            <argument key="name">LigneDeCommande</argument>
+          </argument>
+          <argument key="Evenement" type="collection">
+            <argument key="class">EvenementBundle\Entity\Evenement</argument>
+            <argument key="name">Evenement</argument>
+          </argument>
+          <argument key="ParticipantEvents" type="collection">
+            <argument key="class">EvenementBundle\Entity\ParticipantEvents</argument>
+            <argument key="name">ParticipantEvents</argument>
+          </argument>
+          <argument key="Local" type="collection">
+            <argument key="class">LocalBundle\Entity\Local</argument>
+            <argument key="name">Local</argument>
+          </argument>
+          <argument key="Post" type="collection">
+            <argument key="class">SocialBundle\Entity\Post</argument>
+            <argument key="name">Post</argument>
+          </argument>
+          <argument key="Profile" type="collection">
+            <argument key="class">SocialBundle\Entity\Profile</argument>
+            <argument key="name">Profile</argument>
+          </argument>
+          <argument key="Produit" type="collection">
+            <argument key="class">StockBundle\Entity\Produit</argument>
+            <argument key="name">Produit</argument>
+          </argument>
+          <argument key="LigneWishlist" type="collection">
+            <argument key="class">StockBundle\Entity\LigneWishlist</argument>
+            <argument key="name">LigneWishlist</argument>
+          </argument>
+          <argument key="Workshop" type="collection">
+            <argument key="class">WorkshopBundle\Entity\Workshop</argument>
+            <argument key="name">Workshop</argument>
+          </argument>
+          <argument key="ParticipantWork" type="collection">
+            <argument key="class">WorkshopBundle\Entity\ParticipantWork</argument>
+            <argument key="name">ParticipantWork</argument>
+          </argument>
+        </argument>
+        <argument key="formats" type="collection">
+          <argument key="date">Y-m-d</argument>
+          <argument key="time">H:i:s</argument>
+          <argument key="datetime">F j, Y H:i</argument>
+        </argument>
+        <argument key="disabled_actions" type="collection"/>
+        <argument key="translation_domain">messages</argument>
+        <argument key="search" type="collection"/>
+        <argument key="edit" type="collection">
+          <argument key="actions" type="collection"/>
+        </argument>
+        <argument key="new" type="collection">
+          <argument key="actions" type="collection"/>
+        </argument>
+        <argument key="show" type="collection">
+          <argument key="actions" type="collection"/>
+          <argument key="max_results">10</argument>
+        </argument>
+      </argument>
+      <argument>true</argument>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.normalizer_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.design_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.menu_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.action_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.metadata_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.property_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.view_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.template_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.default_config_pass"/>
+      </call>
+    </service>
+    <service id="easyadmin.query_builder" class="EasyCorp\Bundle\EasyAdminBundle\Search\QueryBuilder">
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="easyadmin.finder" class="EasyCorp\Bundle\EasyAdminBundle\Search\Finder" public="false">
+      <argument type="service" id="easyadmin.query_builder"/>
+      <argument type="service" id="easyadmin.paginator"/>
+    </service>
+    <service id="easyadmin.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Search\Autocomplete">
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="easyadmin.finder"/>
+      <argument type="service" id="property_accessor"/>
+    </service>
+    <service id="easyadmin.paginator" class="EasyCorp\Bundle\EasyAdminBundle\Search\Paginator"/>
+    <service id="easyadmin.router" class="EasyCorp\Bundle\EasyAdminBundle\Router\EasyAdminRouter">
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.twig.extension" class="EasyCorp\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="easyadmin.router"/>
+      <argument>true</argument>
+      <argument type="service" id="security.logout_url_generator" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.listener.controller" class="EasyCorp\Bundle\EasyAdminBundle\EventListener\ControllerListener">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="debug.controller_resolver"/>
+    </service>
+    <service id="easyadmin.listener.request_post_initialize" class="EasyCorp\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener">
+      <tag name="kernel.event_listener" event="easy_admin.post_initialize" method="initializeRequest"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.data_collector" class="EasyCorp\Bundle\EasyAdminBundle\DataCollector\EasyAdminDataCollector" public="false">
+      <tag name="data_collector" template="@EasyAdmin/data_collector/easyadmin.html.twig" id="easyadmin"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.configuration.normalizer_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\NormalizerConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="90"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="easyadmin.configuration.design_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\DesignConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="80"/>
+      <argument type="service" id="service_container"/>
+      <argument>true</argument>
+      <argument>fr</argument>
+    </service>
+    <service id="easyadmin.configuration.menu_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\MenuConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="70"/>
+    </service>
+    <service id="easyadmin.configuration.action_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ActionConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="60"/>
+    </service>
+    <service id="easyadmin.configuration.metadata_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\MetadataConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="50"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="easyadmin.configuration.property_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\PropertyConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="40"/>
+      <argument type="service" id="form.registry"/>
+    </service>
+    <service id="easyadmin.configuration.view_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ViewConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="30"/>
+    </service>
+    <service id="easyadmin.configuration.template_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\TemplateConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="20"/>
+      <argument type="service" id="twig.loader.filesystem"/>
+    </service>
+    <service id="easyadmin.configuration.default_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\DefaultConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="10"/>
+    </service>
+    <service id="easyadmin.form.type" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType">
+      <tag name="form.type"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="collection">
+        <argument key="4" type="service" id="easyadmin.form.type.configurator.autocomplete"/>
+        <argument key="3" type="service" id="easyadmin.form.type.configurator.collection"/>
+        <argument key="2" type="service" id="easyadmin.form.type.configurator.checkbox"/>
+        <argument key="1" type="service" id="easyadmin.form.type.configurator.type"/>
+        <argument key="0" type="service" id="easyadmin.form.type.configurator.entity"/>
+      </argument>
+    </service>
+    <service id="easyadmin.form.type.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType">
+      <tag name="form.type" alias="easyadmin_autocomplete"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.form.type.divider" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType">
+      <tag name="form.type" alias="easyadmin_divider"/>
+    </service>
+    <service id="easyadmin.form.type.section" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType">
+      <tag name="form.type" alias="easyadmin_section"/>
+    </service>
+    <service id="easyadmin.form.type.group" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType">
+      <tag name="form.type" alias="easyadmin_group"/>
+    </service>
+    <service id="easyadmin.form.type.extension" class="EasyCorp\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.form.type_guesser_chain" class="Symfony\Component\Form\FormTypeGuesserChain" public="false">
+      <argument type="collection">
+        <argument type="service" id="form.type_guesser.validator"/>
+        <argument type="service" id="form.type_guesser.doctrine"/>
+        <argument type="service" id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser"/>
+      </argument>
+    </service>
+    <service id="easyadmin.form.type.configurator.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\AutocompleteTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="30"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.collection" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\CollectionTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="20"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.checkbox" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\CheckboxTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="10"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.type" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\TypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="0"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.entity" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\EntityTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="-20"/>
+    </service>
+    <service id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser" class="EasyCorp\Bundle\EasyAdminBundle\Form\Guesser\MissingDoctrineOrmTypeGuesser">
+      <tag name="form.type_guesser"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
@@ -4833,9 +5262,14 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id="service_locator.02da6008217a5881b59f0cc26b0493a8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.d723dd4aabca5f4fdb7906b3f9ed5acf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType" type="service" id="easyadmin.form.type.autocomplete"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType" type="service" id="easyadmin.form.type.divider"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType" type="service" id="easyadmin.form.type"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType" type="service" id="easyadmin.form.type.group"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType" type="service" id="easyadmin.form.type.section"/>
         <argument key="FOS\MessageBundle\FormType\RecipientsType" type="service" id="fos_message.recipients_selector"/>
         <argument key="FOS\UserBundle\Form\Type\ChangePasswordFormType" type="service" id="fos_user.change_password.form.type"/>
         <argument key="FOS\UserBundle\Form\Type\ProfileFormType" type="service" id="fos_user.profile.form.type"/>
@@ -5121,6 +5555,7 @@
     <service id="fos_message.search_query_factory" alias="fos_message.search_query_factory.default"/>
     <service id="fos_message.search_finder" alias="fos_message.search_finder.default"/>
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
+    <service id="easy_admin.property_accessor" alias="property_accessor"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand" alias="security.console.user_password_encoder_command"/>

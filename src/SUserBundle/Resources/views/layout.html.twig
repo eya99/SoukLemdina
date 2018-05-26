@@ -94,6 +94,9 @@
                         <li><a href="{{ path('affiche_produits') }}">
                                 <div>Boutique En Ligne</div>
                             </a></li>
+                        <li><a href="{{ path('afficher_commande') }}">
+                                <div>Mes Commandes</div>
+                            </a></li>
                     </ul>
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

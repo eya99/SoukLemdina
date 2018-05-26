@@ -73,3 +73,20 @@ affiche_wishlist:
 supprimer_wishlist:
     path:     /supprimer-wishlist/{id}
     defaults: { _controller: StockBundle:Wishlist:supprimer }
+
+affiche_produitsWS:
+    path:     /affiche-produitsWS
+    defaults: { _controller: StockBundle:Produit:afficheWS }
+
+ajout_produitWS:
+    path:     /ajout-produitWS/{id}/{libelle}/{description}/{image}/{prix}/{quqntite}/{promotion}
+    defaults: { _controller: StockBundle:Produit:ajoutWS }
+afficher_Ligne_Wishlist_Json:
+    path:     /afficherLWJson/{id}
+    defaults: { _controller: StockBundle:Wishlist:afficheLWishlistJson }
+ajout_Ligne_Wishlist_Json:
+    path:     /ajouterLWJson/{id}/{idP}
+    defaults: { _controller: StockBundle:Wishlist:ajoutLWishlistJson }
+supprimer_Ligne_Wishlist_Json:
+    path:     /supprimerLWJson/{id}
+    defaults: { _controller: StockBundle:Wishlist:supprimerLWishist }

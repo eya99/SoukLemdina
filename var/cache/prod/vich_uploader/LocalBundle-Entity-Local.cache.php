@@ -1,0 +1,1 @@
+<?php return unserialize('C:42:"Vich\\UploaderBundle\\Metadata\\ClassMetadata":99:{a:6:{i:0;s:24:"LocalBundle\\Entity\\Local";i:1;a:0:{}i:2;a:0:{}i:3;a:0:{}i:4;i:1525220410;i:5;a:0:{}}}');

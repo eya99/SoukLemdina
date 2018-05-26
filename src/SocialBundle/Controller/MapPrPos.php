@@ -111,10 +111,13 @@ class MapPrPos
         $this->idUserPr = $pr->getIdUser()->getId();
         $this->taglinePr = $pr->getTagline();
         $this->aboutMePr = $pr->getAboutMe();
-        $this->imagePr = $pr->getImage();
+        if ($pr->getImage() == null)
+            $this->imagePr = "avatar.jpg";
+        else
+            $this->imagePr = $pr->getImage();
         $this->updatedAtPr = $pr->getUpdatedAt()->getTimestamp();
         $this->idPos = $pos->getId();
-        $this->datePos =$pos->getDate()->getTimestamp();
+        $this->datePos = $pos->getDate()->getTimestamp();
         $this->idUserPos = $pos->getIdUser()->getId();
         $this->imagePos = $pos->getImage();
         $this->nbSignalPos = $pos->getNbSignal();

@@ -219,8 +219,17 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $Profile = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $id));
         if ($user) {
-            $fols = $em->getRepository("SocialBundle:Follow")->findBy(array('idProfileFollowed' => $user->getId()));
+            $fols = $em->getRepository("SocialBundle:Follow")->findBy(array('idProfileFollowed' => $Profile->getId()));
+            if ($fols) {
+                foreach ($fols as $f) {
+                    $em->remove($f);
+                    $em->flush();
+                }
+            }
+
+            $fols = $em->getRepository("SocialBundle:Follow")->findBy(array('idProfileFollower' => $Profile->getId()));
             if ($fols) {
                 foreach ($fols as $f) {
                     $em->remove($f);
@@ -251,8 +260,6 @@ class DefaultController extends Controller
                 }
             }
 
-
-            $Profile = $em->getRepository("SocialBundle:Profile")->findOneBy(array('idUser' => $id));
             $em->remove($Profile);
             $em->flush();
 
@@ -497,6 +504,14 @@ class DefaultController extends Controller
 
     public function getUniqWSAction(){
         return new JsonResponse(uniqid().".jpg");
+    }
+
+    public function findProfileWSAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $profiles = $em->getRepository("SocialBundle:Profile")->findBy(array("idUser" => $id));
+        $profile = $profiles[0];
+        return new JsonResponse($profile->getId());
     }
 
 }

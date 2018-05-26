@@ -53,3 +53,44 @@ _Recherche:
 _RecentDql:
     path:     /Recent
     defaults: { _controller: EvenementBundle:Evenement:RecentDql }
+
+_all:
+    path:     /all
+    defaults: { _controller: EvenementBundle:Evenement:all }
+
+_addM:
+    path:     /addM/{id}
+    defaults: { _controller: EvenementBundle:Evenement:addM }
+
+_modM:
+    path:     /modM/{id}/{rat}
+    defaults: { _controller: EvenementBundle:Evenement:modM }
+
+_find:
+    path:     /find/{id}
+    defaults: { _controller: EvenementBundle:Evenement:find }
+
+_getUniqEP:
+    path:     /getUniqEP
+    defaults: { _controller: EvenementBundle:Evenement:getUniqEP }
+
+_participerEM:
+    path:     /participerEM/{idU}/{id}
+    defaults: { _controller: EvenementBundle:Evenement:participerEM }
+
+
+_nParticiperEM:
+    path:     /nParticiperEM/{id}
+    defaults: { _controller: EvenementBundle:Evenement:nParticierEM }
+
+
+_SwitchEV:
+    path:     /SwitchEV/{idE}/{idU}
+    defaults: { _controller: EvenementBundle:Evenement:SwitchEV }
+_SwitchBTn:
+    path:     /SwitchBTn/{idE}/{idU}
+    defaults: { _controller: EvenementBundle:Evenement:SwitchBTn }
+
+_DeleteMob:
+    path:     /DeleteMob/{id}/{idE}
+    defaults: { _controller: EvenementBundle:Evenement:DeleteMob }

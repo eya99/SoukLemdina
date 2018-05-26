@@ -85,3 +85,7 @@ social_modWS:
 social_uniqWS:
     path:     /uniqWS
     defaults: { _controller: SocialBundle:Default:getUniqWS }
+
+social_findProfileWS:
+    path:     /findProfWS/{id}
+    defaults: { _controller: SocialBundle:Default:findProfileWS }

@@ -42,5 +42,19 @@ pdf:
     path:     /pdf/{id}
     defaults: { _controller: PdfBundle:Pdf:pdf }
 
-
+ajouter_commande_json:
+    path:     /ajoutCommandeJson/{id}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:AjoutCommandeJson }
+ajouter_ligne_de_commande_json:
+    path:     /ajoutLigneCommandeJson/{id}/{idP}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:AjoutLigneDeCommandeJson }
+ligne_commande_modifier_json:
+    path:     /modifierlcJson/{id}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:ModifierLigneDeCommandeJson }
+afficher_commande_json:
+    path:     /afficherCommandeJson/{id}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:afficherCommandeJson }
+ligne_commande_aff_json:
+    path:     /afflcJson/{id}
+    defaults: { _controller: CommandeBundle:LigneDeCommande:AfficherLigneDeCommandeJson }
 

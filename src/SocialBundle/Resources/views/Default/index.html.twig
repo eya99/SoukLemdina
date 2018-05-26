@@ -54,7 +54,7 @@
 
                                 <div class="tab-content clearfix" id="tab-posts">
                                     <div class="row topmargin-sm clearfix" id="zidni">
-                                        {{ render(controller('SocialBundle:Default:posts',{'deb': 0,'fin': 3})) }}
+                                        {{ render(controller('SocialBundle:Default:posts',{'deb': 0,'fin': 2})) }}
                                     </div>
 
                                 </div>
@@ -83,15 +83,15 @@
 {% block javascripts %}
     <script>
         deb = 0;
-        fin = 1;
+        fin = 2;
         var pathToRedirect = '{{ path('social_postsAX_home', {'deb': 'ABC','fin':'DEF'} ) }}';
         $(window).scroll(function () {
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()-700) {
+            if ($(window).scrollTop() + $(window).height() >= $(document).height() - 700) {
                 if (fin + 1 <= {{ (posts|length - 1) }}) {
                     deb = fin + 1;
                     fin = deb;
                 }
-                    if (fin + 1 <= {{ (posts|length - 1) }}) {
+                if (fin + 1 <= {{ (posts|length - 1) }}) {
                     fin = fin + 1;
                 }
                 else {

@@ -166,7 +166,7 @@ class LocalController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($local);
             $em->flush();
-            return $this->redirectToRoute('_affiche');
+            return $this->redirectToRoute('_afficheUser');
         }
 
         return $this->render('LocalBundle:Local:ajout.html.twig', array(
@@ -414,4 +414,163 @@ public function recherchePrixAction()
         $response=new JsonResponse();
         return $response->setData(array('x'=>$a));
     }
+
+    public function LouerMobileAction($id,$dateDeb,$dateFin,$idUser){
+
+        $em = $this->getDoctrine()->getManager();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $location = new Location();
+        $location->setIdUser($idUser);
+        $location->setDateDebutLocation($dateDeb);
+        $location->setDateFinLocation($dateFin);
+        $location->setIdLocal($id);
+        $em->persist($location);
+        $em->flush();
+        $formatted = $serializer->normalize($location);
+        return new JsonResponse($formatted);
+    }
+
+    public function getUniqAction(){
+        return new JsonResponse(uniqid().".jpg");
+    }
+
+    public function AjoutLocationAction ($id,$dateDeb,$dateFin,$idUser){
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("SUserBundle:User")->find($idUser);
+        $location = new Location();
+        $location->setIdUser($user);
+        $local = $em->getRepository("LocalBundle:Local")->find($id);
+        $location->setIdLocal($local);
+        $location->setDateDebutLocation(new \DateTime($dateDeb));
+        $location->setDateFinLocation(new \DateTime($dateFin));
+        $em->persist($location);
+        $em->flush();
+        return new JsonResponse("Location effectuée");
+    }
+
+    public function AjoutMobileAction($id,$adr,$tel,$type,$prix,$image,$superficie,$desc){
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("SUserBundle:User")->find($id);
+        $local = new Local();
+        $local->setIdUser($user);
+        $local->setImage($image);
+        $local->setAdresse($adr);
+        $local->setTelephone($tel);
+        $local->setType($type);
+        $local->setPrix($prix);
+        $local->setNbSignal(0);
+        $local->setSuperficie($superficie);
+        $local->setDescription($desc);
+        $em->persist($local);
+        $em->flush();
+
+        return new JsonResponse("Local ajoute");
+
+    }
+
+    public function ModifierMobileAction($id,$adr,$tel,$type,$prix,$desc,$sup){
+        $em = $this->getDoctrine()->getManager();
+        $local = $em->getRepository("LocalBundle:Local")->find($id);
+        $tp = $local->getType();
+        $a = $local->getAdresse();
+        $t = $local->getTelephone();
+        $p = $local->getPrix();
+        $d = $local->getDescription();
+        $s = $local->getSuperficie();
+        if (empty($adr)){$local->setAdresse($a);}
+        else {$local->setAdresse($adr);}
+        if (empty($tel)){$local->setTelephone($t);}
+        else{$local->setTelephone($tel);}
+        if (empty($type)){$local->setType($tp);}
+        else {$local->setType($type);}
+        if (empty($prix)){$local->setPrix($p);}
+        else{$local->setPrix($prix);}
+        if (empty($desc)){$local->setDescription($d);}
+        else{$local->setDescription($desc);}
+        if (empty($s)){$local->setSuperficie($s);}
+        else{$local->setSuperficie($sup);}
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($local);
+        $em->flush();
+
+        return new JsonResponse("Local mis a jour");
+
+    }
+
+    public function SupprimeMobileAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+        $location = $em->getRepository("LocalBundle:Location")->findBy(array('idLocal'=>$id));
+        if ($location){
+            foreach ($location as $item) {
+                $em->remove($item);
+                $em->flush();
+            }
+        }
+        $likes = $em->getRepository("LocalBundle:Likes")->findBy(array('idLocal'=>$id));
+        if ($likes){
+            foreach ($likes as $item) {
+                $em->remove($item);
+                $em->flush();
+            }
+        }
+        $comm = $em->getRepository("LocalBundle:Commentaire")->findBy(array('idLocal'=>$id));
+        if ($comm){
+            foreach ($comm as $item) {
+                $em->remove($item);
+                $em->flush();
+            }
+        }
+        $local = $em->find("LocalBundle:Local", $id);
+        $em->remove($local);
+        $em->flush();
+
+        return new JsonResponse("Local supprime");
+    }
+
+    public function AfficheUserMobileAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+        $local = $em->getRepository("LocalBundle:Local")->findBy(array('idUser'=>$id));
+        $list = array();
+        foreach ($local as $item){
+            $localJson = new LocalJson($item);
+            $list[] = $localJson;
+        }
+        $serializer = new Serializer([new ObjectNormalizer]);
+        $formatted = $serializer->normalize($list);
+        return new JsonResponse($formatted);
+    }
+
+    public function AfficheMobileAction(){
+        $em = $this->getDoctrine()->getManager();
+        $local = $em->getRepository("LocalBundle:Local")->findAll();
+
+        $listLoc = array();
+        foreach ($local as $l)
+        {
+            $localJ = new LocalJson($l);
+            $listLoc[]=$localJ;
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($listLoc);
+        return new JsonResponse($formatted);
+    }
+
+    public function AfficheLocMobileAction($idLoc){
+        $em = $this->getDoctrine()->getManager();
+        $location = $em->getRepository("LocalBundle:Location")->findBy(array('idLocal'=>$idLoc));
+        $listLoc = array();
+        foreach ($location as $l)
+        {
+            $localJ = new LocationJson($l,$idLoc);
+            $listLoc[]=$localJ;
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($listLoc);
+        return new JsonResponse($formatted);
+    }
+
 }

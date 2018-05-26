@@ -36,20 +36,36 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'WorkshopBundle\\Controller\\DefaultController::indexAction',  '_route' => 'workshop_homepage',);
             }
 
-            // _AjoutWorkshop
-            if ('/workshop/AjoutWorkshop' === $pathinfo) {
-                return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AjoutWorkshopAction',  '_route' => '_AjoutWorkshop',);
+            if (0 === strpos($pathinfo, '/workshop/AjoutWorkshop')) {
+                // _AjoutWorkshop
+                if ('/workshop/AjoutWorkshop' === $pathinfo) {
+                    return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AjoutWorkshopAction',  '_route' => '_AjoutWorkshop',);
+                }
+
+                // _AjoutWorkshopWS
+                if (0 === strpos($pathinfo, '/workshop/AjoutWorkshopWS') && preg_match('#^/workshop/AjoutWorkshopWS/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_AjoutWorkshopWS')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AjoutWorkshopWSAction',));
+                }
+
             }
 
-            if (0 === strpos($pathinfo, '/workshop/Affiche')) {
+            elseif (0 === strpos($pathinfo, '/workshop/Affiche')) {
                 // _AfficheVisitWorkshop
                 if ('/workshop/AfficheVisitWorkshop' === $pathinfo) {
                     return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AfficheVisitWorkshopAction',  '_route' => '_AfficheVisitWorkshop',);
                 }
 
-                // _AfficheWorkshop
-                if ('/workshop/AfficheWorkshop' === $pathinfo) {
-                    return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AfficheWorkshopAction',  '_route' => '_AfficheWorkshop',);
+                if (0 === strpos($pathinfo, '/workshop/AfficheWorkshop')) {
+                    // _AfficheWorkshopWS
+                    if ('/workshop/AfficheWorkshopWS' === $pathinfo) {
+                        return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AfficheWorkshopWSAction',  '_route' => '_AfficheWorkshopWS',);
+                    }
+
+                    // _AfficheWorkshop
+                    if ('/workshop/AfficheWorkshop' === $pathinfo) {
+                        return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AfficheWorkshopAction',  '_route' => '_AfficheWorkshop',);
+                    }
+
                 }
 
                 // _AfficheProfile
@@ -57,6 +73,52 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                     return $this->mergeDefaults(array_replace($matches, array('_route' => '_AfficheProfile')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::AfficheProfileAction',));
                 }
 
+            }
+
+            elseif (0 === strpos($pathinfo, '/workshop/UpdateWorkshop')) {
+                // _UpdateWorkshopWS
+                if (0 === strpos($pathinfo, '/workshop/UpdateWorkshopWS') && preg_match('#^/workshop/UpdateWorkshopWS/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateWorkshopWS')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::UpdateWorkshopWSAction',));
+                }
+
+                // _UpdateWorkshop
+                if (preg_match('#^/workshop/UpdateWorkshop/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateWorkshop')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::UpdateWorkshopAction',));
+                }
+
+            }
+
+            elseif (0 === strpos($pathinfo, '/workshop/Pa')) {
+                // _ParticiperWS
+                if (0 === strpos($pathinfo, '/workshop/ParticiperWS') && preg_match('#^/workshop/ParticiperWS/(?P<id>[^/]++)/(?P<idU>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_ParticiperWS')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::ParticiperWSAction',));
+                }
+
+                // _Participer_work
+                if (0 === strpos($pathinfo, '/workshop/Participer_work') && preg_match('#^/workshop/Participer_work/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_Participer_work')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::Participer_workAction',));
+                }
+
+                // _PasParticiperWS
+                if (0 === strpos($pathinfo, '/workshop/PasParticiperWS') && preg_match('#^/workshop/PasParticiperWS/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_PasParticiperWS')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::PasParticiperWSAction',));
+                }
+
+                // _PasParticiper_work
+                if (0 === strpos($pathinfo, '/workshop/PasParticiper_work') && preg_match('#^/workshop/PasParticiper_work/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_PasParticiper_work')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::PasParticiper_workAction',));
+                }
+
+            }
+
+            // _SwitchWS
+            if (0 === strpos($pathinfo, '/workshop/SwitchWS') && preg_match('#^/workshop/SwitchWS/(?P<idW>[^/]++)/(?P<idU>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_SwitchWS')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::SwitchWSAction',));
+            }
+
+            // _SwitchBTN
+            if (0 === strpos($pathinfo, '/workshop/SwitchBTn') && preg_match('#^/workshop/SwitchBTn/(?P<idW>[^/]++)/(?P<idU>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_SwitchBTN')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::SwitchBTnAction',));
             }
 
             // _DeleteWorkshop
@@ -67,11 +129,6 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             // _DetailsWorkshop
             if (0 === strpos($pathinfo, '/workshop/DetailsWorkshop') && preg_match('#^/workshop/DetailsWorkshop/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_DetailsWorkshop')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::DetailsWorkshopAction',));
-            }
-
-            // _UpdateWorkshop
-            if (0 === strpos($pathinfo, '/workshop/UpdateWorkshop') && preg_match('#^/workshop/UpdateWorkshop/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateWorkshop')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::UpdateWorkshopAction',));
             }
 
             if (0 === strpos($pathinfo, '/workshop/Re')) {
@@ -90,16 +147,6 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'RechercheDynamiq')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::RechercheDynamiqAction',));
                 }
 
-            }
-
-            // _Participer_work
-            if (0 === strpos($pathinfo, '/workshop/Participer_work') && preg_match('#^/workshop/Participer_work/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_Participer_work')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::Participer_workAction',));
-            }
-
-            // _PasParticiper_work
-            if (0 === strpos($pathinfo, '/workshop/PasParticiper_work') && preg_match('#^/workshop/PasParticiper_work/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_PasParticiper_work')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::PasParticiper_workAction',));
             }
 
             // _ListeParticipant
@@ -122,6 +169,16 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::FiltrePrixAction',  '_route' => 'FiltrePrix',);
             }
 
+            // nbParticipantsW
+            if (0 === strpos($pathinfo, '/workshop/nbParticipantsW') && preg_match('#^/workshop/nbParticipantsW/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'nbParticipantsW')), array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::nbParticipantsWAction',));
+            }
+
+            // _getUniqWS
+            if ('/workshop/getUniqWS' === $pathinfo) {
+                return array (  '_controller' => 'WorkshopBundle\\Controller\\WorkshopController::getUniqWSAction',  '_route' => '_getUniqWS',);
+            }
+
         }
 
         elseif (0 === strpos($pathinfo, '/lo')) {
@@ -131,6 +188,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                     return array (  '_controller' => 'LocalBundle\\Controller\\DefaultController::indexAction',  '_route' => 'local_homepage',);
                 }
 
+                // _louerMobile
+                if ('/local/louerMobile{id,dateDeb,dateFin,idUser}' === $pathinfo) {
+                    return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::LouerMobileAction',  '_route' => '_louerMobile',);
+                }
+
                 if (0 === strpos($pathinfo, '/local/A')) {
                     if (0 === strpos($pathinfo, '/local/Affiche')) {
                         // _affiche
@@ -138,9 +200,17 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                             return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheAction',  '_route' => '_affiche',);
                         }
 
-                        // _afficheUser
-                        if ('/local/AfficheUser' === $pathinfo) {
-                            return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheUserAction',  '_route' => '_afficheUser',);
+                        if (0 === strpos($pathinfo, '/local/AfficheUser')) {
+                            // _afficheUser
+                            if ('/local/AfficheUser' === $pathinfo) {
+                                return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheUserAction',  '_route' => '_afficheUser',);
+                            }
+
+                            // _afficheUserMobile
+                            if (0 === strpos($pathinfo, '/local/AfficheUserMobile') && preg_match('#^/local/AfficheUserMobile(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => '_afficheUserMobile')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheUserMobileAction',));
+                            }
+
                         }
 
                         // _afficheDetail
@@ -148,11 +218,24 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                             return $this->mergeDefaults(array_replace($matches, array('_route' => '_afficheDetail')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheDetailAction',));
                         }
 
+                        // _afficheLocMobile
+                        if (0 === strpos($pathinfo, '/local/AfficheLocMobile') && preg_match('#^/local/AfficheLocMobile(?P<idLoc>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => '_afficheLocMobile')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheLocMobileAction',));
+                        }
+
                     }
 
-                    // _ajout
-                    if ('/local/Ajout' === $pathinfo) {
-                        return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AjoutAction',  '_route' => '_ajout',);
+                    elseif (0 === strpos($pathinfo, '/local/Ajout')) {
+                        // _ajout
+                        if ('/local/Ajout' === $pathinfo) {
+                            return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AjoutAction',  '_route' => '_ajout',);
+                        }
+
+                        // _ajoutLocation
+                        if (0 === strpos($pathinfo, '/local/AjoutLocation') && preg_match('#^/local/AjoutLocation(?P<id>[^/]++)/(?P<dateDeb>[^/]++)/(?P<dateFin>[^/]++)/(?P<idUser>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => '_ajoutLocation')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AjoutLocationAction',));
+                        }
+
                     }
 
                     // _aimer
@@ -215,6 +298,31 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                     return $this->mergeDefaults(array_replace($matches, array('_route' => '_deleteCommentaire')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::DeleteCommentaireAction',));
                 }
 
+                // _afficheMobile
+                if ('/local/afficheMobile' === $pathinfo) {
+                    return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AfficheMobileAction',  '_route' => '_afficheMobile',);
+                }
+
+                // _ajoutMobile
+                if (0 === strpos($pathinfo, '/local/ajoutMobile') && preg_match('#^/local/ajoutMobile(?P<id>[^/]++)/(?P<adr>[^/]++)/(?P<tel>[^/]++)/(?P<type>[^/]++)/(?P<prix>[^/]++)/(?P<image>[^/]++)/(?P<superficie>[^/]++)/(?P<desc>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_ajoutMobile')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::AjoutMobileAction',));
+                }
+
+                // _supprimeMobile
+                if (0 === strpos($pathinfo, '/local/supprimeMobile') && preg_match('#^/local/supprimeMobile(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_supprimeMobile')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::SupprimeMobileAction',));
+                }
+
+                // _modifierMobile
+                if (0 === strpos($pathinfo, '/local/modifierMobile') && preg_match('#^/local/modifierMobile(?P<id>[^/]++)/(?P<adr>[^/]++)/(?P<tel>[^/]++)/(?P<type>[^/]++)/(?P<prix>[^/]++)/(?P<desc>[^/]++)/(?P<sup>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_modifierMobile')), array (  '_controller' => 'LocalBundle\\Controller\\LocalController::ModifierMobileAction',));
+                }
+
+                // _uniqMobile
+                if ('/local/getUniq' === $pathinfo) {
+                    return array (  '_controller' => 'LocalBundle\\Controller\\LocalController::getUniqAction',  '_route' => '_uniqMobile',);
+                }
+
             }
 
             elseif (0 === strpos($pathinfo, '/login')) {
@@ -239,6 +347,17 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                     return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
                 }
                 not_fos_user_security_check:
+
+                // fos_user_security_loginWS
+                if (0 === strpos($pathinfo, '/loginWS') && preg_match('#^/loginWS/(?P<username>[^/]++)/(?P<password>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                        $allow = array_merge($allow, array('GET', 'POST'));
+                        goto not_fos_user_security_loginWS;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_user_security_loginWS')), array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::loginWSAction',));
+                }
+                not_fos_user_security_loginWS:
 
             }
 
@@ -266,37 +385,66 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             }
 
             if (0 === strpos($pathinfo, '/ecommerce/a')) {
-                // ajout_produit
-                if ('/ecommerce/ajout-produit' === $pathinfo) {
-                    return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::ajoutAction',  '_route' => 'ajout_produit',);
-                }
+                if (0 === strpos($pathinfo, '/ecommerce/ajout')) {
+                    if (0 === strpos($pathinfo, '/ecommerce/ajout-produit')) {
+                        // ajout_produit
+                        if ('/ecommerce/ajout-produit' === $pathinfo) {
+                            return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::ajoutAction',  '_route' => 'ajout_produit',);
+                        }
 
-                // ajout_wishlist
-                if (0 === strpos($pathinfo, '/ecommerce/ajout-wishlist') && preg_match('#^/ecommerce/ajout\\-wishlist/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajout_wishlist')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::ajoutAction',));
-                }
+                        // ajout_produitWS
+                        if (0 === strpos($pathinfo, '/ecommerce/ajout-produitWS') && preg_match('#^/ecommerce/ajout\\-produitWS/(?P<id>[^/]++)/(?P<libelle>[^/]++)/(?P<description>[^/]++)/(?P<image>[^/]++)/(?P<prix>[^/]++)/(?P<quqntite>[^/]++)/(?P<promotion>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajout_produitWS')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::ajoutWSAction',));
+                        }
 
-                if (0 === strpos($pathinfo, '/ecommerce/affiche-produits')) {
-                    // affiche_produits
-                    if ('/ecommerce/affiche-produits' === $pathinfo) {
-                        return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::afficheAction',  '_route' => 'affiche_produits',);
                     }
 
-                    // modif_produits
-                    if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/modif') && preg_match('#^/ecommerce/affiche\\-produits/modif/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'modif_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::modifierAction',));
+                    // ajout_wishlist
+                    if (0 === strpos($pathinfo, '/ecommerce/ajout-wishlist') && preg_match('#^/ecommerce/ajout\\-wishlist/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajout_wishlist')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::ajoutAction',));
                     }
 
-                    // supp_produits
-                    if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/supp') && preg_match('#^/ecommerce/affiche\\-produits/supp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'supp_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::supprimerAction',));
+                    // ajout_Ligne_Wishlist_Json
+                    if (0 === strpos($pathinfo, '/ecommerce/ajouterLWJson') && preg_match('#^/ecommerce/ajouterLWJson/(?P<id>[^/]++)/(?P<idP>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajout_Ligne_Wishlist_Json')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::ajoutLWishlistJsonAction',));
                     }
 
                 }
 
-                // affiche_wishlist
-                if ('/ecommerce/affiche-wishlist' === $pathinfo) {
-                    return array (  '_controller' => 'StockBundle\\Controller\\WishlistController::afficheAction',  '_route' => 'affiche_wishlist',);
+                elseif (0 === strpos($pathinfo, '/ecommerce/affiche')) {
+                    if (0 === strpos($pathinfo, '/ecommerce/affiche-produits')) {
+                        // affiche_produits
+                        if ('/ecommerce/affiche-produits' === $pathinfo) {
+                            return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::afficheAction',  '_route' => 'affiche_produits',);
+                        }
+
+                        // modif_produits
+                        if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/modif') && preg_match('#^/ecommerce/affiche\\-produits/modif/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'modif_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::modifierAction',));
+                        }
+
+                        // supp_produits
+                        if (0 === strpos($pathinfo, '/ecommerce/affiche-produits/supp') && preg_match('#^/ecommerce/affiche\\-produits/supp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'supp_produits')), array (  '_controller' => 'StockBundle\\Controller\\ProduitController::supprimerAction',));
+                        }
+
+                        // affiche_produitsWS
+                        if ('/ecommerce/affiche-produitsWS' === $pathinfo) {
+                            return array (  '_controller' => 'StockBundle\\Controller\\ProduitController::afficheWSAction',  '_route' => 'affiche_produitsWS',);
+                        }
+
+                    }
+
+                    // affiche_wishlist
+                    if ('/ecommerce/affiche-wishlist' === $pathinfo) {
+                        return array (  '_controller' => 'StockBundle\\Controller\\WishlistController::afficheAction',  '_route' => 'affiche_wishlist',);
+                    }
+
+                    // afficher_Ligne_Wishlist_Json
+                    if (0 === strpos($pathinfo, '/ecommerce/afficherLWJson') && preg_match('#^/ecommerce/afficherLWJson/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'afficher_Ligne_Wishlist_Json')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::afficheLWishlistJsonAction',));
+                    }
+
                 }
 
                 // art_produits
@@ -361,6 +509,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'supprimer_wishlist')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::supprimerAction',));
             }
 
+            // supprimer_Ligne_Wishlist_Json
+            if (0 === strpos($pathinfo, '/ecommerce/supprimerLWJson') && preg_match('#^/ecommerce/supprimerLWJson/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'supprimer_Ligne_Wishlist_Json')), array (  '_controller' => 'StockBundle\\Controller\\WishlistController::supprimerLWishistAction',));
+            }
+
         }
 
         elseif (0 === strpos($pathinfo, '/evenement')) {
@@ -389,17 +542,25 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_UpdateEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::UpdateEventAction',));
             }
 
-            // _DeleteEvent
-            if (0 === strpos($pathinfo, '/evenement/DeleteEvent') && preg_match('#^/evenement/DeleteEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DeleteEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DeleteEventAction',));
+            if (0 === strpos($pathinfo, '/evenement/De')) {
+                // _DeleteEvent
+                if (0 === strpos($pathinfo, '/evenement/DeleteEvent') && preg_match('#^/evenement/DeleteEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_DeleteEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DeleteEventAction',));
+                }
+
+                // _DeleteMob
+                if (0 === strpos($pathinfo, '/evenement/DeleteMob') && preg_match('#^/evenement/DeleteMob/(?P<id>[^/]++)/(?P<idE>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_DeleteMob')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DeleteMobAction',));
+                }
+
+                // _DetailsEvent
+                if (0 === strpos($pathinfo, '/evenement/DetailsEvent') && preg_match('#^/evenement/DetailsEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_DetailsEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DetailsEventAction',));
+                }
+
             }
 
-            // _DetailsEvent
-            if (0 === strpos($pathinfo, '/evenement/DetailsEvent') && preg_match('#^/evenement/DetailsEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_DetailsEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::DetailsEventAction',));
-            }
-
-            if (0 === strpos($pathinfo, '/evenement/R')) {
+            elseif (0 === strpos($pathinfo, '/evenement/R')) {
                 if (0 === strpos($pathinfo, '/evenement/Recherche')) {
                     // _RechercheDQL
                     if ('/evenement/RechercheDQL' === $pathinfo) {
@@ -438,6 +599,51 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             // _nParticiperEvent
             if (0 === strpos($pathinfo, '/evenement/nParticiperEvent') && preg_match('#^/evenement/nParticiperEvent/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_nParticiperEvent')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::nParticierEventAction',));
+            }
+
+            // _nParticiperEM
+            if (0 === strpos($pathinfo, '/evenement/nParticiperEM') && preg_match('#^/evenement/nParticiperEM/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_nParticiperEM')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::nParticierEMAction',));
+            }
+
+            // _all
+            if ('/evenement/all' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::allAction',  '_route' => '_all',);
+            }
+
+            // _addM
+            if (0 === strpos($pathinfo, '/evenement/addM') && preg_match('#^/evenement/addM/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_addM')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::addMAction',));
+            }
+
+            // _modM
+            if (0 === strpos($pathinfo, '/evenement/modM') && preg_match('#^/evenement/modM/(?P<id>[^/]++)/(?P<rat>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_modM')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::modMAction',));
+            }
+
+            // _find
+            if (0 === strpos($pathinfo, '/evenement/find') && preg_match('#^/evenement/find/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_find')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::findAction',));
+            }
+
+            // _getUniqEP
+            if ('/evenement/getUniqEP' === $pathinfo) {
+                return array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::getUniqEPAction',  '_route' => '_getUniqEP',);
+            }
+
+            // _participerEM
+            if (0 === strpos($pathinfo, '/evenement/participerEM') && preg_match('#^/evenement/participerEM/(?P<idU>[^/]++)/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_participerEM')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::participerEMAction',));
+            }
+
+            // _SwitchEV
+            if (0 === strpos($pathinfo, '/evenement/SwitchEV') && preg_match('#^/evenement/SwitchEV/(?P<idE>[^/]++)/(?P<idU>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_SwitchEV')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::SwitchEVAction',));
+            }
+
+            // _SwitchBTn
+            if (0 === strpos($pathinfo, '/evenement/SwitchBTn') && preg_match('#^/evenement/SwitchBTn/(?P<idE>[^/]++)/(?P<idU>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_SwitchBTn')), array (  '_controller' => 'EvenementBundle\\Controller\\EvenementController::SwitchBTnAction',));
             }
 
         }
@@ -576,6 +782,11 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_followWS')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::followHomeSwitchWSAction',));
             }
 
+            // social_findProfileWS
+            if (0 === strpos($pathinfo, '/social/findProfWS') && preg_match('#^/social/findProfWS/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'social_findProfileWS')), array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::findProfileWSAction',));
+            }
+
             // social_uniqWS
             if ('/social/uniqWS' === $pathinfo) {
                 return array (  '_controller' => 'SocialBundle\\Controller\\DefaultController::getUniqWSAction',  '_route' => 'social_uniqWS',);
@@ -594,34 +805,71 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             }
 
             if (0 === strpos($pathinfo, '/commande/a')) {
-                // ligne_commande_aff
-                if (0 === strpos($pathinfo, '/commande/afflc') && preg_match('#^/commande/afflc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_aff')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AfficherLigneDeCommandeAction',));
+                if (0 === strpos($pathinfo, '/commande/afflc')) {
+                    // ligne_commande_aff
+                    if (preg_match('#^/commande/afflc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_aff')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AfficherLigneDeCommandeAction',));
+                    }
+
+                    // ligne_commande_aff_json
+                    if (0 === strpos($pathinfo, '/commande/afflcJson') && preg_match('#^/commande/afflcJson/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_aff_json')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AfficherLigneDeCommandeJsonAction',));
+                    }
+
                 }
 
-                // afficher_commande
-                if ('/commande/afficherCommande' === $pathinfo) {
-                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::afficherCommandeAction',  '_route' => 'afficher_commande',);
+                elseif (0 === strpos($pathinfo, '/commande/afficherCommande')) {
+                    // afficher_commande
+                    if ('/commande/afficherCommande' === $pathinfo) {
+                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::afficherCommandeAction',  '_route' => 'afficher_commande',);
+                    }
+
+                    // afficher_commande_json
+                    if (0 === strpos($pathinfo, '/commande/afficherCommandeJson') && preg_match('#^/commande/afficherCommandeJson/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'afficher_commande_json')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::afficherCommandeJsonAction',));
+                    }
+
                 }
 
-                // ajout_ligne_commande
-                if ('/commande/ajoutbd' === $pathinfo) {
-                    return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AjoutLigneDeCommandeAction',  '_route' => 'ajout_ligne_commande',);
-                }
+                elseif (0 === strpos($pathinfo, '/commande/ajout')) {
+                    // ajout_ligne_commande
+                    if ('/commande/ajoutbd' === $pathinfo) {
+                        return array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AjoutLigneDeCommandeAction',  '_route' => 'ajout_ligne_commande',);
+                    }
 
-                // ajouter
-                if (0 === strpos($pathinfo, '/commande/ajouter') && preg_match('#^/commande/ajouter/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajouter')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::ajouterAction',));
+                    // ajouter
+                    if (0 === strpos($pathinfo, '/commande/ajouter') && preg_match('#^/commande/ajouter/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajouter')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDePanierController::ajouterAction',));
+                    }
+
+                    // ajouter_commande_json
+                    if (0 === strpos($pathinfo, '/commande/ajoutCommandeJson') && preg_match('#^/commande/ajoutCommandeJson/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajouter_commande_json')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AjoutCommandeJsonAction',));
+                    }
+
+                    // ajouter_ligne_de_commande_json
+                    if (0 === strpos($pathinfo, '/commande/ajoutLigneCommandeJson') && preg_match('#^/commande/ajoutLigneCommandeJson/(?P<id>[^/]++)/(?P<idP>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'ajouter_ligne_de_commande_json')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::AjoutLigneDeCommandeJsonAction',));
+                    }
+
                 }
 
             }
 
-            // ligne_commande_modifier
-            if (0 === strpos($pathinfo, '/commande/modifierlc') && preg_match('#^/commande/modifierlc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_modifier')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::ModifierLigneDeCommandeAction',));
+            elseif (0 === strpos($pathinfo, '/commande/modifierlc')) {
+                // ligne_commande_modifier
+                if (preg_match('#^/commande/modifierlc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_modifier')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::ModifierLigneDeCommandeAction',));
+                }
+
+                // ligne_commande_modifier_json
+                if (0 === strpos($pathinfo, '/commande/modifierlcJson') && preg_match('#^/commande/modifierlcJson/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_modifier_json')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::ModifierLigneDeCommandeJsonAction',));
+                }
+
             }
 
-            if (0 === strpos($pathinfo, '/commande/supprimer')) {
+            elseif (0 === strpos($pathinfo, '/commande/supprimer')) {
                 // ligne_commande_supprimer
                 if (0 === strpos($pathinfo, '/commande/supprimerlc') && preg_match('#^/commande/supprimerlc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'ligne_commande_supprimer')), array (  '_controller' => 'CommandeBundle\\Controller\\LigneDeCommandeController::SupprimerLigneDeCommandeAction',));
@@ -689,6 +937,21 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
                 return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::editAction',  '_route' => 'fos_user_profile_edit',);
             }
             not_fos_user_profile_edit:
+
+            // fos_user_profile_findWS
+            if ('/profile' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_fos_user_profile_findWS;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'fos_user_profile_findWS');
+                }
+
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::findWSAction',  '_route' => 'fos_user_profile_findWS',);
+            }
+            not_fos_user_profile_findWS:
 
             // fos_user_change_password
             if ('/profile/change-password' === $pathinfo) {
@@ -882,6 +1145,27 @@ class appProdDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBun
             // fos_message_thread_view
             if (preg_match('#^/messages/(?P<threadId>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_message_thread_view')), array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::threadAction',));
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/admin')) {
+            // easyadmin
+            if ('/admin' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'easyadmin');
+                }
+
+                return array (  '_controller' => 'EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AdminController::indexAction',  '_route' => 'easyadmin',);
+            }
+
+            // admin
+            if ('/admin' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'admin');
+                }
+
+                return array (  '_controller' => 'EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AdminController::indexAction',  '_route' => 'admin',);
             }
 
         }

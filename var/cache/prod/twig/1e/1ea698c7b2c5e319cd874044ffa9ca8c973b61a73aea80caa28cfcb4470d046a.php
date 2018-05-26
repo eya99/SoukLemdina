@@ -15,108 +15,135 @@ class __TwigTemplate_48fe4715fb713d6bdeaa9efcdc74e45fe5fec339fdd07d125b9e2e7a0dc
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d25a79c0c8cbaf5ce08f7247bb4b5b4d632ff7843b04298e9e021baeff00c3e1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d25a79c0c8cbaf5ce08f7247bb4b5b4d632ff7843b04298e9e021baeff00c3e1->enter($__internal_d25a79c0c8cbaf5ce08f7247bb4b5b4d632ff7843b04298e9e021baeff00c3e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SocialBundle:Post:posts.html.twig"));
+        $__internal_41b7cb171b9c3834292409c950dd35765c87508373948d570e6f15953ac759e4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_41b7cb171b9c3834292409c950dd35765c87508373948d570e6f15953ac759e4->enter($__internal_41b7cb171b9c3834292409c950dd35765c87508373948d570e6f15953ac759e4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SocialBundle:Post:posts.html.twig"));
 
         // line 1
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range((isset($context["deb"]) ? $context["deb"] : $this->getContext($context, "deb")), (isset($context["fin"]) ? $context["fin"] : $this->getContext($context, "fin"))));
-        foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
-            echo " ";
+        if ( !twig_test_empty((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")))) {
             // line 2
-            echo "    <br>
-    <div class=\"col-xs-12 bottommargin-sm\">
-        <div class=\"ipost clearfix\">
-            <div class=\"row clearfix\">
-                <div class=\"col-sm-offset-0\">
-                    <a href=\"";
-            // line 7
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_check_profile", array("id" => $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), $context["n"], array(), "array"), "idUser", array()), "id", array()))), "html", null, true);
-            echo "\">
-                        ";
-            // line 8
-            if ($this->getAttribute($this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), $context["n"], array(), "array"), "image", array())) {
-                // line 9
-                echo "                            <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\" src=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), $context["n"], array(), "array"), "image", array()))), "html", null, true);
-                echo "\" alt=\"Image du profile\" style=\"max-width: 74px;\">
-                        ";
-            } else {
-                // line 11
-                echo "                            <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\" src=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Template/images/icons/avatar.jpg"), "html", null, true);
-                echo "\" alt=\"Avatar\" style=\"max-width: 74px;\">
-                        ";
-            }
-            // line 13
-            echo "                    </a>
-                </div>
-                <div class=\"col-sm-4\">
-                    <div class=\"entry-image cccontainer\">
-                        <a href=\"";
-            // line 17
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "image", array()))), "html", null, true);
-            echo "\" data-lightbox=\"image\" ><img class=\"image_fade fishes iiimg\" src=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "image", array()))), "html", null, true);
-            echo "\" alt=\"Image de la publication\"></a>
-                    </div>
-                </div>
-                <div class=\"col-sm-8\">
-                    <div class=\"entry-title\">
-                        <h3>
-                            <a href=\"#comments\">";
-            // line 23
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "titre", array()), "html", null, true);
-            echo "</a>
-                        </h3>
-                    </div>
-                    <ul class=\"entry-meta clearfix\">
-                        <li>
-                            <i class=\"icon-calendar3\"></i> ";
-            // line 28
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "date", array())), "html", null, true);
-            echo "
-                        </li>
-                        <li><a href=\"#comments\"><i class=\"icon-comments\"></i>13</a></li>
-                        ";
-            // line 31
-            if (($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "idUser", array()), "id", array()) == $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))) {
-                // line 32
-                echo "                            <li>
+            echo "    ";
+            if ( !(null === $this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), (isset($context["deb"]) ? $context["deb"] : $this->getContext($context, "deb")), array(), "array"))) {
+                // line 3
+                echo "        ";
+                if ((null === $this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), (isset($context["fin"]) ? $context["fin"] : $this->getContext($context, "fin")), array(), "array"))) {
+                    // line 4
+                    echo "            ";
+                    $context["fin"] = ((isset($context["fin"]) ? $context["fin"] : $this->getContext($context, "fin")) - 1);
+                    // line 5
+                    echo "        ";
+                }
+                // line 6
+                echo "        ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(range((isset($context["deb"]) ? $context["deb"] : $this->getContext($context, "deb")), (isset($context["fin"]) ? $context["fin"] : $this->getContext($context, "fin"))));
+                foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
+                    echo " ";
+                    // line 7
+                    echo "            <div class=\"col-xs-12 bottommargin-sm\">
+                <div class=\"ipost clearfix\">
+                    <div class=\"row clearfix\">
+                        <div class=\"col-sm-offset-0\">
+                            <a href=\"";
+                    // line 11
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_check_profile", array("id" => $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), $context["n"], array(), "array"), "idUser", array()), "id", array()))), "html", null, true);
+                    echo "\">
+                                ";
+                    // line 12
+                    if ($this->getAttribute($this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), $context["n"], array(), "array"), "image", array())) {
+                        // line 13
+                        echo "                                    <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\"
+                                         src=\"";
+                        // line 14
+                        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($this->getAttribute((isset($context["profiles"]) ? $context["profiles"] : $this->getContext($context, "profiles")), $context["n"], array(), "array"), "image", array()))), "html", null, true);
+                        echo "\" alt=\"Image du profile\"
+                                         style=\"max-width: 74px;\">
+                                ";
+                    } else {
+                        // line 17
+                        echo "                                    <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\"
+                                         src=\"";
+                        // line 18
+                        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("Template/images/icons/avatar.jpg"), "html", null, true);
+                        echo "\" alt=\"Avatar\"
+                                         style=\"max-width: 74px;\">
+                                ";
+                    }
+                    // line 21
+                    echo "                            </a>
+                        </div>
+                        <div class=\"col-sm-4\">
+                            <div class=\"entry-image\">
                                 <a href=\"";
-                // line 33
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_modifier_post_fromWelcome", array("id" => $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "id", array()))), "html", null, true);
-                echo "\">Modifier</a>
-                            </li>
-                            <li>
-                                <a href=\"";
-                // line 36
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_delete_post_fromWelcome", array("id" => $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "id", array()))), "html", null, true);
-                echo "\"
-                                   onclick=\"return confirm('Voulez-vous vraiment supprimer cette publication ?')\">Supprimer</a>
-                            </li>
-                        ";
-            }
-            // line 40
-            echo "                    </ul>
-                    <div class=\"entry-content\">
-                        <p>";
-            // line 42
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "texte", array()), "html", null, true);
-            echo "</p>
+                    // line 25
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "image", array()))), "html", null, true);
+                    echo "\" data-lightbox=\"image\"><img
+                                            class=\"image_fade fishes iiimg\"
+                                            src=\"";
+                    // line 27
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/images/" . $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "image", array()))), "html", null, true);
+                    echo "\"
+                                            alt=\"Image de la publication\"></a>
+                            </div>
+                        </div>
+                        <div class=\"col-sm-8\">
+                            <div class=\"entry-title\">
+                                <h3>
+                                    <a href=\"#comments\">";
+                    // line 34
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "titre", array()), "html", null, true);
+                    echo "</a>
+                                </h3>
+                            </div>
+                            <ul class=\"entry-meta clearfix\">
+                                <li>
+                                    <i class=\"icon-calendar3\"></i> ";
+                    // line 39
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "date", array())), "html", null, true);
+                    echo "
+                                </li>
+                                <li><a href=\"#comments\"><i class=\"icon-comments\"></i>13</a></li>
+                                ";
+                    // line 42
+                    if (($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "idUser", array()), "id", array()) == $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))) {
+                        // line 43
+                        echo "                                    <li>
+                                        <a href=\"";
+                        // line 44
+                        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_modifier_post_fromWelcome", array("id" => $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "id", array()))), "html", null, true);
+                        echo "\">Modifier</a>
+                                    </li>
+                                    <li>
+                                        <a href=\"";
+                        // line 47
+                        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("social_delete_post_fromWelcome", array("id" => $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "id", array()))), "html", null, true);
+                        echo "\"
+                                           onclick=\"return confirm('Voulez-vous vraiment supprimer cette publication ?')\">Supprimer</a>
+                                    </li>
+                                ";
+                    }
+                    // line 51
+                    echo "                            </ul>
+                            <div class=\"entry-content\">
+                                <p>";
+                    // line 53
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")), $context["n"], array(), "array"), "texte", array()), "html", null, true);
+                    echo "</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <br>
-";
+        ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 60
+                echo "    ";
+            }
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
         
-        $__internal_d25a79c0c8cbaf5ce08f7247bb4b5b4d632ff7843b04298e9e021baeff00c3e1->leave($__internal_d25a79c0c8cbaf5ce08f7247bb4b5b4d632ff7843b04298e9e021baeff00c3e1_prof);
+        $__internal_41b7cb171b9c3834292409c950dd35765c87508373948d570e6f15953ac759e4->leave($__internal_41b7cb171b9c3834292409c950dd35765c87508373948d570e6f15953ac759e4_prof);
 
     }
 
@@ -132,7 +159,7 @@ class __TwigTemplate_48fe4715fb713d6bdeaa9efcdc74e45fe5fec339fdd07d125b9e2e7a0dc
 
     public function getDebugInfo()
     {
-        return array (  105 => 42,  101 => 40,  94 => 36,  88 => 33,  85 => 32,  83 => 31,  77 => 28,  69 => 23,  58 => 17,  52 => 13,  46 => 11,  40 => 9,  38 => 8,  34 => 7,  27 => 2,  22 => 1,);
+        return array (  142 => 60,  129 => 53,  125 => 51,  118 => 47,  112 => 44,  109 => 43,  107 => 42,  101 => 39,  93 => 34,  83 => 27,  78 => 25,  72 => 21,  66 => 18,  63 => 17,  57 => 14,  54 => 13,  52 => 12,  48 => 11,  42 => 7,  36 => 6,  33 => 5,  30 => 4,  27 => 3,  24 => 2,  22 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -145,55 +172,66 @@ class __TwigTemplate_48fe4715fb713d6bdeaa9efcdc74e45fe5fec339fdd07d125b9e2e7a0dc
 
     public function getSourceContext()
     {
-        return new Twig_Source("{% for n in deb..fin %} {#7atta el grand max (posts|length - 1)#}
-    <br>
-    <div class=\"col-xs-12 bottommargin-sm\">
-        <div class=\"ipost clearfix\">
-            <div class=\"row clearfix\">
-                <div class=\"col-sm-offset-0\">
-                    <a href=\"{{ path('social_check_profile',{'id':profiles[n].idUser.id}) }}\">
-                        {% if profiles[n].image %}
-                            <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\" src=\"{{ asset('uploads/images/' ~ profiles[n].image) }}\" alt=\"Image du profile\" style=\"max-width: 74px;\">
-                        {% else %}
-                            <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\" src=\"{{ asset('Template/images/icons/avatar.jpg') }}\" alt=\"Avatar\" style=\"max-width: 74px;\">
-                        {% endif %}
-                    </a>
-                </div>
-                <div class=\"col-sm-4\">
-                    <div class=\"entry-image cccontainer\">
-                        <a href=\"{{ asset('uploads/images/' ~ posts[n].image) }}\" data-lightbox=\"image\" ><img class=\"image_fade fishes iiimg\" src=\"{{ asset('uploads/images/' ~ posts[n].image) }}\" alt=\"Image de la publication\"></a>
-                    </div>
-                </div>
-                <div class=\"col-sm-8\">
-                    <div class=\"entry-title\">
-                        <h3>
-                            <a href=\"#comments\">{{ posts[n].titre }}</a>
-                        </h3>
-                    </div>
-                    <ul class=\"entry-meta clearfix\">
-                        <li>
-                            <i class=\"icon-calendar3\"></i> {{ posts[n].date|date }}
-                        </li>
-                        <li><a href=\"#comments\"><i class=\"icon-comments\"></i>13</a></li>
-                        {% if posts[n].idUser.id == app.user.id %}
-                            <li>
-                                <a href=\"{{ path('social_modifier_post_fromWelcome',{'id':posts[n].id}) }}\">Modifier</a>
-                            </li>
-                            <li>
-                                <a href=\"{{ path('social_delete_post_fromWelcome',{'id':posts[n].id}) }}\"
-                                   onclick=\"return confirm('Voulez-vous vraiment supprimer cette publication ?')\">Supprimer</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                    <div class=\"entry-content\">
-                        <p>{{ posts[n].texte }}</p>
+        return new Twig_Source("{% if profiles is not empty %}
+    {% if profiles[deb] is not null %}
+        {% if profiles[fin] is null %}
+            {% set fin = fin - 1 %}
+        {% endif %}
+        {% for n in deb..fin %} {#7atta el grand max (posts|length - 1)#}
+            <div class=\"col-xs-12 bottommargin-sm\">
+                <div class=\"ipost clearfix\">
+                    <div class=\"row clearfix\">
+                        <div class=\"col-sm-offset-0\">
+                            <a href=\"{{ path('social_check_profile',{'id':profiles[n].idUser.id}) }}\">
+                                {% if profiles[n].image %}
+                                    <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\"
+                                         src=\"{{ asset('uploads/images/' ~ profiles[n].image) }}\" alt=\"Image du profile\"
+                                         style=\"max-width: 74px;\">
+                                {% else %}
+                                    <img class=\"alignright img-circle img-thumbnail notopmargin nobottommargin fish\"
+                                         src=\"{{ asset('Template/images/icons/avatar.jpg') }}\" alt=\"Avatar\"
+                                         style=\"max-width: 74px;\">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class=\"col-sm-4\">
+                            <div class=\"entry-image\">
+                                <a href=\"{{ asset('uploads/images/' ~ posts[n].image) }}\" data-lightbox=\"image\"><img
+                                            class=\"image_fade fishes iiimg\"
+                                            src=\"{{ asset('uploads/images/' ~ posts[n].image) }}\"
+                                            alt=\"Image de la publication\"></a>
+                            </div>
+                        </div>
+                        <div class=\"col-sm-8\">
+                            <div class=\"entry-title\">
+                                <h3>
+                                    <a href=\"#comments\">{{ posts[n].titre }}</a>
+                                </h3>
+                            </div>
+                            <ul class=\"entry-meta clearfix\">
+                                <li>
+                                    <i class=\"icon-calendar3\"></i> {{ posts[n].date|date }}
+                                </li>
+                                <li><a href=\"#comments\"><i class=\"icon-comments\"></i>13</a></li>
+                                {% if posts[n].idUser.id == app.user.id %}
+                                    <li>
+                                        <a href=\"{{ path('social_modifier_post_fromWelcome',{'id':posts[n].id}) }}\">Modifier</a>
+                                    </li>
+                                    <li>
+                                        <a href=\"{{ path('social_delete_post_fromWelcome',{'id':posts[n].id}) }}\"
+                                           onclick=\"return confirm('Voulez-vous vraiment supprimer cette publication ?')\">Supprimer</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            <div class=\"entry-content\">
+                                <p>{{ posts[n].texte }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <br>
-{% endfor %}
-", "SocialBundle:Post:posts.html.twig", "/opt/lampp/htdocs/SoukLemdina/src/SocialBundle/Resources/views/Post/posts.html.twig");
+        {% endfor %}
+    {% endif %}
+{% endif %}", "SocialBundle:Post:posts.html.twig", "/opt/lampp/htdocs/SoukLemdina/src/SocialBundle/Resources/views/Post/posts.html.twig");
     }
 }

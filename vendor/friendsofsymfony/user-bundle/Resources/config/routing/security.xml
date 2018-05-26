@@ -16,4 +16,8 @@
         <default key="_controller">FOSUserBundle:Security:logout</default>
     </route>
 
+    <route id="fos_user_security_loginWS" path="/loginWS/{username}/{password}" methods="GET POST">
+        <default key="_controller">FOSUserBundle:Security:loginWS</default>
+    </route>
+
 </routes>
